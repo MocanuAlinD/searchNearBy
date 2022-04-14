@@ -1,0 +1,32 @@
+.timer{
+    width: min(100%, 12rem);
+    height: fit-content;
+    div{
+        flex-grow: 1;
+        margin: .1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        h4{
+            color: var(--color-yellow);
+            font-size: .8rem;
+            font-weight: 400;
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        h6{
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            color: var(--color-light);
+            font-size: .8rem;
+            font-weight: 200;
+            margin: 0;
+            padding: 0;
+        }
+    }
+}

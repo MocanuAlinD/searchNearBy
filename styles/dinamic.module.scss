@@ -1,0 +1,29 @@
+.container {
+    min-height: 100vh;
+    table {
+        width: min(100%, 50rem);
+        border-color: var(--color-placeholder);
+        color: var(--color-light);
+        background-color: var(--color-blue-dark);
+    }
+    table tbody tr:nth-child(odd){
+        background-color: var(--color-blue-light1);
+    }
+
+    table thead tr th {
+        font-size: .9rem;
+        font-weight: 400;
+    }
+
+    table tbody td {
+        font-size: .7rem;
+        margin: 0;
+        padding: .5rem;
+    }
+
+    .loading {
+        color: var(--color-light);
+        font-weight: 200;
+        font-size: 1.5rem;
+    }
+}

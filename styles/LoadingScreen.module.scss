@@ -1,0 +1,48 @@
+.loadingScreen__container {
+    width: min(100, 13rem);
+    .iconStart,
+    .iconEnd {
+        color: var(--color-light);
+        font-size: 2rem;
+    }
+
+    .iconEnd {
+        font-size: 4rem;
+    }
+
+    .spans {
+        position: relative;
+        .file {
+            position: absolute;
+            top: 70%;
+            left: -20%;
+            transform: translateX(-100%);
+            animation: anim 1s linear infinite;
+            transform: scale(.5);
+            color: white;
+            animation-delay: calc(var(--i) * .5s);
+        }
+       @keyframes anim {
+            0% {
+                left: -20%;
+                transform: scale(.5);
+                opacity: 0;
+            }
+            70%{
+                opacity: 1;
+            }
+            
+            100% {
+                left: 100%;
+                top: 50%;
+                opacity: 0;
+                transform: scale(2);
+            }
+
+        }
+    }
+    p{
+        color: var(--color-light);
+        font-weight: 200;
+    }
+}

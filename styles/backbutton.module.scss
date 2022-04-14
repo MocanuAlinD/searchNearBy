@@ -1,0 +1,27 @@
+.backButton {
+    background-color: var(--color-blue-dark);
+    transition: var(--transition);
+    border-radius: var(--border-radius);
+}
+
+.text {
+    color: var(--color-light);
+    transition: var(--transition);
+    height: 100%;
+    font-size: .8rem;
+    font-weight: 200;
+}
+
+.icon {
+    color: var(--color-light);
+    transition: var(--transition);
+}
+
+.backButton:hover p,
+.backButton:hover .icon {
+    color: var(--color-blue-dark);
+}
+
+.backButton:hover {
+    background-color: var(--color-light);
+}

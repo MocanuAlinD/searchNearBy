@@ -1,0 +1,131 @@
+.mainContainer {
+  background: #219ebc33;
+  backdrop-filter: blur(10px);
+  min-width: 100%;
+  position: relative;
+  z-index: 0;
+
+  .clientSearchContainer {
+    max-width: 30rem;
+  }
+}
+
+.inscriere {
+  background: var(--color-blue-darkish);
+  border-radius: var(--border-radius);
+  width: fit-content;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  flex-wrap: wrap;
+
+  &:hover {
+    background: var(--color-blue-dark);
+  }
+
+  h4 {
+    animation: anim 5s infinite linear;
+    animation-delay: calc(0.1s * var(--i));
+    background: burlywood;
+    color: var(--color-light);
+    font-size: .9rem;
+    font-weight: 400;
+    height: 100%;
+    margin: 0;
+    min-width: 0.5rem;
+    text-align: center;
+    width: fit-content;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+  }
+
+  @keyframes anim {
+
+    0%,
+    100% {
+      filter: hue-rotate(0deg);
+    }
+
+    50% {
+      filter: hue-rotate(180deg);
+    }
+  }
+}
+
+.title {
+  height: fit-content;
+  background: linear-gradient(145deg,
+      var(--color-blue-dark) 20%,
+      var(--color-blue-darkish) 50%,
+      var(--color-blue-dark));
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+
+  h4 {
+    font-weight: 800;
+    font-size: min(calc(100vw / 10), 3rem);
+    margin: 0;
+    font-family: "Fugaz One", sans-serif;
+    user-select: none;
+  }
+
+  .h4first {
+    text-align: center;
+    padding-right: min(10%, 10rem);
+  }
+
+  .h4second {
+    text-align: center;
+    padding-left: min(10%, 10rem);
+  }
+}
+
+.joburiLink {
+  // background-color: var(--color-blue-darkish);
+  border-radius: var(--border-radius);
+  color: var(--color-light);
+  font-weight: 200;
+  font-size: .8rem;
+  padding: .2rem .7rem;
+  transition: var(--transition);
+  width: fit-content;
+  &:hover {
+    color: var(--color-blue-dark);
+    background-color: var(--color-light);
+  }
+}
+
+
+.checkboxContainer{
+  align-items: center;
+  display: flex;
+  .checkbox{
+    appearance: none;
+    background-color: var(--color-green);
+    border-radius: .5rem;
+    box-shadow: inset 0px 0px 1px 1px #ffffff33;
+    cursor: pointer;
+    height: 1rem;
+    position: relative;
+    transition: var(--transition);
+    width: 2rem;
+  }
+  .checkbox::before{
+    background-color: var(--color-blue-dark);
+    border-radius: .5rem;
+    content: "";
+    height: .9rem;
+    position: absolute;
+    width: .9rem;
+    top: 5%;
+    left: 3%;
+    transition: var(--transition);
+  }
+  .checkbox:checked::before{
+    background-color: var(--color-blue-dark);
+    left: 52%;
+  }
+  .checkbox:checked{
+    background-color: var(--color-light);
+    // box-shadow: inset 0px 0px 1px 1px #00000033;
+  }
+}
