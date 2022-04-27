@@ -45,13 +45,13 @@ export default function Home({ loading, setLoading }) {
   };
 
   const showCard = (e, f) => {
-    console.log("Show card");
+    // console.log("Show card");
     setCardState(e);
     setCardContent(f);
   };
 
   const hideCard = () => {
-    console.log("Hide card");
+    // console.log("Hide card");
     setCardState(false);
     setCardContent({});
   };
@@ -63,7 +63,7 @@ export default function Home({ loading, setLoading }) {
           styles.mainContainer +
           " row d-flex flex-column justify-content-start m-0 p-0 mb-3"
         }
-        style={{ minHeight: "50vh" }}
+        // style={{ minHeight: "50vh" }}
       >
         <div
           className={
@@ -123,7 +123,7 @@ export default function Home({ loading, setLoading }) {
         <div
           className={
             styles.clientSearchContainer +
-            " row col-12 col-md-7 col-xl-4 align-self-center justify-content-center flex-grow-0 px-2 py-3"
+            " row col-12 col-md-7 col-xl-4 align-self-center justify-content-center flex-grow-0 px-2 pt-3"
           }
         >
           <ClientSearch
