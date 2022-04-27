@@ -88,6 +88,7 @@
   padding: .2rem .7rem;
   transition: var(--transition);
   width: fit-content;
+
   &:hover {
     color: var(--color-blue-dark);
     background-color: var(--color-light);
@@ -95,10 +96,11 @@
 }
 
 
-.checkboxContainer{
+.checkboxContainer {
   align-items: center;
   display: flex;
-  .checkbox{
+
+  .checkbox {
     appearance: none;
     background-color: var(--color-green);
     border-radius: .5rem;
@@ -109,7 +111,8 @@
     transition: var(--transition);
     width: 2rem;
   }
-  .checkbox::before{
+
+  .checkbox::before {
     background-color: var(--color-blue-dark);
     border-radius: .5rem;
     content: "";
@@ -120,11 +123,13 @@
     left: 3%;
     transition: var(--transition);
   }
-  .checkbox:checked::before{
+
+  .checkbox:checked::before {
     background-color: var(--color-blue-dark);
     left: 52%;
   }
-  .checkbox:checked{
+
+  .checkbox:checked {
     background-color: var(--color-light);
     // box-shadow: inset 0px 0px 1px 1px #00000033;
   }

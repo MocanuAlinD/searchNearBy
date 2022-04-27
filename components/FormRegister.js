@@ -62,7 +62,7 @@ const FormRegister = ({
     <form onSubmit={postData} method="GET" className="col-12">
       <SmallContainer m="0 0 15rem 0" className="mx-auto">
         <Wrapper>
-          <LabelCustom htmlFor="numeUtilizator">Nume complet: </LabelCustom>
+          <LabelCustom htmlFor="numeUtilizator" m="0">Nume complet: </LabelCustom>
           <InputCustom
             required
             pattern="[A-Za-z -.]{2,}"
@@ -77,7 +77,7 @@ const FormRegister = ({
         </Wrapper>
 
         <Wrapper>
-          <LabelCustom htmlFor="phoneID">Telefon</LabelCustom>
+          <LabelCustom htmlFor="phoneID" m="0">Telefon</LabelCustom>
           <InputCustom
             required
             pattern="[0-9]{6,20}"
@@ -169,7 +169,7 @@ const FormRegister = ({
         </Wrapper>
 
         <Wrapper>
-          <LabelCustom htmlFor="keyTags">Cuvinte cheie</LabelCustom>
+          <LabelCustom htmlFor="keyTags" m="0">Cuvinte cheie</LabelCustom>
           <InputCustom
             required
             autoComplete="off"
@@ -183,7 +183,7 @@ const FormRegister = ({
         </Wrapper>
 
         <Wrapper>
-          <LabelCustom htmlFor="saptamanaStart">Disponibil de</LabelCustom>
+          <LabelCustom htmlFor="saptamanaStart" m="0">Disponibil de</LabelCustom>
           <SelectCustom
             name="saptamanaStart"
             id="saptamanaStart"
@@ -198,7 +198,7 @@ const FormRegister = ({
             <option value="Sambata">Sambata</option>
             <option value="Duminica">Duminica</option>
           </SelectCustom>
-          <LabelCustom htmlFor="saptamanaSfarsit">pana</LabelCustom>
+          <LabelCustom htmlFor="saptamanaSfarsit" m="0">pana</LabelCustom>
           <SelectCustom
             name="saptamanaSfarsit"
             id="saptamanaSfarsit"
@@ -215,8 +215,8 @@ const FormRegister = ({
           </SelectCustom>
         </Wrapper>
 
-        <Wrapper>
-          <LabelCustom htmlFor="programInceput" m="1rem 0 .5rem 0">
+        <Wrapper m="0">
+          <LabelCustom htmlFor="programInceput" m="0rem 0 .2rem 0">
             Disponibil de la ora{" "}
           </LabelCustom>
           <InputCustom
@@ -243,8 +243,8 @@ const FormRegister = ({
             <span>Selecteaza corect o ora</span>
         </Wrapper>
 
-        <Wrapper fd="column" m=".5rem 0 0 0">
-          <LabelCustom fs=".9rem">
+        <Wrapper fd="column" m="0.5rem 0 0 0">
+          <LabelCustom fs=".8rem">
             <Checkbox
               size="small"
               sx={{
@@ -275,6 +275,7 @@ const FormRegister = ({
             id="labelOras"
             value={state.judet}
             onChange={(e) => changeListaOrase(e)}
+
           >
             <option value="" disabled>
               ---Alege judetul---
@@ -288,8 +289,8 @@ const FormRegister = ({
         </Wrapper>
 
         {state.oras ? (
-          <Wrapper>
-            <LabelCustom htmlFor="labelComuna">Localitate: </LabelCustom>
+          <Wrapper m="0">
+            <LabelCustom htmlFor="labelComuna" m="0">Localitate: </LabelCustom>
             <SelectCustom
               required
               name="comune"

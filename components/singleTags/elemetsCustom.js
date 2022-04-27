@@ -23,30 +23,28 @@ color - color
 */
 
 export const Container = styled.div`
-  background: ${(props) => (props.bg ? props.bg : "#222")};
-  padding: ${(props) => (props.p ? props.p : "0 0")};
-  display: ${(props) => (props.display ? props.display : "flex")};
-  justify-content: ${(props) => (props.js ? props.js : "flex-start")};
-  align-items: ${(props) => (props.ai ? props.ai : "center")};
-  flex-direction: ${(props) => (props.fd ? props.fd : "row")};
-  height: ${(props) => (props.h ? props.h : "fit-content")};
-  min-height: ${(props) => (props.minh ? props.minh : "100vh")};
-  /* font-family: Poppins, sans-serif; */
-  margin: ${(props) => props.m && props.m};
+  background: ${({ bg }) => (bg ? bg : "#222")};
+  padding: ${({ p }) => (p ? p : "0 0")};
+  display: ${({ display }) => (display ? display : "flex")};
+  justify-content: ${({ js }) => (js ? js : "flex-start")};
+  align-items: ${({ ai }) => (ai ? ai : "center")};
+  flex-direction: ${({ fd }) => (fd ? fd : "row")};
+  height: ${({ h }) => (h ? h : "fit-content")};
+  min-height: ${({ minh }) => (minh ? minh : "100vh")};
+  margin: ${({ m }) => m && m};
 `;
 
 export const SmallContainer = styled.div`
-  display: ${(props) => (props.display ? props.display : "flex")};
-  justify-content: ${(props) => (props.jc ? props.jc : "center")};
-  align-items: ${(props) => (props.ai ? props.ai : "center")};
-  flex-direction: ${(props) => (props.fd ? props.fd : "column")};
-  background: ${(props) => (props.bg ? props.bg : "transparent")};
-  width: ${(props) => (props.w ? props.w : "30rem")};
-  height: ${(props) => (props.h ? props.h : "fit-content")};
-  min-height: ${(props) => (props.minh ? props.minh : "100%")};
-  margin: ${(props) => (props.m ? props.m : "1rem 0")};
-  padding: ${(props) => (props.p ? props.p : "0 0")};
-  /* font-family: Poppins, sans-serif; */
+  display: ${({ display }) => (display ? display : "flex")};
+  justify-content: ${({ jc }) => (jc ? jc : "center")};
+  align-items: ${({ ai }) => (ai ? ai : "center")};
+  flex-direction: ${({ fd }) => (fd ? fd : "column")};
+  background: ${({ bg }) => (bg ? bg : "transparent")};
+  width: ${({ w }) => (w ? w : "30rem")};
+  height: ${({ h }) => (h ? h : "fit-content")};
+  min-height: ${({ minh }) => (minh ? minh : "100%")};
+  margin: ${({ m }) => (m ? m : "1rem 0")};
+  padding: ${({ p }) => (p ? p : "0 0")};
   transition: var(--transition);
   @media (max-width: 520px) {
     width: 90%;
@@ -55,93 +53,101 @@ export const SmallContainer = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  align-items: ${(props) => props.ai && props.ai};
-  background: ${(props) => props.bg && props.bg};
-  border: ${(props) => props.border && props.border};
+  align-items: ${({ai}) => ai && ai};
+  background: ${({bg}) => bg && bg};
+  border: ${({border}) => border && border};
   color: var(--color-light);
-  display: ${(props) => (props.display ? props.display : "flex")};
-  flex-direction: ${(props) => (props.fd ? props.fd : "column")};
-  flex-grow: ${(props) => props.fg && props.fg};
-  flex-wrap: ${(props) => props.qwrap && props.qwrap};
-  height: ${(props) => (props.h ? props.h : "fit-content")};
-  justify-content: ${(props) => props.jc && props.jc};
-  margin: ${(props) => (props.m ? props.m : "0.25rem 0")};
-  min-height: ${(props) => props.minh && props.minh};
-  overflow: ${(props) => props.overflow && props.overflow};
-  overflow-x: ${(props) => props.overflowx && props.overflowx};
-  overflow-y: ${(props) => props.overflowy && props.overflowy};
-  padding: ${(props) => (props.p ? props.p : "0 0")};
-  width: ${(props) => (props.w ? props.w : "100%")};
+  display: ${({display}) => (display ? display : "flex")};
+  flex-direction: ${({fd}) => (fd ? fd : "column")};
+  flex-grow: ${({fg}) => fg && fg};
+  flex-wrap: ${({qwrap}) => qwrap && qwrap};
+  height: ${({h}) => (h ? h : "fit-content")};
+  justify-content: ${({jc}) => jc && jc};
+  margin: ${({m}) => (m ? m : "0.25rem 0")};
+  min-height: ${({minh}) => minh && minh};
+  overflow: ${({overflow}) => overflow && overflow};
+  overflow-x: ${({overflowx}) => overflowx && overflowx};
+  overflow-y: ${({overflowy}) => overflowy && overflowy};
+  padding: ${({p}) => (p ? p : "0 0")};
+  width: ${({w}) => (w ? w : "100%")};
   @media (max-width: 450px) {
-    flex-wrap: ${(props) => (props.qwrap ? props.qwrap : "nowrap")};
+    flex-wrap: ${({qwrap}) => (qwrap ? qwrap : "nowrap")};
     justify-content: space-between;
     width: 100%;
   }
 `;
 
 export const SelectCustom = styled.select`
-  background: ${(props) =>
-    props.bg ? props.bg : "var(--color-inputbackground)"};
+  background: ${({ bg }) => (bg ? bg : "var(--color-inputbackground)")};
   color: var(--color-light);
   outline: none;
   border: none;
   border-bottom: 2px solid var(--color-blue-light);
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
-  font-size: ${(props) => (props.fs ? props.fs : "1rem")};
+  font-size: ${({ fs }) => (fs ? fs : "var(--font-size08)")};
   font-weight: 200;
   padding: 0.3rem;
   transition: var(--transition);
-  margin: ${(props) => (props.m ? props.m : "0")};
-  width: ${(props) => (props.w ? props.w : "100%")};
-  height: ${(props) => (props.h ? props.h : "fit-content")};
+  margin: ${({ m }) => (m ? m : ".25rem 0")};
+  width: ${({ w }) => (w ? w : "100%")};
+  height: ${({ h }) => (h ? h : "fit-content")};
   :focus {
     background: var(--color-light);
     border-bottom: 2px solid var(--color-orange);
     color: var(--color-dark);
   }
-  @media (max-width: 567px) {
-    font-size: ${(props) =>
-      props.fs ? `calc(${props.fs - "0.5rem"})` : ".8rem"};
-  }
+  /* @media (max-width: 567px) {
+    font-size: ${({ fs }) => (fs ? `calc(${fs - "0.5rem"})` : ".8rem")};
+  } */
+`;
+
+
+export const LabelCustom = styled.label`
+  color: var(--color-light);
+  width: ${({w}) => (w ? w : "fit-content")};
+  margin: ${({m}) => (m ? m : ".5rem 0 0 0")};
+  font-size: ${({fs}) => (fs ? fs : "var(--font-size08)")};
+  font-weight: 200;
 `;
 
 export const InputCustom = styled.input`
-  color: var(--color-light);
-  background: var(--color-inputbackground);
-  outline: none;
+  background-color: var(--color-inputbackground);
   border: none;
   border-bottom: 2px solid var(--color-blue-light);
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
+  color: var(--color-light);
+  flex-grow: ${({fg}) => (fg ? fg : 1)};
+  font-size: var(--font-size08);
   font-weight: 200;
-  text-indent: 0.3rem;
-  width: ${(props) => props.w && props.w};
-  min-width: ${(props) => props.minw && props.minw};
-  padding: ${(props) => (props.p ? props.p : ".1rem .25rem")};
+  min-width: ${({minw}) => minw && minw};
+  margin: ${({m}) => (m ? m : "0")};
+  margin-bottom: ${({mb}) => (mb ? mb : "0")};
+  outline: none;
+  padding: ${({p}) => (p ? p : ".1rem .25rem")};
   position: relative;
-  margin: ${(props) => (props.m ? props.m : "0")};
-  margin-bottom: ${(props) => (props.mb ? props.mb : "0")};
+  text-indent: 0.3rem;
   transition: var(--transition);
-  flex-grow: ${(props) => (props.fg ? props.fg : 1)};
+  width: ${({w}) => w && w};
   ::placeholder {
     color: var(--color-placeholder);
     transition: var(--transition);
   }
   :focus {
     background: var(--color-light);
-    color: var(--color-dark);
     border-bottom: 2px solid var(--color-orange);
+    color: var(--color-dark);
   }
   :focus::placeholder {
     color: var(--color-darkish);
   }
   & + span {
+    color: var(--color-orange);
     display: none;
     font-weight: 400;
     font-size: .8rem;
-    color: var(--color-orange);
-    letter-spacing: .02rem;
+    letter-spacing: 0.02rem;
   }
   &:focus:placeholder-shown + span {
     display: block;
@@ -158,11 +164,12 @@ export const TextAreaCustom = styled.textarea`
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
   text-indent: 0.3rem;
+  font-size: var(--font-size08);
   font-weight: 200;
   color: var(--color-light);
   resize: none;
   transition: var(--transition);
-  padding: 0.5rem;
+  padding: 0.4rem .2rem;
   ::placeholder {
     color: var(--color-placeholder);
     transition: var(--transition);
@@ -177,9 +184,9 @@ export const TextAreaCustom = styled.textarea`
   & + span {
     display: none;
     font-weight: 400;
-    font-size: .8rem;
+    font-size: 0.8rem;
     color: var(--color-orange);
-    letter-spacing: .02rem;
+    letter-spacing: 0.02rem;
   }
   /* &:focus + span{
     display: none;
@@ -193,52 +200,43 @@ export const TextAreaCustom = styled.textarea`
   }
 `;
 
-export const LabelCustom = styled.label`
-  color: var(--color-light);
-  width: ${(props) => (props.w ? props.w : "fit-content")};
-  margin: ${(props) => (props.m ? props.m : ".3rem 0")};
-  font-size: ${(props) => (props.fs ? props.fs : "1rem")};
-`;
 
 export const LabelSmallCustom = styled.label`
-  color: ${(props) => (props.char < props.maxChar ? "whitesmoke" : "#888")};
-  /* font-family: Poppins, sans-serif; */
+  color: ${({char,maxChar}) => (char < maxChar ? "whitesmoke" : "#888")};
   font-size: 0.8rem;
+  font-weight: 200;
   text-align: right;
-  padding: 0.2rem 0.5rem;
+  padding: .2rem .5rem 0 0;
+  margin: 0;
 `;
 
 export const H4Custom = styled.h4`
-  color: ${(props) => (props.color ? props.color : "whitesmoke")};
-  font-size: ${(props) => (props.fs ? props.fs : "1.2rem")};
-  font-weight: ${(props) => (props.fw ? props.fw : "400")};
-  background: ${(props) => (props.bg ? props.bg : "")};
-  display: ${(props) => (props.display ? props.display : "flex")};
-  justify-content: ${(props) => (props.jc ? props.js : "center")};
-  align-items: ${(props) => (props.ai ? props.ai : "center")};
-  margin: ${(props) => (props.m ? props.m : "0")};
-  padding: ${(props) => (props.p ? props.p : "0")};
+  color: ${({color}) => (color ? color : "whitesmoke")};
+  font-size: ${({fs}) => (fs ? fs : "1.2rem")};
+  font-weight: ${({fw}) => (fw ? fw : "400")};
+  background: ${({bg}) => (bg ? bg : "")};
+  display: ${({display}) => (display ? display : "flex")};
+  justify-content: ${({jc}) => (jc ? js : "center")};
+  align-items: ${({ai}) => (ai ? ai : "center")};
+  margin: ${({m}) => (m ? m : "0")};
+  padding: ${({p}) => (p ? p : "0")};
   @media (max-width: 500px) {
     font-size: 1rem;
   }
 `;
 
 export const H6Custom = styled.h4`
-  color: ${(props) => (props.color ? props.color : "whitesmoke")};
-  background: ${(props) => (props.bg ? props.bg : "transparent")};
-  font-size: ${(props) => (props.fs ? props.fs : "1rem")};
-  font-weight: ${(props) => (props.fw ? props.fw : "200")};
-  width: ${(props) => (props.w ? props.w : "fit-content")};
-  height: ${(props) => props.h && props.h};
-  margin: ${(props) => (props.m ? props.m : "0")};
+  color: ${({color}) => (color ? color : "whitesmoke")};
+  background: ${({bg}) => (bg ? bg : "transparent")};
+  font-size: ${({fs}) => (fs ? fs : "1rem")};
+  font-weight: ${({fw}) => (fw ? fw : "200")};
+  width: ${({w}) => (w ? w : "fit-content")};
+  height: ${({h}) => h && h};
+  margin: ${({m}) => (m ? m : "0")};
   // @media (max-width: 500px) {
-  //   font-size: ${(props) => (props.fs ? props.fs : ".65rem")};
+  //   font-size: ${({fs}) => (fs ? fs : ".65rem")};
   // }
 `;
-
-
-
-
 
 /* 
 FORMAT
@@ -254,60 +252,59 @@ FORMAT
 export const InputContainer = styled.div`
   position: relative;
   font-family: Poppins, sans-serif;
-  font-weight: ${(props) => (props.fw ? props.fw : "200")};
-  margin-top: ${(props) => (props.mt ? props.mt : "2.2rem")};
+  font-weight: ${({ fw }) => (fw ? fw : "200")};
+  margin-top: ${({ mt }) => (mt ? mt : "1rem")};
   flex-grow: 1;
-  .label {
+  label {
     position: absolute;
     top: 0;
     left: 0;
-    margin-left: ${(props) => (props.ml ? props.ml : "0.5rem")};
-    color: ${(props) =>
-      props.labelColor ? props.labelColor : "var(--color-placeholder)"};
+    margin-left: ${({ ml }) => (ml ? ml : "0.5rem")};
+    color: ${({ labelColor }) =>
+      labelColor ? labelColor : "var(--color-placeholder)"};
     transition: var(--transition);
-    font-size: ${(props) => (props.fs ? props.fs : "1.3rem")};
+    font-size: ${({ fs }) => (fs ? fs : "1rem")};
     display: flex;
     align-items: center;
     cursor: text;
     height: 100%;
   }
-  .input {
+  input {
     background: var(--color-inputbackground);
-    background: ${(props) =>
-      props.inputbg ? props.inputbg : "var(--color-inputbackground)"};
+    background: ${({ inputbg }) =>
+      inputbg ? inputbg : "var(--color-inputbackground)"};
     border: none;
-    border-bottom: ${(props) =>
-      props.inputbb ? props.inputbb : "2px solid var(--color-blue-light)"};
+    border-bottom: ${({ inputbb }) =>
+      inputbb ? inputbb : "2px solid var(--color-blue-light)"};
     border-radius: 0.2rem 0.2rem 0 0;
-    color: ${(props) =>
-      props.inputColor ? props.inputColor : "var(--color-dark)"};
-    font-family: Poppins, sans-serif;
+    color: ${({ inputColor }) =>
+      inputColor ? inputColor : "var(--color-dark)"};
     font-weight: 200;
-    font-size: ${(props) => (props.fs ? props.fs : "1.3rem")};
+    font-size: ${({ fs }) => (fs ? fs : "1rem")};
     outline: none;
     padding: 0.3rem 0;
-    text-indent: ${(props) =>
-      props.inputTextIndent ? props.inputTextIndent : ".5rem"};
+    text-indent: ${({ inputTextIndent }) =>
+      inputTextIndent ? inputTextIndent : ".5rem"};
     transition: var(--transition);
-    width: ${(props) => (props.inputw ? props.inputw : "100%")};
+    width: ${({ inputw }) => (inputw ? inputw : "100%")};
   }
-  .input:focus {
+  input:focus {
     background: var(--color-light);
     border-bottom: 2px solid var(--color-orange);
   }
-  .input:focus + .label {
+  input:focus + label {
     top: -75%;
     margin-left: 0.2rem;
-    font-size: ${(props) => props.fs && `calc(${props.fs} - 0.2rem)`};
+    font-size: ${({ fs }) => fs && `calc(${fs} - 0.1rem)`};
     color: var(--color-light);
   }
-  .input:not(:focus, :placeholder-shown) {
+  input:not(:focus, :placeholder-shown) {
     color: var(--color-light);
   }
-  .input:not(:focus, :placeholder-shown) + .label {
+  input:not(:focus, :placeholder-shown) + label {
     top: -75%;
-    margin-left: 0;
-    font-size: ${(props) => props.fs && `calc(${props.fs} - 0.2rem)`};
+    margin-left: 0.2rem;
+    font-size: ${({ fs }) => fs && `calc(${fs} - 0.1rem)`};
     color: var(--color-light);
   }
 `;

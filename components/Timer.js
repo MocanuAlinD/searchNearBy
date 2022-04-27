@@ -11,7 +11,7 @@ const Timer = ({ loading, setLoading }) => {
   });
 
   const timer = () => {
-    const dt1 = new Date("07/26/2022 24:00:00").getTime();
+    const dt1 = new Date("2022/07/27 24:00:00").getTime();
     const prezent = new Date().getTime();
     const gap = dt1 - prezent;
 
@@ -50,7 +50,7 @@ const Timer = ({ loading, setLoading }) => {
   return (
     <>
       {loading && (
-        <div className={styles.timer + " d-flex justify-content-between mt-4"}>
+        <div className={styles.timer + " d-flex justify-content-between mt-2"}>
           <div>
             {clock.years ? (
               <h4>

@@ -12,6 +12,7 @@ import { BiReset } from "react-icons/bi";
 import { AiOutlineSearch } from "react-icons/ai";
 import styles from "../styles/clientsearch.module.scss";
 import { ButtonWithIcon } from "./singleTags/ButtonWithIcon";
+import SortItems from "./SortItems";
 
 const ClientSearch = ({
   state,
@@ -25,11 +26,9 @@ const ClientSearch = ({
     <div className="row m-0 p-0 d-flex flex-column justify-content-end">
       <div className="p-0">
         <div>
-          <LabelCustom htmlFor="judetID">Judet</LabelCustom>
           <SelectCustom
             w="100%"
             name="judet"
-            id="judetID"
             value={state.judet}
             onChange={(e) =>
               setState({
@@ -58,11 +57,9 @@ const ClientSearch = ({
 
         {state.oras ? (
           <div>
-            <LabelCustom htmlFor="orasID">Oras</LabelCustom>
             <SelectCustom
               w="100%"
               name="oras"
-              id="orasID"
               value={state.oras}
               onChange={(e) =>
                 setState({
@@ -84,13 +81,11 @@ const ClientSearch = ({
         )}
 
         {state.oras && (
-          <div>
             <div className="d-flex m-0 p-0 justify-content-between align-items-center">
-              <InputContainer className="inputContainer" fs="1rem">
+              <InputContainer fs=".8rem">
                 <input
                   autoComplete="off"
                   type="text"
-                  className="input"
                   placeholder=" "
                   id="idForLabel"
                   value={state.cautare}
@@ -98,7 +93,7 @@ const ClientSearch = ({
                     setState({ ...state, cautare: e.target.value })
                   }
                 />
-                <label htmlFor="idForLabel" className="label">
+                <label htmlFor="idForLabel">
                   Cauta....
                 </label>
               </InputContainer>
@@ -108,24 +103,23 @@ const ClientSearch = ({
                 disabled={!state.cautare}
                 onClick={() => setState({ ...state, cautare: "" })}
                 variant="contained"
-                className={`${state.cautare ? "text-warning ms-1 py-1 align-self-end" : "text-muted ms-1 py-1 align-self-end"}`}
+                className={`${state.cautare ? " text-warning ms-1 py-1 align-self-end" : " text-muted ms-1 py-2 align-self-end"}`}
               >
                 <MdClear fontSize="1.3rem" />
               </IconButton>
             </div>
-          </div>
         )}
       </div>
 
       {state.judet && (
         <div className="row m-0 p-0">
-          <ButtonWithIcon hasIcon m="1rem 0 1rem 0" onClick={searchJudet} className="shadow-sm">
+          <ButtonWithIcon hasIcon m=".5rem 0" onClick={searchJudet} className="shadow-sm">
             <div className="iconContainer">
               <AiOutlineSearch className="icon" />
             </div>
             Cauta {"in " + state.judet}
           </ButtonWithIcon>
-          <ButtonWithIcon hasIcon m="0 0 1rem 0" onClick={searchJudetOras} className="shadow-sm">
+          <ButtonWithIcon hasIcon m="0 0 .5rem 0" onClick={searchJudetOras} className="shadow-sm">
             <div className="iconContainer">
               <AiOutlineSearch className="icon" />
             </div>
@@ -143,6 +137,7 @@ const ClientSearch = ({
           </Button>
         </div>
       )}
+
     </div>
   );
 };

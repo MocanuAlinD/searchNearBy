@@ -6,6 +6,7 @@ import Timer from "../components/Timer";
 import LoadingScreen from "../components/LoadingScreen";
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import CardCautare from "../components/CardCautare";
+import SortItems from "../components/SortItems";
 
 export default function Home({ loading, setLoading }) {
   const initialValues = {
@@ -135,8 +136,8 @@ export default function Home({ loading, setLoading }) {
         </div>
       </div>
 
-      {/* <div className="row mx-auto px-2 justify-content-center align-items-start d-flex flex-wrap mb-5"> */}
       <div className="row m-0 p-0 col-12 px-2 d-flex flex-column align-items-center">
+        {state.listaCarduri.length > 0 && <SortItems />}
         {!loadSearch && state.listaCarduri ? (
           state.listaCarduri.map((item, index) => (
             <CardCautare
