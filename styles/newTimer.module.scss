@@ -1,0 +1,107 @@
+.flip-card {
+    border-radius: 1rem;
+    color: whitesmoke;
+    display: inline-flex;
+    flex-direction: column;
+    font-size: 2rem;
+    margin: 2rem;
+    position: relative;
+  }
+  .middle {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -10%;
+    width: 120%;
+    height: 25%;
+    background: linear-gradient(to bottom, gray, white);
+    box-shadow: -2px 2px 5px gray;
+    z-index: 0;
+    border: 2px solid;
+    border-top: none;
+    border-bottom: none;
+    border-left-color: #000000;
+    border-right-color: #000000;
+  }
+  .top,
+  .bottom {
+    background-color: tomato;
+    height: 0.75em;
+    line-height: 1;
+    overflow: hidden;
+    padding: 0.25em;
+    width: 1em;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    z-index: 1;
+  }
+  .top {
+    margin-bottom: 1px;
+    border-top-left-radius: 0.4rem;
+    border-top-right-radius: 0.4rem;
+    background: linear-gradient(to bottom, black, gray);
+  }
+  .bottom {
+    background: linear-gradient(to top, black, gray);
+    /* background: red; */
+    display: flex;
+    align-items: flex-end;
+    /* justify-content: center; */
+    border-bottom-left-radius: 0.4rem;
+    border-bottom-right-radius: 0.4rem;
+  }
+  .flip-card .top-flip {
+    animation: animtop 250ms ease-in;
+    background: linear-gradient(to top, gray, black);
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    display: flex;
+    /* color: red; */
+    height: 0.75em;
+    justify-content: center;
+    line-height: 1;
+    overflow: hidden;
+    padding: 0.25em;
+    position: absolute;
+    top: 0;
+    transform-origin: bottom;
+    width: 100%;
+    z-index: 1;
+  }
+  .flip-card .bottom-flip {
+    align-items: flex-end;
+    animation: animbottom 250ms ease-out 250ms;
+    background: linear-gradient(to top, black, gray);
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    bottom: 0;
+    /* color: green; */
+    display: flex;
+    height: 0.75em;
+    justify-content: center;
+    line-height: 1;
+    overflow: hidden;
+    padding: 0.25em;
+    position: absolute;
+    transform-origin: top;
+    transform: rotateX(90deg);
+    width: 100%;
+    z-index: 1;
+  }
+  @keyframes animtop {
+    from {
+      transform: rotateX(0deg);
+    }
+    to {
+      transform: rotateX(90deg);
+    }
+  }
+  @keyframes animbottom {
+    from {
+      transform: rotateX(90deg);
+    }
+    to {
+      transform: rotateX(0deg);
+    }
+  }

@@ -45,13 +45,11 @@ export default function Home({ loading, setLoading }) {
   };
 
   const showCard = (e, f) => {
-    // console.log("Show card");
     setCardState(e);
     setCardContent(f);
   };
 
   const hideCard = () => {
-    // console.log("Hide card");
     setCardState(false);
     setCardContent({});
   };
