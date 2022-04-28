@@ -74,6 +74,9 @@ export default function Home({ loading, setLoading }) {
           <Link href="/servicii">
             <a className={styles.joburiLink + " ms-3"}>Toate judetele</a>
           </Link>
+          <Link href="/test">
+            <a className={styles.joburiLink + " ms-3"}>Test</a>
+          </Link>
           <div className="d-flex">
             {show && <AiOutlineEye className={"text-white me-2"} />}
             {!show && <AiOutlineEyeInvisible className={"text-white me-2"} />}
