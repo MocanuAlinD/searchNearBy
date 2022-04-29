@@ -133,3 +133,13 @@
     // box-shadow: inset 0px 0px 1px 1px #00000033;
   }
 }
+
+.sidebar{
+  position: absolute;
+  top: 4rem;
+  left: 0;
+  font-size: 1rem;
+  color: var(--color-light);
+  padding-left: 1rem;
+  transition: all .35s ease-out;
+}

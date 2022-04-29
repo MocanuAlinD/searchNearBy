@@ -25,6 +25,7 @@ export default function Home({ loading, setLoading }) {
   const [show, setShow] = useState(true);
   const [cardState, setCardState] = useState(false);
   const [cardContent, setCardContent] = useState({});
+  const [showMenu, setShowMenu] = useState(false);
 
   // Button search only in judet
   const searchJudet = async () => {
@@ -73,9 +74,12 @@ export default function Home({ loading, setLoading }) {
           {/* <Link href="/servicii"> */}
           {/* <a className={styles.joburiLink + " ms-3"}>Toate judetele</a> */}
           {/* </Link> */}
-          <div className=' m-0 p-0 ms-3'>
-            <LeftMenu />
+          <div className="m-0 p-0 ms-3 rounded">
+            <LeftMenu showMenu={showMenu} setShowMenu={setShowMenu} />
           </div>
+          {showMenu && (
+            <div className={styles.sidebar}>Left Menu Appearing</div>
+          )}
           <div className="d-flex">
             {show && <AiOutlineEye className={"text-white me-2"} />}
             {!show && <AiOutlineEyeInvisible className={"text-white me-2"} />}
