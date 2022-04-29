@@ -1,14 +1,10 @@
 import React, { useEffect } from "react";
 
 const Test = () => {
-  // useEffect(() => {
-  //   const inter = setInterval(clickme, 1000);
-  //   return () => clearInterval(inter);
-  // }, []);
 
   useEffect(() => {
     const inter = setInterval(() => {
-      const dt1 = new Date("2022/07/27 24:00:00").getTime();
+      const dt1 = new Date("2023/07/27 24:00:00").getTime();
       const prezent = new Date().getTime();
       const gap = dt1 - prezent;
       flipAllCards(gap);
@@ -29,22 +25,13 @@ const Test = () => {
     const minutes = Math.floor((time % hour) / minute);
     const seconds = Math.floor((time % minute) / second);
 
-    flip(
-      document.querySelector("[data-years-tens]"),
-      Math.floor(years / 10)
-    );
+    flip(document.querySelector("[data-years-tens]"), Math.floor(years / 10));
     flip(document.querySelector("[data-years-ones]"), years % 10);
 
-    flip(
-      document.querySelector("[data-days-tens]"),
-      Math.floor(days / 10)
-    );
+    flip(document.querySelector("[data-days-tens]"), Math.floor(days / 10));
     flip(document.querySelector("[data-days-ones]"), days % 10);
 
-    flip(
-      document.querySelector("[data-hours-tens]"),
-      Math.floor(hours / 10)
-    );
+    flip(document.querySelector("[data-hours-tens]"), Math.floor(hours / 10));
     flip(document.querySelector("[data-hours-ones]"), hours % 10);
     flip(
       document.querySelector("[data-minutes-tens]"),
@@ -90,91 +77,97 @@ const Test = () => {
   }
 
   return (
-    <div className="d-flex justify-content-center align-items-center mt-5 pt-5">
-       <div className="segment">
-         <h4 className='text-center text-white'>ani</h4>
+    <div className="d-flex justify-content-center align-items-center m-0 p-0 w-auto">
+      <div className="segment">
+        <h4 className="text-center text-white">ani</h4>
         <div className="flip-card" data-years-tens>
-          <div className="top"></div>
-          <div className="bottom"></div>
+          <div className="top">0</div>
+          <div className="bottom">0</div>
           <div className="middle"></div>
         </div>
         <div className="flip-card" data-years-ones>
-          <div className="top"></div>
-          <div className="bottom"></div>
+          <div className="top">0</div>
+          <div className="bottom">0</div>
           <div className="middle"></div>
         </div>
       </div>
       <div className="segment">
-        <h4 className='text-center text-white'>zile</h4>
+        <h4 className="text-center text-white">zile</h4>
         <div className="flip-card" data-days-tens>
-          <div className="top"></div>
-          <div className="bottom"></div>
+          <div className="top">0</div>
+          <div className="bottom">0</div>
           <div className="middle"></div>
         </div>
         <div className="flip-card" data-days-ones>
-          <div className="top"></div>
-          <div className="bottom"></div>
+          <div className="top">0</div>
+          <div className="bottom">0</div>
           <div className="middle"></div>
         </div>
       </div>
       <div className="segment">
-        <h4 className='text-center text-white'>ore</h4>
+        <h4 className="text-center text-white">ore</h4>
         <div className="flip-card" data-hours-tens>
-          <div className="top"></div>
-          <div className="bottom"></div>
+          <div className="top">0</div>
+          <div className="bottom">0</div>
           <div className="middle"></div>
         </div>
         <div className="flip-card" data-hours-ones>
-          <div className="top"></div>
-          <div className="bottom"></div>
+          <div className="top">0</div>
+          <div className="bottom">0</div>
           <div className="middle"></div>
         </div>
       </div>
 
       <div className="segment">
-        <h4 className='text-center text-white'>min</h4>
+        <h4 className="text-center text-white">min</h4>
         <div className="flip-card" data-minutes-tens>
-          <div className="top"></div>
-          <div className="bottom"></div>
+          <div className="top">0</div>
+          <div className="bottom">0</div>
           <div className="middle"></div>
         </div>
         <div className="flip-card" data-minutes-ones>
-          <div className="top"></div>
-          <div className="bottom"></div>
+          <div className="top">0</div>
+          <div className="bottom">0</div>
           <div className="middle"></div>
         </div>
       </div>
 
       <div className="segment">
-        <h4 className='text-center text-white'>sec</h4>
+        <h4 className="text-center text-white">sec</h4>
         <div className="flip-card" data-seconds-tens>
-          <div className="top"></div>
-          <div className="bottom"></div>
+          <div className="top">0</div>
+          <div className="bottom">0</div>
           <div className="middle"></div>
         </div>
         <div className="flip-card" data-seconds-ones>
-          <div className="top"></div>
-          <div className="bottom"></div>
+          <div className="top">0</div>
+          <div className="bottom">0</div>
           <div className="middle"></div>
         </div>
       </div>
 
       <style jsx>{`
-      h4{
-        font-size: 1rem;
-        font-weight: 200;
-      }
-      .segment{
-        margin:0 .5rem;
-        height: fit-content;
-      }
+        h4 {
+          font-size: 0.7rem;
+          font-weight: 400;
+          margin: 0;
+          padding: 0;
+          padding-bottom: .3rem;
+          text-transform: uppercase;
+          transform: skewY(8deg);
+        }
+        .segment {
+          margin: 0 0.25rem;
+          height: fit-content;
+        }
         .flip-card {
           color: floralwhite;
           display: inline-flex;
           flex-direction: column;
-          font-size: 1.5rem;
-          margin: 0 .2rem;
+          font-size: 1rem;
+          margin: 0 0.2rem;
           position: relative;
+          perspective: 100px;
         }
         .middle {
           position: absolute;
@@ -190,8 +183,6 @@ const Test = () => {
           border-bottom: none;
           border-left-color: #000000;
           border-right-color: #000000;
-          /* border-left-color: #ffffff88; */
-          /* border-right-color: #ffffff88; */
         }
         .top,
         .bottom,
@@ -200,23 +191,23 @@ const Test = () => {
           line-height: 1;
           overflow: hidden;
           height: 1rem;
-          padding: .75rem 0;
-          width: 1.5rem;
+          padding: 0.5rem 0;
+          width: 1rem;
           display: flex;
           justify-content: center;
           z-index: 1;
         }
         .top {
           background: linear-gradient(to bottom, #222, gray);
-          border-top-left-radius: 0.4rem;
-          border-top-right-radius: 0.4rem;
-          margin-bottom: 1px;
+          border-top-left-radius: .2rem;
+          border-top-right-radius: .2rem;
+          margin-bottom: .5px;
         }
         .bottom {
           align-items: flex-end;
           background: linear-gradient(to top, #222, gray);
-          border-bottom-left-radius: 0.4rem;
-          border-bottom-right-radius: 0.4rem;
+          border-bottom-left-radius: .2rem;
+          border-bottom-right-radius: .2rem;
         }
         .flip-card .top-flip {
           animation: animtop 250ms ease-in;

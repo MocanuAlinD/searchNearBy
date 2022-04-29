@@ -7,6 +7,7 @@ import LoadingScreen from "../components/LoadingScreen";
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import CardCautare from "../components/CardCautare";
 import SortItems from "../components/SortItems";
+import NewTimer from "../components/NewTimer";
 
 export default function Home({ loading, setLoading }) {
   const initialValues = {
@@ -72,9 +73,6 @@ export default function Home({ loading, setLoading }) {
           <Link href="/servicii">
             <a className={styles.joburiLink + " ms-3"}>Toate judetele</a>
           </Link>
-          <Link href="/test">
-            <a className={styles.joburiLink + " ms-3"}>Test</a>
-          </Link>
           <div className="d-flex">
             {show && <AiOutlineEye className={"text-white me-2"} />}
             {!show && <AiOutlineEyeInvisible className={"text-white me-2"} />}
@@ -89,12 +87,13 @@ export default function Home({ loading, setLoading }) {
 
         {/* Timer */}
         {show && (
-          <div className="justify-content-center mt-3 m-0 d-flex flex-column align-items-center">
+          <div className="justify-content-center mt-0 m-0 d-flex flex-column align-items-center">
+            {loading && <NewTimer loading={loading} setLoading={setLoading} />}
             <Link href="/inscriere">
               <div
                 className={
                   styles.inscriere +
-                  " m-0 p-0 px-3 py-1 d-flex justify-content-center align-items-center"
+                  " m-0 p-0 my-3 px-3 py-2 d-flex justify-content-center align-items-center"
                 }
               >
                 {"Inscrie-te acum!".split("").map((item, index) => (
@@ -104,7 +103,6 @@ export default function Home({ loading, setLoading }) {
                 ))}
               </div>
             </Link>
-            {loading && <Timer loading={loading} setLoading={setLoading} />}
           </div>
         )}
 
