@@ -8,6 +8,7 @@ import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import CardCautare from "../components/CardCautare";
 import SortItems from "../components/SortItems";
 import NewTimer from "../components/NewTimer";
+import LeftMenu from "../components/LeftMenu";
 
 export default function Home({ loading, setLoading }) {
   const initialValues = {
@@ -69,9 +70,12 @@ export default function Home({ loading, setLoading }) {
             " m-0 p-0 mt-3 d-flex justify-content-between"
           }
         >
-          <Link href="/servicii">
-            <a className={styles.joburiLink + " ms-3"}>Toate judetele</a>
-          </Link>
+          {/* <Link href="/servicii"> */}
+          {/* <a className={styles.joburiLink + " ms-3"}>Toate judetele</a> */}
+          {/* </Link> */}
+          <div className=' m-0 p-0 ms-3'>
+            <LeftMenu />
+          </div>
           <div className="d-flex">
             {show && <AiOutlineEye className={"text-white me-2"} />}
             {!show && <AiOutlineEyeInvisible className={"text-white me-2"} />}
