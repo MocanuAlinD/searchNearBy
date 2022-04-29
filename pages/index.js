@@ -60,9 +60,8 @@ export default function Home({ loading, setLoading }) {
       <div
         className={
           styles.mainContainer +
-          " row d-flex flex-column justify-content-start m-0 p-0 mb-3"
+          " row d-flex flex-column justify-content-start m-0 p-0 mb-2"
         }
-        // style={{ minHeight: "50vh" }}
       >
         <div
           className={

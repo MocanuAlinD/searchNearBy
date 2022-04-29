@@ -1,6 +1,6 @@
 import { Container } from "../components/singleTags/elemetsCustom";
 import FormRegister from "../components/FormRegister";
-import Timer from "../components/Timer";
+import NewTimer from "../components/NewTimer";
 import BackButton from "../components/BackButton";
 
 export default function Inscriere({
@@ -21,7 +21,7 @@ export default function Inscriere({
       <div className="row col-12 mt-2 ps-3">
         <BackButton url="/" text="Pagina principala" />
       </div>
-      {loading && <Timer loading={loading} setLoading={setLoading} />}
+      {loading && <NewTimer loading={loading} setLoading={setLoading} />}
       <FormRegister
         listaOrase={listaOrase}
         setListaOrase={setListaOrase}

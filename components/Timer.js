@@ -11,7 +11,8 @@ const Timer = ({ loading, setLoading }) => {
   });
 
   const timer = () => {
-    const dt1 = new Date("2022/07/27 24:00:00").getTime();
+    // const dt1 = new Date("2022/07/27 24:00:00").getTime();
+    const dt1 = new Date("2023/01/26 24:00:00").getTime();
     const prezent = new Date().getTime();
     const gap = dt1 - prezent;
 

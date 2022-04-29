@@ -4,7 +4,7 @@ const Test = ({ loading, setLoading }) => {
   useEffect(() => {
     if (loading) {
       const inter = setInterval(() => {
-        const dt1 = new Date("2023/01/26 24:00:00").getTime();
+        const dt1 = new Date("2022/07/26 24:00:00").getTime();
         const prezent = new Date().getTime();
         const gap = dt1 - prezent;
         if(gap <=0){
@@ -33,7 +33,8 @@ const Test = ({ loading, setLoading }) => {
     flip(document.querySelector("[data-years-tens]"), Math.floor(years / 10));
     flip(document.querySelector("[data-years-ones]"), years % 10);
 
-    flip(document.querySelector("[data-days-tens]"), Math.floor(days / 10));
+    flip(document.querySelector("[data-days-hundreds]"), Math.floor(days / 100));
+    flip(document.querySelector("[data-days-tens]"), Math.floor(days / 10 % 10));
     flip(document.querySelector("[data-days-ones]"), days % 10);
 
     flip(document.querySelector("[data-hours-tens]"), Math.floor(hours / 10));
@@ -98,6 +99,11 @@ const Test = ({ loading, setLoading }) => {
       </div>
       <div className="segment">
         <h4 className="text-center text-white">zile</h4>
+        <div className="flip-card" data-days-hundreds>
+          <div className="top">0</div>
+          <div className="bottom">0</div>
+          <div className="middle"></div>
+        </div>
         <div className="flip-card" data-days-tens>
           <div className="top">0</div>
           <div className="bottom">0</div>
@@ -162,7 +168,7 @@ const Test = ({ loading, setLoading }) => {
           transform: skewY(8deg);
         }
         .segment {
-          margin: 0 0.25rem;
+          margin: 0 0.15rem;
           height: fit-content;
         }
         .flip-card {
@@ -170,7 +176,7 @@ const Test = ({ loading, setLoading }) => {
           display: inline-flex;
           flex-direction: column;
           font-size: 1rem;
-          margin: 0 0.2rem;
+          margin: 0 0.12rem;
           position: relative;
           perspective: 100px;
         }
