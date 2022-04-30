@@ -23,8 +23,6 @@ export default function Home({ loading, setLoading }) {
   const [state, setState] = useState(initialValues);
   const [loadSearch, setLoadSearch] = useState(false);
   const [show, setShow] = useState(true);
-  const [cardState, setCardState] = useState(false);
-  const [cardContent, setCardContent] = useState({});
   const [showMenu, setShowMenu] = useState(false);
 
   // Button search only in judet
@@ -47,16 +45,6 @@ export default function Home({ loading, setLoading }) {
     setState({ ...state, listaCarduri: endresult });
   };
 
-  const showCard = (e, f) => {
-    setCardState(e);
-    setCardContent(f);
-  };
-
-  const hideCard = () => {
-    setCardState(false);
-    setCardContent({});
-  };
-
   return (
     <div className="container-fluid m-0 p-0">
       <div
@@ -68,27 +56,22 @@ export default function Home({ loading, setLoading }) {
         <div
           className={
             styles.checkboxContainer +
-            " m-0 p-0 mt-3 d-flex justify-content-between"
+            " m-0 p-0 mt-3 d-flex justify-content-between flex-row-reverse flex-md-row"
           }
         >
-          {/* <Link href="/servicii"> */}
-          {/* <a className={styles.joburiLink + " ms-3"}>Toate judetele</a> */}
-          {/* </Link> */}
-          <div className="m-0 p-0 ms-3 rounded">
+          <div className="m-0 p-0 mx-3">
             <LeftMenu showMenu={showMenu} setShowMenu={setShowMenu} />
           </div>
-          {showMenu && (
-            <div className={styles.sidebar}>Left Menu Appearing</div>
-          )}
-          <div className="d-flex">
-            {show && <AiOutlineEye className={"text-white me-2"} />}
-            {!show && <AiOutlineEyeInvisible className={"text-white me-2"} />}
+
+          <div className="d-flex justify-content-between gap-2 mx-2">
             <input
               type="checkbox"
               id="change"
               onChange={() => setShow((prev) => !prev)}
-              className={styles.checkbox + " m-0 p-0 me-3"}
+              className={styles.checkbox + " m-0 p-0"}
             />
+            {show && <AiOutlineEye className={"text-white"} />}
+            {!show && <AiOutlineEyeInvisible className={"text-white"} />}
           </div>
         </div>
 
@@ -118,7 +101,7 @@ export default function Home({ loading, setLoading }) {
           <div
             className={
               styles.title +
-              " m-0 p-0 mt-3 d-flex flex-column justify-content-center align-items-center"
+              " m-0 p-0 d-flex flex-column justify-content-center align-items-center"
             }
           >
             <h4 className={styles.h4first}>Cauta ajutor,</h4>
@@ -146,16 +129,19 @@ export default function Home({ loading, setLoading }) {
         {state.listaCarduri.length > 0 && <SortItems />}
         {!loadSearch && state.listaCarduri ? (
           state.listaCarduri.map((item, index) => (
-            <CardCautare
-              data={item}
-              key={index}
-              idx={index}
-              showCard={showCard}
-            />
+            <CardCautare data={item} key={index} idx={index} />
           ))
         ) : (
           <LoadingScreen />
         )}
+      </div>
+      <div
+        className={styles.sidebar + " sidebar"}
+        style={{ left: `${showMenu ? 0 : "-100%"}` }}
+      >
+        <Link href="/servicii">
+          <a className={styles.joburiLink + " ms-3"}>Toate judetele</a>
+        </Link>
       </div>
     </div>
   );

@@ -83,7 +83,7 @@ const Test = ({ loading, setLoading }) => {
   }
 
   return (
-    <div className="d-flex justify-content-center align-items-center m-0 p-0 w-auto">
+    <div className="d-flex justify-content-center align-items-center m-0 p-0 w-auto mt-3">
       <div className="segment">
         <h4 className="text-center text-white">ani</h4>
         <div className="flip-card" data-years-tens>

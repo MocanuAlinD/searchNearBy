@@ -1,19 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 
-const LeftMenu = ({showMenu, setShowMenu}) => {
-  const changeme = () => {
-    setShowMenu((prev) => !prev);
-    // const p1 = document.querySelector('svg')
-    // const all = p1.querySelectorAll("path")[1]
-  };
+const LeftMenu = ({showMenu,setShowMenu}) => {
   return (
     <>
       <svg
         viewBox="0 0 100 100"
         xmlns="http://www.w3.org/2000/svg"
-        // width="100"
         className={`svg ${showMenu ? " active" : ""}`}
-        onClick={changeme}
+        onClick={() => setShowMenu(prev =>!prev)}
       >
         <path
           d="M90,20 h-80 q-40 -10 0 -40 q40 -30 90 0 q20 20 -10 40 l-80 60"
@@ -61,16 +55,7 @@ const LeftMenu = ({showMenu, setShowMenu}) => {
             transition-delay: .25s;
           }
 
-          .svg:hover .path1,
-          .svg:hover .path3 {
-            stroke-dasharray: 386;
-            stroke-dashoffset: -286;
-            stroke-width: 8;
-          }
-          .svg:hover .path2 {
-            transform: translateX(-50%);
-            stroke: transparent;
-          }
+          
           .svg.active .path1,
           .svg.active .path3 {
             stroke-dasharray: 386;
@@ -81,6 +66,18 @@ const LeftMenu = ({showMenu, setShowMenu}) => {
           .svg.active .path2 {
             transform: translateX(-100%);
             opacity: 0;
+          }
+          @media screen and (min-width: 768px){
+            .svg:hover .path1,
+            .svg:hover .path3 {
+              stroke-dasharray: 386;
+              stroke-dashoffset: -286;
+              stroke-width: 8;
+            }
+            .svg:hover .path2 {
+              transform: translateX(-50%);
+              stroke: transparent;
+            }
           }
         `}
       </style>
