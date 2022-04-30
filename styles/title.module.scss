@@ -1,0 +1,42 @@
+.title {
+  height: fit-content;
+  // background: linear-gradient(145deg,
+  //     var(--color-blue-dark) 20%,
+  //     var(--color-blue-darkish) 50%,
+  //     var(--color-blue-dark));
+  // -webkit-text-fill-color: transparent;
+  // -webkit-background-clip: text;
+
+  // h4 {
+  // font-weight: 800;
+  // font-size: min(calc(100vw / 10), 3rem);
+  // margin: 0;
+  // font-family: "Fugaz One", sans-serif;
+  // user-select: none;
+  // }
+
+  // .h4first {
+  // text-align: center;
+  // padding-right: min(10%, 10rem);
+  // }
+
+  // .h4second {
+  // text-align: center;
+  // padding-left: min(10%, 10rem);
+  // }
+  svg {
+    // margin: 2rem;
+    // background: linear-gradient(145deg,
+    //     var(--color-blue-dark) 20%,
+    //     var(--color-blue-darkish) 50%,
+    //     var(--color-blue-dark));
+    // -webkit-text-fill-color: transparent;
+    // -webkit-background-clip: path;
+
+    // background-color: tomato;
+    path {
+      fill: none;
+      stroke: white;
+    }
+  }
+}

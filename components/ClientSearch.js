@@ -21,9 +21,8 @@ const ClientSearch = ({
   searchJudetOras,
   initialValues,
 }) => {
-
   return (
-    <div className="row m-0 p-0 d-flex flex-column justify-content-end">
+    <div className="row col-12 col-md-7 col-xl-4 align-self-center justify-content-center flex-grow-0 px-2 pt-3">
       <div className="p-0">
         <div>
           <SelectCustom
@@ -81,45 +80,57 @@ const ClientSearch = ({
         )}
 
         {state.oras && (
-            <div className="d-flex m-0 p-0 justify-content-between align-items-center">
-              <InputContainer fs=".8rem">
-                <input
-                  autoComplete="off"
-                  type="text"
-                  placeholder=" "
-                  id="idForLabel"
-                  value={state.cautare}
-                  onChange={(e) =>
-                    setState({ ...state, cautare: e.target.value })
-                  }
-                />
-                <label htmlFor="idForLabel">
-                  Cauta....
-                </label>
-              </InputContainer>
+          <div className="d-flex m-0 p-0 justify-content-between align-items-center">
+            <InputContainer fs=".8rem">
+              <input
+                autoComplete="off"
+                type="text"
+                placeholder=" "
+                id="idForLabel"
+                value={state.cautare}
+                onChange={(e) =>
+                  setState({ ...state, cautare: e.target.value })
+                }
+              />
+              <label htmlFor="idForLabel">Cauta....</label>
+            </InputContainer>
 
-              <IconButton
-                aria-label="delete"
-                disabled={!state.cautare}
-                onClick={() => setState({ ...state, cautare: "" })}
-                variant="contained"
-                className={`${state.cautare ? " text-warning ms-1 py-1 align-self-end" : " text-muted ms-1 py-2 align-self-end"}`}
-              >
-                <MdClear fontSize="1.3rem" />
-              </IconButton>
-            </div>
+            <IconButton
+              aria-label="delete"
+              disabled={!state.cautare}
+              onClick={() => setState({ ...state, cautare: "" })}
+              variant="contained"
+              className={`${
+                state.cautare
+                  ? " text-warning ms-1 py-1 align-self-end"
+                  : " text-muted ms-1 py-2 align-self-end"
+              }`}
+            >
+              <MdClear fontSize="1.3rem" />
+            </IconButton>
+          </div>
         )}
       </div>
 
       {state.judet && (
         <div className="row m-0 p-0">
-          <ButtonWithIcon hasIcon m=".5rem 0" onClick={searchJudet} className="shadow-sm">
+          <ButtonWithIcon
+            hasIcon
+            m=".5rem 0"
+            onClick={searchJudet}
+            className="shadow-sm"
+          >
             <div className="iconContainer">
               <AiOutlineSearch className="icon" />
             </div>
             Cauta {"in " + state.judet}
           </ButtonWithIcon>
-          <ButtonWithIcon hasIcon m="0 0 .5rem 0" onClick={searchJudetOras} className="shadow-sm">
+          <ButtonWithIcon
+            hasIcon
+            m="0 0 .5rem 0"
+            onClick={searchJudetOras}
+            className="shadow-sm"
+          >
             <div className="iconContainer">
               <AiOutlineSearch className="icon" />
             </div>
@@ -137,7 +148,6 @@ const ClientSearch = ({
           </Button>
         </div>
       )}
-
     </div>
   );
 };

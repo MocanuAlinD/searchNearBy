@@ -9,6 +9,7 @@ import CardCautare from "../components/CardCautare";
 import SortItems from "../components/SortItems";
 import NewTimer from "../components/NewTimer";
 import LeftMenu from "../components/LeftMenu";
+import Title from "../components/Title";
 
 export default function Home({ loading, setLoading }) {
   const initialValues = {
@@ -59,9 +60,7 @@ export default function Home({ loading, setLoading }) {
             " m-0 p-0 mt-3 d-flex justify-content-between flex-row-reverse flex-md-row"
           }
         >
-          <div className="m-0 p-0 mx-3">
-            <LeftMenu showMenu={showMenu} setShowMenu={setShowMenu} />
-          </div>
+          <LeftMenu showMenu={showMenu} setShowMenu={setShowMenu} />
 
           <div className="d-flex justify-content-between gap-2 mx-2">
             <input
@@ -97,32 +96,15 @@ export default function Home({ loading, setLoading }) {
         )}
 
         {/* Title */}
-        {show && (
-          <div
-            className={
-              styles.title +
-              " m-0 p-0 d-flex flex-column justify-content-center align-items-center"
-            }
-          >
-            <h4 className={styles.h4first}>Cauta ajutor,</h4>
-            <h4 className={styles.h4second}>simplu si usor</h4>
-          </div>
-        )}
+        {show && <Title />}
 
-        <div
-          className={
-            styles.clientSearchContainer +
-            " row col-12 col-md-7 col-xl-4 align-self-center justify-content-center flex-grow-0 px-2 pt-3"
-          }
-        >
-          <ClientSearch
-            state={state}
-            setState={setState}
-            searchJudetOras={searchJudetOras}
-            searchJudet={searchJudet}
-            initialValues={initialValues}
-          />
-        </div>
+        <ClientSearch
+          state={state}
+          setState={setState}
+          searchJudetOras={searchJudetOras}
+          searchJudet={searchJudet}
+          initialValues={initialValues}
+        />
       </div>
 
       <div className="row m-0 p-0 col-12 px-2 d-flex flex-column align-items-center">

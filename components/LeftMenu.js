@@ -2,7 +2,7 @@ import React from "react";
 
 const LeftMenu = ({showMenu,setShowMenu}) => {
   return (
-    <>
+    <div className='m-0 p-0 mx-3'>
       <svg
         viewBox="0 0 100 100"
         xmlns="http://www.w3.org/2000/svg"
@@ -81,7 +81,7 @@ const LeftMenu = ({showMenu,setShowMenu}) => {
           }
         `}
       </style>
-    </>
+    </div>
   );
 };
 
