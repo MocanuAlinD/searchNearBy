@@ -31,12 +31,28 @@
     //     var(--color-blue-darkish) 50%,
     //     var(--color-blue-dark));
     // -webkit-text-fill-color: transparent;
-    // -webkit-background-clip: path;
+    // -webkit-background-clip: text;
 
     // background-color: tomato;
     path {
-      fill: none;
+      // fill: transparent;
       stroke: white;
+      stroke-width: .7;
+      // stroke-dasharray: 70%;
+      // stroke-dashoffset: 50%;
+      // animation: animtext 10s linear infinite alternate;
+      // transition: fill 10s ease;
     }
+    // @keyframes animtext{
+    //   from{
+    //     stroke-dashoffset: 100%;
+    //     stroke: transparent;
+    //   }
+    //   to{
+    //     stroke: white;
+    //     stroke-dashoffset: 0;
+    //     fill: unset;
+    //   }
+    // }
   }
 }
