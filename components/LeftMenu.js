@@ -48,10 +48,7 @@ const LeftMenu = ({showMenu,setShowMenu}) => {
           .path1,
           .path2,
           .path3 {
-            transition: stroke-dasharray .35s ease-out .35s,stroke-dashoffset .35s ease-out .35s, stroke .35s ease-out .35s, transform .35s ease-out, stroke-width .35s ease-in .5s;
-          }
-          .path1, .path3{
-            transition-delay: .35s;
+            transition: stroke-dasharray .35s ease-out,stroke-dashoffset .35s ease-out .35s, stroke .35s ease-out .35s, transform .35s ease-out, stroke-width .35s ease-in .55s;
           }
           .path2{
             transform: translateX(0%);
@@ -65,7 +62,7 @@ const LeftMenu = ({showMenu,setShowMenu}) => {
             stroke-dasharray: 386;
             stroke-dashoffset: -286;
             stroke: var(--color-light);
-            stroke-width: 8;
+            stroke-width: 6;
           }
           .svg.active .path2 {
             transform: translateX(-100%);
@@ -77,7 +74,7 @@ const LeftMenu = ({showMenu,setShowMenu}) => {
             .svg:hover .path3 {
               stroke-dasharray: 386;
               stroke-dashoffset: -286;
-              stroke-width: 8;
+              stroke-width: 6;
             }
             .svg:hover .path2 {
               transform: translateX(-100%);
