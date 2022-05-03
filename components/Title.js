@@ -2,33 +2,29 @@ import React, { useEffect } from "react";
 import styles from "../styles/title.module.scss";
 
 const Title = () => {
+  useEffect(() => {
+    clickme();
+  }, []);
+
   const clickme = () => {
     const all = document.querySelectorAll(".svgTitle path");
-    const speed = 800;
+    const speed = 600;
     let i = 0;
     all.forEach((item, index) => {
+      console.log("for each");
       i++;
       let pathLength = Math.ceil(item.getTotalLength());
-      if (item.getAttribute("stroke-dasharray")) {
-        console.log("are dash");
-        item.setAttribute('stroke-dashoffset', pathLength)
-        item.innerHTML = `<animate attributeName='stroke-dashoffset' begin="a${
+      item.setAttribute("stroke-dasharray", pathLength);
+      item.setAttribute("stroke-dashoffset", pathLength);
+      if (index === 0) {
+        item.innerHTML = `<animate id="a${i}" attributeName='stroke-dashoffset' begin=".35s" dur="${
+          pathLength / speed
+        }" to="0" fill="freeze"/>`;
+        return;
+      } else {
+        item.innerHTML = `<animate id="a${i}" attributeName='stroke-dashoffset' begin="a${
           i - 1
         }.end" dur="${pathLength / speed}" to="0" fill="freeze" />`;
-      } else {
-        console.log("nu are dash");
-        item.setAttribute("stroke-dasharray", pathLength);
-        item.setAttribute("stroke-dashoffset", pathLength);
-        if (index === 0) {
-          item.innerHTML = `<animate id="a${i}" attributeName='stroke-dashoffset' begin="1.2s" dur="${
-            pathLength / speed
-          }" to="0" fill="freeze" />`;
-          return;
-        } else {
-          item.innerHTML = `<animate id="a${i}" attributeName='stroke-dashoffset' begin="a${
-            i - 1
-          }.end" dur="${pathLength / speed}" to="0" fill="freeze" />`;
-        }
       }
     });
   };
@@ -39,11 +35,12 @@ const Title = () => {
         " m-0 p-0 d-flex flex-column justify-content-center align-items-center"
       }
     >
-      <button onClick={clickme}>click</button>
       <svg
+        id="svgtitle"
         className="svgTitle"
         viewBox="0 0 258 81"
         fill="url(#rainbow)"
+        fillOpacity="0"
         xmlns="http://www.w3.org/2000/svg"
       >
         <defs>
@@ -61,6 +58,13 @@ const Title = () => {
             <stop stopColor="var(--color-blue-dark)" offset="100%" />
           </linearGradient>
         </defs>
+        <animate
+          attributeName="fill-opacity"
+          begin="a23.end"
+          dur="2s"
+          to="1"
+          fill="freeze"
+        />
         <path
           d="M7.70401 25.4481C4.65334 25.4481 2.54134 24.7867 1.36801 23.4641C0.557341 22.5254 0.152008 21.2134 0.152008 19.5281C0.152008 18.8027 0.226675 18.0241 0.376008 17.1921L1.68801 9.83205C2.64801 4.43472 6.11467 1.73605 12.088 1.73605C14.5627 1.73605 16.44 2.26939 17.72 3.33605C19 4.38139 19.64 5.82139 19.64 7.65605C19.64 8.50939 19.512 9.36272 19.256 10.2161C19.0213 11.0481 18.7867 11.6667 18.552 12.0721L18.2 12.7121H12.536C13.24 11.9014 13.592 10.7494 13.592 9.25606C13.592 8.46672 13.3893 7.84805 12.984 7.40005C12.5787 6.93072 11.9813 6.69605 11.192 6.69605C9.03734 6.69605 7.75734 7.89072 7.35201 10.2801L6.23201 16.7441C6.12534 17.2987 6.07201 17.8427 6.07201 18.3761C6.07201 19.7841 6.91467 20.4881 8.60001 20.4881C10.6267 20.4881 11.8427 19.3467 12.248 17.0641H18.008L17.848 17.9921C16.9947 22.9627 13.6133 25.4481 7.70401 25.4481Z"
           // fill="none"

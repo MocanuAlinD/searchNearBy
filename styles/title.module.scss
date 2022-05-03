@@ -1,58 +1,10 @@
 .title {
-  height: fit-content;
-  // background: linear-gradient(145deg,
-  //     var(--color-blue-dark) 20%,
-  //     var(--color-blue-darkish) 50%,
-  //     var(--color-blue-dark));
-  // -webkit-text-fill-color: transparent;
-  // -webkit-background-clip: text;
-
-  // h4 {
-  // font-weight: 800;
-  // font-size: min(calc(100vw / 10), 3rem);
-  // margin: 0;
-  // font-family: "Fugaz One", sans-serif;
-  // user-select: none;
-  // }
-
-  // .h4first {
-  // text-align: center;
-  // padding-right: min(10%, 10rem);
-  // }
-
-  // .h4second {
-  // text-align: center;
-  // padding-left: min(10%, 10rem);
-  // }
   svg {
-    // margin: 2rem;
-    // background: linear-gradient(145deg,
-    //     var(--color-blue-dark) 20%,
-    //     var(--color-blue-darkish) 50%,
-    //     var(--color-blue-dark));
-    // -webkit-text-fill-color: transparent;
-    // -webkit-background-clip: text;
-
-    // background-color: tomato;
+    width: min(90%,30rem);
     path {
-      // fill: transparent;
-      stroke: white;
-      stroke-width: .7;
-      // stroke-dasharray: 70%;
-      // stroke-dashoffset: 50%;
-      // animation: animtext 10s linear infinite alternate;
-      // transition: fill 10s ease;
+      stroke: var(--color-light);
+      stroke: var(--color-blue-darkish);
+      stroke-width: 1;
     }
-    // @keyframes animtext{
-    //   from{
-    //     stroke-dashoffset: 100%;
-    //     stroke: transparent;
-    //   }
-    //   to{
-    //     stroke: white;
-    //     stroke-dashoffset: 0;
-    //     fill: unset;
-    //   }
-    // }
   }
 }
