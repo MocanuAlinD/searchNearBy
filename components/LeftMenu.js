@@ -29,7 +29,6 @@ const LeftMenu = ({showMenu,setShowMenu}) => {
           strokeWidth="2"
           strokeLinecap="round"
           className="path3"
-          // opacity="0.4"
         ></path>
          <path
           d="M30,50 h40"
@@ -52,9 +51,14 @@ const LeftMenu = ({showMenu,setShowMenu}) => {
             transition: stroke-dasharray .35s ease-out .35s,stroke-dashoffset .35s ease-out .35s, stroke .35s ease-out .35s, transform .35s ease-out, stroke-width .35s ease-in .5s;
           }
           .path1, .path3{
-            transition-delay: .25s;
+            transition-delay: .35s;
           }
-
+          .path2{
+            transform: translateX(0%);
+            opacity: 1;
+            transition: all .35s ease-out;
+            transition-delay: .6s;
+          }
           
           .svg.active .path1,
           .svg.active .path3 {
@@ -66,6 +70,7 @@ const LeftMenu = ({showMenu,setShowMenu}) => {
           .svg.active .path2 {
             transform: translateX(-100%);
             opacity: 0;
+            transition-delay: 0s;
           }
           @media screen and (min-width: 768px){
             .svg:hover .path1,
@@ -75,8 +80,9 @@ const LeftMenu = ({showMenu,setShowMenu}) => {
               stroke-width: 8;
             }
             .svg:hover .path2 {
-              transform: translateX(-50%);
+              transform: translateX(-100%);
               stroke: transparent;
+              transition-delay: 0s;
             }
           }
         `}
