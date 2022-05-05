@@ -52,8 +52,8 @@
 
 
 
-.joburiLink {
-  // background-color: var(--color-blue-darkish);
+.link {
+  background-color: var(--color-blue-dark);
   border-radius: var(--border-radius);
   color: var(--color-light);
   font-weight: 200;
@@ -112,14 +112,14 @@
   top: 4rem;
   left: -100%;
   font-size: 1rem;
-  color: var(--color-light);
-  padding-left: 1rem;
   transition: all .35s ease-out;
   width: 100%;
-  background-color: var(--color-blue-dark);
+  background-color: rgba(255,255,255,0);
+  backdrop-filter: blur(10px);
+  height: calc(100% - 4rem);
+  padding-top: 3rem;
+  border-top: .5rem solid var(--color-blue-dark);
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding-block: 2rem;
-  // height: calc(100vh - 4rem);
 }

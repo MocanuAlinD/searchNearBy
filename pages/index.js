@@ -118,11 +118,11 @@ export default function Home({ loading, setLoading }) {
         )}
       </div>
       <div
-        className={styles.sidebar + " sidebar"}
+        className={styles.sidebar + ""}
         style={{ left: `${showMenu ? 0 : "-100%"}` }}
       >
         <Link href="/servicii">
-          <a className={styles.joburiLink + " ms-3"}>Toate judetele</a>
+          <a className={styles.link + " ms-3"}>Toate judetele</a>
         </Link>
       </div>
     </div>

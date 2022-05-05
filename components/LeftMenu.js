@@ -1,13 +1,13 @@
 import React from "react";
 
-const LeftMenu = ({showMenu,setShowMenu}) => {
+const LeftMenu = ({ showMenu, setShowMenu }) => {
   return (
-    <div className='m-0 p-0 mx-3'>
+    <div className="m-0 p-0 mx-3">
       <svg
         viewBox="0 0 100 100"
         xmlns="http://www.w3.org/2000/svg"
         className={`svg ${showMenu ? " active" : ""}`}
-        onClick={() => setShowMenu(prev =>!prev)}
+        onClick={() => setShowMenu((prev) => !prev)}
       >
         <path
           d="M90,20 h-80 q-40 -10 0 -40 q40 -30 90 0 q20 20 -10 40 l-80 60"
@@ -19,7 +19,7 @@ const LeftMenu = ({showMenu,setShowMenu}) => {
           strokeLinecap="round"
           className="path1"
         ></path>
-       
+
         <path
           d="M90,80 h-80 q-40 10 0 40 q40 30 90 0 q20 -20 -10 -40 l-80 -60"
           strokeDashoffset="306"
@@ -30,7 +30,7 @@ const LeftMenu = ({showMenu,setShowMenu}) => {
           strokeLinecap="round"
           className="path3"
         ></path>
-         <path
+        <path
           d="M30,50 h40"
           stroke="whitesmoke"
           strokeWidth="6"
@@ -48,38 +48,41 @@ const LeftMenu = ({showMenu,setShowMenu}) => {
           .path1,
           .path2,
           .path3 {
-            transition: stroke-dasharray .35s ease-out,stroke-dashoffset .35s ease-out .35s, stroke .35s ease-out .35s, transform .35s ease-out, stroke-width .35s ease-in .55s;
+            transition: all 0.35s ease-out;
           }
-          .path2{
+          .path2 {
             transform: translateX(0%);
             opacity: 1;
-            transition: all .35s ease-out;
-            transition-delay: .6s;
+            transition-delay: 0.35s;
           }
-          
+
           .svg.active .path1,
           .svg.active .path3 {
             stroke-dasharray: 386;
             stroke-dashoffset: -286;
             stroke: var(--color-light);
             stroke-width: 6;
+            transition-delay: 0.35s;
           }
           .svg.active .path2 {
             transform: translateX(-100%);
             opacity: 0;
             transition-delay: 0s;
           }
-          @media screen and (min-width: 768px){
+          @media screen and (min-width: 768px) {
             .svg:hover .path1,
             .svg:hover .path3 {
               stroke-dasharray: 386;
               stroke-dashoffset: -286;
               stroke-width: 6;
+              transition: all .35s ease-out;
+              transition-delay: .35s;
             }
             .svg:hover .path2 {
               transform: translateX(-100%);
               stroke: transparent;
-              transition-delay: 0s;
+              transition: all .35s ease-in;
+              transition-delay: 0;
             }
           }
         `}
