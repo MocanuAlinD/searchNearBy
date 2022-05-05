@@ -2,7 +2,6 @@ import Link from "next/link";
 import styles from "../styles/Home.module.scss";
 import { useState } from "react";
 import ClientSearch from "../components/ClientSearch";
-import Timer from "../components/Timer";
 import LoadingScreen from "../components/LoadingScreen";
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import CardCautare from "../components/CardCautare";
