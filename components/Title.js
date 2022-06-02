@@ -11,7 +11,6 @@ const Title = () => {
     const speed = 600;
     let i = 0;
     all.forEach((item, index) => {
-      console.log("for each");
       i++;
       let pathLength = Math.ceil(item.getTotalLength());
       item.setAttribute("stroke-dasharray", pathLength);

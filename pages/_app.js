@@ -69,7 +69,6 @@ function MyApp({ Component, pageProps }) {
       ziinceput: state.ziinceput,
       zisfarsit: state.zisfarsit,
     };
-    // console.log(addData);
 
     const sendData = await fetch("/api/postData", {
       method: "POST",

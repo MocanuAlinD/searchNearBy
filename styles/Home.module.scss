@@ -59,8 +59,9 @@
   font-weight: 200;
   font-size: .8rem;
   padding: .2rem .7rem;
+  text-align: center;
   transition: var(--transition);
-  width: fit-content;
+  width: min(90%, 15rem);
 
   &:hover {
     color: var(--color-blue-dark);
@@ -108,18 +109,18 @@
 }
 
 .sidebar{
-  position: absolute;
-  top: 4rem;
-  left: -100%;
-  font-size: 1rem;
-  transition: all .35s ease-out;
-  width: min(100%, 20rem);
+  // align-items: flex-start;
   background-color: rgba(0,0,0,0.2);
   backdrop-filter: blur(10px);
-  height: calc(100% - 4rem);
-  padding-top: 3rem;
   border-top: .5rem solid var(--color-blue-dark);
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  // display: flex;
+  font-size: 1rem;
+  height: calc(100% - 4rem);
+  // justify-content: center;
+  left: -100%;
+  padding-top: 3rem;
+  position: absolute;
+  top: 4rem;
+  transition: all .35s ease-out;
+  width: min(100%, 20rem);
 }

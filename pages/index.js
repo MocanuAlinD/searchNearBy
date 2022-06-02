@@ -1,5 +1,5 @@
-import Link from "next/link";
 import styles from "../styles/Home.module.scss";
+import Link from "next/link";
 import { useState } from "react";
 import ClientSearch from "../components/ClientSearch";
 import LoadingScreen from "../components/LoadingScreen";
@@ -117,11 +117,17 @@ export default function Home({ loading, setLoading }) {
         )}
       </div>
       <div
-        className={styles.sidebar + ""}
+        className={styles.sidebar + " d-flex flex-column align-items-center gap-3"}
         style={{ left: `${showMenu ? 0 : "-100%"}` }}
       >
         <Link href="/servicii">
-          <a className={styles.link + " ms-3"}>Toate judetele</a>
+          <a className={styles.link + " m-0"}>Toate judetele</a>
+        </Link>
+        <Link href="/">
+          <a className={styles.link + " m-0"}>Contact</a>
+        </Link>
+        <Link href="/">
+          <a className={styles.link + " m-0"}>Info</a>
         </Link>
       </div>
     </div>
