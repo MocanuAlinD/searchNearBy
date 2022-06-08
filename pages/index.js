@@ -84,7 +84,7 @@ export default function Home({ loading, setLoading }) {
                   " m-0 p-0 my-3 px-3 py-2 d-flex justify-content-center align-items-center"
                 }
               >
-                {"Inscrie-te acum!".split("").map((item, index) => (
+                {"Inscrie-te gratuit acum!".split("").map((item, index) => (
                   <h4 key={index} style={{ "--i": index + 1 }}>
                     {item}
                   </h4>
@@ -116,6 +116,10 @@ export default function Home({ loading, setLoading }) {
           <LoadingScreen />
         )}
       </div>
+
+
+
+
       <div
         className={styles.sidebar + " d-flex flex-column align-items-center gap-3"}
         style={{ left: `${showMenu ? 0 : "-100%"}` }}
