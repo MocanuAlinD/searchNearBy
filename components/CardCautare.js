@@ -11,16 +11,29 @@ const CardCautare = ({ data, idx }) => {
         {!open && (
           <thead>
             <tr>
-              <th>{idx + 1}. Oras</th>
-              <th>Munca</th>
+              <th>{idx + 1}.&nbsp;Oras</th>
+              <th>Tip serviciu</th>
               <th>Detalii</th>
             </tr>
           </thead>
         )}
+
+        {open && (
+          <thead>
+            <tr>
+              <th>&nbsp;</th>
+            </tr>
+          </thead>
+        )}
+
         <tbody>
           <tr>
             {!open && <td>{data.oras}</td>}
-            {!open ? <td>{data.tipjob}</td> : <td>{idx+ 1}.</td>}
+            {!open ? (
+              <td className="w-75">{data.tipjob}</td>
+            ) : (
+              <td>{idx + 1}.</td>
+            )}
             <td className="text-end m-0 p-0" colSpan="2">
               <button
                 onClick={() => setOpen((prev) => !prev)}
@@ -32,7 +45,7 @@ const CardCautare = ({ data, idx }) => {
           </tr>
           {open && (
             <>
-            <tr>
+              <tr>
                 <td>Serviciu</td>
                 <td colSpan="2">{data.tipjob}</td>
               </tr>

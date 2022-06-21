@@ -27,22 +27,30 @@ export default function Home({ loading, setLoading }) {
 
   // Button search only in judet
   const searchJudet = async () => {
-    setLoadSearch((prev) => true);
-    const getServices = await fetch(
-      `/api/jobsJudet?search=${state.cautare}&judet=${state.judet}`
-    );
-    const endresult = await getServices.json();
-    setState({ ...state, listaCarduri: endresult });
-    setLoadSearch((prev) => false);
+    try {
+      setLoadSearch((prev) => true);
+      const getServices = await fetch(
+        `/api/jobsJudet?search=${state.cautare}&judet=${state.judet}`
+      );
+      const endresult = await getServices.json();
+      setState({ ...state, listaCarduri: endresult });
+      setLoadSearch((prev) => false);
+    } catch (error) {
+      setLoadSearch((prev) => false);
+    }
   };
 
   // Button search in judet and oras
   const searchJudetOras = async () => {
-    const getServices = await fetch(
-      `/api/jobsJudetOras?search=${state.cautare}&judet=${state.judet}&oras=${state.oras}`
-    );
-    const endresult = await getServices.json();
-    setState({ ...state, listaCarduri: endresult });
+    try {
+      const getServices = await fetch(
+        `/api/jobsJudetOras?search=${state.cautare}&judet=${state.judet}&oras=${state.oras}`
+      );
+      const endresult = await getServices.json();
+      setState({ ...state, listaCarduri: endresult });
+    } catch (error) {
+      setLoadSearch((prev) => false);
+    }
   };
 
   return (
@@ -113,15 +121,14 @@ export default function Home({ loading, setLoading }) {
             <CardCautare data={item} key={index} idx={index} />
           ))
         ) : (
-          <LoadingScreen />
+          <LoadingScreen setLoadSearch={setLoadSearch} />
         )}
       </div>
 
-
-
-
       <div
-        className={styles.sidebar + " d-flex flex-column align-items-center gap-3"}
+        className={
+          styles.sidebar + " d-flex flex-column align-items-center gap-3"
+        }
         style={{ left: `${showMenu ? 0 : "-100%"}` }}
       >
         <Link href="/servicii">

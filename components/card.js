@@ -120,8 +120,8 @@ const Card = ({ data, setLocation }) => {
 
       <hr />
       <div className={styles.wrapper}>
-        {data.urgente ? (
-          <div className={styles.checkbox}>
+        {/* {data.urgente ? (
+          <div className={styles.checkbox + " mt-1 border"}>
             <Checkbox
               size="small"
               sx={{
@@ -137,7 +137,7 @@ const Card = ({ data, setLocation }) => {
             <h5>Disponibil in afara zilelor/orelor de lucru.</h5>
           </div>
         ) : (
-          <div className={styles.checkbox}>
+          <div className={styles.checkbox + " mt-1 border"}>
             <Checkbox
               className={styles.checkbox}
               size="small"
@@ -151,7 +151,22 @@ const Card = ({ data, setLocation }) => {
             />
             <h5>Disponibil doar in zilele/orele de lucru.</h5>
           </div>
-        )}
+        )} */}
+         <div className={styles.checkbox + " mt-0"}>
+            <Checkbox
+              size="small"
+              sx={{
+                "&.Mui-checked": {
+                  color: "#81c784",
+                  marginLeft: "-.2rem",
+                  marginRight: ".5rem",
+                  padding: 0,
+                },
+              }}
+              checked={data.urgente}
+            />
+            <h5 className='mt-1'>{data.urgente ? "Disponibil in afara zilelor/orelor de lucru." : "Disponibil doar in zilele/orele de lucru."}</h5>
+          </div>
       </div>
     </div>
   );
