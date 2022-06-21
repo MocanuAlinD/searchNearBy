@@ -75,7 +75,7 @@ const CardCautare = ({ data, idx }) => {
                 </td>
               </tr>
               <tr>
-                <td>Disponibilitate inafara orelor de lucru:</td>
+                <td>Disponibilitate in afara orelor de lucru:</td>
                 <td colSpan="2">{true ? "Da" : "Nu"}</td>
               </tr>
             </>
