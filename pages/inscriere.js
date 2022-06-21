@@ -15,8 +15,8 @@ export default function Inscriere({
 }) {
   return (
     <Container
-      fd="column"
       bg={`linear-gradient(to bottom right, var(--color-blue-light), var(--color-blue-dark))`}
+      className='d-flex flex-column align-items-center'
     >
       <div className="row col-12 mt-2 ps-3">
         <BackButton url="/" text="Pagina principala" />

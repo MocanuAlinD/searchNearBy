@@ -13,6 +13,8 @@ import {
 } from "react-icons/ai";
 import Link from "next/link";
 
+
+
 const Card = ({ data, setLocation }) => {
   const saveToStorage = () => {
     localStorage.setItem(

@@ -60,7 +60,7 @@ const FormRegister = ({
 
   return (
     <form onSubmit={postData} method="GET" className="col-12">
-      <SmallContainer m="0 0 15rem 0" className="mx-auto">
+      <SmallContainer m="0 0 15rem 0" className="d-flex flex-column mx-auto">
         <Wrapper>
           <LabelCustom htmlFor="numeUtilizator" m="0">Nume complet: </LabelCustom>
           <InputCustom
@@ -243,8 +243,8 @@ const FormRegister = ({
             <span>Selecteaza corect o ora</span>
         </Wrapper>
 
-        <Wrapper fd="column" m="0.5rem 0 0 0">
-          <LabelCustom fs=".8rem">
+        <Wrapper m="0.5rem 0 0 0">
+          <LabelCustom>
             <Checkbox
               size="small"
               sx={{
@@ -270,7 +270,6 @@ const FormRegister = ({
           </LabelCustom>
           <SelectCustom
             required
-            w="100%"
             name="orase"
             id="labelOras"
             value={state.judet}
@@ -310,7 +309,7 @@ const FormRegister = ({
           ""
         )}
 
-        <Wrapper fd="row" jc="space-between" className="">
+        <Wrapper className='d-flex flex-row justify-content-between'>
           {loading ? (
             <ButtonWithIcon w="45%" className="shadow">
               Inregistrare

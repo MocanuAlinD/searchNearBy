@@ -1,7 +1,6 @@
 import React from "react";
 import {
   SelectCustom,
-  LabelCustom,
   InputContainer,
 } from "../components/singleTags/elemetsCustom";
 import { judete } from "../lib/judete";
@@ -26,7 +25,6 @@ const ClientSearch = ({
       <div className="p-0">
         <div>
           <SelectCustom
-            w="100%"
             name="judet"
             value={state.judet}
             onChange={(e) =>
@@ -57,7 +55,6 @@ const ClientSearch = ({
         {state.oras ? (
           <div>
             <SelectCustom
-              w="100%"
               name="oras"
               value={state.oras}
               onChange={(e) =>

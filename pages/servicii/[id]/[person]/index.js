@@ -6,15 +6,15 @@ export const getStaticPaths = async () => {
   const unu = await fetch(`https://madapi.vercel.app/api/jobsTotal`);
   const res = await unu.json();
 
-  const moc1 = {};
+  const moc = {};
   Object.values(res).map((item) => {
     Object.values(item).map((item1) => {
-      moc1[item1.id] = item1.judet;
+      moc[item1.id] = item1.judet;
     });
   });
-  const paths = Object.keys(moc1).map((item) => {
+  const paths = Object.keys(moc).map((item) => {
     return {
-      params: { person: item.toString(), id: moc1[item] },
+      params: { person: item.toString(), id: moc[item] },
     };
   });
 

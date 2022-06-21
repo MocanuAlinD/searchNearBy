@@ -24,52 +24,25 @@ color - color
 
 export const Container = styled.div`
   background: ${({ bg }) => (bg ? bg : "#222")};
-  padding: ${({ p }) => (p ? p : "0 0")};
-  display: ${({ display }) => (display ? display : "flex")};
-  justify-content: ${({ js }) => (js ? js : "flex-start")};
-  align-items: ${({ ai }) => (ai ? ai : "center")};
-  flex-direction: ${({ fd }) => (fd ? fd : "row")};
   height: ${({ h }) => (h ? h : "fit-content")};
   min-height: ${({ minh }) => (minh ? minh : "100vh")};
-  margin: ${({ m }) => m && m};
 `;
 
 export const SmallContainer = styled.div`
-  display: ${({ display }) => (display ? display : "flex")};
-  justify-content: ${({ jc }) => (jc ? jc : "center")};
-  align-items: ${({ ai }) => (ai ? ai : "center")};
-  flex-direction: ${({ fd }) => (fd ? fd : "column")};
-  background: ${({ bg }) => (bg ? bg : "transparent")};
   width: ${({ w }) => (w ? w : "30rem")};
-  height: ${({ h }) => (h ? h : "fit-content")};
-  min-height: ${({ minh }) => (minh ? minh : "100%")};
   margin: ${({ m }) => (m ? m : "1rem 0")};
-  padding: ${({ p }) => (p ? p : "0 0")};
-  transition: var(--transition);
   @media (max-width: 520px) {
     width: 90%;
-    margin: 1rem 2rem;
   }
 `;
 
 export const Wrapper = styled.div`
-  align-items: ${({ai}) => ai && ai};
   background: ${({bg}) => bg && bg};
   border: ${({border}) => border && border};
   color: var(--color-light);
   display: ${({display}) => (display ? display : "flex")};
   flex-direction: ${({fd}) => (fd ? fd : "column")};
-  flex-grow: ${({fg}) => fg && fg};
-  flex-wrap: ${({qwrap}) => qwrap && qwrap};
-  height: ${({h}) => (h ? h : "fit-content")};
-  justify-content: ${({jc}) => jc && jc};
   margin: ${({m}) => (m ? m : "0.25rem 0")};
-  min-height: ${({minh}) => minh && minh};
-  overflow: ${({overflow}) => overflow && overflow};
-  overflow-x: ${({overflowx}) => overflowx && overflowx};
-  overflow-y: ${({overflowy}) => overflowy && overflowy};
-  padding: ${({p}) => (p ? p : "0 0")};
-  width: ${({w}) => (w ? w : "100%")};
   @media (max-width: 450px) {
     flex-wrap: ${({qwrap}) => (qwrap ? qwrap : "nowrap")};
     justify-content: space-between;
@@ -89,25 +62,21 @@ export const SelectCustom = styled.select`
   font-weight: 200;
   padding: 0.3rem;
   transition: var(--transition);
-  margin: ${({ m }) => (m ? m : ".25rem 0")};
-  width: ${({ w }) => (w ? w : "100%")};
-  height: ${({ h }) => (h ? h : "fit-content")};
+  margin: .25rem 0;
+  width: 100%;
   :focus {
     background: var(--color-light);
     border-bottom: 2px solid var(--color-orange);
     color: var(--color-dark);
   }
-  /* @media (max-width: 567px) {
-    font-size: ${({ fs }) => (fs ? `calc(${fs - "0.5rem"})` : ".8rem")};
-  } */
 `;
 
 
 export const LabelCustom = styled.label`
   color: var(--color-light);
-  width: ${({w}) => (w ? w : "fit-content")};
+  width: fit-content;
   margin: ${({m}) => (m ? m : ".5rem 0 0 0")};
-  font-size: ${({fs}) => (fs ? fs : "var(--font-size08)")};
+  font-size: var(--font-size08);
   font-weight: 200;
 `;
 
