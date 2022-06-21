@@ -116,7 +116,7 @@ export default function Home({ loading, setLoading }) {
 
       <div className="row m-0 p-0 col-12 px-2 d-flex flex-column align-items-center">
         {state.listaCarduri.length > 0 && <SortItems />}
-        {!loadSearch && state.listaCarduri ? (
+        {loadSearch && state.listaCarduri ? (
           state.listaCarduri.map((item, index) => (
             <CardCautare data={item} key={index} idx={index} />
           ))

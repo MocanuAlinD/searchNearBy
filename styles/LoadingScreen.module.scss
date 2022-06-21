@@ -112,6 +112,7 @@
                 transform: scale(.5);
                 color: white;
                 animation-delay: calc(var(--i) * .5s);
+                opacity: 0;
             }
             @keyframes anim {
                 0% {
