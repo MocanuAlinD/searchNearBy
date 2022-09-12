@@ -9,12 +9,12 @@ function MyApp({ Component, pageProps }) {
     pretMin: "100",
     pretMax: "2000",
     detalii: "",
-    tags: "",
     oras: "",
     dataregister: "",
     oraregister: "",
     fullname: "",
     urgente: false,
+    urgenteNoapte: false,
     ziinceput: "Luni",
     zisfarsit: "Vineri",
     orainceput: "08:00",
@@ -63,9 +63,9 @@ function MyApp({ Component, pageProps }) {
       orasfarsit: state.orasfarsit,
       pretMin: state.pretMin,
       pretMax: state.pretMax,
-      tags: state.tags,
       tipjob: state.tipjob,
       urgente: state.urgente,
+      urgenteNoapte: state.urgenteNoapte,
       ziinceput: state.ziinceput,
       zisfarsit: state.zisfarsit,
     };
@@ -78,7 +78,7 @@ function MyApp({ Component, pageProps }) {
     const res = await sendData.json();
     alert(res.msg);
 
-    // setState(initialValues);
+    setState(initialValues);
   };
 
   return (

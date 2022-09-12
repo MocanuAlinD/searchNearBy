@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import styles from '../styles/SortItems.module.css';
 
 const SortItems = () => {
   return (
-    <div className='col-12 col-md-7 border border-dark text-center mb-3 text-white'>Meniu sortare - in constructie</div>
-  )
-}
+    <div className={styles.container + " text-center border"}>
+      Meniu sortare - in constructie
+    </div>
+  );
+};
 
-export default SortItems
+export default SortItems;

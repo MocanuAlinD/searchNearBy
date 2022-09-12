@@ -34,7 +34,7 @@ const CardCautare = ({ data, idx }) => {
             ) : (
               <td>{idx + 1}.</td>
             )}
-            <td className="text-end m-0 p-0" colSpan="2">
+            <td className="m-0 p-0 text-end" colSpan="2">
               <button
                 onClick={() => setOpen((prev) => !prev)}
                 className={styles.button}
@@ -52,6 +52,10 @@ const CardCautare = ({ data, idx }) => {
               <tr>
                 <td>Oras</td>
                 <td colSpan="2">{data.oras}</td>
+              </tr>
+              <tr>
+                <td>Nume/companie</td>
+                <td colSpan="2">{data.fullname}</td>
               </tr>
               <tr>
                 <td>Telefon</td>
@@ -74,9 +78,19 @@ const CardCautare = ({ data, idx }) => {
                   Min: {data.pretMin} lei <br /> Max: {data.pretMax} lei
                 </td>
               </tr>
+
               <tr>
                 <td>Disponibilitate in afara orelor de lucru:</td>
-                <td colSpan="2">{true ? "Da" : "Nu"}</td>
+                <td colSpan="2">{data.urgente ? "Da" : "Nu"}</td>
+              </tr>
+
+              <tr>
+                <td>Urgente timp noapte:</td>
+                <td colSpan="2">{data.urgenteNoapte ? "Da" : "Nu"}</td>
+              </tr>
+
+              <tr>
+                  <td colSpan="2">Descriere: <br /><br /><span>{data.detalii}</span></td>
               </tr>
             </>
           )}

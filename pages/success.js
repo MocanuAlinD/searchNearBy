@@ -82,9 +82,6 @@ const Success = ({state, postData}) => {
         Pret minim: {state.pretMin}
       </h4>
       <h4 style={{ color: data ? "blue" : "red", padding: ".2rem" }}>
-        Tags: {state.tags}
-      </h4>
-      <h4 style={{ color: data ? "blue" : "red", padding: ".2rem" }}>
         Tip serviciu: {state.tipjob}
       </h4>
       <h4 style={{ color: data ? "blue" : "red", padding: ".2rem" }}>

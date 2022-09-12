@@ -11,7 +11,6 @@ import { BiReset } from "react-icons/bi";
 import { AiOutlineSearch } from "react-icons/ai";
 import styles from "../styles/clientsearch.module.scss";
 import { ButtonWithIcon } from "./singleTags/ButtonWithIcon";
-import SortItems from "./SortItems";
 
 const ClientSearch = ({
   state,
@@ -21,7 +20,12 @@ const ClientSearch = ({
   initialValues,
 }) => {
   return (
-    <div className="row col-12 col-md-7 col-xl-4 align-self-center justify-content-center flex-grow-0 px-2 pt-3">
+    <div
+      className={
+        styles.container +
+        "  m-0 p-0 align-self-center justify-content-center px-2 px-md-0 pt-3"
+      }
+    >
       <div className="p-0">
         <div>
           <SelectCustom

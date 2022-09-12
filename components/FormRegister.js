@@ -107,12 +107,12 @@ const FormRegister = ({
           <LabelCustom htmlFor="meserie">Serviciu prestat: </LabelCustom>
           <InputCustom
             required
-            pattern="[A-Za-z0-9 ]{3,}"
+            pattern="[A-Za-z0-9 -]{3,}"
             autoComplete="off"
             type="text"
             id="meserie"
             value={state.tipjob}
-            placeholder="Electrician, instalator, fotograf, etc...."
+            placeholder="electrician, instalator, fotograf, etc...."
             onChange={(e) => setState({ ...state, tipjob: e.target.value })}
           />
           <span>Tipul de serviciu este necesar.</span>
@@ -166,20 +166,6 @@ const FormRegister = ({
           >
             {"Caractere ramase: " + (+MAX_CHAR_LENGTH - +state.detalii.length)}
           </LabelSmallCustom>
-        </Wrapper>
-
-        <Wrapper>
-          <LabelCustom htmlFor="keyTags" m="0">Cuvinte cheie</LabelCustom>
-          <InputCustom
-            required
-            autoComplete="off"
-            type="text"
-            id="keyTags"
-            placeholder="cuvinte ce vor fi cautate de oameni"
-            value={state.tags}
-            onChange={(e) => setState({ ...state, tags: e.target.value })}
-          />
-          <span>Cuvintele cheie sunt obligatorii</span>
         </Wrapper>
 
         <Wrapper>
@@ -261,6 +247,31 @@ const FormRegister = ({
               onChange={() => setState({ ...state, urgente: !state.urgente })}
             />
             Disponibil in afara zilelor/orelor de lucru
+          </LabelCustom>
+        </Wrapper>
+
+
+
+
+              {/* Urgente noapte */}
+        <Wrapper m="0.5rem 0 0 0">
+          <LabelCustom>
+            <Checkbox
+              size="small"
+              sx={{
+                color: "var(--color-blue)",
+                "&.Mui-checked": {
+                  color: "var(--color-blue)",
+                },
+                marginTop: "-.2rem",
+                marginRight: ".5rem",
+                padding: 0,
+              }}
+              checked={state.urgenteNoapte}
+              value=""
+              onChange={() => setState({ ...state, urgenteNoapte: !state.urgenteNoapte })}
+            />
+            Urgente pe timp de noapte
           </LabelCustom>
         </Wrapper>
 

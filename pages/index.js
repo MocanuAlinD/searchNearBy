@@ -69,6 +69,7 @@ export default function Home({ loading, setLoading }) {
         >
           <LeftMenu showMenu={showMenu} setShowMenu={setShowMenu} />
 
+          {!show && <h3 className={styles.navTitle + " m-0 p-0"}>Cauta ajutor, simplu si usor</h3>}
           <div className="d-flex justify-content-between gap-2 mx-2">
             <input
               type="checkbox"
@@ -76,8 +77,8 @@ export default function Home({ loading, setLoading }) {
               onChange={() => setShow((prev) => !prev)}
               className={styles.checkbox + " m-0 p-0"}
             />
-            {show && <AiOutlineEye className={"text-white"} />}
-            {!show && <AiOutlineEyeInvisible className={"text-white"} />}
+            {!show && <AiOutlineEye className={"text-white"} />}
+            {show && <AiOutlineEyeInvisible className={"text-white"} />}
           </div>
         </div>
 
@@ -139,6 +140,9 @@ export default function Home({ loading, setLoading }) {
         </Link>
         <Link href="/">
           <a className={styles.link + " m-0"}>Info</a>
+        </Link>
+        <Link href="/inscriere">
+          <a className={styles.link + " m-0 mt-5"}>Inregistrare</a>
         </Link>
       </div>
     </div>

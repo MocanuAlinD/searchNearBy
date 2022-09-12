@@ -11,9 +11,9 @@ import {
   AiOutlineMail,
   AiOutlineCalendar,
 } from "react-icons/ai";
+import { CgUnavailable } from "react-icons/cg";
+import { ImCheckboxChecked } from "react-icons/im";
 import Link from "next/link";
-
-
 
 const Card = ({ data, setLocation }) => {
   const saveToStorage = () => {
@@ -25,7 +25,9 @@ const Card = ({ data, setLocation }) => {
   };
   return (
     <div className={styles.container}>
-      <h3>{data.tipjob.charAt(0).toUpperCase() + data.tipjob.slice(1)}</h3>
+      <h3 className="text-center">
+        {data.tipjob.charAt(0).toUpperCase() + data.tipjob.slice(1)}
+      </h3>
       <hr />
       <div className={styles.wrapper}>
         <h4>
@@ -113,60 +115,39 @@ const Card = ({ data, setLocation }) => {
           &nbsp;&nbsp;Program
         </h4>
         <h5>
-          {data.orainceput} - {data.orasfarsit} {data.ziinceput} -{" "}
-          {data.zisfarsit}
+          {data.orainceput} - {data.orasfarsit} &nbsp; &#10137; &nbsp; {data.ziinceput} -{" "}
+          {data.zisfarsit} 
         </h5>
       </div>
 
       <hr />
       <div className={styles.wrapper}>
-        {/* {data.urgente ? (
-          <div className={styles.checkbox + " mt-1 border"}>
-            <Checkbox
-              size="small"
-              sx={{
-                "&.Mui-checked": {
-                  color: "#81c784",
-                  marginLeft: "-.2rem",
-                  marginRight: ".5rem",
-                  padding: 0,
-                },
-              }}
-              checked={data.urgente}
-            />
-            <h5>Disponibil in afara zilelor/orelor de lucru.</h5>
-          </div>
-        ) : (
-          <div className={styles.checkbox + " mt-1 border"}>
-            <Checkbox
-              className={styles.checkbox}
-              size="small"
-              sx={{
-                color: "#81c784",
-                padding: 0,
-                marginLeft: "-.2rem",
-                marginRight: ".5rem",
-              }}
-              checked={data.urgente}
-            />
-            <h5>Disponibil doar in zilele/orele de lucru.</h5>
-          </div>
-        )} */}
-         <div className={styles.checkbox + " mt-0"}>
-            <Checkbox
-              size="small"
-              sx={{
-                "&.Mui-checked": {
-                  color: "#81c784",
-                  marginLeft: "-.2rem",
-                  marginRight: ".5rem",
-                  padding: 0,
-                },
-              }}
-              checked={data.urgente}
-            />
-            <h5 className='mt-1'>{data.urgente ? "Disponibil in afara zilelor/orelor de lucru." : "Disponibil doar in zilele/orele de lucru."}</h5>
-          </div>
+        <div className={styles.checkbox}>
+          {data.urgente ? (
+            <ImCheckboxChecked className="m-0 p-0 fs-6" />
+          ) : (
+            <CgUnavailable className="m-0 p-0 fs-6" />
+          )}
+
+          <h5 className="m-0 p-0 ms-2 d-flex justify-content-start align-items-center">
+            Disponibil in afara zilelor / orelor de lucru.
+          </h5>
+        </div>
+      </div>
+
+      <hr />
+      <div className={styles.wrapper}>
+        <div className={styles.checkbox}>
+          {data.urgenteNoapte ? (
+            <ImCheckboxChecked className="m-0 p-0 fs-6" />
+          ) : (
+            <CgUnavailable className="m-0 p-0 fs-6" />
+          )}
+
+          <h5 className="m-0 p-0 ms-2 d-flex justify-content-start align-items-center">
+            Urgente pe timpul noptii
+          </h5>
+        </div>
       </div>
     </div>
   );
