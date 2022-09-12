@@ -3,24 +3,24 @@ import { useState, useEffect } from "react";
 
 function MyApp({ Component, pageProps }) {
   const initialValues = {
-    id: "123456",
+    id: "",
     judet: "",
-    tipjob: "programator",
-    pretMin: "200",
+    tipjob: "",
+    pretMin: "100",
     pretMax: "2000",
-    detalii: "website site magazin online site prezentare",
-    tags: "site magazin prezentare",
+    detalii: "",
+    tags: "",
     oras: "",
     dataregister: "",
     oraregister: "",
-    fullname: "Mocanu Alin-Daniel",
+    fullname: "",
     urgente: false,
     ziinceput: "Luni",
     zisfarsit: "Vineri",
     orainceput: "08:00",
     orasfarsit: "16:00",
-    phone: "0721753515",
-    email: "alin_ngt@yahoo.com",
+    phone: "0721345678",
+    email: "email@yahoo.com",
   };
 
   const initialLocation = {

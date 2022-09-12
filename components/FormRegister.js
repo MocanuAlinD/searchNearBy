@@ -115,7 +115,7 @@ const FormRegister = ({
             placeholder="Electrician, instalator, fotograf, etc...."
             onChange={(e) => setState({ ...state, tipjob: e.target.value })}
           />
-          <span>Tipul de job este necesar.</span>
+          <span>Tipul de serviciu este necesar.</span>
         </Wrapper>
 
         <Wrapper>
