@@ -5,14 +5,14 @@ function MyApp({ Component, pageProps }) {
   const initialValues = {
     id: "",
     judet: "",
-    tipjob: "",
+    tipjob: "electrician",
     pretMin: "100",
     pretMax: "2000",
-    detalii: "",
+    detalii: "Introdu detalii aici",
     oras: "",
     dataregister: "",
     oraregister: "",
-    fullname: "",
+    fullname: "John Doe",
     urgente: false,
     urgenteNoapte: false,
     ziinceput: "Luni",
@@ -21,6 +21,7 @@ function MyApp({ Component, pageProps }) {
     orasfarsit: "16:00",
     phone: "0721345678",
     email: "email@yahoo.com",
+    website: ""
   };
 
   const initialLocation = {
@@ -68,6 +69,7 @@ function MyApp({ Component, pageProps }) {
       urgenteNoapte: state.urgenteNoapte,
       ziinceput: state.ziinceput,
       zisfarsit: state.zisfarsit,
+      website: state.website
     };
 
     const sendData = await fetch("/api/postData", {

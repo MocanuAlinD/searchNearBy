@@ -48,22 +48,26 @@ const FormRegister = ({
   };
 
   const changeListaOrase = (e) => {
-    const tempSorted = alin[e.target.value].sort((a, b) => (a.nume > b.nume && 1) || -1)
+    const tempSorted = alin[e.target.value].sort(
+      (a, b) => (a.nume > b.nume && 1) || -1
+    );
     setState({
       ...state,
       judet: e.target.value,
-      oras: tempSorted[0].nume + (tempSorted[0].comuna ? ", " + tempSorted[0].comuna : '')
+      oras:
+        tempSorted[0].nume +
+        (tempSorted[0].comuna ? ", " + tempSorted[0].comuna : ""),
     });
-    setListaOrase(
-      tempSorted
-    );
+    setListaOrase(tempSorted);
   };
 
   return (
     <form onSubmit={postData} method="GET" className="col-12">
       <SmallContainer m="0 0 15rem 0" className="d-flex flex-column mx-auto">
         <Wrapper>
-          <LabelCustom htmlFor="numeUtilizator" m="0">Nume complet: </LabelCustom>
+          <LabelCustom htmlFor="numeUtilizator" m="0">
+            Nume complet:{" "}
+          </LabelCustom>
           <InputCustom
             required
             pattern="[A-Za-z -.]{2,}"
@@ -71,21 +75,23 @@ const FormRegister = ({
             type="text"
             id="numeUtilizator"
             value={state.fullname}
-            placeholder="Nume Prenume"
+            placeholder="nume prenume"
             onChange={(e) => setState({ ...state, fullname: e.target.value })}
           />
           <span>Numele si prenumele sunt necesare.</span>
         </Wrapper>
 
         <Wrapper>
-          <LabelCustom htmlFor="phoneID" m="0">Telefon</LabelCustom>
+          <LabelCustom htmlFor="phoneID" m="0">
+            Telefon
+          </LabelCustom>
           <InputCustom
             required
             pattern="[0-9]{6,20}"
             id="phoneID"
             autoComplete="off"
             type="text"
-            placeholder="Telefon"
+            placeholder="telefon"
             value={state.phone}
             onChange={(e) => setState({ ...state, phone: e.target.value })}
           />
@@ -117,10 +123,10 @@ const FormRegister = ({
             placeholder="electrician, instalator, fotograf, etc...."
             onChange={(e) => setState({ ...state, tipjob: e.target.value })}
           />
+          <span>Tipul de serviciu este necesar.</span>
           <datalist id="inputList">
             <InputSuggestions />
           </datalist>
-          <span>Tipul de serviciu este necesar.</span>
         </Wrapper>
 
         <Wrapper>
@@ -140,7 +146,6 @@ const FormRegister = ({
           <InputCustom
             required
             pattern="[0-9]+"
-            // mb="1rem"
             id="pretMaxID"
             autoComplete="off"
             type="text"
@@ -164,7 +169,7 @@ const FormRegister = ({
             rows="6"
             placeholder="Aici poti trece detalii despre serviciul prestat"
           ></TextAreaCustom>
-            <span>Scurta descriere este obligatorie</span>
+          <span>Scurta descriere este obligatorie</span>
           <LabelSmallCustom
             char={state.detalii.length}
             maxChar={MAX_CHAR_LENGTH}
@@ -174,7 +179,22 @@ const FormRegister = ({
         </Wrapper>
 
         <Wrapper>
-          <LabelCustom htmlFor="saptamanaStart" m="0">Disponibil de</LabelCustom>
+          <LabelCustom htmlFor="website">Website (Optional)</LabelCustom>
+          <InputCustom
+            // pattern="[0-9]+"
+            id="website"
+            autoComplete="off"
+            type="text"
+            value={state.website}
+            placeholder="www."
+            onChange={(e) => setState({ ...state, website: e.target.value })}
+          />
+        </Wrapper>
+
+        <Wrapper>
+          <LabelCustom htmlFor="saptamanaStart" m="0">
+            Disponibil de
+          </LabelCustom>
           <SelectCustom
             name="saptamanaStart"
             id="saptamanaStart"
@@ -189,7 +209,9 @@ const FormRegister = ({
             <option value="Sambata">Sambata</option>
             <option value="Duminica">Duminica</option>
           </SelectCustom>
-          <LabelCustom htmlFor="saptamanaSfarsit" m="0">pana</LabelCustom>
+          <LabelCustom htmlFor="saptamanaSfarsit" m="0">
+            pana
+          </LabelCustom>
           <SelectCustom
             name="saptamanaSfarsit"
             id="saptamanaSfarsit"
@@ -230,8 +252,8 @@ const FormRegister = ({
             id="programSfarsit"
             value={state.orasfarsit}
             onChange={(e) => setState({ ...state, orasfarsit: e.target.value })}
-            />
-            <span>Selecteaza corect o ora</span>
+          />
+          <span>Selecteaza corect o ora</span>
         </Wrapper>
 
         <Wrapper m="0.5rem 0 0 0">
@@ -255,10 +277,7 @@ const FormRegister = ({
           </LabelCustom>
         </Wrapper>
 
-
-
-
-              {/* Urgente noapte */}
+        {/* Urgente noapte */}
         <Wrapper m="0.5rem 0 0 0">
           <LabelCustom>
             <Checkbox
@@ -274,7 +293,9 @@ const FormRegister = ({
               }}
               checked={state.urgenteNoapte}
               value=""
-              onChange={() => setState({ ...state, urgenteNoapte: !state.urgenteNoapte })}
+              onChange={() =>
+                setState({ ...state, urgenteNoapte: !state.urgenteNoapte })
+              }
             />
             Urgente pe timp de noapte
           </LabelCustom>
@@ -290,7 +311,6 @@ const FormRegister = ({
             id="labelOras"
             value={state.judet}
             onChange={(e) => changeListaOrase(e)}
-
           >
             <option value="" disabled>
               ---Alege judetul---
@@ -305,7 +325,9 @@ const FormRegister = ({
 
         {state.oras ? (
           <Wrapper m="0">
-            <LabelCustom htmlFor="labelComuna" m="0">Localitate: </LabelCustom>
+            <LabelCustom htmlFor="labelComuna" m="0">
+              Localitate:{" "}
+            </LabelCustom>
             <SelectCustom
               required
               name="comune"
@@ -325,7 +347,7 @@ const FormRegister = ({
           ""
         )}
 
-        <Wrapper className='d-flex flex-row justify-content-between'>
+        <Wrapper className="d-flex flex-row justify-content-between">
           {loading ? (
             <ButtonWithIcon w="45%" className="shadow">
               Inregistrare
@@ -352,7 +374,6 @@ const FormRegister = ({
             </div>
             Reset
           </ButtonWithIcon>
-
         </Wrapper>
       </SmallContainer>
     </form>
