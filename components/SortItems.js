@@ -1,5 +1,5 @@
 import React from "react";
-import styles from '../styles/SortItems.module.css';
+import styles from '../styles/SortItems.module.scss';
 
 const SortItems = () => {
   return (

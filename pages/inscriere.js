@@ -3,6 +3,7 @@ import FormRegister from "../components/FormRegister";
 import NewTimer from "../components/NewTimer";
 import BackButton from "../components/BackButton";
 
+
 export default function Inscriere({
   listaOrase,
   setListaOrase,

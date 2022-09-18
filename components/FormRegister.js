@@ -16,6 +16,7 @@ import { judete } from "../lib/judete";
 import { alin } from "../lib";
 import axios from "axios";
 import getStripe from "../lib/get-stripe";
+import InputSuggestions from "./InputSuggestions";
 
 const FormRegister = ({
   state,
@@ -107,6 +108,7 @@ const FormRegister = ({
           <LabelCustom htmlFor="meserie">Serviciu prestat: </LabelCustom>
           <InputCustom
             required
+            list="inputList"
             pattern="[A-Za-z0-9 -]{3,}"
             autoComplete="off"
             type="text"
@@ -115,6 +117,9 @@ const FormRegister = ({
             placeholder="electrician, instalator, fotograf, etc...."
             onChange={(e) => setState({ ...state, tipjob: e.target.value })}
           />
+          <datalist id="inputList">
+            <InputSuggestions />
+          </datalist>
           <span>Tipul de serviciu este necesar.</span>
         </Wrapper>
 
