@@ -1,6 +1,24 @@
 import "../styles/globals.scss";
 import { useState, useEffect } from "react";
 
+
+/*
+TODO:
+
+Sorting bar ->
+by date registered (newest vs oldest)
+maxim/minim price
+urgente
+has website or not
+
+
+Better loading popup
+
+
+*/
+
+
+
 function MyApp({ Component, pageProps }) {
   const initialValues = {
     id: "",
@@ -69,8 +87,10 @@ function MyApp({ Component, pageProps }) {
       urgenteNoapte: state.urgenteNoapte,
       ziinceput: state.ziinceput,
       zisfarsit: state.zisfarsit,
-      website: state.website
+      website: state.website ? "https://www." + state.website : ""
     };
+
+    // console.log(addData)
 
     const sendData = await fetch("/api/postData", {
       method: "POST",

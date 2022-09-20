@@ -29,10 +29,20 @@
             font-size: .8rem;
             font-weight: 200;
         }
-
+        
         tr td:first-child {
             font-weight: 400;
             color: var(--color-light);
+            width: 50%;
         }
+        tr td a{
+            text-decoration: none;
+            color: var(--color-light);
+            transition: color .25s ease-in-out;
+            &:hover{
+                color: var(--color-orange);
+            }
+        }
+        
     }
 }

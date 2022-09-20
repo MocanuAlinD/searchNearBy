@@ -115,7 +115,7 @@ const FormRegister = ({
           <InputCustom
             required
             list="inputList"
-            pattern="[A-Za-z0-9 -]{3,}"
+            // pattern="[\D]{3,}"
             autoComplete="off"
             type="text"
             id="meserie"
@@ -181,12 +181,12 @@ const FormRegister = ({
         <Wrapper>
           <LabelCustom htmlFor="website">Website (Optional)</LabelCustom>
           <InputCustom
-            // pattern="[0-9]+"
+            pattern="(?!^[\d-])[a-zA-Z0-9-]{2,63}(?<!-)\.[a-zA-Z]{2,4}"
             id="website"
             autoComplete="off"
             type="text"
             value={state.website}
-            placeholder="www."
+            placeholder="denumire-website.ro"
             onChange={(e) => setState({ ...state, website: e.target.value })}
           />
         </Wrapper>

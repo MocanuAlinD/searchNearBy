@@ -124,6 +124,9 @@ export const InputCustom = styled.input`
   &:not(:placeholder-shown):invalid + span {
     display: block;
   }
+  &:invalid{
+    color: var(--color-orange);
+  }
 `;
 
 export const TextAreaCustom = styled.textarea`

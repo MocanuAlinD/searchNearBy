@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "../styles/card.module.scss";
-import { Checkbox } from "@mui/material";
+// import { Checkbox } from "@mui/material";
 import { GoLocation } from "react-icons/go";
 import { BsPersonCircle, BsArrowLeftRight } from "react-icons/bs";
-import { CgDetailsMore } from "react-icons/cg";
+import { CgDetailsMore, CgWebsite } from "react-icons/cg";
 import { BsCashCoin } from "react-icons/bs";
 import { FcPhone, FcGlobe } from "react-icons/fc";
 import {
@@ -103,11 +103,29 @@ const Card = ({ data, setLocation }) => {
       <hr className={styles.divider} />
       <div className={styles.wrapper}>
         <h4>
+          <CgWebsite />
+          &nbsp;&nbsp;Website
+        </h4>
+        <h5>
+          {data.website ? (
+            <a href={data.website} target="_blank" className={styles.websiteLink}>
+              {data.website}
+            </a>
+          ) : (
+            "-"
+          )}
+        </h5>
+      </div>
+
+      <hr className={styles.divider} />
+      <div className={styles.wrapper}>
+        <h4>
           <CgDetailsMore />
           &nbsp;&nbsp;Descriere
         </h4>
         <h5>{data.detalii}</h5>
       </div>
+
       <hr className={styles.divider} />
       <div className={styles.wrapper}>
         <h4>
@@ -115,8 +133,8 @@ const Card = ({ data, setLocation }) => {
           &nbsp;&nbsp;Program
         </h4>
         <h5>
-          {data.orainceput} - {data.orasfarsit} &nbsp; &#10137; &nbsp; {data.ziinceput} -{" "}
-          {data.zisfarsit} 
+          {data.orainceput} - {data.orasfarsit} &nbsp; &#10137; &nbsp;{" "}
+          {data.ziinceput} - {data.zisfarsit}
         </h5>
       </div>
 

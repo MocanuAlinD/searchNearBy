@@ -90,6 +90,11 @@ const CardCautare = ({ data, idx }) => {
               </tr>
 
               <tr>
+                <td>Website</td>
+                <td colSpan="2">{data.website ? <a href={data.website} target="_blank">{data.website}</a> : "-"}</td>
+              </tr>
+
+              <tr>
                   <td colSpan="2">Descriere: <br /><br /><span>{data.detalii}</span></td>
               </tr>
             </>

@@ -41,6 +41,13 @@
     h5{
       display: flex;
       justify-content: space-between;
+      .websiteLink{
+        color: var(--color-light);
+        transition: color .2s ease-in-out;
+        &:hover{
+          color: var(--color-orange);
+        }
+      }
     }
     .checkbox {
       display: flex;
