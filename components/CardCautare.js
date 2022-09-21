@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import styles from "../styles/cardCautare.module.scss";
 import { FcExpand, FcCollapse } from "react-icons/fc";
+import Link from "next/link";
 
 const CardCautare = ({ data, idx }) => {
   const [open, setOpen] = useState(false);
+  console.log(data.website)
 
   return (
     <div className={styles.container + " mb-4"}>
@@ -91,11 +93,23 @@ const CardCautare = ({ data, idx }) => {
 
               <tr>
                 <td>Website</td>
-                <td colSpan="2">{data.website ? <a href={data.website} target="_blank">{data.website}</a> : "-"}</td>
+                <td colSpan="2">
+                  {data.website ? (
+                    <Link href={data.website}>
+                      <a target="_blank">{data.website}</a>
+                    </Link>
+                  ) : (
+                    "-"
+                  )}
+                </td>
               </tr>
 
               <tr>
-                  <td colSpan="2">Descriere: <br /><br /><span>{data.detalii}</span></td>
+                <td colSpan="2">
+                  Descriere: <br />
+                  <br />
+                  <span>{data.detalii}</span>
+                </td>
               </tr>
             </>
           )}

@@ -108,9 +108,11 @@ const Card = ({ data, setLocation }) => {
         </h4>
         <h5>
           {data.website ? (
-            <a href={data.website} target="_blank" className={styles.websiteLink}>
-              {data.website}
-            </a>
+            <Link href={data.website}>
+              <a className={styles.websiteLink} target="_blank">
+                {data.website}
+              </a>
+            </Link>
           ) : (
             "-"
           )}
