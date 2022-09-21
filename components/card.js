@@ -109,7 +109,7 @@ const Card = ({ data, setLocation }) => {
         <h5>
           {data.website ? (
             <Link href={data.website}>
-              <a className={styles.websiteLink} target="_blank">
+              <a className={styles.websiteLink} target="_blank" rel="noreferrer noopener">
                 {data.website}
               </a>
             </Link>

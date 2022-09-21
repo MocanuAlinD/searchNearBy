@@ -96,7 +96,7 @@ const CardCautare = ({ data, idx }) => {
                 <td colSpan="2">
                   {data.website ? (
                     <Link href={data.website}>
-                      <a target="_blank">{data.website}</a>
+                      <a target="_blank" rel="noreferrer noopener">{data.website}</a>
                     </Link>
                   ) : (
                     "-"
