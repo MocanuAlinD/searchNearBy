@@ -69,7 +69,11 @@ export default function Home({ loading, setLoading }) {
         >
           <LeftMenu showMenu={showMenu} setShowMenu={setShowMenu} />
 
-          {!show && <h3 className={styles.navTitle + " m-0 p-0"}>Cauta ajutor, simplu si usor</h3>}
+          {!show && (
+            <h3 className={styles.navTitle + " m-0 p-0"}>
+              Cauta ajutor, simplu si usor
+            </h3>
+          )}
           <div className="d-flex justify-content-between gap-2 mx-2">
             <input
               type="checkbox"
@@ -103,6 +107,8 @@ export default function Home({ loading, setLoading }) {
           </div>
         )}
 
+        
+
         {/* Title */}
         {show && <Title />}
 
@@ -113,10 +119,12 @@ export default function Home({ loading, setLoading }) {
           searchJudet={searchJudet}
           initialValues={initialValues}
         />
+        {state.listaCarduri.length > 0 && <SortItems />}
       </div>
 
       <div className="row m-0 p-0 col-12 px-2 d-flex flex-column align-items-center">
-        {state.listaCarduri.length > 0 && <SortItems />}
+        
+
         {!loadSearch && state.listaCarduri ? (
           state.listaCarduri.map((item, index) => (
             <CardCautare data={item} key={index} idx={index} />
