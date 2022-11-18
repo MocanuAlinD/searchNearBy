@@ -1,31 +1,33 @@
 import React from "react";
 import styles from "../styles/SortItems.module.scss";
 import { BsSortNumericUpAlt, BsSortNumericUp } from "react-icons/bs";
+import { AiOutlineCheckCircle } from "react-icons/ai";
+import { MdRadioButtonUnchecked } from "react-icons/md";
 
 const SortItems = () => {
   return (
-    <div className={styles.container + " m-0 p-0"}>
+    <div className={styles.container + " m-0 p-0 mb-3"}>
       <div className={styles.outerWrapper}>
-        <div className={styles.wrapper}>
+        <div className={styles.wrapper + " " + styles.tarif}>
           <h3>Tarif: </h3>
-          <select>
-            <option value="asc">Crescator</option>
-            <option value="desc">Descrescator</option>
-          </select>
+          <div className={styles.iconsContainer}>
+            <BsSortNumericUp />
+            <BsSortNumericUpAlt />
+          </div>
         </div>
         <div className={styles.wrapper}>
           <h3>Disponibil peste program: </h3>
-          <select>
-            <option value="overtimeNo">Nu</option>
-            <option value="overtimeYes">Da</option>
-          </select>
+          <div className={styles.iconsContainer}>
+            <AiOutlineCheckCircle />
+            <MdRadioButtonUnchecked />
+          </div>
         </div>
         <div className={styles.wrapper}>
           <h3>Urgente 24/7: </h3>
-          <select>
-            <option value="nightNo">Nu</option>
-            <option value="nightYes">Da</option>
-          </select>
+          <div className={styles.iconsContainer}>
+            <AiOutlineCheckCircle />
+            <MdRadioButtonUnchecked />
+          </div>
         </div>
       </div>
       {/* <div
