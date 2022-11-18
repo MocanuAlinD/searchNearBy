@@ -4,11 +4,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
+    
     .outerWrapper {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        flex-direction: column;
         width: min(100%, 40rem);
         background-color: var(--color-dark);
         border-radius: var(--border-radius);
@@ -19,11 +20,13 @@
         .wrapper {
             border-radius: var(--border-radius);
             display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            flex-direction: column;
+            justify-content: space-between;
+            padding-inline: 1rem;
+            align-items: center;
+            // flex-direction: row;
             width: 100%;
-            padding-inline: .5rem;
+            // border: 1px solid coral;
+            padding-block: .5rem;
 
             h3 {
                 white-space: nowrap;
@@ -31,37 +34,20 @@
                 padding: 0;
                 margin: 0;
                 user-select: none;
-                width: 100%;
+                // width: 100%;
                 text-align: center;
             }
 
             .iconsContainer {
                 width: 100%;
                 display: flex;
-                justify-content: space-evenly;
+                justify-content: flex-end;
                 align-items: center;
-                padding-block: .5rem;
-
-                .iconContainer {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    flex-direction: column;
-                    height: 3rem;
-                    // padding-block: 1rem;
-                    // border: 1px solid red;
-                    // width: 100%;
-                    .icon{
-                        font-size: 1.2rem;
-                    }
-                    
-                }
-                .iconContainer.all{
-                    // border: 1px solid coral;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                }
+                // border: 1px solid green;
+            }
+            .icon{
+                font-size: 1.2rem;
+                margin-inline: 1.5rem;
             }
         }
         
@@ -77,6 +63,7 @@
         outline-offset: 3px;
         outline-width: 2px;
         cursor: pointer;
+        // margin-left: 1rem;
     }
 
     input:checked {
