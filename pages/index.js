@@ -13,13 +13,22 @@ import Title from "../components/Title";
 export default function Home({ loading, setLoading }) {
   const initialValues = {
     judet: "",
-    listaOrase: [],
     oras: "",
-    listaCarduri: [],
+    originalList: [],
     cautare: "",
     loading: false,
+    sortedList: [],
   };
 
+  const defaultChecks = {
+    all: true,
+    tarifAsc: false,
+    tarifDesc: false,
+    overtime: false,
+    night: false,
+  };
+
+  const [allChecked, setAllChecked] = useState(defaultChecks);
   const [state, setState] = useState(initialValues);
   const [loadSearch, setLoadSearch] = useState(false);
   const [show, setShow] = useState(true);
@@ -33,8 +42,13 @@ export default function Home({ loading, setLoading }) {
         `/api/jobsJudet?search=${state.cautare}&judet=${state.judet}`
       );
       const endresult = await getServices.json();
-      setState({ ...state, listaCarduri: endresult });
+      setState((prev) => ({
+        ...prev,
+        originalList: endresult,
+        sortedList: endresult,
+      }));
       setLoadSearch((prev) => false);
+      // console.log(endresult);
     } catch (error) {
       setLoadSearch((prev) => false);
     }
@@ -47,10 +61,68 @@ export default function Home({ loading, setLoading }) {
         `/api/jobsJudetOras?search=${state.cautare}&judet=${state.judet}&oras=${state.oras}`
       );
       const endresult = await getServices.json();
-      setState({ ...state, listaCarduri: endresult });
+      setState({ ...state, originalList: endresult });
     } catch (error) {
       setLoadSearch((prev) => false);
     }
+  };
+
+  const handleToate = (e) => {
+    setAllChecked(defaultChecks);
+    setState({ ...state, sortedList: state.originalList });
+  };
+
+  const handleTarif = (e) => {
+    setAllChecked((prev) => ({ ...prev, all: false }));
+    // console.log(e);
+    switch (e) {
+      case "asc":
+        setAllChecked((prev) => ({
+          ...prev,
+          all: false,
+          tarifDesc: false,
+          tarifAsc: true,
+        }));
+        const tempList1 = state.sortedList.sort(
+          (a, b) => (+a.pretMin > +b.pretMin && 1) || -1
+        );
+        setState((prev) => ({ ...prev, sortedList: tempList1 }));
+        break;
+      case "desc":
+        setAllChecked((prev) => ({
+          ...prev,
+          all: false,
+          tarifDesc: true,
+          tarifAsc: false,
+        }));
+        const tempList2 = state.sortedList.sort(
+          (a, b) => (+a.pretMin < +b.pretMin && 1) || -1
+        );
+        setState((prev) => ({ ...prev, sortedList: tempList2 }));
+        break;
+      default:
+        console.log("Invalid request");
+    }
+  };
+
+  const handleOvertime = () => {
+    setAllChecked((prev) => ({
+      ...prev,
+      all: false,
+      overtime: !allChecked.overtime,
+    }));
+    const tempList = state.originalList.filter(
+      (item) => item.urgente === !allChecked.overtime
+    );
+    setState((prev) => ({ ...prev, sortedList: tempList }));
+  };
+
+  const handleNight = () => {
+    setAllChecked((prev) => ({ ...prev, night: !allChecked.night }));
+    const tempList = state.sortedList.filter(
+      (item) => item.urgenteNoapte === allChecked.night
+    );
+    setState((prev) => ({ ...prev, sortedList: tempList }));
   };
 
   return (
@@ -107,8 +179,6 @@ export default function Home({ loading, setLoading }) {
           </div>
         )}
 
-        
-
         {/* Title */}
         {show && <Title />}
 
@@ -119,14 +189,20 @@ export default function Home({ loading, setLoading }) {
           searchJudet={searchJudet}
           initialValues={initialValues}
         />
-        {state.listaCarduri.length > 0 && <SortItems />}
+        {state.originalList.length > 0 && (
+          <SortItems
+            handleToate={handleToate}
+            handleTarif={handleTarif}
+            handleOvertime={handleOvertime}
+            handleNight={handleNight}
+            allChecked={allChecked}
+          />
+        )}
       </div>
 
       <div className="row m-0 p-0 col-12 px-2 d-flex flex-column align-items-center">
-        
-
-        {!loadSearch && state.listaCarduri ? (
-          state.listaCarduri.map((item, index) => (
+        {!loadSearch && state.sortedList ? (
+          state.sortedList.map((item, index) => (
             <CardCautare data={item} key={index} idx={index} />
           ))
         ) : (

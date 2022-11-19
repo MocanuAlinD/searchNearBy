@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const CardCautare = ({ data, idx }) => {
   const [open, setOpen] = useState(false);
-  console.log(data.website)
+  // console.log(data.website)
 
   return (
     <div className={styles.container + " mb-4"}>

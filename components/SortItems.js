@@ -1,48 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "../styles/SortItems.module.scss";
 import { HiSortDescending, HiSortAscending } from "react-icons/hi";
 
-const SortItems = () => {
-  const defaultChecks = {
-    all: true,
-    tarifAsc: false,
-    tarifDesc: false,
-    overtime: false,
-    night: false,
-  };
-  const [allChecked, setAllChecked] = useState(defaultChecks);
-
-
-  const handleToate = (e) => {
-    setAllChecked(defaultChecks);
-  };
-
-  const handleTarif = (e) => {
-    setAllChecked((prev)=>({...prev, all: false}))
-    console.log(e)
-    switch (e){
-      case "asc": 
-            setAllChecked((prev)=>({...prev, all: false, tarifDesc: false, tarifAsc: true}))
-            break
-      case "desc":
-            setAllChecked((prev)=>({...prev, all: false, tarifDesc: true, tarifAsc: false}))
-            break
-      default:
-        console.log('Invalid request')
-    }
-  };
-
-  
-
-  const handleOvertime =()=>{
-    console.log('overtime')
-    setAllChecked((prev)=>({...prev, all: false, overtime: !allChecked.overtime}))
-  }
-
-  const handleNight =() =>{
-    console.log('night')
-    setAllChecked({...allChecked, night: !allChecked.night})
-  }
+const SortItems = ({handleToate, handleTarif, handleOvertime, handleNight, allChecked}) => {
 
   return (
     <div className={styles.container + " m-0 p-0 mb-3"}>
