@@ -1,53 +1,90 @@
 import React, { useState } from "react";
 import styles from "../styles/SortItems.module.scss";
-import { BsSortNumericUpAlt, BsSortNumericUp } from "react-icons/bs";
 import { HiSortDescending, HiSortAscending } from "react-icons/hi";
-import { MdRadioButtonUnchecked } from "react-icons/md";
 
 const SortItems = () => {
-  const [allChecked, setAllChecked] = useState(false);
-  const checkAlin = (e) => {
-    console.log(e.target.value);
-    setAllChecked((prev) => !prev);
+  const defaultChecks = {
+    all: true,
+    tarifAsc: false,
+    tarifDesc: false,
+    overtime: false,
+    night: false,
   };
+  const [allChecked, setAllChecked] = useState(defaultChecks);
+
+
+  const handleToate = (e) => {
+    setAllChecked(defaultChecks);
+  };
+
+  const handleTarif = (e) => {
+    setAllChecked((prev)=>({...prev, all: false}))
+    console.log(e)
+    switch (e){
+      case "asc": 
+            setAllChecked((prev)=>({...prev, all: false, tarifDesc: false, tarifAsc: true}))
+            break
+      case "desc":
+            setAllChecked((prev)=>({...prev, all: false, tarifDesc: true, tarifAsc: false}))
+            break
+      default:
+        console.log('Invalid request')
+    }
+  };
+
+  
+
+  const handleOvertime =()=>{
+    console.log('overtime')
+    setAllChecked((prev)=>({...prev, all: false, overtime: !allChecked.overtime}))
+  }
+
+  const handleNight =() =>{
+    console.log('night')
+    setAllChecked({...allChecked, night: !allChecked.night})
+  }
+
   return (
     <div className={styles.container + " m-0 p-0 mb-3"}>
       <div className={styles.outerWrapper}>
         <div className={styles.wrapper}>
-          <h3>Arata tot</h3>
-          {/* <div className={styles.all}> */}
-            <input
-              type="checkbox"
-              value="all"
-              checked={allChecked}
-              onChange={(e) => checkAlin(e)}
-            />
-          {/* </div> */}
+          <label for="all">Toate</label>
+          <input
+            id="all"
+            type="checkbox"
+            value="all"
+            checked={allChecked.all}
+            onChange={(e) => handleToate(e)}
+          />
         </div>
         <div className={styles.wrapper + " " + styles.tarif}>
           <h3>Tarif</h3>
           <div className={styles.iconsContainer}>
-            {/* <div className={styles.iconContainer}> */}
             <HiSortDescending className={styles.icon} />
-            <input type="radio" name="tarif" checked={true} />
-            {/* </div> */}
-            {/* <div className={styles.iconContainer}> */}
+            <input
+              name="tarif"
+              type="radio"
+              value="desc"
+              checked={allChecked.tarifDesc}
+              onChange={(e) => handleTarif(e.target.value)}
+            />
             <HiSortAscending className={styles.icon} />
-            <input type="radio" name="tarif" />
-            {/* </div> */}
+            <input
+              name="tarif"
+              type="radio"
+              value="asc"
+              checked={allChecked.tarifAsc}
+              onChange={(e) => handleTarif(e.target.value)}
+            />
           </div>
         </div>
         <div className={styles.wrapper}>
-          <h3>Peste program</h3>
-          {/* <div className={styles.iconsContainer}> */}
-          <input type="checkbox" name="all" />
-          {/* </div> */}
+          <label for="overtime">Program+</label>
+          <input type="checkbox" id="overtime" checked={allChecked.overtime} onChange={handleOvertime} />
         </div>
         <div className={styles.wrapper}>
-          <h3>Urgente 24/7</h3>
-          {/* <div className={styles.iconsContainer}> */}
-          <input type="checkbox" name="all" />
-          {/* </div> */}
+          <label for="night">24/7</label>
+          <input type="checkbox" id="night" checked={allChecked.night} onChange={handleNight} />
         </div>
       </div>
     </div>
