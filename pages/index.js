@@ -60,13 +60,11 @@ export default function Home({ loading, setLoading }) {
   };
 
   const handleToate = (a) => {
-    console.log("Handle toate: ", a);
     let one = a.toate ? originalList : originalList.filter(item=> item && item)
     one = a.night ? one.filter(item => item.urgenteNoapte && item) : one
     one = a.program ? one.filter(item => item.urgente && item) : one
     one = a.tarifAsc ? one.sort((a,b) => +a.pretMin > +b.pretMin && 1 || -1) : one
     one = a.tarifDesc ? one.sort((a,b) => +a.pretMin < +b.pretMin && 1 || -1) : one
-    console.log(one)
     setState({ ...state, sortedList: one });
   };
 
@@ -134,16 +132,16 @@ export default function Home({ loading, setLoading }) {
           searchJudet={searchJudet}
           initialValues={initialValues}
         />
-        {originalList.length > 0 && <SortItems handleToate={handleToate} />}
+        {originalList.length > 0 && <SortItems handleToate={handleToate} listLen={state.sortedList.length} />}
       </div>
 
-      <div className="row m-0 p-0 col-12 px-2 d-flex flex-column align-items-center">
+      <div className="m-0 p-0 row col-12 col-xs-1 d-flex flex-wrap justify-content-center align-items-center">
         {!loadSearch && originalList ? (
           state.sortedList.map((item, index) => (
-            // <CardCautare data={item} key={index} idx={index} />
-            <div key={index} style={{fontSize: ".55rem", color: "white"}}>
-              {index + 1}: {item.pretMin} - {item.pretMax} - {JSON.stringify(item.urgente)}
-            </div>
+            <CardCautare data={item} key={index} idx={index} />
+            // <div key={index} style={{fontSize: ".55rem", color: "white"}}>
+            //   {index + 1}: {item.pretMin} - {item.pretMax} - {JSON.stringify(item.urgente)}
+            // </div>
           ))
         ) : (
           <LoadingScreen setLoadSearch={setLoadSearch} />

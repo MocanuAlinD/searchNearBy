@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 import styles from "../styles/SortItems.module.scss";
-import {
-  ImSortNumbericDesc,
-  ImSortNumericAsc,
-} from "react-icons/im";
+import { ImSortNumbericDesc, ImSortNumericAsc } from "react-icons/im";
 
-const SortItems = ({ handleToate }) => {
+const SortItems = ({ handleToate, listLen }) => {
   const initialValues = {
     toate: true,
     tarifAsc: false,
@@ -52,50 +49,70 @@ const SortItems = ({ handleToate }) => {
   };
 
   return (
-    <div className={styles.container + " m-0 p-0 mt-4 mb-2"}>
-      <div className={styles.innerContainer}>
-        <div className={styles.wrapper}>
-          <button
-            onClick={()=>handleRest(initialValues)}
-            className={state.toate ? styles.active : ""}
-          >
-            Toate
-          </button>
-        </div>
-        <div className={styles.wrapper}>
-          <button
-            onClick={handleTarifAscLocal}
-            className={state.tarifAsc ? styles.active : ""}
-          >
-            Tarif <ImSortNumericAsc />
-          </button>
-        </div>
-        <div className={styles.wrapper}>
-          <button
-            onClick={handleTarifDescLocal}
-            className={state.tarifDesc ? styles.active : ""}
-          >
-            Tarif <ImSortNumbericDesc />
-          </button>
-        </div>
-        <div className={styles.wrapper}>
-          <button
-            onClick={handleProgram}
-            className={state.program ? styles.active : ""}
-          >
-            Program+
-          </button>
-        </div>
-        <div className={styles.wrapper}>
-          <button
-            onClick={handleNightLocal}
-            className={state.night ? styles.active : ""}
-          >
-            24/7
-          </button>
+    <>
+      <div className={styles.titleContainer}>
+        <div className={styles.title}>Filtreaza: <br /> {`${listLen ? listLen + " rezultate gasite" : "" }`}</div>
+      </div>
+      <div className={styles.container + " m-0 p-0 mb-2"}>
+        <div className={styles.innerContainer}>
+          <div className={styles.wrapper}>
+            <button
+              onClick={() => handleRest(initialValues)}
+              className={state.toate ? styles.active : ""}
+            >
+              Toate
+              <div className={styles.inputContainer}>
+                <input type="checkbox" checked={state.toate} />
+              </div>
+            </button>
+          </div>
+          <div className={styles.wrapper}>
+            <button
+              onClick={handleTarifAscLocal}
+              className={state.tarifAsc ? styles.active : ""}
+            >
+              Tarif <ImSortNumericAsc />
+              <div className={styles.inputContainer}>
+                <input type="checkbox" checked={state.tarifAsc} />
+              </div>
+            </button>
+          </div>
+          <div className={styles.wrapper}>
+            <button
+              onClick={handleTarifDescLocal}
+              className={state.tarifDesc ? styles.active : ""}
+            >
+              Tarif <ImSortNumbericDesc />
+              <div className={styles.inputContainer}>
+                <input type="checkbox" checked={state.tarifDesc} />
+              </div>
+            </button>
+          </div>
+          <div className={styles.wrapper}>
+            <button
+              onClick={handleProgram}
+              className={state.program ? styles.active : ""}
+            >
+              Program+
+              <div className={styles.inputContainer}>
+                <input type="checkbox" checked={state.program} />
+              </div>
+            </button>
+          </div>
+          <div className={styles.wrapper}>
+            <button
+              onClick={handleNightLocal}
+              className={state.night ? styles.active : ""}
+            >
+              24/7
+              <div className={styles.inputContainer}>
+                <input type="checkbox" checked={state.night} />
+              </div>
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

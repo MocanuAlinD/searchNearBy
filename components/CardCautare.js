@@ -5,116 +5,69 @@ import Link from "next/link";
 
 const CardCautare = ({ data, idx }) => {
   const [open, setOpen] = useState(false);
-  // console.log(data.website)
 
   return (
-    <div className={styles.container + " mb-4"}>
-      <table className="table">
-        {!open && (
-          <thead>
-            <tr>
-              <th>{idx + 1}.&nbsp;Oras</th>
-              <th>Tip serviciu</th>
-              <th>Detalii</th>
-            </tr>
-          </thead>
-        )}
-
-        {open && (
-          <thead>
-            <tr>
-              <th>&nbsp;</th>
-            </tr>
-          </thead>
-        )}
-
-        <tbody>
-          <tr>
-            {!open && <td>{data.oras}</td>}
-            {!open ? (
-              <td className="w-75">{data.tipjob}</td>
-            ) : (
-              <td>{idx + 1}.</td>
-            )}
-            <td className="m-0 p-0 text-end" colSpan="2">
-              <button
-                onClick={() => setOpen((prev) => !prev)}
-                className={styles.button}
-              >
-                {!open ? <FcExpand /> : <FcCollapse />}
-              </button>
-            </td>
-          </tr>
-          {open && (
-            <>
-              <tr>
-                <td>Serviciu</td>
-                <td colSpan="2">{data.tipjob}</td>
-              </tr>
-              <tr>
-                <td>Oras</td>
-                <td colSpan="2">{data.oras}</td>
-              </tr>
-              <tr>
-                <td>Nume/companie</td>
-                <td colSpan="2">{data.fullname}</td>
-              </tr>
-              <tr>
-                <td>Telefon</td>
-                <td colSpan="2">{data.contact.phone}</td>
-              </tr>
-              <tr>
-                <td>Email</td>
-                <td colSpan="2">{data.contact.email}</td>
-              </tr>
-              <tr>
-                <td>Program</td>
-                <td colSpan="2">
-                  {data.ziinceput} - {data.zisfarsit} <br /> {data.orainceput} -{" "}
-                  {data.orasfarsit}
-                </td>
-              </tr>
-              <tr>
-                <td>Tarif</td>
-                <td colSpan="2">
-                  Min: {data.pretMin} lei <br /> Max: {data.pretMax} lei
-                </td>
-              </tr>
-
-              <tr>
-                <td>Disponibilitate in afara orelor de lucru:</td>
-                <td colSpan="2">{data.urgente ? "Da" : "Nu"}</td>
-              </tr>
-
-              <tr>
-                <td>Urgente timp noapte:</td>
-                <td colSpan="2">{data.urgenteNoapte ? "Da" : "Nu"}</td>
-              </tr>
-
-              <tr>
-                <td>Website</td>
-                <td colSpan="2">
-                  {data.website ? (
-                    <Link href={data.website}>
-                      <a target="_blank" rel="noreferrer noopener">{data.website}</a>
-                    </Link>
-                  ) : (
-                    "-"
-                  )}
-                </td>
-              </tr>
-
-              <tr>
-                <td colSpan="2">
-                  Descriere: <br />
-                  <br />
-                  <span>{data.detalii}</span>
-                </td>
-              </tr>
-            </>
-          )}
-        </tbody>
-      </table>
+    <div className={styles.container}>
+      <div className={styles.topWrapper}>
+        <h6>{idx + 1}</h6>
+        <h6>{data.tipjob}</h6>
+      </div>
+      <hr />
+      <div className={styles.bottomWrapper}>
+        <div className={styles.bottomLeft}>
+          <div className={styles.row}>
+            <p>Nume:</p>
+            <h6>{data.fullname}</h6>
+          </div>
+          <div className={styles.row}>
+            <p>Email:</p>
+            <h6>{data.contact.email}</h6>
+          </div>
+          <div className={styles.row}>
+            <p>Tel:</p>
+            <h6>{data.contact.phone}</h6>
+          </div>
+          <div className={styles.row}>
+            <p>Judet:</p>
+            <h6>{data.judet}</h6>
+          </div>
+          <div className={styles.row}>
+            <p>Oras:</p>
+            <h6>{data.oras}</h6>
+          </div>
+          <div className={styles.row}>
+            <p>Program:</p>
+            <h6>
+              {data.ziinceput} - {data.zisfarsit} : {data.orainceput} -{" "}
+              {data.orasfarsit}
+            </h6>
+          </div>
+        </div>
+        <div className={styles.bottomRight}>
+          <div className={styles.row}>
+            <p>Tarif:</p>
+            <h6>
+              {data.pretMin} - {data.pretMax}
+            </h6>
+          </div>
+          <div className={styles.row}>
+            <p>Website:</p>
+            <h6>{data.website ? data.website : "-"}</h6>
+          </div>
+          <div className={styles.row}>
+            <p>Disponibilitate peste program:</p>
+            <h6>{data.urgente ? "Da" : "Nu"}</h6>
+          </div>
+          <div className={styles.row}>
+            <p>Urgente 24/7:</p>
+            <h6>{data.urgenteNoapte ? "Da" : "Nu"}</h6>
+          </div>
+          <div className={styles.row}>
+            <p>Descriere:</p>
+            <h6>{data.detalii}</h6>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
