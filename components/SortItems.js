@@ -1,50 +1,69 @@
-import React from "react";
+import React, {useState} from "react";
 import styles from "../styles/SortItems.module.scss";
-import { HiSortDescending, HiSortAscending } from "react-icons/hi";
+import { HiOutlineSortAscending,HiOutlineSortDescending } from "react-icons/hi";
 
-const SortItems = ({handleToate, handleTarif, handleOvertime, handleNight, allChecked}) => {
+const SortItems = ({
+  // handleToate,
+  // handleTarif,
+  // handleOvertime,
+  // handleNight,
+  // allChecked,
+}) => {
+
+  const initialValues = {
+    toate: true,
+    tarifAsc: false,
+    tarifDesc: false,
+    program: false,
+    night: false
+  }
+
+  const [state,setState] = useState(initialValues)
+
+
+  const handleToate = (e) =>{
+    console.log("toate", e)
+    setState(initialValues)
+
+  }
+
+  const handleTarifAsc = () =>{
+    console.log("tarif asc")
+    setState({...state, tarifAsc: true,tarifDesc: false , toate: false})
+  }
+
+  const handleTarifDesc = () => {
+    console.log("tarif desc")
+    setState({...state, tarifDesc: true,tarifAsc: false , toate: false})
+  };
+
+  const handleProgram = () => {
+    console.log("program")
+    setState({...state, program: !state.program, toate: false})
+  };
+
+  const handleNight = () => {
+    console.log("night")
+    setState({...state, night: !state.night, toate: false})
+  };
 
   return (
-    <div className={styles.container + " m-0 p-0 mb-3"}>
-      <div className={styles.outerWrapper}>
+    <div className={styles.container + " m-0 p-0 mt-4 mb-2"}>
+      <div className={styles.innerContainer}>
         <div className={styles.wrapper}>
-          <label for="all">Toate</label>
-          <input
-            id="all"
-            type="checkbox"
-            value="all"
-            checked={allChecked.all}
-            onChange={(e) => handleToate(e)}
-          />
-        </div>
-        <div className={styles.wrapper + " " + styles.tarif}>
-          <h3>Tarif</h3>
-          <div className={styles.iconsContainer}>
-            <HiSortDescending className={styles.icon} />
-            <input
-              name="tarif"
-              type="radio"
-              value="desc"
-              checked={allChecked.tarifDesc}
-              onChange={(e) => handleTarif(e.target.value)}
-            />
-            <HiSortAscending className={styles.icon} />
-            <input
-              name="tarif"
-              type="radio"
-              value="asc"
-              checked={allChecked.tarifAsc}
-              onChange={(e) => handleTarif(e.target.value)}
-            />
-          </div>
+          <button onClick={(e)=>handleToate(e)} className={state.toate ? styles.active : ""}>Toate</button>
         </div>
         <div className={styles.wrapper}>
-          <label for="overtime">Program+</label>
-          <input type="checkbox" id="overtime" checked={allChecked.overtime} onChange={handleOvertime} />
+          <button onClick={(e)=>handleTarifAsc(e)} className={state.tarifAsc ? styles.active : ""}>Tarif <HiOutlineSortAscending className={styles.icon} /></button>
         </div>
         <div className={styles.wrapper}>
-          <label for="night">24/7</label>
-          <input type="checkbox" id="night" checked={allChecked.night} onChange={handleNight} />
+          <button onClick={(e)=>handleTarifDesc(e)} className={state.tarifDesc ? styles.active : ""}>Tarif <HiOutlineSortDescending className={styles.icon} /></button>
+        </div>
+        <div className={styles.wrapper}>
+          <button onClick={(e)=>handleProgram(e)} className={state.program ? styles.active : ""}>Program+</button>
+        </div>
+        <div className={styles.wrapper}>
+          <button onClick={(e)=>handleNight(e)} className={state.night ? styles.active : ""}>24/7</button>
         </div>
       </div>
     </div>

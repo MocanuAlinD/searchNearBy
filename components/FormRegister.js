@@ -348,6 +348,21 @@ const FormRegister = ({
         )}
 
         <Wrapper className="d-flex flex-row justify-content-between">
+
+        <ButtonWithIcon
+            hasIcon
+            w="45%"
+            m=".5rem 0 .5rem"
+            className="shadow"
+            onClick={() => setState(initialValues)}
+          >
+            <div className="iconContainer">
+              <BiReset className="icon" />
+            </div>
+            Reset
+          </ButtonWithIcon>
+
+
           {loading ? (
             <ButtonWithIcon w="45%" className="shadow">
               Inregistrare
@@ -362,18 +377,7 @@ const FormRegister = ({
             </ButtonWithIcon>
           )}
 
-          <ButtonWithIcon
-            hasIcon
-            w="45%"
-            m=".5rem 0 .5rem"
-            className="shadow"
-            onClick={() => setState(initialValues)}
-          >
-            <div className="iconContainer">
-              <BiReset className="icon" />
-            </div>
-            Reset
-          </ButtonWithIcon>
+          
         </Wrapper>
       </SmallContainer>
     </form>
