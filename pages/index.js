@@ -14,22 +14,13 @@ export default function Home({ loading, setLoading }) {
   const initialValues = {
     judet: "",
     oras: "",
-    originalList: [],
     cautare: "",
-    loading: false,
     sortedList: [],
+    loading: false,
   };
 
-  const defaultChecks = {
-    all: true,
-    tarifAsc: false,
-    tarifDesc: false,
-    overtime: false,
-    night: false,
-  };
-
-  const [allChecked, setAllChecked] = useState(defaultChecks);
   const [state, setState] = useState(initialValues);
+  const [originalList, setOriginalList] = useState([]);
   const [loadSearch, setLoadSearch] = useState(false);
   const [show, setShow] = useState(true);
   const [showMenu, setShowMenu] = useState(false);
@@ -44,9 +35,9 @@ export default function Home({ loading, setLoading }) {
       const endresult = await getServices.json();
       setState((prev) => ({
         ...prev,
-        originalList: endresult,
         sortedList: endresult,
       }));
+      setOriginalList(endresult);
       setLoadSearch((prev) => false);
       // console.log(endresult);
     } catch (error) {
@@ -61,68 +52,22 @@ export default function Home({ loading, setLoading }) {
         `/api/jobsJudetOras?search=${state.cautare}&judet=${state.judet}&oras=${state.oras}`
       );
       const endresult = await getServices.json();
-      setState({ ...state, originalList: endresult });
+      setState((prev) => ({ ...prev, sortedList: endresult }));
+      setOriginalList((prev) => endresult);
     } catch (error) {
       setLoadSearch((prev) => false);
     }
   };
 
-  const handleToate = (e) => {
-    setAllChecked(defaultChecks);
-    setState({ ...state, sortedList: state.originalList });
-  };
-
-  const handleTarif = (e) => {
-    setAllChecked((prev) => ({ ...prev, all: false }));
-    // console.log(e);
-    switch (e) {
-      case "asc":
-        setAllChecked((prev) => ({
-          ...prev,
-          all: false,
-          tarifDesc: false,
-          tarifAsc: true,
-        }));
-        const tempList1 = state.sortedList.sort(
-          (a, b) => (+a.pretMin > +b.pretMin && 1) || -1
-        );
-        setState((prev) => ({ ...prev, sortedList: tempList1 }));
-        break;
-      case "desc":
-        setAllChecked((prev) => ({
-          ...prev,
-          all: false,
-          tarifDesc: true,
-          tarifAsc: false,
-        }));
-        const tempList2 = state.sortedList.sort(
-          (a, b) => (+a.pretMin < +b.pretMin && 1) || -1
-        );
-        setState((prev) => ({ ...prev, sortedList: tempList2 }));
-        break;
-      default:
-        console.log("Invalid request");
-    }
-  };
-
-  const handleOvertime = () => {
-    setAllChecked((prev) => ({
-      ...prev,
-      all: false,
-      overtime: !allChecked.overtime,
-    }));
-    const tempList = state.originalList.filter(
-      (item) => item.urgente === !allChecked.overtime
-    );
-    setState((prev) => ({ ...prev, sortedList: tempList }));
-  };
-
-  const handleNight = () => {
-    setAllChecked((prev) => ({ ...prev, night: !allChecked.night }));
-    const tempList = state.sortedList.filter(
-      (item) => item.urgenteNoapte === allChecked.night
-    );
-    setState((prev) => ({ ...prev, sortedList: tempList }));
+  const handleToate = (a) => {
+    console.log("Handle toate: ", a);
+    let one = a.toate ? originalList : originalList.filter(item=> item && item)
+    one = a.night ? one.filter(item => item.urgenteNoapte && item) : one
+    one = a.program ? one.filter(item => item.urgente && item) : one
+    one = a.tarifAsc ? one.sort((a,b) => +a.pretMin > +b.pretMin && 1 || -1) : one
+    one = a.tarifDesc ? one.sort((a,b) => +a.pretMin < +b.pretMin && 1 || -1) : one
+    console.log(one)
+    setState({ ...state, sortedList: one });
   };
 
   return (
@@ -189,21 +134,16 @@ export default function Home({ loading, setLoading }) {
           searchJudet={searchJudet}
           initialValues={initialValues}
         />
-        {state.originalList.length > 0 && (
-          <SortItems
-            handleToate={handleToate}
-            handleTarif={handleTarif}
-            handleOvertime={handleOvertime}
-            handleNight={handleNight}
-            allChecked={allChecked}
-          />
-        )}
+        {originalList.length > 0 && <SortItems handleToate={handleToate} />}
       </div>
 
       <div className="row m-0 p-0 col-12 px-2 d-flex flex-column align-items-center">
-        {!loadSearch && state.sortedList ? (
+        {!loadSearch && originalList ? (
           state.sortedList.map((item, index) => (
-            <CardCautare data={item} key={index} idx={index} />
+            // <CardCautare data={item} key={index} idx={index} />
+            <div key={index} style={{fontSize: ".55rem", color: "white"}}>
+              {index + 1}: {item.pretMin} - {item.pretMax} - {JSON.stringify(item.urgente)}
+            </div>
           ))
         ) : (
           <LoadingScreen setLoadSearch={setLoadSearch} />
