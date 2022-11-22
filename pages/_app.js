@@ -90,7 +90,7 @@ function MyApp({ Component, pageProps }) {
       website: state.website ? "https://www." + state.website : ""
     };
 
-    // console.log(addData)
+    // console.log(new Date().toLocaleDateString())
 
     const sendData = await fetch("/api/postData", {
       method: "POST",

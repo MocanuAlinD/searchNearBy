@@ -1,15 +1,12 @@
 .container {
     width: fit-content;
-    // min-width: 20rem;
     height: fit-content;
     display: flex;
     justify-content: space-around;
-    border: 1px solid red;
 
     .wrapper {
         width: fit-content;
-        // height: 2;
-        // background-color: var(--color-blue-dark);
+        background-color: var(--color-blue-dark);
         margin-left: .5rem;
         padding-bottom: .5rem;
         display: flex;
@@ -48,6 +45,8 @@
                 display: flex;
                 align-items: center;
                 padding-block: .7rem;
+                white-space: nowrap;
+
             }
 
             input {
@@ -62,6 +61,7 @@
                 outline-offset: 2px;
                 margin: 0;
                 padding: 0;
+                margin-left: .5rem;
                 transition: all .25s ease-in-out;
             }
             

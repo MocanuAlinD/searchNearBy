@@ -73,10 +73,14 @@ export default function Home({ loading, setLoading }) {
       : one;
 
     one = a.dataAsc
-      ? one.sort((a, b) => (a.dataregister > b.dataregister && 1) || -1)
+      ? one.sort((a, b) => {
+          return Date(a.dataregister) < Date(b.dataregister) && 1 || -1;
+        })
       : one;
     one = a.dataDesc
-      ? one.sort((a, b) => (a.dataregister < b.dataregister && 1) || -1)
+      ? one.sort((a, b) => {
+          return Date(a.dataregister) > Date(b.dataregister);
+        })
       : one;
 
     one = a.program ? one.filter((item) => item.urgente && item) : one;
@@ -164,7 +168,7 @@ export default function Home({ loading, setLoading }) {
         />
       </div>
 
-      <div className="d-flex flex-column flex-md-row border">
+      <div className="d-flex flex-column flex-md-row">
         {!loadSearch && originalList.length > 0 && (
           <SortItems
             handleToate={handleToate}
