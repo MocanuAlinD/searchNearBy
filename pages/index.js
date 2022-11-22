@@ -60,16 +60,46 @@ export default function Home({ loading, setLoading }) {
   };
 
   const handleToate = (a) => {
-    let one = a.toate ? originalList : originalList.filter(item=> item && item)
-    one = a.night ? one.filter(item => item.urgenteNoapte && item) : one
-    one = a.program ? one.filter(item => item.urgente && item) : one
-    one = a.tarifAsc ? one.sort((a,b) => +a.pretMin > +b.pretMin && 1 || -1) : one
-    one = a.tarifDesc ? one.sort((a,b) => +a.pretMin < +b.pretMin && 1 || -1) : one
+    let one = a.toate
+      ? originalList
+      : originalList.filter((item) => item && item);
+
+    one = a.tarifAsc
+      ? one.sort((a, b) => (+a.pretMin > +b.pretMin && 1) || -1)
+      : one;
+
+    one = a.tarifDesc
+      ? one.sort((a, b) => (+a.pretMin < +b.pretMin && 1) || -1)
+      : one;
+
+    one = a.dataAsc
+      ? one.sort((a, b) => (a.dataregister > b.dataregister && 1) || -1)
+      : one;
+    one = a.dataDesc
+      ? one.sort((a, b) => (a.dataregister < b.dataregister && 1) || -1)
+      : one;
+
+    one = a.program ? one.filter((item) => item.urgente && item) : one;
+
+    one = a.night ? one.filter((item) => item.urgenteNoapte && item) : one;
+
+    one = a.website ? one.filter((item) => item.website && item) : one;
+
+    one = a.weekend
+      ? one.filter(
+          (item) =>
+            item.ziinceput.toLowerCase().includes("sambata") ||
+            item.ziinceput.toLowerCase().includes("duminica") ||
+            item.zisfarsit.toLowerCase().includes("sambata") ||
+            item.zisfarsit.toLowerCase().includes("duminica")
+        )
+      : one;
+
     setState({ ...state, sortedList: one });
   };
 
   return (
-    <div className="container-fluid m-0 p-0">
+    <div className="container-fluid m-0 p-0 position-relative">
       <div
         className={
           styles.mainContainer +
@@ -132,21 +162,25 @@ export default function Home({ loading, setLoading }) {
           searchJudet={searchJudet}
           initialValues={initialValues}
         />
-        {originalList.length > 0 && <SortItems handleToate={handleToate} listLen={state.sortedList.length} />}
       </div>
 
-      <div className="m-0 p-0 row col-12 col-xs-1 d-flex flex-wrap justify-content-center align-items-center">
-        {!loadSearch && originalList ? (
-          state.sortedList.map((item, index) => (
-            <CardCautare data={item} key={index} idx={index} />
-            // <div key={index} style={{fontSize: ".55rem", color: "white"}}>
-            //   {index + 1}: {item.pretMin} - {item.pretMax} - {JSON.stringify(item.urgente)}
-            // </div>
-          ))
-        ) : (
-          <LoadingScreen setLoadSearch={setLoadSearch} />
+      <div className="d-flex flex-column flex-md-row border">
+        {!loadSearch && originalList.length > 0 && (
+          <SortItems
+            handleToate={handleToate}
+            listLen={state.sortedList.length}
+          />
         )}
+        <div className="w-100 d-flex flex-wrap m-0 p-0 justify-content-center">
+          {!loadSearch &&
+            originalList &&
+            state.sortedList.map((item, index) => (
+              <CardCautare data={item} key={index} idx={index} />
+            ))}
+        </div>
       </div>
+
+      {loadSearch && <LoadingScreen setLoadSearch={setLoadSearch} />}
 
       <div
         className={

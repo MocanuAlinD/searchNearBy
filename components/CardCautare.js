@@ -1,11 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "../styles/cardCautare.module.scss";
-import { FcExpand, FcCollapse } from "react-icons/fc";
 import Link from "next/link";
 
 const CardCautare = ({ data, idx }) => {
-  const [open, setOpen] = useState(false);
-
   return (
     <div className={styles.container}>
       <div className={styles.topWrapper}>
@@ -20,10 +17,6 @@ const CardCautare = ({ data, idx }) => {
             <h6>{data.fullname}</h6>
           </div>
           <div className={styles.row}>
-            <p>Email:</p>
-            <h6>{data.contact.email}</h6>
-          </div>
-          <div className={styles.row}>
             <p>Tel:</p>
             <h6>{data.contact.phone}</h6>
           </div>
@@ -35,13 +28,6 @@ const CardCautare = ({ data, idx }) => {
             <p>Oras:</p>
             <h6>{data.oras}</h6>
           </div>
-          <div className={styles.row}>
-            <p>Program:</p>
-            <h6>
-              {data.ziinceput} - {data.zisfarsit} : {data.orainceput} -{" "}
-              {data.orasfarsit}
-            </h6>
-          </div>
         </div>
         <div className={styles.bottomRight}>
           <div className={styles.row}>
@@ -51,20 +37,23 @@ const CardCautare = ({ data, idx }) => {
             </h6>
           </div>
           <div className={styles.row}>
-            <p>Website:</p>
-            <h6>{data.website ? data.website : "-"}</h6>
+            <p>Program:</p>
+            <h6>
+              {data.ziinceput} - {data.zisfarsit} : {data.orainceput} -{" "}
+              {data.orasfarsit}
+            </h6>
           </div>
           <div className={styles.row}>
-            <p>Disponibilitate peste program:</p>
-            <h6>{data.urgente ? "Da" : "Nu"}</h6>
+            <Link href="">
+              <a>Vezi alte detalii</a>
+            </Link>
           </div>
+
           <div className={styles.row}>
-            <p>Urgente 24/7:</p>
-            <h6>{data.urgenteNoapte ? "Da" : "Nu"}</h6>
-          </div>
-          <div className={styles.row}>
-            <p>Descriere:</p>
-            <h6>{data.detalii}</h6>
+            <p>Detalii</p>
+            <h6>
+              {data.dataregister}
+            </h6>
           </div>
         </div>
       </div>
