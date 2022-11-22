@@ -61,6 +61,15 @@ function MyApp({ Component, pageProps }) {
     }
   }, [])
 
+  const getDateToRegister =()=>{
+    const dt = new Date()
+    const yr = dt.getFullYear()
+    const mth = dt.getMonth() + 1
+    const day = dt.getDate()
+    const finalDate = `${yr}-${mth < 10 ? "0" + mth : mth}-${day < 10 ? "0" + day : day}`
+    return finalDate
+  }
+
   // Inregistrare fara plata
   const postData = async (e) => {
     e.preventDefault();
@@ -69,7 +78,8 @@ function MyApp({ Component, pageProps }) {
         email: state.email,
         phone: state.phone,
       },
-      dataregister: new Date().toLocaleDateString(),
+      // dataregister: new Date().toLocaleDateString(),
+      dataregister: getDateToRegister(),
       detalii: state.detalii,
       fullname: state.fullname,
       id: `${
@@ -90,7 +100,6 @@ function MyApp({ Component, pageProps }) {
       website: state.website ? "https://www." + state.website : ""
     };
 
-    // console.log(new Date().toLocaleDateString())
 
     const sendData = await fetch("/api/postData", {
       method: "POST",
@@ -99,7 +108,6 @@ function MyApp({ Component, pageProps }) {
     });
     const res = await sendData.json();
     alert(res.msg);
-
     setState(initialValues);
   };
 

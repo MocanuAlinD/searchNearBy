@@ -73,14 +73,16 @@ export default function Home({ loading, setLoading }) {
       : one;
 
     one = a.dataAsc
-      ? one.sort((a, b) => {
-          return Date(a.dataregister) < Date(b.dataregister) && 1 || -1;
-        })
+      ? one.sort(
+          (a, b) =>
+            (new Date(a.dataregister) < new Date(b.dataregister) && 1) || -1
+        )
       : one;
     one = a.dataDesc
-      ? one.sort((a, b) => {
-          return Date(a.dataregister) > Date(b.dataregister);
-        })
+      ? one.sort(
+          (a, b) =>
+            (new Date(a.dataregister) > new Date(b.dataregister) && 1) || -1
+        )
       : one;
 
     one = a.program ? one.filter((item) => item.urgente && item) : one;

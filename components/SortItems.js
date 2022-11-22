@@ -91,13 +91,12 @@ const SortItems = ({ handleToate, listLen }) => {
   };
 
   return (
-    <div className={styles.container + " sticky-md-top"}>
-      <div className={styles.wrapper}>
+    <div className={styles.container + " sticky-md-top w-md-100"}>
+      {/* DESKTOP */}
+      <div className={styles.desktop + " d-none d-md-flex"}>
         <div className={styles.row}>
           <h4 className="w-100 text-center">
-            {listLen && listLen > 5
-              ? listLen + " rezultate gasite"
-              : listLen + " gasit"}
+            {listLen >= 0 && listLen === 0 ? "" : listLen === 1 ? "1 gasit" : listLen > 1 && listLen +  " gasite"}
           </h4>
         </div>
         {/* <div className={styles.row}>
@@ -205,6 +204,12 @@ const SortItems = ({ handleToate, listLen }) => {
             onChange={handleWeekend}
           />
         </div>
+      </div>
+
+        {/* MOBILE */}
+      <div className={styles.mobile + " d-flex d-md-none"}>
+          <div className={styles.wrapper}>
+          </div>
       </div>
     </div>
   );
