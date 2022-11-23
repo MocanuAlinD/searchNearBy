@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styles from "../styles/SortItems.module.scss";
 import { ImSortNumbericDesc, ImSortNumericAsc } from "react-icons/im";
-import { HiSortDescending } from "react-icons/hi";
 
 const SortItems = ({ handleToate, listLen }) => {
   const initialValues = {
@@ -99,49 +98,30 @@ const SortItems = ({ handleToate, listLen }) => {
       case "dataDesc":
         handleDataDescLocal();
         break;
-      case "program":
-        handleProgram();
-        break;
-      case "night":
-        handleNightLocal();
-        break;
-      case "website":
-        handleWebsite();
-        break;
-      case "weekend":
-        handleWeekend();
-        break;
       default:
         return;
     }
   };
 
-  const handleDefaults = ()=>{
-    const sel = document.getElementById("select")
-    const fil = document.getElementById("filtreaza")
+  const handleDefaults = () => {
+    const sel = document.getElementById("select");
+    const fil = document.getElementById("filtreaza");
     sel.value = "";
     fil.value = "";
-    handleRest(initialValues)
-  }
+    handleRest(initialValues);
+  };
 
-  const handleSelectFiltreaza = (x) =>{
-    switch (x) {
-      case "program":
-        handleProgram();
-        break;
-      case "night":
-        handleNightLocal();
-        break;
-      case "website":
-        handleWebsite();
-        break;
-      case "weekend":
-        handleWeekend();
-        break;
-      default:
-        return;
+  const handleSelectFiltreaza = (x) => {
+    const tempState = { }
+    const fil = document.getElementById("filtreaza");
+    const filEl = fil.options
+    for(let i = 0; i < filEl.length; i++){
+      tempState[filEl[i].value] = filEl[i].selected
     }
-  }
+    const allNewState = {...state, ...tempState, toate: false}
+    handleRest(allNewState)
+    
+  };
 
   const handleRest = (tempState) => {
     setState(tempState);

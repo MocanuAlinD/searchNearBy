@@ -144,16 +144,13 @@
                 }
                 
                 select {
-                    // border: 1px solid red;
                     appearance: none;
                     border-radius: var(--border-radius);
                     padding-inline: .2rem;
                     border: none;
-                    // font-size: var(--font-size08);
                     font-size: .7rem;
                     background-color: var(--color-blue-light);
                     color: var(--color-light);
-                    // width: 7rem;
                 }
             }
         }
