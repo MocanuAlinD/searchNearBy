@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "../styles/SortItems.module.scss";
 import { ImSortNumbericDesc, ImSortNumericAsc } from "react-icons/im";
+import SingleRow from "./SingleRow";
 
 const SortItems = ({ handleToate, listLen }) => {
   const initialValues = {
@@ -112,15 +113,14 @@ const SortItems = ({ handleToate, listLen }) => {
   };
 
   const handleSelectFiltreaza = (x) => {
-    const tempState = { }
+    const tempState = {};
     const fil = document.getElementById("filtreaza");
-    const filEl = fil.options
-    for(let i = 0; i < filEl.length; i++){
-      tempState[filEl[i].value] = filEl[i].selected
+    const filEl = fil.options;
+    for (let i = 0; i < filEl.length; i++) {
+      tempState[filEl[i].value] = filEl[i].selected;
     }
-    const allNewState = {...state, ...tempState, toate: false}
-    handleRest(allNewState)
-    
+    const allNewState = { ...state, ...tempState, toate: false };
+    handleRest(allNewState);
   };
 
   const handleRest = (tempState) => {
@@ -132,117 +132,96 @@ const SortItems = ({ handleToate, listLen }) => {
     <div className={styles.container + " sticky-top w-md-100"}>
       {/* DESKTOP */}
       <div className={styles.desktop + " d-none d-md-flex"}>
-        <div className={styles.row}>
-          <h4 className="w-100 text-center">
-            {listLen >= 0 && listLen === 0
+        <SingleRow
+          cls="w-100 text-center"
+          justTitle
+          text={
+            listLen >= 0 && listLen === 0
               ? "-"
               : listLen === 1
               ? "1 gasit"
-              : listLen > 1 && listLen + " gasite"}
-          </h4>
-        </div>
-        <div className={styles.row}>
-          <label htmlFor="toate">Fara filtre</label>
-          <input
-            type="checkbox"
-            id="toate"
-            checked={state.toate}
-            onChange={() => handleRest(initialValues)}
-          />
-        </div>
-        <div className={styles.row}>
-          <h4>Sorteaza</h4>
-        </div>
-        <div className={styles.row}>
-          <label htmlFor="tarifAsc">
-            Tarif &nbsp;
-            <ImSortNumericAsc />{" "}
-          </label>
-          <input
-            type="radio"
-            id="tarifAsc"
-            name="sortBy"
-            checked={state.tarifAsc}
-            onChange={handleTarifAscLocal}
-          />
-        </div>
-        <div className={styles.row}>
-          <label htmlFor="tarifDesc">
-            Tarif &nbsp;
-            <ImSortNumbericDesc />{" "}
-          </label>
-          <input
-            type="radio"
-            id="tarifDesc"
-            name="sortBy"
-            checked={state.tarifDesc}
-            onChange={handleTarifDescLocal}
-          />
-        </div>
+              : listLen > 1 && listLen + " gasite"
+          }
+        />
+        <SingleRow
+          id="toate"
+          text="Fara filtru"
+          state={state.toate}
+          func={handleRest}
+          list={initialValues}
+          type="checkbox"
+        />
+        <SingleRow justTitle text="Sorteaza" />
 
-        <div className={styles.row}>
-          <label htmlFor="dataAsc">Data recenta</label>
-          <input
-            type="radio"
-            name="sortBy"
-            id="dataAsc"
-            checked={state.dataAsc}
-            onChange={handleDataAscLocal}
-          />
-        </div>
-        <div className={styles.row}>
-          <label htmlFor="dataDesc">Data veche</label>
-          <input
-            type="radio"
-            name="sortBy"
-            id="dataDesc"
-            checked={state.dataDesc}
-            onChange={handleDataDescLocal}
-          />
-        </div>
+        <SingleRow
+          id="tarifAsc"
+          text="Tarif &nbsp;"
+          icon={<ImSortNumericAsc />}
+          type="radio"
+          name="sortBy"
+          state={state.tarifAsc}
+          func={handleTarifAscLocal}
+        />
+        <SingleRow
+          id="tarifDesc"
+          text="Tarif &nbsp;"
+          icon={<ImSortNumbericDesc />}
+          type="radio"
+          name="sortBy"
+          state={state.tarifDesc}
+          func={handleTarifDescLocal}
+        />
 
-        <div className={styles.row}>
-          <h4>Filtre</h4>
-        </div>
-        <div className={styles.row}>
-          <label htmlFor="program">Dupa 16:00</label>
-          <input
-            type="checkbox"
-            id="program"
-            checked={state.program}
-            onChange={handleProgram}
-          />
-        </div>
+        <SingleRow
+          id="dataAsc"
+          text="Data recenta"
+          type="radio"
+          name="sortBy"
+          state={state.dataAsc}
+          func={handleDataAscLocal}
+        />
 
-        <div className={styles.row}>
-          <label htmlFor="night">Urgente 24/7</label>
-          <input
-            type="checkbox"
-            id="night"
-            checked={state.night}
-            onChange={handleNightLocal}
-          />
-        </div>
+        <SingleRow
+          id="dataDesc"
+          text="Data veche"
+          type="radio"
+          name="sortBy"
+          state={state.dataDesc}
+          func={handleDataDescLocal}
+        />
 
-        <div className={styles.row}>
-          <label htmlFor="website">Website</label>
-          <input
-            type="checkbox"
-            id="website"
-            checked={state.website}
-            onChange={handleWebsite}
-          />
-        </div>
+        <SingleRow justTitle text="Filtre" />
 
-        <div className={styles.row}>
-          <label htmlFor="weekend">Weekend</label>
-          <input
-            type="checkbox"
-            id="weekend"
-            checked={state.weekend}
-            onChange={handleWeekend}
-          />
-        </div>
+        <SingleRow
+          id="program"
+          text="Dupa 16:00"
+          type="checkbox"
+          state={state.program}
+          func={handleProgram}
+        />
+
+        <SingleRow
+          id="night"
+          text="Urgente 24/7"
+          type="checkbox"
+          state={state.night}
+          func={handleNightLocal}
+        />
+
+        <SingleRow
+          id="website"
+          text="Website"
+          type="checkbox"
+          state={state.website}
+          func={handleWebsite}
+        />
+        <SingleRow
+          id="weekend"
+          text="Weekend"
+          type="checkbox"
+          state={state.weekend}
+          func={handleWeekend}
+        />
       </div>
 
       {/* MOBILE */}

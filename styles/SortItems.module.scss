@@ -1,5 +1,4 @@
 .container {
-    // width: ;
     height: fit-content;
     display: flex;
     justify-content: space-around;
@@ -17,74 +16,7 @@
         align-items: flex-start;
         flex-direction: column;
         border-radius: var(--border-radius);
-
-        .row {
-            $onerem: 1rem;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: background-color .25s ease-in-out;
-            padding-inline: .5rem;
-
-            h4 {
-                user-select: none;
-                font-size: .9rem;
-                color: var(--color-light);
-                margin: 0;
-                padding: 0;
-                margin-top: .7rem;
-                white-space: nowrap;
-
-            }
-
-            label {
-                color: var(--color-light);
-                flex: 1;
-                cursor: pointer;
-                font-weight: 200;
-                font-size: 0.8rem;
-                height: 1.5rem;
-                display: flex;
-                align-items: center;
-                padding-block: .7rem;
-                white-space: nowrap;
-
-            }
-
-            input {
-                $dim: .6rem;
-                cursor: pointer;
-                appearance: none;
-                background-color: var(--color-light);
-                width: $dim;
-                height: $dim;
-                transform: rotate(0);
-                outline: 1px solid var(--color-light);
-                outline-offset: 2px;
-                margin: 0;
-                padding: 0;
-                margin-left: .5rem;
-                transition: all .25s ease-in-out;
-            }
-
-            input:checked {
-                background-color: var(--color-blue-light);
-                outline-color: var(--color-blue-light);
-                transform: rotate(45deg);
-            }
-
-            &:has(label):hover {
-                background-color: rgba(255, 255, 255, 0.1);
-            }
-
-        }
     }
-
-
-
-
-
 
 
 
@@ -115,10 +47,11 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                @media screen and (max-width: 411px){
+
+                @media screen and (max-width: 411px) {
                     flex-direction: column;
                 }
-                
+
                 label {
                     width: 100%;
                     color: var(--color-light);
@@ -126,7 +59,7 @@
                     font-size: .7rem;
                     padding-right: .3rem;
                 }
-                
+
                 input {
                     appearance: none;
                     width: .5rem;
@@ -138,11 +71,12 @@
                     margin: .3rem;
                     transition: all .2s ease-in-out;
                 }
-                input:checked{
+
+                input:checked {
                     outline-color: var(--color-blue-light);
                     background-color: var(--color-blue-light);
                 }
-                
+
                 select {
                     appearance: none;
                     border-radius: var(--border-radius);
