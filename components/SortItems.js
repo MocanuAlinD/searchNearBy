@@ -85,23 +85,82 @@ const SortItems = ({ handleToate, listLen }) => {
     handleRest(tempState);
   };
 
+  const handleSelect = (x) => {
+    switch (x) {
+      case "tarifAsc":
+        handleTarifAscLocal();
+        break;
+      case "tarifDesc":
+        handleTarifDescLocal();
+        break;
+      case "dataAsc":
+        handleDataAscLocal();
+        break;
+      case "dataDesc":
+        handleDataDescLocal();
+        break;
+      case "program":
+        handleProgram();
+        break;
+      case "night":
+        handleNightLocal();
+        break;
+      case "website":
+        handleWebsite();
+        break;
+      case "weekend":
+        handleWeekend();
+        break;
+      default:
+        return;
+    }
+  };
+
+  const handleDefaults = ()=>{
+    const sel = document.getElementById("select")
+    const fil = document.getElementById("filtreaza")
+    sel.value = "";
+    fil.value = "";
+    handleRest(initialValues)
+  }
+
+  const handleSelectFiltreaza = (x) =>{
+    switch (x) {
+      case "program":
+        handleProgram();
+        break;
+      case "night":
+        handleNightLocal();
+        break;
+      case "website":
+        handleWebsite();
+        break;
+      case "weekend":
+        handleWeekend();
+        break;
+      default:
+        return;
+    }
+  }
+
   const handleRest = (tempState) => {
     setState(tempState);
     handleToate(tempState);
   };
 
   return (
-    <div className={styles.container + " sticky-md-top w-md-100"}>
+    <div className={styles.container + " sticky-top w-md-100"}>
       {/* DESKTOP */}
       <div className={styles.desktop + " d-none d-md-flex"}>
         <div className={styles.row}>
           <h4 className="w-100 text-center">
-            {listLen >= 0 && listLen === 0 ? "" : listLen === 1 ? "1 gasit" : listLen > 1 && listLen +  " gasite"}
+            {listLen >= 0 && listLen === 0
+              ? "-"
+              : listLen === 1
+              ? "1 gasit"
+              : listLen > 1 && listLen + " gasite"}
           </h4>
         </div>
-        {/* <div className={styles.row}>
-          <h4 className="w-100 text-center">Filtreaza</h4>
-        </div> */}
         <div className={styles.row}>
           <label htmlFor="toate">Fara filtre</label>
           <input
@@ -206,10 +265,46 @@ const SortItems = ({ handleToate, listLen }) => {
         </div>
       </div>
 
-        {/* MOBILE */}
+      {/* MOBILE */}
       <div className={styles.mobile + " d-flex d-md-none"}>
-          <div className={styles.wrapper}>
+        <div className={styles.wrapper}>
+          <div className={styles.row}>
+            <label htmlFor="noFilters">Fara filtre</label>
+            <input
+              type="checkbox"
+              id="noFilters"
+              checked={state.toate}
+              onChange={handleDefaults}
+            />
           </div>
+          <div className={styles.row}>
+            <label htmlFor="select">Sorteaza</label>
+            <select id="select" onChange={(e) => handleSelect(e.target.value)}>
+              <optgroup label="Tarif">
+                <option value="tarifAsc">Tarif 1 &gt; 9</option>
+                <option value="tarifDesc">Tarif 9 &gt; 1</option>
+              </optgroup>
+              <optgroup label="Data">
+                <option value="dataAsc">Data recenta</option>
+                <option value="dataDesc">Data veche</option>
+              </optgroup>
+            </select>
+          </div>
+
+          <div className={styles.row}>
+            <label htmlFor="filtreaza">Filtreaza</label>
+            <select
+              multiple
+              id="filtreaza"
+              onChange={(e) => handleSelectFiltreaza(e.target.value)}
+            >
+              <option value="program">Dupa 16:00</option>
+              <option value="night">Urgente 24/7</option>
+              <option value="website">Website</option>
+              <option value="weekend">Weekend</option>
+            </select>
+          </div>
+        </div>
       </div>
     </div>
   );

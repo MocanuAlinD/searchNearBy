@@ -170,7 +170,7 @@ export default function Home({ loading, setLoading }) {
         />
       </div>
 
-      <div className="d-flex flex-column flex-md-row">
+      <div className="d-flex flex-column flex-md-row m-0 p-0">
         {!loadSearch && originalList.length > 0 && (
           <SortItems
             handleToate={handleToate}
