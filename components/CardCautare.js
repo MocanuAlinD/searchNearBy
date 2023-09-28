@@ -3,6 +3,8 @@ import styles from "../styles/cardCautare.module.scss";
 import Link from "next/link";
 
 const CardCautare = ({ data, idx }) => {
+  console.log(data)
+  const gotoId = `/servicii/${data.judet}/${data.id}`
   return (
     <div className={styles.container + " m-0 p-0 px-1 mb-2 mx-md-1"}>
       <div className={styles.topWrapper}>
@@ -44,13 +46,13 @@ const CardCautare = ({ data, idx }) => {
             </h6>
           </div>
           <div className={styles.row}>
-            <Link href="">
-              <a>Vezi alte detalii</a>
+            <Link href={gotoId}>
+              <a target="_blank">Vezi alte detalii</a>
             </Link>
           </div>
 
           <div className={styles.row}>
-            <p>Detalii</p>
+            <p>Data înregistrării</p>
             <h6>
               {data.dataregister}
             </h6>
