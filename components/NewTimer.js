@@ -4,7 +4,7 @@ const Test = ({ loading, setLoading }) => {
   useEffect(() => {
     if (loading) {
       const inter = setInterval(() => {
-        const dt1 = new Date("2022/12/31 24:00:00").getTime();
+        const dt1 = new Date("2023/12/31 24:00:00").getTime();
         const prezent = new Date().getTime();
         const gap = dt1 - prezent;
         if (gap <= 0) {
