@@ -6,7 +6,6 @@ import LoadingScreen from "../components/LoadingScreen";
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import CardCautare from "../components/CardCautare";
 import SortItems from "../components/SortItems";
-import NewTimer from "../components/NewTimer";
 import LeftMenu from "../components/LeftMenu";
 import Title from "../components/Title";
 
@@ -140,7 +139,6 @@ export default function Home({ loading, setLoading }) {
         {/* Timer */}
         {show && (
           <div className="justify-content-center mt-0 m-0 d-flex flex-column align-items-center">
-            {loading && <NewTimer loading={loading} setLoading={setLoading} />}
             <Link href="/inscriere">
               <div
                 className={

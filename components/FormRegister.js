@@ -10,13 +10,16 @@ import {
 } from "../components/singleTags/elemetsCustom";
 import { ButtonWithIcon } from "./singleTags/ButtonWithIcon";
 
-import { Checkbox, Button } from "@mui/material";
+import { Checkbox } from "@mui/material";
 import { BiReset } from "react-icons/bi";
 import { judete } from "../lib/judete";
 import { alin } from "../lib";
 import axios from "axios";
 import getStripe from "../lib/get-stripe";
 import InputSuggestions from "./InputSuggestions";
+
+// TO DO
+// New color for span`s
 
 const FormRegister = ({
   state,
@@ -66,7 +69,7 @@ const FormRegister = ({
       <SmallContainer m="0 0 15rem 0" className="d-flex flex-column mx-auto">
         <Wrapper>
           <LabelCustom htmlFor="numeUtilizator" m="0">
-            Nume complet:{" "}
+            Nume Prenume / Nume companie
           </LabelCustom>
           <InputCustom
             required
@@ -78,7 +81,7 @@ const FormRegister = ({
             placeholder="nume prenume"
             onChange={(e) => setState({ ...state, fullname: e.target.value })}
           />
-          <span>Numele si prenumele sunt necesare.</span>
+          <span>"Nume Prenume / Nume Companie" sunt necesare</span>
         </Wrapper>
 
         <Wrapper>
@@ -95,7 +98,7 @@ const FormRegister = ({
             value={state.phone}
             onChange={(e) => setState({ ...state, phone: e.target.value })}
           />
-          <span>Numarul de telefon este necesar.</span>
+          <span>Numarul de telefon este necesar</span>
           <LabelCustom htmlFor="emailID">Email</LabelCustom>
           <InputCustom
             required
@@ -111,7 +114,7 @@ const FormRegister = ({
         </Wrapper>
 
         <Wrapper>
-          <LabelCustom htmlFor="meserie">Serviciu prestat: </LabelCustom>
+          <LabelCustom htmlFor="meserie">Serviciu prestat</LabelCustom>
           <InputCustom
             required
             list="inputList"
@@ -123,14 +126,14 @@ const FormRegister = ({
             placeholder="electrician, instalator, fotograf, etc...."
             onChange={(e) => setState({ ...state, tipjob: e.target.value })}
           />
-          <span>Tipul de serviciu este necesar.</span>
+          <span>Tipul de serviciu este necesar</span>
           <datalist id="inputList">
             <InputSuggestions />
           </datalist>
         </Wrapper>
 
         <Wrapper>
-          <LabelCustom htmlFor="pretMinID">Pret minim:</LabelCustom>
+          <LabelCustom htmlFor="pretMinID">Pret minim</LabelCustom>
           <InputCustom
             required
             id="pretMinID"
@@ -142,7 +145,7 @@ const FormRegister = ({
             onChange={(e) => setState({ ...state, pretMin: e.target.value })}
           />
           <span>Treceti pretul minim</span>
-          <LabelCustom htmlFor="pretMaxID">Pret maxim:</LabelCustom>
+          <LabelCustom htmlFor="pretMaxID">Pret maxim</LabelCustom>
           <InputCustom
             required
             pattern="[0-9]+"
@@ -303,7 +306,7 @@ const FormRegister = ({
 
         <Wrapper>
           <LabelCustom htmlFor="labelOrase">
-            Judetul unde prestezi serviciile:{" "}
+            Judetul unde prestezi serviciile
           </LabelCustom>
           <SelectCustom
             required
@@ -348,8 +351,7 @@ const FormRegister = ({
         )}
 
         <Wrapper className="d-flex flex-row justify-content-between">
-
-        <ButtonWithIcon
+          <ButtonWithIcon
             hasIcon
             w="45%"
             m=".5rem 0 .5rem"
@@ -362,22 +364,9 @@ const FormRegister = ({
             Reset
           </ButtonWithIcon>
 
-
-          {loading ? (
-            <ButtonWithIcon w="45%" className="shadow">
-              Inregistrare
-            </ButtonWithIcon>
-          ) : (
-            <ButtonWithIcon
-              onClick={redirectToCheckout}
-              w="45%"
-              className="shadow"
-            >
-              Plateste
-            </ButtonWithIcon>
-          )}
-
-          
+          <ButtonWithIcon w="45%" className="shadow">
+            Inregistrare
+          </ButtonWithIcon>
         </Wrapper>
       </SmallContainer>
     </form>
