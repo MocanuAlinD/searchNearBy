@@ -9,13 +9,12 @@ import SortItems from "../components/SortItems";
 import LeftMenu from "../components/LeftMenu";
 import Title from "../components/Title";
 
-export default function Home({ loading, setLoading }) {
+export default function Home() {
   const initialValues = {
     judet: "",
     oras: "",
     cautare: "",
     sortedList: [],
-    loading: false,
   };
 
   const [state, setState] = useState(initialValues);
@@ -103,6 +102,11 @@ export default function Home({ loading, setLoading }) {
     setState({ ...state, sortedList: one });
   };
 
+  const resetSearch = () => {
+    setOriginalList([]);
+    setState(initialValues);
+  };
+
   return (
     <div className="container-fluid m-0 p-0 position-relative">
       <div
@@ -165,6 +169,7 @@ export default function Home({ loading, setLoading }) {
           searchJudetOras={searchJudetOras}
           searchJudet={searchJudet}
           initialValues={initialValues}
+          resetSearch={resetSearch}
         />
       </div>
 
@@ -184,8 +189,9 @@ export default function Home({ loading, setLoading }) {
         </div>
       </div>
 
-      {loadSearch && <LoadingScreen setLoadSearch={setLoadSearch} />}
+      {loadSearch ? <LoadingScreen setLoadSearch={setLoadSearch} /> : ""}
 
+      {/* Meniu Burger */}
       <div
         className={
           styles.sidebar + " d-flex flex-column align-items-center gap-3"

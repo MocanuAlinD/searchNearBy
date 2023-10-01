@@ -50,7 +50,6 @@ function MyApp({ Component, pageProps }) {
 
   const [state, setState] = useState(initialValues);
   const [listaOrase, setListaOrase] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [location, setLocation] = useState(initialLocation)
 
   useEffect(()=>{
@@ -120,8 +119,6 @@ function MyApp({ Component, pageProps }) {
       listaOrase={listaOrase}
       setListaOrase={setListaOrase}
       postData={postData}
-      loading={loading}
-      setLoading={setLoading}
       location={location}
       setLocation={setLocation}
     />

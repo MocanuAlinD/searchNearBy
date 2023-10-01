@@ -3,7 +3,6 @@ import styles from "../styles/cardCautare.module.scss";
 import Link from "next/link";
 
 const CardCautare = ({ data, idx }) => {
-  console.log(data)
   const gotoId = `/servicii/${data.judet}/${data.id}`
   return (
     <div className={styles.container + " m-0 p-0 px-1 mb-2 mx-md-1"}>

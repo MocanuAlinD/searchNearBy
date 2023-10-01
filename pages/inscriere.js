@@ -10,8 +10,6 @@ export default function Inscriere({
   setState,
   postData,
   initialValues,
-  loading,
-  setLoading,
 }) {
   return (
     <Container
@@ -28,8 +26,6 @@ export default function Inscriere({
         setState={setState}
         postData={postData}
         initialValues={initialValues}
-        loading={loading}
-        setLoading={setLoading}
       />
     </Container>
   );

@@ -4,16 +4,20 @@ import { HiDatabase } from "react-icons/hi";
 import { RiPagesLine } from "react-icons/ri";
 import { BsFileEarmarkCodeFill } from "react-icons/bs";
 
-const LoadingScreen = ({setLoadSearch}) => {
+const LoadingScreen = ({ setLoadSearch }) => {
   return (
     <div className={styles.loadingScreen__test}>
       <div
         className={
-          styles.centerContainer +
-          " d-flex flex-column justify-content-center"
+          styles.centerContainer + " d-flex flex-column justify-content-center"
         }
       >
-        <button onClick={()=> setLoadSearch(prev=> !prev)} className={styles.closeButton + ""}>X</button>
+        <button
+          onClick={() => setLoadSearch((prev) => !prev)}
+          className={styles.closeButton + ""}
+        >
+          X
+        </button>
         <div
           className={
             styles.transferIcons +

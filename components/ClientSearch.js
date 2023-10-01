@@ -17,8 +17,9 @@ const ClientSearch = ({
   setState,
   searchJudet,
   searchJudetOras,
-  initialValues,
+  resetSearch,
 }) => {
+  
   return (
     <div
       className={
@@ -142,7 +143,7 @@ const ClientSearch = ({
             size="small"
             color="error"
             variant="outlined"
-            onClick={() => setState(initialValues)}
+            onClick={resetSearch}
             startIcon={<BiReset className={styles.iconReset} />}
           >
             Reset

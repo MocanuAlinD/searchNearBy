@@ -14,8 +14,6 @@ import { Checkbox } from "@mui/material";
 import { BiReset } from "react-icons/bi";
 import { judete } from "../lib/judete";
 import { alin } from "../lib";
-import axios from "axios";
-import getStripe from "../lib/get-stripe";
 import InputSuggestions from "./InputSuggestions";
 
 // TO DO
@@ -28,27 +26,8 @@ const FormRegister = ({
   setListaOrase,
   postData,
   initialValues,
-  loading,
 }) => {
   const MAX_CHAR_LENGTH = "255";
-
-  const redirectToCheckout = async () => {
-    const {
-      data: { id },
-    } = await axios.post("/api/checkout_sessions", {
-      items: [
-        {
-          price: process.env.PRICE,
-          quantity: 1,
-        },
-      ],
-      formRegister: state,
-      payment_method_types: ["card"],
-    });
-    // Redirect to checkout
-    const stripe = await getStripe();
-    await stripe.redirectToCheckout({ sessionId: id });
-  };
 
   const changeListaOrase = (e) => {
     const tempSorted = alin[e.target.value].sort(
