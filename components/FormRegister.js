@@ -60,7 +60,7 @@ const FormRegister = ({
             placeholder="nume prenume"
             onChange={(e) => setState({ ...state, fullname: e.target.value })}
           />
-          <span>"Nume Prenume / Nume Companie" sunt necesare</span>
+          <span>&quot;Nume Prenume / Nume Companie&quot; sunt necesare</span>
         </Wrapper>
 
         <Wrapper>
