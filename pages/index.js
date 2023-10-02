@@ -180,6 +180,7 @@ export default function Home() {
             listLen={state.sortedList.length}
           />
         )}
+
         <div className="w-100 d-flex flex-wrap m-0 p-0 justify-content-center">
           {!loadSearch &&
             originalList &&
@@ -210,6 +211,8 @@ export default function Home() {
         <Link href="/inscriere">
           <a className={styles.link + " m-0 mt-5"}>Inregistrare</a>
         </Link>
+        
+        
       </div>
     </div>
   );
