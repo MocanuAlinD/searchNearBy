@@ -10,16 +10,15 @@
     h4 {
         user-select: none;
         font-size: .9rem;
-        color: var(--color-light);
+        color: var(--color-blue-dark);
         margin: 0;
         padding: 0;
         margin-top: .7rem;
         white-space: nowrap;
-
     }
 
     label {
-        color: var(--color-light);
+        color: var(--color-blue-dark);
         flex: 1;
         cursor: pointer;
         font-weight: 200;
@@ -29,18 +28,18 @@
         align-items: center;
         padding-block: .7rem;
         white-space: nowrap;
-
     }
 
     input {
         $dim: .6rem;
-        cursor: pointer;
         appearance: none;
         background-color: var(--color-light);
+        border-radius: 1px;
+        cursor: pointer;
         width: $dim;
         height: $dim;
         transform: rotate(0);
-        outline: 1px solid var(--color-light);
+        outline: 1px solid var(--color-blue-light);
         outline-offset: 2px;
         margin: 0;
         padding: 0;
@@ -55,7 +54,7 @@
     }
 
     &:has(label):hover {
-        background-color: rgba(255, 255, 255, 0.1);
+        background-color: rgba(0, 0, 0, 0.1);
     }
 
 }

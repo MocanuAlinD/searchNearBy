@@ -145,7 +145,7 @@ const SortItems = ({ handleToate, listLen }) => {
         />
         <SingleRow
           id="toate"
-          text="Fara filtru"
+          text="Fara filtre"
           state={state.toate}
           func={handleRest}
           list={initialValues}
