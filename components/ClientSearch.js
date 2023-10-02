@@ -19,7 +19,6 @@ const ClientSearch = ({
   searchJudetOras,
   resetSearch,
 }) => {
-  
   return (
     <div
       className={
@@ -100,7 +99,10 @@ const ClientSearch = ({
             <IconButton
               aria-label="delete"
               disabled={!state.cautare}
-              onClick={() => setState({ ...state, cautare: "" })}
+              // onClick={() => setState({ ...state, cautare: "" })}
+              onClick={() => {
+                setState({ ...state, cautare: "" });
+              }}
               variant="contained"
               className={`${
                 state.cautare
@@ -115,7 +117,7 @@ const ClientSearch = ({
       </div>
 
       {state.judet && (
-        <div className="row m-0 p-0">
+        <div className="row m-0 p-0" id="judetButton">
           <ButtonWithIcon
             hasIcon
             m=".5rem 0"

@@ -6,48 +6,6 @@
   }
 }
 
-.inscriere {
-  background: var(--color-blue-darkish);
-  border-radius: var(--border-radius);
-  width: fit-content;
-  cursor: pointer;
-  transition: all 0.35s ease;
-  flex-wrap: wrap;
-
-  &:hover {
-    background: var(--color-blue-dark);
-  }
-
-  h4 {
-    animation: anim 5s infinite linear;
-    animation-delay: calc(0.1s * var(--i));
-    background: burlywood;
-    color: var(--color-light);
-    font-size: .9rem;
-    font-weight: 400;
-    height: 100%;
-    margin: 0;
-    min-width: 0.5rem;
-    text-align: center;
-    width: fit-content;
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-  }
-
-  @keyframes anim {
-
-    0%,
-    100% {
-      filter: hue-rotate(0deg);
-    }
-
-    50% {
-      filter: hue-rotate(180deg);
-    }
-  }
-}
-
-
 
 .link {
   background-color: var(--color-blue-dark);

@@ -2,7 +2,7 @@ import styles from "../styles/Home.module.scss";
 import Link from "next/link";
 import { useState } from "react";
 import ClientSearch from "../components/ClientSearch";
-import LoadingScreen from "../components/LoadingScreen";
+import Spinner from "../components/Spinner"
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import CardCautare from "../components/CardCautare";
 import SortItems from "../components/SortItems";
@@ -37,7 +37,6 @@ export default function Home() {
       }));
       setOriginalList(endresult);
       setLoadSearch((prev) => false);
-      // console.log(endresult);
     } catch (error) {
       setLoadSearch((prev) => false);
     }
@@ -115,6 +114,8 @@ export default function Home() {
           " row d-flex flex-column justify-content-start m-0 p-0 mb-2"
         }
       >
+
+        {/* Top part (search inputs, title, burger menu and switch) */}
         <div
           className={
             styles.checkboxContainer +
@@ -140,41 +141,22 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Timer */}
-        {show && (
-          <div className="justify-content-center mt-0 m-0 d-flex flex-column align-items-center">
-            <Link href="/inscriere">
-              <div
-                className={
-                  styles.inscriere +
-                  " m-0 p-0 my-3 px-3 py-2 d-flex justify-content-center align-items-center"
-                }
-              >
-                {"Inscrie-te gratuit acum!".split("").map((item, index) => (
-                  <h4 key={index} style={{ "--i": index + 1 }}>
-                    {item}
-                  </h4>
-                ))}
-              </div>
-            </Link>
-          </div>
-        )}
-
         {/* Title */}
         {show && <Title />}
 
+        {/* Search window with inputs */}
         <ClientSearch
           state={state}
           setState={setState}
           searchJudetOras={searchJudetOras}
           searchJudet={searchJudet}
-          initialValues={initialValues}
           resetSearch={resetSearch}
         />
       </div>
 
+      {/* Sort menu and search cards */}
       <div className="d-flex flex-column flex-md-row m-0 p-0">
-        {!loadSearch && originalList.length > 0 && (
+        {!loadSearch && originalList.length > 0 && state.sortedList.length > 0 && (
           <SortItems
             handleToate={handleToate}
             listLen={state.sortedList.length}
@@ -190,7 +172,7 @@ export default function Home() {
         </div>
       </div>
 
-      {loadSearch ? <LoadingScreen setLoadSearch={setLoadSearch} /> : ""}
+      {loadSearch ? <Spinner setLoadSearch={setLoadSearch} /> : ""}
 
       {/* Meniu Burger */}
       <div
@@ -211,8 +193,6 @@ export default function Home() {
         <Link href="/inscriere">
           <a className={styles.link + " m-0 mt-5"}>Inregistrare</a>
         </Link>
-        
-        
       </div>
     </div>
   );
