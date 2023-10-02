@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "../../styles/servicii.module.scss";
 import BackButton from "../../components/BackButton";
-import LoadingScreen from "../../components/LoadingScreen";
 import LinkButton from "../../components/LinkButton";
 
 export const getStaticProps = async () => {
@@ -94,7 +93,7 @@ const Servicii = ({ citys }) => {
           </table>
         ) : (
           <div className="d-flex justify-content-center align-items center py-5 mt-5">
-            <LoadingScreen />
+            Baza de date este goala.
           </div>
         )}
       </div>
