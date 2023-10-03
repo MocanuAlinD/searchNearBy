@@ -124,11 +124,6 @@ export default function Home() {
         >
           <LeftMenu showMenu={showMenu} setShowMenu={setShowMenu} />
 
-          {!show && (
-            <h3 className={styles.navTitle + " m-0 p-0"}>
-              Cauta ajutor, simplu si usor
-            </h3>
-          )}
           <div className="d-flex justify-content-between gap-2 mx-2">
             <input
               type="checkbox"
