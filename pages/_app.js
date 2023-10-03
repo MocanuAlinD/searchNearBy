@@ -1,6 +1,6 @@
 import "../styles/globals.scss";
 import { useState, useEffect } from "react";
-
+import toast, { Toaster } from "react-hot-toast";
 
 /*
 TODO:
@@ -16,8 +16,6 @@ Better loading popup
 
 
 */
-
-
 
 function MyApp({ Component, pageProps }) {
   const initialValues = {
@@ -39,35 +37,37 @@ function MyApp({ Component, pageProps }) {
     orasfarsit: "16:00",
     phone: "0721345678",
     email: "email@yahoo.com",
-    website: ""
+    website: "",
   };
 
   const initialLocation = {
-    id: '',
-    judet: '',
-    oras: ''
-  }
+    id: "",
+    judet: "",
+    oras: "",
+  };
 
   const [state, setState] = useState(initialValues);
   const [listaOrase, setListaOrase] = useState([]);
-  const [location, setLocation] = useState(initialLocation)
+  const [location, setLocation] = useState(initialLocation);
 
-  useEffect(()=>{
-    if(localStorage.getItem('location')){
-      setLocation(JSON.parse(localStorage.getItem('location')))
+  useEffect(() => {
+    if (localStorage.getItem("location")) {
+      setLocation(JSON.parse(localStorage.getItem("location")));
     } else {
-      localStorage.setItem('location', JSON.stringify(initialLocation))
+      localStorage.setItem("location", JSON.stringify(initialLocation));
     }
-  }, [])
+  }, []);
 
-  const getDateToRegister =()=>{
-    const dt = new Date()
-    const yr = dt.getFullYear()
-    const mth = dt.getMonth() + 1
-    const day = dt.getDate()
-    const finalDate = `${yr}-${mth < 10 ? "0" + mth : mth}-${day < 10 ? "0" + day : day}`
-    return finalDate
-  }
+  const getDateToRegister = () => {
+    const dt = new Date();
+    const yr = dt.getFullYear();
+    const mth = dt.getMonth() + 1;
+    const day = dt.getDate();
+    const finalDate = `${yr}-${mth < 10 ? "0" + mth : mth}-${
+      day < 10 ? "0" + day : day
+    }`;
+    return finalDate;
+  };
 
   // Inregistrare fara plata
   const postData = async (e) => {
@@ -96,9 +96,8 @@ function MyApp({ Component, pageProps }) {
       urgenteNoapte: state.urgenteNoapte,
       ziinceput: state.ziinceput,
       zisfarsit: state.zisfarsit,
-      website: state.website ? "https://www." + state.website : ""
+      website: state.website ? "https://www." + state.website : "",
     };
-
 
     const sendData = await fetch("/api/postData", {
       method: "POST",
@@ -106,22 +105,28 @@ function MyApp({ Component, pageProps }) {
       body: JSON.stringify({ data: addData }),
     });
     const res = await sendData.json();
-    alert(res.msg);
-    setState(initialValues);
+    if(res.msg){
+      toast.success(res.msg)
+    } else if (res.error){
+      toast.error(res.error)
+    }
   };
 
   return (
-    <Component
-      {...pageProps}
-      initialValues={initialValues}
-      state={state}
-      setState={setState}
-      listaOrase={listaOrase}
-      setListaOrase={setListaOrase}
-      postData={postData}
-      location={location}
-      setLocation={setLocation}
-    />
+    <>
+      <Component
+        {...pageProps}
+        initialValues={initialValues}
+        state={state}
+        setState={setState}
+        listaOrase={listaOrase}
+        setListaOrase={setListaOrase}
+        postData={postData}
+        location={location}
+        setLocation={setLocation}
+      />
+      <Toaster />
+    </>
   );
 }
 
