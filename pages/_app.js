@@ -56,7 +56,7 @@ function MyApp({ Component, pageProps }) {
     } else {
       localStorage.setItem("location", JSON.stringify(initialLocation));
     }
-  }, []);
+  },[]);
 
   const getDateToRegister = () => {
     const dt = new Date();

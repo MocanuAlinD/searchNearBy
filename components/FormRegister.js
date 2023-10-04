@@ -153,6 +153,7 @@ const FormRegister = ({
           ></TextAreaCustom>
           <span>Scurta descriere este obligatorie</span>
           <LabelSmallCustom
+            htmlFor="detalii"
             char={state.detalii.length}
             maxChar={MAX_CHAR_LENGTH}
           >
@@ -241,6 +242,7 @@ const FormRegister = ({
         <Wrapper m="0.5rem 0 0 0">
           <LabelCustom>
             <Checkbox
+              name="inafaraOrelorNume"
               size="small"
               sx={{
                 color: "var(--color-blue)",
@@ -263,6 +265,7 @@ const FormRegister = ({
         <Wrapper m="0.5rem 0 0 0">
           <LabelCustom>
             <Checkbox
+              name="urgenteNoapteName"
               size="small"
               sx={{
                 color: "var(--color-blue)",
