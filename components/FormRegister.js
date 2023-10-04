@@ -81,7 +81,7 @@ const FormRegister = ({
           <LabelCustom htmlFor="emailID">Email</LabelCustom>
           <InputCustom
             required
-            pattern="^\w+([\.\-]?\w+)*@\w+([\.\-]?\w+)*(\.\w{2,3})+$"
+            pattern="^\w+([\.\-]?\w+)*@\w+([\.\-]?\w+)*(\.[a-zA-Z]{2,3})+$"
             id="emailID"
             autoComplete="off"
             type="text"
