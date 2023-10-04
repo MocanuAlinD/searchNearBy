@@ -316,7 +316,6 @@ const FormRegister = ({
               name="comune"
               value={state.oras}
               onChange={(e) => setState({ ...state, oras: e.target.value })}
-              id="comunaID"
             >
               {listaOrase.map((item, index) => (
                 <option key={index}>
