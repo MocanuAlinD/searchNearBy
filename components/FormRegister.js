@@ -290,7 +290,7 @@ const FormRegister = ({
           <SelectCustom
             required
             name="orase"
-            id="labelOras"
+            id="labelOrase"
             value={state.judet}
             onChange={(e) => changeListaOrase(e)}
           >
@@ -312,6 +312,7 @@ const FormRegister = ({
             </LabelCustom>
             <SelectCustom
               required
+              id="labelComuna"
               name="comune"
               value={state.oras}
               onChange={(e) => setState({ ...state, oras: e.target.value })}
