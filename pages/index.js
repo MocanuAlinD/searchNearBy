@@ -2,7 +2,7 @@ import styles from "../styles/Home.module.scss";
 import Link from "next/link";
 import { useState } from "react";
 import ClientSearch from "../components/ClientSearch";
-import Spinner from "../components/Spinner"
+import Spinner from "../components/Spinner";
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import CardCautare from "../components/CardCautare";
 import SortItems from "../components/SortItems";
@@ -114,7 +114,6 @@ export default function Home() {
           " row d-flex flex-column justify-content-start m-0 p-0 mb-2"
         }
       >
-
         {/* Top part (search inputs, title, burger menu and switch) */}
         <div
           className={
@@ -151,12 +150,14 @@ export default function Home() {
 
       {/* Sort menu and search cards */}
       <div className="d-flex flex-column flex-md-row m-0 p-0">
-        {!loadSearch && originalList.length > 0 && state.sortedList.length > 0 && (
-          <SortItems
-            handleToate={handleToate}
-            listLen={state.sortedList.length}
-          />
-        )}
+        {!loadSearch &&
+          originalList.length > 0 &&
+          state.sortedList.length > 0 && (
+            <SortItems
+              handleToate={handleToate}
+              listLen={state.sortedList.length}
+            />
+          )}
 
         <div className="w-100 d-flex flex-wrap m-0 p-0 justify-content-center">
           {!loadSearch &&
@@ -179,11 +180,11 @@ export default function Home() {
         <Link href="/servicii">
           <a className={styles.link + " m-0"}>Toate judetele</a>
         </Link>
-        <Link href="/">
-          <a className={styles.link + " m-0"}>Contact</a>
+        <Link href="/infofaq">
+          <a className={styles.link + " m-0"}>Info & FAQ</a>
         </Link>
-        <Link href="/">
-          <a className={styles.link + " m-0"}>Info</a>
+        <Link href="/reclamatii">
+          <a className={styles.link + " m-0"}>Reclamatii</a>
         </Link>
         <Link href="/inscriere">
           <a className={styles.link + " m-0 mt-5"}>Inregistrare</a>

@@ -13,7 +13,7 @@ export const getStaticProps = async () => {
       },
       revalidate: 2,
     };
-  } catch(err) {
+  } catch (err) {
     return {
       props: { citys: null },
       revalidate: 2,
@@ -33,10 +33,7 @@ const Servicii = ({ citys }) => {
         <div className="row col-12 mt-2">
           <BackButton url="/" text="Pagina principala" />
         </div>
-        <div
-          className="text-center text-white d-flex align-items-center justify-content-center"
-          style={{ minHeight: "100vh" }}
-        >
+        <div className="text-center text-white d-flex align-items-center justify-content-center flex-grow-1">
           Date indisponibile. Va rugam reveniti.
         </div>
       </div>
