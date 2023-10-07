@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from "../styles/reclamatii.module.css"
+import styles from "../styles/reclamatii.module.scss"
 import BackButton from '../components/BackButton'
 
 const Reclamatii = () => {
