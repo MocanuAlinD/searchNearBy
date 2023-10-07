@@ -5,7 +5,8 @@ import Link from "next/link";
 const CardCautare = ({ data, idx }) => {
   const gotoId = `/servicii/${data.judet}/${data.id}`;
   return (
-    <div className={styles.container + " m-0 p-0 px-1 mb-2 mx-md-1"}>
+    // <div className={styles.container + " m-0 p-0 px-1 mb-2 mx-md-1"}>
+    <div className={styles.container + " px-1 mb-2 mx-md-1"}>
       <div className={styles.topWrapper}>
         <h6>{idx + 1}</h6>
         <h6>{data.tipjob}</h6>

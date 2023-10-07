@@ -6,6 +6,11 @@
     font-weight: 200;
     height: fit-content;
     width: 25rem;
+    animation: fade linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 15%;
+
+    
 
     hr {
         padding: 0;
@@ -72,22 +77,25 @@
                 font-weight: 600;
                 margin-bottom: .2rem;
             }
-            .link{
+
+            .link {
                 width: 100%;
                 display: flex;
                 justify-content: flex-end;
-                a{
+
+                a {
                     background-color: var(--color-inputbackground);
                     border-radius: var(--border-radius);
-                    box-shadow: -1px 1px 4px 1px rgba(0,0,0,0.3);
+                    box-shadow: -1px 1px 4px 1px rgba(0, 0, 0, 0.3);
                     color: var(--color-blue-dark);
                     padding: .2rem .5rem;
                     transition: box-shadow .15s, background-color .15s;
                     font-weight: 400;
                     font-size: var(--font-size06);
                 }
-                a:hover{
-                    box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.3);
+
+                a:hover {
+                    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.3);
                     background-color: var(--color-light);
                 }
             }
@@ -96,6 +104,16 @@
         .bottomLeft:hover {
             transform: scale(1.025, 1.025);
         }
+    }
+    
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
     }
 }
 

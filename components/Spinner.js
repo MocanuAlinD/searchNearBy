@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../styles/Spinner.module.css";
+import styles from "../styles/Spinner.module.scss";
 
 const LoadingSpinner = ({ setLoadSearch }) => {
   return (
@@ -11,7 +11,6 @@ const LoadingSpinner = ({ setLoadSearch }) => {
       >
         X
       </button>
-      {/* <p className={styles.text}>Cautare...</p> */}
     </div>
   );
 };
