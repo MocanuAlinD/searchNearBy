@@ -1,6 +1,7 @@
 .mainContainer {
   min-width: 100%;
   position: relative;
+
   .clientSearchContainer {
     max-width: 30rem;
   }
@@ -63,9 +64,9 @@
   }
 }
 
-.sidebar{
+.sidebar {
   backdrop-filter: blur(10px);
-  background-color: rgba(0,0,0,0.2);
+  background-color: rgba(0, 0, 0, 0.2);
   border-top: .5rem solid var(--color-blue-dark);
   font-size: 1rem;
   height: min-content;
@@ -76,5 +77,5 @@
   top: 4rem;
   transition: all .35s ease-out;
   width: min(100%, 20rem);
-  z-index: 1020;
+  z-index: 1030;
 }

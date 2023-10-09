@@ -1,0 +1,28 @@
+.container{
+    width: 100%;
+    min-height: 100vh;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    .parent{
+        width: 20rem;
+        height: 20rem;
+        background-color: coral;
+        position: relative;
+        
+    }
+    .parent::before{
+        content: "";
+        width: 90%;
+        height: 90%;
+        background-color: red;
+        position: absolute;
+        z-index: -1;
+        transform: translate(-5%, 5%);
+
+    }
+
+}

@@ -107,7 +107,11 @@ export default function Home() {
   };
 
   return (
-    <div className="container-fluid m-0 p-0 position-relative">
+    <div
+      className={
+        styles.container + " container-fluid m-0 p-0 position-relative"
+      }
+    >
       <div
         className={
           styles.mainContainer +
@@ -160,7 +164,12 @@ export default function Home() {
           )}
 
         {/* Cards container */}
-        <div className="w-100 d-flex flex-wrap m-0 p-0 justify-content-center">
+        <div
+          className={
+            styles.cardsContainer +
+            " w-100 d-flex flex-wrap m-0 p-0 justify-content-center"
+          }
+        >
           {!loadSearch &&
             originalList &&
             state.sortedList.map((item, index) => (
