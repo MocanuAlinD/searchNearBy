@@ -1,8 +1,35 @@
 
 
-.title{
-    color: white;
-    font-family: var(--font-poppins);
-    font-size: 2rem;
-    text-shadow: -2px 2px 5px black;
+.container{
+    .mainContent{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .infoContainer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: fit-content;
+        padding-block: 1rem;
+        padding-inline: 1rem;
+        background-color: var(--color-blue-dark);
+        border-radius: .5rem;
+        box-shadow: 0 5px 5px rgba(0,0,0,0.2);
+    }
+}
+
+.formContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    width: 100%;
+    .form{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
 }

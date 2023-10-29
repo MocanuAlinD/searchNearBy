@@ -77,7 +77,7 @@ export const LabelCustom = styled.label`
   width: fit-content;
   margin: ${({m}) => (m ? m : ".5rem 0 0 0")};
   font-size: var(--font-size08);
-  font-weight: 200;
+  font-weight: ${({fw}) => (fw ? fw : "200")};
 `;
 
 export const InputCustom = styled.input`

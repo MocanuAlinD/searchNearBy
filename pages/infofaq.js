@@ -11,7 +11,7 @@ const Info = () => {
       }
     >
       <div className="row col-12 m-0 p-0 ps-1 ms-2 mt-2 w-auto">
-        <BackButton url="/" text="Pagina principala" />
+        <BackButton url="/" text="Pagina principală" />
       </div>
       <div
         className={
