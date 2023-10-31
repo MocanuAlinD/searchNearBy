@@ -48,19 +48,23 @@ const Reclamatii = () => {
 
         <div className={styles.formContainer}>
           <form
-            onSubmit={sendData}
             className={styles.form}
             action="https://formsubmit.co/81b98d1d934c3b7f0e32bc02eb386532"
             method="POST"
           >
+            <input
+              type="hidden"
+              name="_next"
+              value="https://search-near-by.vercel.app/reclamatii"
+            />
             <SmallContainer>
               <Wrapper className={styles.wrapper}>
-                <LabelCustom htmlFor="telefonReclamatie">
+                <LabelCustom htmlFor="Telefon reclamatie:">
                   *Telefon reclamatie
                 </LabelCustom>
 
                 <InputCustom
-                  name="telefonReclamatie"
+                  name="Telefon reclamatie:"
                   type="text"
                   id="telefonReclamatie"
                   pattern="[0-9]+"
@@ -77,11 +81,11 @@ const Reclamatii = () => {
               </Wrapper>
 
               <Wrapper>
-                <LabelCustom htmlFor="motivReclamatie">
+                <LabelCustom htmlFor="Motiv reclamatie:">
                   *Motivul reclamatiei
                 </LabelCustom>
                 <TextAreaCustom
-                  name="motivReclamatie"
+                  name="Motiv reclamatie:"
                   required
                   type="text"
                   rows="6"
@@ -97,12 +101,12 @@ const Reclamatii = () => {
               </Wrapper>
 
               <Wrapper>
-                <LabelCustom htmlFor="emailReply">
+                <LabelCustom htmlFor="Reply email:">
                   Introdu adresa ta de email dacă dorești să fii notificat în
                   legătură cu rezultatul.
                 </LabelCustom>
                 <InputCustom
-                  name="emailReply"
+                  name="Reply email:"
                   type="email"
                   value={reclamatie.emailReclamant}
                   onChange={(e) =>
