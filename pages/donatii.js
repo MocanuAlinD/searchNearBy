@@ -3,17 +3,15 @@ import { Container } from "../components/singleTags/elemetsCustom";
 import BackButton from "../components/BackButton";
 import styles from "../styles/donatii.module.scss";
 import { ImCopy } from "react-icons/im";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 
 const Donatii = () => {
-  const copyToClipboard = () => {
-    const content = "RO90ING1234567890ING"
-    console.log("copyed to clipboard");
-    navigator.clipboard.writeText(content);
-    toast("Numărul contului a fost copiat: RO90ING1234567890ING",{
+  const copyToClipboard = (bank) => {
+    navigator.clipboard.writeText(bank);
+    toast(`Numărul contului a fost copiat: ${bank}`, {
       icon: "✅",
-      duration: 4000
-    })
+      duration: 4000,
+    });
   };
 
   return (
@@ -77,11 +75,25 @@ const Donatii = () => {
           sprijinul vostru, suntem hotărâți să facem platforma noastră și mai
           bună și mai utilă pentru toți utilizatorii noștri.
         </p>
+        <hr className={styles.separator} />
         <div className={styles.cont}>
-          <h4>Cont pentru donatii: </h4>
+          <h4>Cont ING: </h4>
           <p>
-            RO90ING1234567890ING{" "}
-            <ImCopy className={styles.copyIcon} onClick={copyToClipboard} />
+            RO90ING1234567890ING
+            <ImCopy
+              className={styles.copyIcon}
+              onClick={() => copyToClipboard("RO90ING1234567890ING")}
+            />
+          </p>
+        </div>
+        <div className={styles.cont}>
+          <h4>Cont BT: </h4>
+          <p>
+            RO90BT9876543210BT
+            <ImCopy
+              className={styles.copyIcon}
+              onClick={() => copyToClipboard("RO90BT9876543210BT")}
+            />
           </p>
         </div>
       </div>
