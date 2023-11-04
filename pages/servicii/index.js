@@ -25,15 +25,8 @@ export const getStaticProps = async () => {
 const Servicii = ({ citys }) => {
   if (!citys) {
     return (
-      <Container
-        className={
-          styles.joburi +
-          " row m-0 p-0 col-12 mx-auto d-flex flex-column align-items-center justify-content-start"
-        }
-      >
-        <div className="row col-12 mt-2">
-          <BackButton url="/" text="Pagina principala" />
-        </div>
+      <Container className={styles.joburi}>
+        <BackButton url="/" text="Pagina principala" />
         <div className="text-center text-white d-flex align-items-center justify-content-center flex-grow-1">
           Date indisponibile. Va rugam reveniti.
         </div>
@@ -52,15 +45,8 @@ const Servicii = ({ citys }) => {
   });
 
   return (
-    <Container
-      className={
-        styles.joburi +
-        " row m-0 p-0 col-12 mx-auto d-flex flex-column align-items-center justify-content-start"
-      }
-    >
-      <div className="row col-12 mt-2">
-        <BackButton url="/" text="Pagina principală" />
-      </div>
+    <Container className={styles.joburi}>
+      <BackButton url="/" text="Pagina principală" />
       <div className="row m-0 p-0 col-12 px-2 mb-5 d-flex justify-content-center">
         {citys ? (
           <table className="table m-0 p-0 mt-4">

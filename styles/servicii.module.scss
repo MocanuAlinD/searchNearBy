@@ -1,27 +1,24 @@
-.joburi{
-    // align-items: center;
-    // background: coral;
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: flex-start;
-    min-height: 100vh;
-    table{
+.joburi {
+    table {
         width: min(100%, 30rem);
         background-color: var(--color-blue-dark);
         border-radius: var(--border-radius);
         color: var(--color-light);
         border-color: var(--color-placeholder);
     }
-    table tbody tr:nth-child(odd){
+
+    table tbody tr:nth-child(odd) {
         background-color: var(--color-blue-light1);
     }
-    table thead tr th{
+
+    table thead tr th {
         font-size: 1rem;
         font-weight: 400;
     }
-    table tbody td{
+
+    table tbody td {
         font-size: .75rem;
     }
-    
-   
+
+
 }

@@ -1,28 +1,32 @@
 import React from "react";
 import BackButton from "../components/BackButton";
+import {
+  Container,
+  SmallContainer,
+} from "../components/singleTags/elemetsCustom";
 
 const Maps = ({ location }) => {
   return (
-    <div
-      className="row m-0 p-0 col-12 mx-auto d-flex flex-column align-items-center justify-content-start"
-      style={{ minHeight: "100vh" }}
-    >
-      <div className="row col-12 mt-2 d-flex justify-content-between">
-        {location.judet ? (
+    <Container>
+      {location.judet ? (
+        <>
           <BackButton
             url={`/servicii/${location.judet}/${location.id}`}
             text="Inapoi"
           />
-        ) : (
-          <BackButton url={`/servicii`} text="Inapoi" />
-        )}
-        <h4
-          className="text-white m-0 p-0 pe-4 w-auto d-flex align-items-center "
-          style={{ fontWeight: "200", fontSize: ".8rem" }}
-        >
-          {location.judet}, {location.oras}
-        </h4>
-      </div>
+          <div className="m-0 p-0 mx-2 d-flex justify-content-center">
+            <h4
+              className="text-white m-0 p-0 pe-4 w-auto d-flex align-items-center "
+              style={{ fontWeight: "200", fontSize: ".8rem" }}
+            >
+              {location.judet}, {location.oras}
+            </h4>
+          </div>
+        </>
+      ) : (
+        <BackButton url={`/servicii`} text="Inapoi" />
+      )}
+
       <div className="row col-12 m-0 p-0 flex-grow-1 px-3 pt-3 pb-2 mt-2">
         {location.id ? (
           <iframe
@@ -44,7 +48,7 @@ const Maps = ({ location }) => {
           ></iframe>
         )}
       </div>
-    </div>
+    </Container>
   );
 };
 

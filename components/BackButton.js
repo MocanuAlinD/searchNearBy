@@ -6,25 +6,22 @@ import styles from "../styles/backbutton.module.scss";
 
 const BackButton = ({ url, text }) => {
   return (
-    <Link href={`${url}`}>
-      <a
-        className={
-          styles.backButton + " m-0 p-0 px-2 py-1 w-auto shadow d-flex"
-        }
-      >
-        <IconButton
-          aria-label="delete"
-          style={{ fontSize: ".8rem" }}
-          className="m-0 p-0 me-2"
-        >
-          <AiOutlineDoubleLeft className={styles.icon} />
-        </IconButton>
-        <p className={styles.text + " d-flex align-items-center m-0 p-0"}>
-          {text}
-        </p>
-        
-      </a>
-    </Link>
+    <div className={styles.container + " justify-content-start m-0 p-0 px-2 py-2"}>
+      <Link href={`${url}`}>
+        <a className={styles.backButton + " px-2 py-1"}>
+          <IconButton
+            aria-label="delete"
+            style={{ fontSize: ".8rem" }}
+            className="m-0 p-0 me-2"
+          >
+            <AiOutlineDoubleLeft className={styles.icon} />
+          </IconButton>
+          <p className={styles.text + " d-flex align-items-center m-0 p-0"}>
+            {text}
+          </p>
+        </a>
+      </Link>
+    </div>
   );
 };
 

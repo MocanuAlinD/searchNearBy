@@ -27,10 +27,8 @@ const Reclamatii = () => {
   };
 
   return (
-    <Container className=" d-flex flex-column m-0 p-0 flex-grow-1 min-vh-100">
-      <div className="row col-12 m-0 p-0 ps-1 ms-2 mt-2 w-auto">
-        <BackButton url="/" text="Pagina principală" />
-      </div>
+    <Container>
+      <BackButton url="/" text="Pagina principală" />
       <div className={styles.mainContent}>
         <SmallContainer className={styles.infoContainer}>
           <LabelCustom>

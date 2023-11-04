@@ -29,6 +29,10 @@ export const Container = styled.div`
       : "linear-gradient(to bottom right, var(--color-blue-light), var(--color-blue-dark))"};
   height: ${({ h }) => (h ? h : "fit-content")};
   min-height: ${({ minh }) => (minh ? minh : "100vh")};
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const SmallContainer = styled.div`

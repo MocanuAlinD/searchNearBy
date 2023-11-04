@@ -1,27 +1,37 @@
-.backButton {
-    background-color: var(--color-blue-dark);
-    transition: var(--transition);
-    border-radius: var(--border-radius);
-}
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-.text {
-    color: var(--color-light);
-    transition: var(--transition);
-    height: 100%;
-    font-size: .8rem;
-    font-weight: 200;
-}
+    .backButton {
+        background-color: var(--color-blue-dark);
+        transition: var(--transition);
+        border-radius: var(--border-radius);
+        white-space: nowrap;
+        display: flex;
+        min-width: 10rem;
+    }
 
-.icon {
-    color: var(--color-light);
-    transition: var(--transition);
-}
+    .text {
+        color: var(--color-light);
+        transition: var(--transition);
+        height: 100%;
+        font-size: .8rem;
+        font-weight: 200;
+    }
 
-.backButton:hover p,
-.backButton:hover .icon {
-    color: var(--color-blue-dark);
-}
+    .icon {
+        color: var(--color-light);
+        transition: var(--transition);
+    }
 
-.backButton:hover {
-    background-color: var(--color-light);
+    .backButton:hover p,
+    .backButton:hover .icon {
+        color: var(--color-blue-dark);
+    }
+
+    .backButton:hover {
+        background-color: var(--color-light);
+    }
 }

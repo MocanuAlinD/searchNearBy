@@ -1,5 +1,8 @@
 import React from "react";
-import { Container } from "../components/singleTags/elemetsCustom";
+import {
+  Container,
+  SmallContainer,
+} from "../components/singleTags/elemetsCustom";
 import BackButton from "../components/BackButton";
 import styles from "../styles/donatii.module.scss";
 import { ImCopy } from "react-icons/im";
@@ -15,16 +18,9 @@ const Donatii = () => {
   };
 
   return (
-    <Container className="d-flex flex-column align-items-center">
-      <div className="row col-12 mt-2 ps-3">
-        <BackButton url="/" text="Pagina principala" />
-      </div>
-      <div
-        className={
-          styles.donatii +
-          " d-flex justify-content-center align-items-center flex-column m-0 p-0 px-3 pb-5 my-3"
-        }
-      >
+    <Container>
+      <BackButton url="/" text="Pagina principala" />
+      <div className={styles.donatii + " m-0 p-0 px-3 pb-5 my-3 m-auto"}>
         <h2 className={styles.title}>Dragi prieteni,</h2>
         <p className={styles.para}>
           Vrem să vă spunem cât suntem de recunoscători pentru faptul că sunteți
