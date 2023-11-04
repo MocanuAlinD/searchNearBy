@@ -7,6 +7,7 @@ import {
   Wrapper,
   TextAreaCustom,
   SmallContainer,
+  Container,
 } from "../components/singleTags/elemetsCustom";
 import { ButtonWithIcon } from "../components/singleTags/ButtonWithIcon";
 
@@ -26,11 +27,7 @@ const Reclamatii = () => {
   };
 
   return (
-    <div
-      className={
-        styles.container + " d-flex flex-column m-0 p-0 flex-grow-1 min-vh-100"
-      }
-    >
+    <Container className=" d-flex flex-column m-0 p-0 flex-grow-1 min-vh-100">
       <div className="row col-12 m-0 p-0 ps-1 ms-2 mt-2 w-auto">
         <BackButton url="/" text="Pagina principală" />
       </div>
@@ -60,11 +57,11 @@ const Reclamatii = () => {
             <SmallContainer>
               <Wrapper className={styles.wrapper}>
                 <LabelCustom htmlFor="Telefon reclamatie:">
-                  *Telefon reclamatie
+                  *Numărul de telefon ce dorești a fi reclamat
                 </LabelCustom>
 
                 <InputCustom
-                  name="Telefon reclamatie:"
+                  name="Telefon reclamație:"
                   type="text"
                   id="telefonReclamatie"
                   pattern="[0-9]+"
@@ -82,7 +79,7 @@ const Reclamatii = () => {
 
               <Wrapper>
                 <LabelCustom htmlFor="Motiv reclamatie:">
-                  *Motivul reclamatiei
+                  *Motivul reclamației
                 </LabelCustom>
                 <TextAreaCustom
                   name="Motiv reclamatie:"
@@ -90,7 +87,7 @@ const Reclamatii = () => {
                   type="text"
                   rows="6"
                   value={reclamatie.motivReclamatie}
-                  placeholder="Adauga aici motivul reclamatiei"
+                  placeholder="Adaugă aici motivul reclamației"
                   onChange={(e) =>
                     setReclamatie({
                       ...reclamatie,
@@ -123,7 +120,7 @@ const Reclamatii = () => {
           </form>
         </div>
       </div>
-    </div>
+    </Container>
   );
 };
 

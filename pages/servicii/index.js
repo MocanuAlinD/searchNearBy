@@ -2,6 +2,7 @@ import React from "react";
 import styles from "../../styles/servicii.module.scss";
 import BackButton from "../../components/BackButton";
 import LinkButton from "../../components/LinkButton";
+import { Container } from "../../components/singleTags/elemetsCustom";
 
 export const getStaticProps = async () => {
   try {
@@ -24,7 +25,7 @@ export const getStaticProps = async () => {
 const Servicii = ({ citys }) => {
   if (!citys) {
     return (
-      <div
+      <Container
         className={
           styles.joburi +
           " row m-0 p-0 col-12 mx-auto d-flex flex-column align-items-center justify-content-start"
@@ -36,7 +37,7 @@ const Servicii = ({ citys }) => {
         <div className="text-center text-white d-flex align-items-center justify-content-center flex-grow-1">
           Date indisponibile. Va rugam reveniti.
         </div>
-      </div>
+      </Container>
     );
   }
 
@@ -51,7 +52,7 @@ const Servicii = ({ citys }) => {
   });
 
   return (
-    <div
+    <Container
       className={
         styles.joburi +
         " row m-0 p-0 col-12 mx-auto d-flex flex-column align-items-center justify-content-start"
@@ -94,7 +95,7 @@ const Servicii = ({ citys }) => {
           </div>
         )}
       </div>
-    </div>
+    </Container>
   );
 };
 

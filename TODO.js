@@ -7,6 +7,10 @@
 // In search input, put search text in the middle
 // Add to search card: Time online years, months, days, hours...
 // Make all possible text to romanian (șăâțî)
+// Reclamatii page: pune Container cu bg gradient ca la suportPage,toate judetele,info and FAQ, index page
+// O singura componenta cu BackButton inclusiv parent div
+// La pagina inscriere, creeaza popup cu explicatii despre inscriere. Ce sa scrie si ce nu.
+// La butoanele din meniu burger, creeaza before after cu puncte stanga dreapta, albastre, sa vina dupa ce pui mouse pe buton
 
 
 
@@ -27,3 +31,12 @@
 // urgenteNoapte
 // ziinceput
 // zisfarsit
+
+
+
+
+
+
+
+
+

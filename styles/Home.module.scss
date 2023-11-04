@@ -8,24 +8,6 @@
 }
 
 
-.link {
-  background-color: var(--color-blue-dark);
-  border-radius: var(--border-radius);
-  color: var(--color-light);
-  font-weight: 200;
-  font-size: .8rem;
-  padding: .2rem .7rem;
-  text-align: center;
-  transition: var(--transition);
-  width: min(90%, 15rem);
-
-  &:hover {
-    color: var(--color-blue-dark);
-    background-color: var(--color-light);
-  }
-}
-
-
 .checkboxContainer {
   align-items: center;
   display: flex;
@@ -78,4 +60,21 @@
   transition: all .35s ease-out;
   width: min(100%, 20rem);
   z-index: 1030;
+
+  .link {
+    background-color: var(--color-blue-dark);
+    border-radius: var(--border-radius);
+    color: var(--color-light);
+    font-weight: 200;
+    font-size: .8rem;
+    padding: .2rem .7rem;
+    text-align: center;
+    transition: var(--transition);
+    width: min(90%, 15rem);
+
+    &:hover {
+      color: var(--color-blue-dark);
+      background-color: var(--color-light);
+    }
+  }
 }

@@ -23,7 +23,10 @@ color - color
 */
 
 export const Container = styled.div`
-  background: ${({ bg }) => (bg ? bg : "#222")};
+  background: ${({ bg }) =>
+    bg
+      ? bg
+      : "linear-gradient(to bottom right, var(--color-blue-light), var(--color-blue-dark))"};
   height: ${({ h }) => (h ? h : "fit-content")};
   min-height: ${({ minh }) => (minh ? minh : "100vh")};
 `;
@@ -37,14 +40,14 @@ export const SmallContainer = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  background: ${({bg}) => bg && bg};
-  border: ${({border}) => border && border};
+  background: ${({ bg }) => bg && bg};
+  border: ${({ border }) => border && border};
   color: var(--color-light);
-  display: ${({display}) => (display ? display : "flex")};
-  flex-direction: ${({fd}) => (fd ? fd : "column")};
-  margin: ${({m}) => (m ? m : "0.25rem 0")};
+  display: ${({ display }) => (display ? display : "flex")};
+  flex-direction: ${({ fd }) => (fd ? fd : "column")};
+  margin: ${({ m }) => (m ? m : "0.25rem 0")};
   @media (max-width: 450px) {
-    flex-wrap: ${({qwrap}) => (qwrap ? qwrap : "nowrap")};
+    flex-wrap: ${({ qwrap }) => (qwrap ? qwrap : "nowrap")};
     justify-content: space-between;
     width: 100%;
   }
@@ -71,13 +74,12 @@ export const SelectCustom = styled.select`
   }
 `;
 
-
 export const LabelCustom = styled.label`
   color: var(--color-light);
   width: fit-content;
-  margin: ${({m}) => (m ? m : ".5rem 0 0 0")};
+  margin: ${({ m }) => (m ? m : ".5rem 0 0 0")};
   font-size: var(--font-size08);
-  font-weight: ${({fw}) => (fw ? fw : "200")};
+  font-weight: ${({ fw }) => (fw ? fw : "200")};
 `;
 
 export const InputCustom = styled.input`
@@ -87,18 +89,18 @@ export const InputCustom = styled.input`
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
   color: var(--color-light);
-  flex-grow: ${({fg}) => (fg ? fg : 1)};
+  flex-grow: ${({ fg }) => (fg ? fg : 1)};
   font-size: var(--font-size08);
   font-weight: 200;
-  min-width: ${({minw}) => minw && minw};
-  margin: ${({m}) => (m ? m : "0")};
-  margin-bottom: ${({mb}) => (mb ? mb : "0")};
+  min-width: ${({ minw }) => minw && minw};
+  margin: ${({ m }) => (m ? m : "0")};
+  margin-bottom: ${({ mb }) => (mb ? mb : "0")};
   outline: none;
-  padding: ${({p}) => (p ? p : ".1rem .25rem")};
+  padding: ${({ p }) => (p ? p : ".1rem .25rem")};
   position: relative;
   text-indent: 0.3rem;
   transition: var(--transition);
-  width: ${({w}) => w && w};
+  width: ${({ w }) => w && w};
   ::placeholder {
     color: var(--color-placeholder);
     transition: var(--transition);
@@ -172,9 +174,8 @@ export const TextAreaCustom = styled.textarea`
   }
 `;
 
-
 export const LabelSmallCustom = styled.label`
-  color: ${({char,maxChar}) => (char < maxChar ? "whitesmoke" : "#888")};
+  color: ${({ char, maxChar }) => (char < maxChar ? "whitesmoke" : "#888")};
   font-size: 0.8rem;
   font-weight: 200;
   text-align: right;
@@ -183,30 +184,30 @@ export const LabelSmallCustom = styled.label`
 `;
 
 export const H4Custom = styled.h4`
-  color: ${({color}) => (color ? color : "whitesmoke")};
-  font-size: ${({fs}) => (fs ? fs : "1.2rem")};
-  font-weight: ${({fw}) => (fw ? fw : "400")};
-  background: ${({bg}) => (bg ? bg : "")};
-  display: ${({display}) => (display ? display : "flex")};
-  justify-content: ${({jc}) => (jc ? js : "center")};
-  align-items: ${({ai}) => (ai ? ai : "center")};
-  margin: ${({m}) => (m ? m : "0")};
-  padding: ${({p}) => (p ? p : "0")};
+  color: ${({ color }) => (color ? color : "whitesmoke")};
+  font-size: ${({ fs }) => (fs ? fs : "1.2rem")};
+  font-weight: ${({ fw }) => (fw ? fw : "400")};
+  background: ${({ bg }) => (bg ? bg : "")};
+  display: ${({ display }) => (display ? display : "flex")};
+  justify-content: ${({ jc }) => (jc ? js : "center")};
+  align-items: ${({ ai }) => (ai ? ai : "center")};
+  margin: ${({ m }) => (m ? m : "0")};
+  padding: ${({ p }) => (p ? p : "0")};
   @media (max-width: 500px) {
     font-size: 1rem;
   }
 `;
 
 export const H6Custom = styled.h4`
-  color: ${({color}) => (color ? color : "whitesmoke")};
-  background: ${({bg}) => (bg ? bg : "transparent")};
-  font-size: ${({fs}) => (fs ? fs : "1rem")};
-  font-weight: ${({fw}) => (fw ? fw : "200")};
-  width: ${({w}) => (w ? w : "fit-content")};
-  height: ${({h}) => h && h};
-  margin: ${({m}) => (m ? m : "0")};
+  color: ${({ color }) => (color ? color : "whitesmoke")};
+  background: ${({ bg }) => (bg ? bg : "transparent")};
+  font-size: ${({ fs }) => (fs ? fs : "1rem")};
+  font-weight: ${({ fw }) => (fw ? fw : "200")};
+  width: ${({ w }) => (w ? w : "fit-content")};
+  height: ${({ h }) => h && h};
+  margin: ${({ m }) => (m ? m : "0")};
   // @media (max-width: 500px) {
-  //   font-size: ${({fs}) => (fs ? fs : ".65rem")};
+  //   font-size: ${({ fs }) => (fs ? fs : ".65rem")};
   // }
 `;
 

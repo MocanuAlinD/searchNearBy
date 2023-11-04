@@ -176,11 +176,6 @@ export default function Home() {
               <CardCautare data={item} key={index} idx={index} />
             ))}
         </div>
-        {/* {initialValues.sortedList.length <= 0 ? (
-          <div className={styles.emptyDiv + " my-5 py-5"}></div>
-        ) : (
-          <div className={styles.alin + " border border-warning"}>nothing</div>
-        )} */}
       </div>
 
       {loadSearch ? <Spinner setLoadSearch={setLoadSearch} /> : ""}
@@ -203,6 +198,9 @@ export default function Home() {
         </Link>
         <Link href="/inscriere">
           <a className={styles.link + " m-0 mt-5"}>Inregistrare</a>
+        </Link>
+        <Link href="/donatii">
+          <a className={styles.link + " m-0"}>Donează pentru dezvoltare</a>
         </Link>
       </div>
     </div>
