@@ -73,7 +73,7 @@ export const SelectCustom = styled.select`
   width: 100%;
   :focus {
     background: var(--color-light);
-    border-bottom: 2px solid var(--color-orange);
+    border-bottom: 2px solid var(--color-yellow);
     color: var(--color-dark);
   }
 `;
@@ -111,14 +111,14 @@ export const InputCustom = styled.input`
   }
   :focus {
     background: var(--color-light);
-    border-bottom: 2px solid var(--color-orange);
+    border-bottom: 2px solid var(--color-yellow);
     color: var(--color-dark);
   }
   :focus::placeholder {
     color: var(--color-darkish);
   }
   & + span {
-    color: var(--color-orange);
+    color: var(--color-yellow);
     display: none;
     font-weight: 400;
     font-size: .8rem;
@@ -131,7 +131,8 @@ export const InputCustom = styled.input`
     display: block;
   }
   &:invalid{
-    color: var(--color-orange);
+    color: var(--color-yellow);
+    background: var(--color-dark);
   }
 `;
 
@@ -163,13 +164,9 @@ export const TextAreaCustom = styled.textarea`
     display: none;
     font-weight: 400;
     font-size: 0.8rem;
-    color: var(--color-orange);
+    color: var(--color-yellow);
     letter-spacing: 0.02rem;
   }
-  /* &:focus + span{
-    display: none;
-    background: coral;
-  } */
   &:focus:placeholder-shown + span {
     display: block;
   }
@@ -210,9 +207,6 @@ export const H6Custom = styled.h4`
   width: ${({ w }) => (w ? w : "fit-content")};
   height: ${({ h }) => h && h};
   margin: ${({ m }) => (m ? m : "0")};
-  // @media (max-width: 500px) {
-  //   font-size: ${({ fs }) => (fs ? fs : ".65rem")};
-  // }
 `;
 
 /* 
@@ -267,7 +261,7 @@ export const InputContainer = styled.div`
   }
   input:focus {
     background: var(--color-light);
-    border-bottom: 2px solid var(--color-orange);
+    border-bottom: 2px solid var(--color-yellow);
   }
   input:focus + label {
     top: -75%;

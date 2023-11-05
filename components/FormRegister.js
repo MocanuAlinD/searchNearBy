@@ -9,15 +9,11 @@ import {
   LabelSmallCustom,
 } from "../components/singleTags/elemetsCustom";
 import { ButtonWithIcon } from "./singleTags/ButtonWithIcon";
-
 import { Checkbox } from "@mui/material";
 import { BiReset } from "react-icons/bi";
 import { judete } from "../lib/judete";
 import { alin } from "../lib";
 import InputSuggestions from "./InputSuggestions";
-
-// TO DO
-// New color for span`s
 
 const FormRegister = ({
   state,
@@ -52,7 +48,7 @@ const FormRegister = ({
           </LabelCustom>
           <InputCustom
             required
-            pattern="[A-Za-z -.]{2,}"
+            pattern="[A-Za-z -.0-9]{2,}"
             autoComplete="off"
             type="text"
             id="numeUtilizator"
@@ -65,11 +61,11 @@ const FormRegister = ({
 
         <Wrapper>
           <LabelCustom htmlFor="phoneID" m="0">
-            Telefon
+            Telefon ( unul sau mai multe desparțite prin "," )
           </LabelCustom>
           <InputCustom
             required
-            pattern="[0-9]{6,20}"
+            pattern="[0-9,]+"
             id="phoneID"
             autoComplete="off"
             type="text"
@@ -77,11 +73,12 @@ const FormRegister = ({
             value={state.phone}
             onChange={(e) => setState({ ...state, phone: e.target.value })}
           />
-          <span>Numarul de telefon este necesar</span>
-          <LabelCustom htmlFor="emailID">Email</LabelCustom>
+          <span>Numărul de telefon este necesar</span>
+          <LabelCustom htmlFor="emailID">
+            Email ( unul sau mai multe desparțite prin "," )
+          </LabelCustom>
           <InputCustom
             required
-            pattern="^\w+([\.\-]?\w+)*@\w+([\.\-]?\w+)*(\.[a-zA-Z]{2,3})+$"
             id="emailID"
             autoComplete="off"
             type="text"
@@ -89,7 +86,7 @@ const FormRegister = ({
             value={state.email}
             onChange={(e) => setState({ ...state, email: e.target.value })}
           />
-          <span>Adresa de email trebuie sa existe si sa fie valida</span>
+          <span>Adresa de email trebuie să existe și să fie validă</span>
         </Wrapper>
 
         <Wrapper>
@@ -112,7 +109,7 @@ const FormRegister = ({
         </Wrapper>
 
         <Wrapper>
-          <LabelCustom htmlFor="pretMinID">Pret minim</LabelCustom>
+          <LabelCustom htmlFor="pretMinID">Preț minim</LabelCustom>
           <InputCustom
             required
             id="pretMinID"
@@ -123,8 +120,8 @@ const FormRegister = ({
             placeholder="pret minim"
             onChange={(e) => setState({ ...state, pretMin: e.target.value })}
           />
-          <span>Treceti pretul minim</span>
-          <LabelCustom htmlFor="pretMaxID">Pret maxim</LabelCustom>
+          <span>Treceți prețul minim</span>
+          <LabelCustom htmlFor="pretMaxID">Preț maxim</LabelCustom>
           <InputCustom
             required
             pattern="[0-9]+"
@@ -135,11 +132,11 @@ const FormRegister = ({
             placeholder="pret maxim"
             onChange={(e) => setState({ ...state, pretMax: e.target.value })}
           />
-          <span>Treceti pretul maxim</span>
+          <span>Treceți prețul maxim</span>
         </Wrapper>
 
         <Wrapper>
-          <LabelCustom htmlFor="detalii">Scurta descriere</LabelCustom>
+          <LabelCustom htmlFor="detalii">Scurtă descriere</LabelCustom>
           <TextAreaCustom
             required
             pattern="[0-9]+"
@@ -162,7 +159,7 @@ const FormRegister = ({
         </Wrapper>
 
         <Wrapper>
-          <LabelCustom htmlFor="website">Website (Optional)</LabelCustom>
+          <LabelCustom htmlFor="website">Website (Opțional)</LabelCustom>
           <InputCustom
             pattern="(?!^[\d-])[a-zA-Z0-9-]{2,63}(?<!-)\.[a-zA-Z]{2,4}"
             id="website"
@@ -185,15 +182,15 @@ const FormRegister = ({
             onChange={(e) => setState({ ...state, ziinceput: e.target.value })}
           >
             <option value="Luni">Luni</option>
-            <option value="Marti">Marti</option>
+            <option value="Marti">Marți</option>
             <option value="Miercuri">Miercuri</option>
             <option value="Joi">Joi</option>
             <option value="Vineri">Vineri</option>
-            <option value="Sambata">Sambata</option>
-            <option value="Duminica">Duminica</option>
+            <option value="Sambata">Sâmbătă</option>
+            <option value="Duminica">Duminică</option>
           </SelectCustom>
           <LabelCustom htmlFor="saptamanaSfarsit" m="0">
-            pana
+            până
           </LabelCustom>
           <SelectCustom
             name="saptamanaSfarsit"
@@ -202,18 +199,18 @@ const FormRegister = ({
             onChange={(e) => setState({ ...state, zisfarsit: e.target.value })}
           >
             <option value="Luni">Luni</option>
-            <option value="Marti">Marti</option>
+            <option value="Marti">Marți</option>
             <option value="Miercuri">Miercuri</option>
             <option value="Joi">Joi</option>
             <option value="Vineri">Vineri</option>
-            <option value="Sambata">Sambata</option>
-            <option value="Duminica">Duminica</option>
+            <option value="Sambata">Sâmbătă</option>
+            <option value="Duminica">Duminică</option>
           </SelectCustom>
         </Wrapper>
 
         <Wrapper m="0">
           <LabelCustom htmlFor="programInceput" m="0rem 0 .2rem 0">
-            Disponibil de la ora{" "}
+            Disponibil de la ora
           </LabelCustom>
           <InputCustom
             required
@@ -224,9 +221,9 @@ const FormRegister = ({
             value={state.orainceput}
             onChange={(e) => setState({ ...state, orainceput: e.target.value })}
           />
-          <span>Selecteaza corect o ora</span>
+          <span>Selectează corect o oră</span>
 
-          <LabelCustom htmlFor="programSfarsit"> pana la ora </LabelCustom>
+          <LabelCustom htmlFor="programSfarsit"> până la ora </LabelCustom>
           <InputCustom
             required
             w="100%"
@@ -236,7 +233,7 @@ const FormRegister = ({
             value={state.orasfarsit}
             onChange={(e) => setState({ ...state, orasfarsit: e.target.value })}
           />
-          <span>Selecteaza corect o ora</span>
+          <span>Selectează corect o oră</span>
         </Wrapper>
 
         <Wrapper m="0.5rem 0 0 0">
@@ -257,7 +254,7 @@ const FormRegister = ({
               value=""
               onChange={() => setState({ ...state, urgente: !state.urgente })}
             />
-            Disponibil in afara zilelor/orelor de lucru
+            Disponibil în afara zilelor/orelor de lucru
           </LabelCustom>
         </Wrapper>
 
@@ -282,13 +279,13 @@ const FormRegister = ({
                 setState({ ...state, urgenteNoapte: !state.urgenteNoapte })
               }
             />
-            Urgente pe timp de noapte
+            Urgențe pe timp de noapte
           </LabelCustom>
         </Wrapper>
 
         <Wrapper>
           <LabelCustom htmlFor="labelOrase">
-            Judetul unde prestezi serviciile
+            Județul unde prestezi serviciile
           </LabelCustom>
           <SelectCustom
             required
@@ -298,7 +295,7 @@ const FormRegister = ({
             onChange={(e) => changeListaOrase(e)}
           >
             <option value="" disabled>
-              ---Alege judetul---
+              ---Alege județul---
             </option>
             {judete.map((item, index) => (
               <option key={index} value={item.nume}>
@@ -347,7 +344,7 @@ const FormRegister = ({
           </ButtonWithIcon>
 
           <ButtonWithIcon w="45%" className="shadow">
-            Inregistrare
+            Înregistrare
           </ButtonWithIcon>
         </Wrapper>
       </SmallContainer>
