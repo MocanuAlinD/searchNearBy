@@ -58,44 +58,40 @@ const Card = ({ data, setLocation }) => {
       <hr />
 
       {data.contact.phone.map((element, index) => (
-        <>
-          <div className={styles.wrapper}>
-            <h4>
-              <AiOutlinePhone />
-              &nbsp;&nbsp;Telefon - {index + 1}
-            </h4>
-            <h5>
-              <span>{element}</span>
-              <a href={`tel:${element}`}>
-                <FcPhone className="fs-4" />
-              </a>
-            </h5>
-          </div>
-          <hr />
-        </>
+        <div className={styles.wrapper} key={index}>
+          <h4>
+            <AiOutlinePhone />
+            &nbsp;&nbsp;Telefon - {index + 1}
+          </h4>
+          <h5>
+            <span>{element}</span>
+            <a href={`tel:${element}`}>
+              <FcPhone className="fs-4" />
+            </a>
+          </h5>
+        </div>
       ))}
 
+      <hr />
       {data.contact.email.map((element, index) => (
-        <>
-          <div className={styles.wrapper}>
-            <h4>
-              <AiOutlineMail />
-              &nbsp;&nbsp;Email - {index + 1}
-            </h4>
-            <h5>
-              <span>{element}</span>
-              <a href={`mailto:${element}`}>
-                <AiOutlineMail
-                  className="fs-4"
-                  style={{ color: "var(--color-green1)" }}
-                />
-              </a>
-            </h5>
-          </div>
-          <hr />
-        </>
+        <div className={styles.wrapper} key={index}>
+          <h4>
+            <AiOutlineMail />
+            &nbsp;&nbsp;Email - {index + 1}
+          </h4>
+          <h5>
+            <span>{element}</span>
+            <a href={`mailto:${element}`}>
+              <AiOutlineMail
+                className="fs-4"
+                style={{ color: "var(--color-green1)" }}
+              />
+            </a>
+          </h5>
+        </div>
       ))}
 
+      <hr />
       <div className={styles.wrapper}>
         <h4>
           <BsCashCoin />
