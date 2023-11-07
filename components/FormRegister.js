@@ -71,7 +71,7 @@ const FormRegister = ({
             type="text"
             placeholder="telefon"
             value={state.phone}
-            onChange={(e) => setState({ ...state, phone: e.target.value })}
+            onChange={(e) => setState({ ...state, phone: [...(e.target.value.split(","))] })}
           />
           <span>Numărul de telefon este necesar</span>
           <LabelCustom htmlFor="emailID">
@@ -84,7 +84,7 @@ const FormRegister = ({
             type="text"
             placeholder="Email"
             value={state.email}
-            onChange={(e) => setState({ ...state, email: e.target.value })}
+            onChange={(e) => setState({ ...state, email: [...(e.target.value).split(",")] })}
           />
           <span>Adresa de email trebuie să existe și să fie validă</span>
         </Wrapper>
