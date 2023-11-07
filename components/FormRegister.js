@@ -61,7 +61,7 @@ const FormRegister = ({
 
         <Wrapper>
           <LabelCustom htmlFor="phoneID" m="0">
-            Telefon ( unul sau mai multe desparțite prin "," )
+            Telefon ( unul sau mai multe desparțite prin &quot;,&quot; )
           </LabelCustom>
           <InputCustom
             required
@@ -71,11 +71,13 @@ const FormRegister = ({
             type="text"
             placeholder="telefon"
             value={state.phone}
-            onChange={(e) => setState({ ...state, phone: [...(e.target.value.split(","))] })}
+            onChange={(e) =>
+              setState({ ...state, phone: [...e.target.value.split(",")] })
+            }
           />
           <span>Numărul de telefon este necesar</span>
           <LabelCustom htmlFor="emailID">
-            Email ( unul sau mai multe desparțite prin "," )
+            Email ( unul sau mai multe desparțite prin &quot;,&quot; )
           </LabelCustom>
           <InputCustom
             required
@@ -84,7 +86,9 @@ const FormRegister = ({
             type="text"
             placeholder="Email"
             value={state.email}
-            onChange={(e) => setState({ ...state, email: [...(e.target.value).split(",")] })}
+            onChange={(e) =>
+              setState({ ...state, email: [...e.target.value.split(",")] })
+            }
           />
           <span>Adresa de email trebuie să existe și să fie validă</span>
         </Wrapper>
