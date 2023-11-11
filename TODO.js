@@ -26,7 +26,7 @@
 // Trimite reclamatie si pe whatsapp si pe formSubmit
 // Pune putina margine sus la filter card
 // La search card, nr de telefon separate prin virgula sau cumva
-
+// La filter card, scrie x rezultate, nu x gasite
 
 // contact: email, phone
 // dataregister:
