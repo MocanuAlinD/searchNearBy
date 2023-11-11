@@ -23,7 +23,7 @@ export default function Home() {
   const [loadSearch, setLoadSearch] = useState(false);
   const [show, setShow] = useState(true);
   const [showMenu, setShowMenu] = useState(false);
-  const [noResults, setNoResults] = useState(false);
+  const [noResults, setNoResults] = useState(true);
 
   // Button search only in judet
   const searchJudet = async () => {
