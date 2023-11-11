@@ -133,25 +133,25 @@ const SortItems = ({ handleToate, listLen }) => {
       {/* DESKTOP */}
       <div className={styles.desktop + " d-none d-md-flex"}>
         <SingleRow
-          cls="w-100 text-center"
+          cls="w-100 text-center fs-bold"
           justTitle
           text={
             listLen >= 0 && listLen === 0
               ? "-"
               : listLen === 1
-              ? "1 gasit"
-              : listLen > 1 && listLen + " gasite"
+              ? "1 găsit"
+              : listLen > 1 && listLen + " servicii găsite"
           }
         />
         <SingleRow
           id="toate"
-          text="Fara filtre"
+          text="Fără filtre"
           state={state.toate}
           func={handleRest}
           list={initialValues}
           type="checkbox"
         />
-        <SingleRow justTitle text="Sorteaza" />
+        <SingleRow justTitle text="Sortează" />
 
         <SingleRow
           id="tarifAsc"
@@ -174,7 +174,7 @@ const SortItems = ({ handleToate, listLen }) => {
 
         <SingleRow
           id="dataAsc"
-          text="Data recenta"
+          text="Dată recentă"
           type="radio"
           name="sortBy"
           state={state.dataAsc}
@@ -183,7 +183,7 @@ const SortItems = ({ handleToate, listLen }) => {
 
         <SingleRow
           id="dataDesc"
-          text="Data veche"
+          text="Dată veche"
           type="radio"
           name="sortBy"
           state={state.dataDesc}
@@ -194,7 +194,7 @@ const SortItems = ({ handleToate, listLen }) => {
 
         <SingleRow
           id="program"
-          text="Dupa 16:00"
+          text="După 16:00"
           type="checkbox"
           state={state.program}
           func={handleProgram}
@@ -202,7 +202,7 @@ const SortItems = ({ handleToate, listLen }) => {
 
         <SingleRow
           id="night"
-          text="Urgente 24/7"
+          text="Urgențe 24/7"
           type="checkbox"
           state={state.night}
           func={handleNightLocal}
@@ -228,7 +228,7 @@ const SortItems = ({ handleToate, listLen }) => {
       <div className={styles.mobile + " d-flex d-md-none"}>
         <div className={styles.wrapper}>
           <div className={styles.row}>
-            <label htmlFor="noFilters">Fara filtre</label>
+            <label htmlFor="noFilters">Fără filtre</label>
             <input
               type="checkbox"
               id="noFilters"
@@ -237,28 +237,28 @@ const SortItems = ({ handleToate, listLen }) => {
             />
           </div>
           <div className={styles.row}>
-            <label htmlFor="select">Sorteaza</label>
+            <label htmlFor="select">Sortează</label>
             <select id="select" onChange={(e) => handleSelect(e.target.value)}>
               <optgroup label="Tarif">
                 <option value="tarifAsc">Tarif 1 &gt; 9</option>
                 <option value="tarifDesc">Tarif 9 &gt; 1</option>
               </optgroup>
               <optgroup label="Data">
-                <option value="dataAsc">Data recenta</option>
-                <option value="dataDesc">Data veche</option>
+                <option value="dataAsc">Dată recentă</option>
+                <option value="dataDesc">Dată veche</option>
               </optgroup>
             </select>
           </div>
 
           <div className={styles.row}>
-            <label htmlFor="filtreaza">Filtreaza</label>
+            <label htmlFor="filtreaza">Filtrează</label>
             <select
               multiple
               id="filtreaza"
               onChange={(e) => handleSelectFiltreaza(e.target.value)}
             >
-              <option value="program">Dupa 16:00</option>
-              <option value="night">Urgente 24/7</option>
+              <option value="program">După 16:00</option>
+              <option value="night">Urgențe 24/7</option>
               <option value="website">Website</option>
               <option value="weekend">Weekend</option>
             </select>

@@ -61,6 +61,11 @@ export default function Home() {
         `/api/jobsJudetOras?search=${state.cautare}&judet=${state.judet}&oras=${state.oras}`
       );
       const endresult = await getServices.json();
+      if (endresult.length > 0) {
+        setNoResults(true);
+      } else if (!endresult.length) {
+        setNoResults(false);
+      }
       setState((prev) => ({ ...prev, sortedList: endresult }));
       setOriginalList((prev) => endresult);
     } catch (error) {
@@ -166,7 +171,7 @@ export default function Home() {
       <div className="d-flex flex-column flex-md-row m-0 p-0">
         {!loadSearch &&
           originalList.length > 0 &&
-          state.sortedList.length > 0 && (
+          state.sortedList.length >= 0 && (
             <SortItems
               handleToate={handleToate}
               listLen={state.sortedList.length}
