@@ -36,12 +36,8 @@ const ClientSearch = ({
               setState({
                 ...state,
                 judet: e.target.value,
-                listaOrase: alin[e.target.value].sort(
-                  (a, b) => (a.nume > b.nume && 1) || -1
-                ),
-                oras: alin[e.target.value].sort(
-                  (a, b) => (a.nume > b.nume && 1) || -1
-                )[0].nume,
+                listaOrase: alin[e.target.value],
+                oras: alin[e.target.value][0].nume,
                 listaCarduri: [],
               }),
               automaticChange()
