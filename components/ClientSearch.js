@@ -18,6 +18,7 @@ const ClientSearch = ({
   searchJudet,
   searchJudetOras,
   resetSearch,
+  automaticChange,
 }) => {
   return (
     <div
@@ -31,7 +32,7 @@ const ClientSearch = ({
           <SelectCustom
             name="judet"
             value={state.judet}
-            onChange={(e) =>
+            onChange={(e) => (
               setState({
                 ...state,
                 judet: e.target.value,
@@ -42,8 +43,9 @@ const ClientSearch = ({
                   (a, b) => (a.nume > b.nume && 1) || -1
                 )[0].nume,
                 listaCarduri: [],
-              })
-            }
+              }),
+              automaticChange()
+            )}
           >
             <option value="" disabled>
               --Alege judetul--
@@ -99,7 +101,6 @@ const ClientSearch = ({
             <IconButton
               aria-label="delete"
               disabled={!state.cautare}
-              // onClick={() => setState({ ...state, cautare: "" })}
               onClick={() => {
                 setState({ ...state, cautare: "" });
               }}

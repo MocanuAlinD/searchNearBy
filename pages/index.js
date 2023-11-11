@@ -8,6 +8,7 @@ import CardCautare from "../components/CardCautare";
 import SortItems from "../components/SortItems";
 import LeftMenu from "../components/LeftMenu";
 import Title from "../components/Title";
+import NoResults from "../components/NoResults";
 
 export default function Home() {
   const initialValues = {
@@ -22,6 +23,7 @@ export default function Home() {
   const [loadSearch, setLoadSearch] = useState(false);
   const [show, setShow] = useState(true);
   const [showMenu, setShowMenu] = useState(false);
+  const [noResults, setNoResults] = useState(false);
 
   // Button search only in judet
   const searchJudet = async () => {
@@ -31,6 +33,12 @@ export default function Home() {
         `/api/jobsJudet?search=${state.cautare}&judet=${state.judet}`
       );
       const endresult = await getServices.json();
+
+      if (endresult.length > 0) {
+        setNoResults(true);
+      } else if (!endresult.length) {
+        setNoResults(false);
+      }
       setState((prev) => ({
         ...prev,
         sortedList: endresult,
@@ -40,6 +48,10 @@ export default function Home() {
     } catch (error) {
       setLoadSearch((prev) => false);
     }
+  };
+
+  const automaticChange = () => {
+    setNoResults(true);
   };
 
   // Button search in judet and oras
@@ -104,14 +116,11 @@ export default function Home() {
   const resetSearch = () => {
     setOriginalList([]);
     setState(initialValues);
+    setNoResults(true);
   };
 
   return (
-    <div
-      className={
-        styles.container + " container-fluid m-0 p-0 position-relative"
-      }
-    >
+    <div className={styles.container + " m-0 p-0"}>
       <div
         className={
           styles.mainContainer +
@@ -149,6 +158,7 @@ export default function Home() {
           searchJudetOras={searchJudetOras}
           searchJudet={searchJudet}
           resetSearch={resetSearch}
+          automaticChange={() => automaticChange()}
         />
       </div>
 
@@ -164,18 +174,18 @@ export default function Home() {
           )}
 
         {/* Cards container */}
-        <div
-          className={
-            styles.cardsContainer +
-            " w-100 d-flex flex-wrap m-0 p-0 justify-content-center"
-          }
-        >
+        <div className="w-100 d-flex flex-wrap m-0 p-0 justify-content-center">
           {!loadSearch &&
             originalList &&
             state.sortedList.map((item, index) => (
               <CardCautare data={item} key={index} idx={index} />
             ))}
         </div>
+      </div>
+
+      {/* Show only if no results found */}
+      <div className={styles.resultsContainer}>
+        {!noResults && <NoResults judet={state.judet} oras={state.oras} />}
       </div>
 
       {loadSearch ? <Spinner setLoadSearch={setLoadSearch} /> : ""}
@@ -197,7 +207,7 @@ export default function Home() {
           <a className={styles.link + " m-0"}>Reclamatii</a>
         </Link>
         <Link href="/inscriere">
-          <a className={styles.link + " m-0 mt-5"}>Inregistrare</a>
+          <a className={styles.link + " m-0 mt-5"}>Înregistrare gratuită</a>
         </Link>
         <Link href="/donatii">
           <a className={styles.link + " m-0"}>Donează pentru dezvoltare</a>
