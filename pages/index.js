@@ -23,10 +23,12 @@ export default function Home() {
   const [loadSearch, setLoadSearch] = useState(false);
   const [show, setShow] = useState(true);
   const [showMenu, setShowMenu] = useState(false);
-  const [noResults, setNoResults] = useState(true);
+  const [noResultsText, setNoResultsText] = useState("");
+  const [noResTrigger, setNoResTrigger] = useState(false);
 
   // Button search only in judet
   const searchJudet = async () => {
+    setNoResTrigger((prev) => false);
     try {
       setLoadSearch((prev) => true);
       const getServices = await fetch(
@@ -34,40 +36,42 @@ export default function Home() {
       );
       const endresult = await getServices.json();
 
-      if (endresult.length > 0) {
-        setNoResults(true);
-      } else if (!endresult.length) {
-        setNoResults(false);
-      }
       setState((prev) => ({
         ...prev,
         sortedList: endresult,
       }));
       setOriginalList(endresult);
       setLoadSearch((prev) => false);
+
+      if (endresult.length > 0) {
+        setNoResultsText("");
+      } else if (endresult.length === 0) {
+        setNoResultsText(state.judet);
+        setNoResTrigger((prev) => true);
+      }
     } catch (error) {
       setLoadSearch((prev) => false);
     }
   };
 
-  const automaticChange = () => {
-    setNoResults(true);
-  };
-
   // Button search in judet and oras
   const searchJudetOras = async () => {
+    setNoResTrigger((prev) => false);
     try {
       const getServices = await fetch(
         `/api/jobsJudetOras?search=${state.cautare}&judet=${state.judet}&oras=${state.oras}`
       );
       const endresult = await getServices.json();
-      if (endresult.length > 0) {
-        setNoResults(true);
-      } else if (!endresult.length) {
-        setNoResults(false);
-      }
+
       setState((prev) => ({ ...prev, sortedList: endresult }));
       setOriginalList((prev) => endresult);
+
+      if (endresult.length > 0) {
+        setNoResultsText("");
+      } else if (endresult.length === 0) {
+        setNoResultsText(`${state.judet}, ${state.oras}`);
+        setNoResTrigger((prev) => true);
+      }
     } catch (error) {
       setLoadSearch((prev) => false);
     }
@@ -121,7 +125,11 @@ export default function Home() {
   const resetSearch = () => {
     setOriginalList([]);
     setState(initialValues);
-    setNoResults(true);
+    setNoResTrigger(false);
+  };
+
+  const automaticChange = () => {
+    setNoResTrigger((prev) => false);
   };
 
   return (
@@ -163,7 +171,7 @@ export default function Home() {
           searchJudetOras={searchJudetOras}
           searchJudet={searchJudet}
           resetSearch={resetSearch}
-          automaticChange={() => automaticChange()}
+          automaticChange={automaticChange}
         />
       </div>
 
@@ -189,11 +197,15 @@ export default function Home() {
       </div>
 
       {/* Show only if no results found */}
-      <div className={styles.resultsContainer}>
-        {!noResults && <NoResults judet={state.judet} oras={state.oras} />}
-      </div>
 
-      {loadSearch ? <Spinner setLoadSearch={setLoadSearch} /> : ""}
+      {/* {!originalList.length && noResultsText === "" && <NoResults noRes={noResultsText} />} */}
+      {noResTrigger && (
+        <div className={styles.resultsContainer}>
+          <NoResults noRes={noResultsText} />
+        </div>
+      )}
+
+      {loadSearch && <Spinner setLoadSearch={setLoadSearch} />}
 
       {/* Meniu Burger */}
       <div

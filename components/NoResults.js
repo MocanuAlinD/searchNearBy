@@ -1,11 +1,10 @@
 import React from "react";
+import styles from "../styles/noResult.module.scss";
 
-const NoResults = ({ judet, oras }) => {
+const NoResults = ({noRes}) => {
   return (
-    <div className="">
-      <h3 className="text-white fs-5">
-        Nu s-au gasit servicii in {`${judet}, ${oras}`}
-      </h3>
+    <div className={styles.container}>
+      <h3>Nu există înregistrări în <strong>{`"${noRes}"`}</strong></h3>
     </div>
   );
 };

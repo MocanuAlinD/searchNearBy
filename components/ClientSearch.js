@@ -24,6 +24,7 @@ const ClientSearch = ({
     <div
       className={
         styles.container +
+        // "  m-0 p-0 align-self-center justify-content-center px-2 px-md-0 pt-3"
         "  m-0 p-0 align-self-center justify-content-center px-2 px-md-0 pt-3"
       }
     >
@@ -59,12 +60,13 @@ const ClientSearch = ({
             <SelectCustom
               name="oras"
               value={state.oras}
-              onChange={(e) =>
+              onChange={(e) => (
                 setState({
                   ...state,
                   oras: e.target.value,
-                })
-              }
+                }),
+                automaticChange()
+              )}
             >
               {state.listaOrase.map((item, index) => (
                 <option value={item.nume} key={index}>
@@ -124,7 +126,7 @@ const ClientSearch = ({
             <div className="iconContainer">
               <AiOutlineSearch className="icon" />
             </div>
-            Cauta {"in " + state.judet}
+            Caută în {state.judet}
           </ButtonWithIcon>
           <ButtonWithIcon
             hasIcon
@@ -135,7 +137,7 @@ const ClientSearch = ({
             <div className="iconContainer">
               <AiOutlineSearch className="icon" />
             </div>
-            Cauta in {state.judet + ", " + state.oras}
+            Caută în {state.judet + ", " + state.oras}
           </ButtonWithIcon>
           <Button
             className={styles.resetBtn + " shadow-sm"}

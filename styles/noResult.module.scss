@@ -1,0 +1,24 @@
+.container {
+    width: min(97%, 40rem);
+    margin: 0;
+    padding: 0;
+
+    h3 {
+        color: var(--color-blue-dark);
+        background-color: var(--color-light);
+        border-radius: var(--border-radius);
+        margin: 1rem 0 0 0;
+        padding: .5rem;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        font-size: clamp(.8rem, 2vw, 1rem);
+        align-items: center;
+        user-select: none;
+        text-align: center;
+        strong{
+            color: var(--color-orange);
+            font-weight: 400;
+        }
+    }
+}

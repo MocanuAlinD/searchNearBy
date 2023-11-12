@@ -139,8 +139,8 @@ const SortItems = ({ handleToate, listLen }) => {
             listLen >= 0 && listLen === 0
               ? "-"
               : listLen === 1
-              ? "1 găsit"
-              : listLen > 1 && listLen + " servicii găsite"
+              ? "1 rezultat"
+              : listLen > 1 && listLen + " rezultate"
           }
         />
         <SingleRow
