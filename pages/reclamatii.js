@@ -123,6 +123,7 @@ const Reclamatii = () => {
                 <a
                   href="http://wa.me/+40748221577"
                   target="_blank"
+                  rel="noreferrer"
                   title="0721989796"
                 >
                   WhatsApp
