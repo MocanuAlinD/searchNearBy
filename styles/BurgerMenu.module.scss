@@ -2,14 +2,14 @@
     backdrop-filter: blur(10px);
     background-color: rgba(0, 0, 0, 0.2);
     border-top: .25rem solid var(--color-blue-dark);
-    font-size: 1rem;
-    height: min-content;
-    left: 0;
+    // font-size: 1rem;
+    // height: min-content;
     padding-bottom: 3rem;
     padding-top: 3rem;
     position: absolute;
     top: 4rem;
-    transition: all .35s ease-out;
+    left: 0;
+    transition: var(--transition);
     width: min(100%, 20rem);
     z-index: 9999;
     border-bottom-right-radius: 3rem;
