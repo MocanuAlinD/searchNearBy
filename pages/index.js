@@ -9,6 +9,7 @@ import SortItems from "../components/SortItems";
 import LeftMenu from "../components/LeftMenu";
 import Title from "../components/Title";
 import NoResults from "../components/NoResults";
+import BurgerMenu from "../components/BurgerMenu";
 
 export default function Home() {
   const initialValues = {
@@ -134,6 +135,7 @@ export default function Home() {
 
   return (
     <div className={styles.container + " m-0 p-0"}>
+      <BurgerMenu showMenu={showMenu} />
       <div
         className={
           styles.mainContainer +
@@ -208,28 +210,39 @@ export default function Home() {
       {loadSearch && <Spinner setLoadSearch={setLoadSearch} />}
 
       {/* Meniu Burger */}
-      <div
+      
+      {/* <div
         className={
           styles.sidebar + " d-flex flex-column align-items-center gap-3"
         }
-        style={{ left: `${showMenu ? 0 : "-100%"}` }}
+        style={{ transform: `rotateZ(${showMenu ? "0" : "90deg"})` }}
       >
         <Link href="/servicii">
-          <a className={styles.link + " m-0"}>Toate judetele</a>
+          <span>
+            <a className={styles.link + " m-0"}>Toate judetele</a>
+          </span>
         </Link>
         <Link href="/infofaq">
-          <a className={styles.link + " m-0"}>Info & FAQ</a>
+          <span>
+            <a className={styles.link + " m-0"}>Info & FAQ</a>
+          </span>
         </Link>
         <Link href="/reclamatii">
-          <a className={styles.link + " m-0"}>Reclamatii</a>
+          <span>
+            <a className={styles.link + " m-0"}>Reclamatii</a>
+          </span>
         </Link>
         <Link href="/inscriere">
-          <a className={styles.link + " m-0 mt-5"}>Înregistrare gratuită</a>
+          <span className="m-0 mt-5">
+            <a className={styles.link}>Înregistrare gratuită</a>
+          </span>
         </Link>
         <Link href="/donatii">
-          <a className={styles.link + " m-0"}>Donează pentru dezvoltare</a>
+          <span>
+            <a className={styles.link + " m-0"}>Donează pentru dezvoltare</a>
+          </span>
         </Link>
-      </div>
+      </div> */}
     </div>
   );
 }

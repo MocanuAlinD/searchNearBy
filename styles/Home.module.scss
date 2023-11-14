@@ -5,9 +5,9 @@
 
   .mainContainer {
     width: 100%;
-    
+
   }
-  
+
   .resultsContainer {
     display: flex;
     justify-content: center;
@@ -49,39 +49,6 @@
 
     .checkbox:checked {
       background-color: var(--color-light);
-    }
-  }
-
-  .sidebar {
-    backdrop-filter: blur(10px);
-    background-color: rgba(0, 0, 0, 0.2);
-    border-top: .5rem solid var(--color-blue-dark);
-    font-size: 1rem;
-    height: min-content;
-    left: -100%;
-    padding-bottom: 3rem;
-    padding-top: 3rem;
-    position: absolute;
-    top: 4rem;
-    transition: all .35s ease-out;
-    width: min(100%, 20rem);
-    z-index: 1030;
-
-    .link {
-      background-color: var(--color-blue-dark);
-      border-radius: var(--border-radius);
-      color: var(--color-light);
-      font-weight: 200;
-      font-size: .8rem;
-      padding: .2rem .7rem;
-      text-align: center;
-      transition: var(--transition);
-      width: min(90%, 15rem);
-
-      &:hover {
-        color: var(--color-blue-dark);
-        background-color: var(--color-light);
-      }
     }
   }
 }
