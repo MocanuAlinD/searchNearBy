@@ -25,6 +25,51 @@ const CardCautare = ({ data, idx }) => {
     namedMonths[tempDate.getMonth() + 1]
   } ${tempDate.getFullYear()}`;
 
+  const testdate = new Date(data.dataregister).getTime() / 1000; //seconds
+  let diffalin = 0;
+
+  const { day, month, year } = { day: 86400, month: 2678400, year: 31536000 };
+  const prezent = Math.floor(new Date().getTime()) / 1000; //seconds
+
+  const registeredYear = new Date(data.dataregister).getFullYear();
+  const prez = Date.now();
+  const prezentYear = new Date(prez).getFullYear();
+
+  function checkLeap(y) {
+    const x1 =
+      y % 100 === 0 ? false : y % 400 === 0 ? false : y % 4 === 0 && true;
+    return x1;
+  }
+
+  const checkNrAni = (currYear, regYear) => {
+    const aniDiff = currYear - regYear;
+    for (let i = 0; i < aniDiff; i++) {
+      const res = checkLeap(regYear + i);
+      if (res === true) {
+        diffalin += day;
+      }
+    }
+  };
+
+  checkNrAni(prezentYear, registeredYear);
+
+  const floor = (z) => {
+    return Math.floor(z);
+  };
+
+  const calcYears = (x) => {
+    const diff = prezent - x + diffalin; // remaining total time OK
+    const ani = floor(diff / year); // nr ani OK
+    const restAni = diff % year; // ramane pt luni in secunde
+    const luni = floor(restAni / month); // luni OK
+    const restZile = restAni % month; // ramane pt zile in secunde
+    const zile = floor(restZile / day);
+
+    console.log(`Online de: ${ani > 0 ? ani + (ani > 1 ? " ani": " an") : ""} ${luni > 0 ? "Luni: " + luni : ""} ${zile > 0 ? "Zile: " + zile : ""}`, data.dataregister);
+  };
+
+  calcYears(testdate);
+
   return (
     <div className={styles.container + " px-1 mb-2 mx-md-1"}>
       <div className={styles.topWrapper}>
