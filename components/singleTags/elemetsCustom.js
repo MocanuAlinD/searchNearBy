@@ -106,7 +106,7 @@ export const InputCustom = styled.input`
   transition: var(--transition);
   width: ${({ w }) => w && w};
   ::placeholder {
-    color: var(--color-placeholder);
+    /* color: var(--color-placeholder); */
     transition: var(--transition);
   }
   :focus {

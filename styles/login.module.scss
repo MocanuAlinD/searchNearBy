@@ -80,18 +80,39 @@
                         background-color: var(--color-blue-dark);
                         border-radius: var(--border-radius);
                         padding: .35rem 0;
+                        width: 100%;
                     }
-                    h5{
-                        // border: 1px solid red;
+
+                    h5 {
                         text-align: end;
                         font-size: .5rem;
                         margin-right: .5rem;
                     }
+
+                    &.endButtons {
+                        margin-top: 1.5rem;
+                        padding: 0;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        flex-direction: row;
+                        gap: 1rem;
+                    }
+                    .showHidePassword{
+                        font-size: 1.25rem;
+                        margin: 0;
+                        padding: 0;
+                        margin-left: .5rem;
+                        cursor: pointer;
+                    }
+
+
                 }
             }
 
             .cardRight {
                 transform: rotateY(180deg);
+
             }
         }
     }
