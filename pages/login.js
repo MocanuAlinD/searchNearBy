@@ -32,10 +32,10 @@ const Login = () => {
       <BackButton url="/" text="Pagina principală" />
       <Wrapper className="d-flex flex-column flex-grow-1 justify-content-start align-items-center m-0 p-0 mt-3">
         <Wrapper className={styles.main}>
-          <Wrapper className={styles.topButtons + ""}>
+          <Wrapper className={styles.topButtons}>
             <button
               onClick={changeLeft}
-              className={styles.buttonLeft + " " + styles.active}
+              className={styles.buttonLeft}
               id="buttonLeft"
             >
               Logare in cont
@@ -51,9 +51,21 @@ const Login = () => {
           <div className={styles.torotate}>
             <Wrapper className={styles.bottomContainer} id="bottomContainer">
               <div className={styles.cardLeft}>
-                <Wrapper>
-                  <LabelCustom htmlFor="nume">Nume si prenume:</LabelCustom>
-                  <InputCustom id="nume" />
+                <Wrapper className={styles.wrapper}>
+                  <LabelCustom htmlFor="utilizator">
+                    Nume utilizator:
+                  </LabelCustom>
+                  <InputCustom id="utilizator" />
+                </Wrapper>
+                <Wrapper className={styles.wrapper}>
+                  <LabelCustom htmlFor="password">Parola:</LabelCustom>
+                  <InputCustom id="password" />
+                </Wrapper>
+                <Wrapper className={styles.wrapper}>
+                  <h5>Ai uitat parola?</h5>
+                </Wrapper>
+                <Wrapper className={styles.wrapper}>
+                  <button className={styles.buttonLogare}>Intra in cont</button>
                 </Wrapper>
               </div>
               <div className={styles.cardRight}>Create cont nou</div>

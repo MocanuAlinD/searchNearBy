@@ -3,7 +3,7 @@
     background-color: var(--color-blue-dark);
     padding: 1.25rem;
     border-radius: var(--border-radius);
-    // gap: .5rem;
+    height: min-content;
 
     .topButtons {
         display: flex;
@@ -22,6 +22,7 @@
             color: var(--color-light);
             width: 100%;
             font-weight: 200;
+            font-size: clamp(.6rem, 3vw, 1rem);
 
             &.buttonLeft {
                 background-color: var(--color-blue-darkish);
@@ -37,17 +38,19 @@
 
     .torotate {
         perspective: 3000px;
+        height: 22rem;
 
         .bottomContainer {
             position: relative;
-            height: 20rem;
+            height: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
             margin: 0;
+            padding: 0;
             transform-style: preserve-3d;
             transform: rotateY(0deg);
-            transition: all 1s ease-in-out;
+            transition: all .5s ease-in-out;
             box-shadow: -5px 5px 10px 5px rgba(0, 0, 0, 0.15);
 
             .cardLeft,
@@ -63,27 +66,33 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                flex-direction: column;
                 border-radius: var(--border-radius);
+
+                .wrapper {
+                    width: min(95%, 20rem);
+
+                    .buttonLogare {
+                        font-size: clamp(.8rem, 2vw, .9rem);
+                        outline: none;
+                        border: none;
+                        color: var(--color-light);
+                        background-color: var(--color-blue-dark);
+                        border-radius: var(--border-radius);
+                        padding: .35rem 0;
+                    }
+                    h5{
+                        // border: 1px solid red;
+                        text-align: end;
+                        font-size: .5rem;
+                        margin-right: .5rem;
+                    }
+                }
             }
 
             .cardRight {
                 transform: rotateY(180deg);
-
             }
-
-
         }
-
-        // @keyframes anim1 {
-        //     from {
-        //         transform: rotateY(0deg);
-        //     }
-
-        //     to {
-        //         transform: rotateY(-360deg);
-        //     }
-        // }
     }
-
-
 }
