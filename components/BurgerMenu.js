@@ -30,6 +30,11 @@ const BurgerMenu = ({ showMenu }) => {
           <a className={styles.link + " m-0"}>Contact</a>
         </span>
       </Link>
+      <Link href="/login">
+        <span>
+          <a className={styles.link + " m-0"}>Login & Sign up</a>
+        </span>
+      </Link>
       <Link href="/inscriere">
         <span className="m-0 mt-5">
           <a className={styles.link}>Înregistrare gratuită</a>
