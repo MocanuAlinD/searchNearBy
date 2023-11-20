@@ -65,8 +65,8 @@ const Login = () => {
     } else if (res.error) {
       toast.error(res.error, { icon: "❌", duration: 5000 });
     } else if (res.exista) {
-      toast.error(res.exista, { icon: "👤", duration: 5000 });
-      // setState({...state, numeUtilizator: ""})
+      toast.error(res.exista, { icon: "❌", duration: 5000 });
+      setState({...state, numeUtilizator: ""})
     }
   };
 

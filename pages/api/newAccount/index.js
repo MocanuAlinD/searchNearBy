@@ -5,24 +5,22 @@ export default async function handler(req, res) {
 
   if (req.method === "POST") {
     try {
-      const temp = [];
+      let ret = false;
       firebase.child("serviciiUsers/").on("value", (s) => {
         if (s.val() !== null) {
-          [s.val()].map((item) => {
-            Object.values(item).map((el) => {
-              temp.push(el.utilizator);
-            });
-          });
+          ret = Object.values([s.val()][0]).some(
+            (item) => item.utilizator === data.utilizator
+          );
         }
       });
-      console.log(temp)
 
-      if (temp.includes(data.utilizator)) {
-        res.json({ exista: "Exista utilizatorul" });
-        return;
-      } else {
+      if (!ret) {
         firebase.child(`serviciiUsers/`).push(data);
-        res.json({ msg: `Contul pentru ${data.nume} a fost creat cu succes.` });
+        res.json({ msg: `A fost creat userul "${data.utilizator}".` });
+      } else if (ret) {
+        res.json({
+          exista: `"${data.utilizator}" exista deja.\nIncearca alt nume de utilizator`,
+        });
       }
     } catch (error) {
       res.json({
