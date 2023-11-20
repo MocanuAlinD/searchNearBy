@@ -1,5 +1,4 @@
 import styles from "../styles/Home.module.scss";
-import Link from "next/link";
 import { useState } from "react";
 import ClientSearch from "../components/ClientSearch";
 import Spinner from "../components/Spinner";

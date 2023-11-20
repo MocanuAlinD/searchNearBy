@@ -8,6 +8,7 @@ import {
 import BackButton from "../components/BackButton";
 import styles from "../styles/login.module.scss";
 import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const initialValues = {
@@ -19,6 +20,7 @@ const Login = () => {
     parolaTwo: "",
     lungimeParola: 0,
     showHidePassword: true,
+    email: "",
   };
 
   const [state, setState] = useState(initialValues);
@@ -45,8 +47,25 @@ const Login = () => {
     e.preventDefault();
   };
 
-  const submitInregistrare = (e) => {
+  const checkData = async (e) => {
     e.preventDefault();
+    const nume = state.numeInregistrare;
+    const utilizator = state.numeUtilizator;
+    const parola = state.parolaOne;
+    const email = state.email;
+    const all = { nume, utilizator, email, parola };
+
+    const sendData = await fetch("/api/newAccount", {
+      method: "POST",
+      "Content-Type": "application/json",
+      body: JSON.stringify({ data: all }),
+    });
+    const res = await sendData.json();
+    if (res.msg) {
+      toast.success(res.msg, { icon: "✅", duration: 5000 });
+    } else if (res.error) {
+      toast.error(res.error, { icon: "❌", duration: 5000 });
+    }
   };
 
   return (
@@ -128,7 +147,7 @@ const Login = () => {
                 </Wrapper>
               </form>
 
-              <form className={styles.cardRight} onSubmit={submitInregistrare}>
+              <form className={styles.cardRight} onSubmit={checkData}>
                 <Wrapper className={styles.wrapper}>
                   <LabelCustom htmlFor="nume">Nume prenume:</LabelCustom>
                   <InputCustom
@@ -148,10 +167,24 @@ const Login = () => {
                   <InputCustom
                     id="numeUtilizator"
                     required
+                    minLength={6}
                     value={state.numeUtilizator}
-                    placeholder="nume utilizator"
+                    placeholder="nume utilizator minim 6 caractere"
                     onChange={(e) =>
                       setState({ ...state, numeUtilizator: e.target.value })
+                    }
+                  />
+                </Wrapper>
+                <Wrapper className={styles.wrapper}>
+                  <LabelCustom htmlFor="email">Email:</LabelCustom>
+                  <InputCustom
+                    id="email"
+                    pattern="^\w+([\.\-]?\w+)*@\w+([\.\-]?\w+)*(\.[a-zA-Z]{2,3})+$"
+                    required
+                    value={state.email}
+                    placeholder="adresa email"
+                    onChange={(e) =>
+                      setState({ ...state, email: e.target.value })
                     }
                   />
                 </Wrapper>
