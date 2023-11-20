@@ -14,13 +14,12 @@ const Login = () => {
   const initialValues = {
     numeLogare: "",
     parolaLogare: "",
-    numeInregistrare: "",
-    numeUtilizator: "",
-    parolaOne: "",
-    parolaTwo: "",
-    lungimeParola: 0,
+    numeInregistrare: "Mocanu Daniel",
+    numeUtilizator: "daniel8269",
+    parolaOne: "djnightalin",
+    parolaTwo: "djnightalin",
     showHidePassword: true,
-    email: "",
+    email: "daniel82@yahoo.ro",
   };
 
   const [state, setState] = useState(initialValues);
@@ -65,6 +64,9 @@ const Login = () => {
       toast.success(res.msg, { icon: "✅", duration: 5000 });
     } else if (res.error) {
       toast.error(res.error, { icon: "❌", duration: 5000 });
+    } else if (res.exista) {
+      toast.error(res.exista, { icon: "👤", duration: 5000 });
+      // setState({...state, numeUtilizator: ""})
     }
   };
 
@@ -225,6 +227,7 @@ const Login = () => {
                 <Wrapper className={styles.wrapper + "  " + styles.endButtons}>
                   <button
                     className={styles.buttonLogare}
+                    type="button"
                     onClick={() => setState(initialValues)}
                   >
                     Reset
