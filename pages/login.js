@@ -9,7 +9,7 @@ import BackButton from "../components/BackButton";
 import styles from "../styles/login.module.scss";
 import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 import toast from "react-hot-toast";
-// import firebase from "../firebase";
+import firebase from "../firebase";
 
 const Login = () => {
   const initialValues = {
@@ -62,30 +62,30 @@ const Login = () => {
     const res = await sendData.json();
     if (res.creat) {
       toast.success(res.creat, { icon: "✅", duration: 5000 });
+      setState(initialValues)
     } else if (res.error) {
       toast.error(res.error, { icon: "❌", duration: 5000 });
     }
   };
 
   const checkutilizator = async () => {
-    const sendData = await fetch(
-      `/api/checkUserExists?exista=${state.numeUtilizator}`,
-      {
-        method: "GET",
-        "Content-Type": "application/json",
-      }
-    );
-    const res = await sendData.json();
+    const tmp = [];
 
-    if (res.msg === false) {
-      postData();
-    } else {
+    firebase.child("serviciiUsers/").on("value", (s) => {
+      if (s.val() !== null) {
+        Object.values([s.val()]).map((item) =>
+          Object.values(item).map((el) => tmp.push(el.utilizator))
+        );
+      }
+    });
+
+    if (tmp.includes(state.numeUtilizator)) {
       toast.error(
-        `Utilizatorul "${state.numeUtilizator}" exista deja.\nAlege alt nume de utilizator`,
-        {
-          duration: 5000,
-        }
+        `Utilizatorul "${state.numeUtilizator}" exista deja.\nIncearca alt nume de utilizator.`
       );
+      setState({...state, numeUtilizator: ""})
+    } else {
+      postData();
     }
   };
 
