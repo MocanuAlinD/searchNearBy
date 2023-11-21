@@ -9,7 +9,7 @@ import BackButton from "../components/BackButton";
 import styles from "../styles/login.module.scss";
 import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 import toast from "react-hot-toast";
-import firebase from "../firebase";
+// import firebase from "../firebase";
 
 const Login = () => {
   const initialValues = {
@@ -48,7 +48,6 @@ const Login = () => {
   };
 
   const postData = async () => {
-    // e.preventDefault();
     const nume = state.numeInregistrare;
     const utilizator = state.numeUtilizator;
     const parola = state.parolaOne;
@@ -61,20 +60,23 @@ const Login = () => {
       body: JSON.stringify({ data: all }),
     });
     const res = await sendData.json();
-    if (res.msg) {
-      toast.success(res.msg, { icon: "✅", duration: 5000 });
+    if (res.creat) {
+      toast.success(res.creat, { icon: "✅", duration: 5000 });
     } else if (res.error) {
       toast.error(res.error, { icon: "❌", duration: 5000 });
     }
   };
 
   const checkutilizator = async () => {
-    const sendData = await fetch("/api/checkUserExists", {
-      method: "POST",
-      "Content-Type": "application/json",
-      body: JSON.stringify({ data: state.numeUtilizator }),
-    });
+    const sendData = await fetch(
+      `/api/checkUserExists?exista=${state.numeUtilizator}`,
+      {
+        method: "GET",
+        "Content-Type": "application/json",
+      }
+    );
     const res = await sendData.json();
+
     if (res.msg === false) {
       postData();
     } else {
