@@ -21,7 +21,6 @@ const Login = () => {
     parolaTwo: "djnightalin",
     showHidePassword: true,
     email: "daniel82@yahoo.ro",
-    userExists: false,
   };
 
   const [state, setState] = useState(initialValues);
@@ -48,8 +47,8 @@ const Login = () => {
     e.preventDefault();
   };
 
-  const checkData = async (e) => {
-    e.preventDefault();
+  const postData = async () => {
+    // e.preventDefault();
     const nume = state.numeInregistrare;
     const utilizator = state.numeUtilizator;
     const parola = state.parolaOne;
@@ -66,25 +65,25 @@ const Login = () => {
       toast.success(res.msg, { icon: "✅", duration: 5000 });
     } else if (res.error) {
       toast.error(res.error, { icon: "❌", duration: 5000 });
-    } else if (res.exista) {
-      toast.error(res.exista, { icon: "❌", duration: 5000 });
-      // setState({...state, numeUtilizator: ""})
     }
   };
 
-  const checkutilizator = () => {
-    const tmp = [];
-    firebase.child("serviciiUsers/").on("value", (s) => {
-      if (s.val() !== null) {
-        [s.val()].map((item) =>
-          Object.values(item).map((el) => tmp.push(el.utilizator))
-        );
-      }
+  const checkutilizator = async () => {
+    const sendData = await fetch("/api/checkUserExists", {
+      method: "POST",
+      "Content-Type": "application/json",
+      body: JSON.stringify({ data: state.numeUtilizator }),
     });
-    const checkIfExists = tmp.includes(state.numeUtilizator);
-    if (checkIfExists) {
-      console.log("Exists");
-      setState({ ...state, userExists: true });
+    const res = await sendData.json();
+    if (res.msg === false) {
+      postData();
+    } else {
+      toast.error(
+        `Utilizatorul "${state.numeUtilizator}" exista deja.\nAlege alt nume de utilizator`,
+        {
+          duration: 5000,
+        }
+      );
     }
   };
 
@@ -167,7 +166,7 @@ const Login = () => {
                 </Wrapper>
               </form>
 
-              <form className={styles.cardRight} onSubmit={checkData}>
+              <div className={styles.cardRight}>
                 <Wrapper className={styles.wrapper}>
                   <LabelCustom htmlFor="nume">Nume prenume:</LabelCustom>
                   <InputCustom
@@ -245,32 +244,23 @@ const Login = () => {
                 <Wrapper className={styles.wrapper + "  " + styles.endButtons}>
                   <button
                     className={styles.buttonLogare}
-                    type="button"
-                    // onClick={() => setState(initialValues)}
-                    onClick={checkutilizator}
+                    onClick={() => setState(initialValues)}
                   >
                     Reset
                   </button>
 
-                  <button className={styles.buttonLogare}>Creeaza cont</button>
+                  <button
+                    className={styles.buttonLogare}
+                    onClick={checkutilizator}
+                  >
+                    Creeaza cont
+                  </button>
                 </Wrapper>
-              </form>
+              </div>
             </Wrapper>
           </div>
         </Wrapper>
       </Wrapper>
-      {state.userExists && (
-        <div className={styles.pop}>
-          <h4>Utilizatorul "{state.numeUtilizator}"" exista deja.</h4>
-          <button
-            className={styles.buttonLogare}
-            type="button"
-            onClick={() => setState({ ...state, userExists: false })}
-          >
-            Alege alt nume de utilizator.
-          </button>
-        </div>
-      )}
     </Container>
   );
 };
