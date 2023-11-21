@@ -9,6 +9,7 @@ import BackButton from "../components/BackButton";
 import styles from "../styles/login.module.scss";
 import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 import toast from "react-hot-toast";
+import firebase from "../firebase";
 
 const Login = () => {
   const initialValues = {
@@ -20,6 +21,7 @@ const Login = () => {
     parolaTwo: "djnightalin",
     showHidePassword: true,
     email: "daniel82@yahoo.ro",
+    userExists: false,
   };
 
   const [state, setState] = useState(initialValues);
@@ -66,7 +68,23 @@ const Login = () => {
       toast.error(res.error, { icon: "❌", duration: 5000 });
     } else if (res.exista) {
       toast.error(res.exista, { icon: "❌", duration: 5000 });
-      setState({...state, numeUtilizator: ""})
+      // setState({...state, numeUtilizator: ""})
+    }
+  };
+
+  const checkutilizator = () => {
+    const tmp = [];
+    firebase.child("serviciiUsers/").on("value", (s) => {
+      if (s.val() !== null) {
+        [s.val()].map((item) =>
+          Object.values(item).map((el) => tmp.push(el.utilizator))
+        );
+      }
+    });
+    const checkIfExists = tmp.includes(state.numeUtilizator);
+    if (checkIfExists) {
+      console.log("Exists");
+      setState({ ...state, userExists: true });
     }
   };
 
@@ -228,10 +246,12 @@ const Login = () => {
                   <button
                     className={styles.buttonLogare}
                     type="button"
-                    onClick={() => setState(initialValues)}
+                    // onClick={() => setState(initialValues)}
+                    onClick={checkutilizator}
                   >
                     Reset
                   </button>
+
                   <button className={styles.buttonLogare}>Creeaza cont</button>
                 </Wrapper>
               </form>
@@ -239,6 +259,18 @@ const Login = () => {
           </div>
         </Wrapper>
       </Wrapper>
+      {state.userExists && (
+        <div className={styles.pop}>
+          <h4>Utilizatorul "{state.numeUtilizator}"" exista deja.</h4>
+          <button
+            className={styles.buttonLogare}
+            type="button"
+            onClick={() => setState({ ...state, userExists: false })}
+          >
+            Alege alt nume de utilizator.
+          </button>
+        </div>
+      )}
     </Container>
   );
 };
