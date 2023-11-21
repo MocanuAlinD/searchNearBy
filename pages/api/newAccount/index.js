@@ -5,7 +5,7 @@ export default async function handler(req, res) {
 
   if (req.method === "POST") {
     try {
-      firebase.child(`serviciiUsers/`).push(data);
+      await firebase.child(`serviciiUsers/`).push(data);
       res.json({ creat: `A fost creat userul "${data.utilizator}".` });
     } catch (error) {
       res.json({
