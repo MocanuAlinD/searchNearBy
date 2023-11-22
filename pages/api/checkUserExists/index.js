@@ -1,17 +1,17 @@
 import firebase from "../../../firebase";
 
 export default async function handler(req, res) {
-  const { exista } = req.query;
+  const { userName } = req.query;
+
   if (req.method === "GET") {
     try {
-      firebase.child("serviciiUsers/").on("value", (s) => {
-        const tmp = [];
+      firebase.child("serviciiUsers").on("value", (s) => {
         if (s.val() !== null) {
-          Object.values([s.val()][0]).filter(
-            (item) => item.utilizator === exista && tmp.push(exista)
+          var checkedUser = [s.val()].map((item) =>
+            Object.values(item).some((el) => el.utilizator === userName)
           );
         }
-        res.json({ msg: tmp.length > 0 });
+        res.json({ msg: checkedUser });
       });
     } catch (error) {
       res.json({

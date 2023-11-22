@@ -62,31 +62,34 @@ const Login = () => {
     const res = await sendData.json();
     if (res.creat) {
       toast.success(res.creat, { icon: "✅", duration: 5000 });
-      setState(initialValues)
+      setState(initialValues);
     } else if (res.error) {
       toast.error(res.error, { icon: "❌", duration: 5000 });
     }
   };
 
   const checkutilizator = async () => {
-    const tmp = [];
-
-    firebase.child("serviciiUsers/").on("value", (s) => {
-      if (s.val() !== null) {
-        Object.values([s.val()]).map((item) =>
-          Object.values(item).map((el) => tmp.push(el.utilizator))
-        );
+    const data = await fetch(
+      `/api/checkUserExists?userName=${state.numeUtilizator}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
       }
-    });
+    );
+    const res = await data.json();
+    console.log("from client: ", res.msg);
 
-    if (tmp.includes(state.numeUtilizator)) {
-      toast.error(
-        `Utilizatorul "${state.numeUtilizator}" exista deja.\nIncearca alt nume de utilizator.`
-      );
-      setState({...state, numeUtilizator: ""})
-    } else {
-      postData();
-    }
+    // firebase.child("serviciiUsers").on("value", (s) => {
+    //   if (s.val() !== null) {
+    //     var alin = [s.val()].map((item) =>
+    //       Object.values(item).some((el) => el.utilizator === state.numeUtilizator)
+    //     );
+    //   }
+    //   // res.json({ msg: alin });
+    //   console.log(alin);
+    // });
   };
 
   return (
