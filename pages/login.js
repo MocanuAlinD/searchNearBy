@@ -70,7 +70,7 @@ const Login = () => {
 
   const checkutilizator = async () => {
     const data = await fetch(
-      `/api/checkUserExists?userName=${state.numeUtilizator}`,
+      `/api/checkUserExists?username=${state.numeUtilizator}`,
       {
         method: "GET",
         headers: {
@@ -79,17 +79,18 @@ const Login = () => {
       }
     );
     const res = await data.json();
-    console.log("from client: ", res.msg);
+    console.log(res.msg);
 
-    // firebase.child("serviciiUsers").on("value", (s) => {
-    //   if (s.val() !== null) {
-    //     var alin = [s.val()].map((item) =>
-    //       Object.values(item).some((el) => el.utilizator === state.numeUtilizator)
-    //     );
-    //   }
-    //   // res.json({ msg: alin });
-    //   console.log(alin);
-    // });
+    if (res.msg.length > 0) {
+      toast.error(
+        `Utilizatorul "${state.numeUtilizator}" deja exista.\nIncearca alt nume de utilizator.`,
+        {
+          duration: 5000,
+        }
+      );
+      return;
+    }
+    postData();
   };
 
   return (
