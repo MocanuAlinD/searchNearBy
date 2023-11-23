@@ -79,9 +79,8 @@ const Login = () => {
       }
     );
     const res = await data.json();
-    console.log(res.msg);
 
-    if (res.msg.length > 0) {
+    if (res.msg > 0) {
       toast.error(
         `Utilizatorul "${state.numeUtilizator}" deja exista.\nIncearca alt nume de utilizator.`,
         {
@@ -89,8 +88,9 @@ const Login = () => {
         }
       );
       return;
+    } else {
+      await postData();
     }
-    postData();
   };
 
   return (

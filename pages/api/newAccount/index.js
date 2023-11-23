@@ -5,12 +5,14 @@ export default async function handler(req, res) {
 
   if (req.method === "POST") {
     try {
-      await firebase.child(`serviciiUsers/`).push(data);
+      firebase.child(`serviciiUsers/`).push(data);
       res.json({ creat: `A fost creat userul "${data.utilizator}".` });
+      return;
     } catch (error) {
       res.json({
         error: "Eroare aparuta in baza de date.\nIncercati mai tarziu.",
       });
+      return;
     }
   }
 }

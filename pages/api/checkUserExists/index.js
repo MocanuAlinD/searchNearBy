@@ -4,7 +4,7 @@ export default async function handler(req, res) {
   const { username } = req.query;
   if (req.method === "GET") {
     try {
-      firebase.child("serviciiUsers").on("value", (s) => {
+      firebase.child("serviciiUsers").once("value", (s) => {
         const tempList = [];
         if (s.val() !== null) {
           [s.val()].map((item) =>
@@ -12,8 +12,8 @@ export default async function handler(req, res) {
               (el) => el.utilizator === username && tempList.push(username)
             )
           );
+          res.json({ msg: tempList.length });
         }
-        res.json({ msg: tempList });
       });
     } catch (error) {
       res.json({
