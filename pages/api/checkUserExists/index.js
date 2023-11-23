@@ -13,6 +13,8 @@ export default async function handler(req, res) {
             )
           );
           res.json({ msg: tempList.length });
+        } else {
+          res.json({ msg: 0 });
         }
       });
     } catch (error) {

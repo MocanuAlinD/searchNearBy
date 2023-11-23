@@ -7,7 +7,6 @@ export default async function handler(req, res) {
     try {
       firebase.child(`serviciiUsers/`).push(data);
       res.json({ creat: `A fost creat userul "${data.utilizator}".` });
-      return;
     } catch (error) {
       res.json({
         error: "Eroare aparuta in baza de date.\nIncercati mai tarziu.",
