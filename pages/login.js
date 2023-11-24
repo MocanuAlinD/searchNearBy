@@ -44,10 +44,6 @@ const Login = () => {
     el2.style.backgroundColor = "var(--color-blue-darkish";
   };
 
-  const submitLogare = (e) => {
-    e.preventDefault();
-  };
-
   const postData = async () => {
     const nume = state.numeInregistrare;
     const utilizator = state.numeUtilizator;
@@ -93,6 +89,23 @@ const Login = () => {
       setLoading((prev) => false);
     } else {
       await postData();
+    }
+  };
+
+  // logare in cont
+  const submitLogare = async (e) => {
+    e.preventDefault();
+
+    const checkData = await fetch(
+      `/api/userLogin?username=${state.numeLogare}&password=${state.parolaLogare}`
+    );
+
+    const res = await checkData.json();
+    console.log(res.msg.length)
+    if(res.msg.length > 0){
+      console.log("User authenticathed")
+    } else {
+      console.log("username or password incorrect")
     }
   };
 
