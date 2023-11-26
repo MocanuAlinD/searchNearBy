@@ -1,6 +1,5 @@
-
-import firebase from "firebase/app";
-import "firebase/database";
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIRE_API_KEY,
@@ -9,11 +8,9 @@ const firebaseConfig = {
   projectId: process.env.NEXT_PUBLIC_FIRE_PROJECT_ID,
   storageBucket: process.env.NEXT_PUBLIC_FIRE_STORAGE_BUCKET,
   messagingSenderId: process.env.NEXT_PUBLIC_FIRE_MESSAGING_SENDER_ID,
-  appId: process.env.NEXT_PUBLIC_FIRE_APP_ID
+  appId: process.env.NEXT_PUBLIC_FIRE_APP_ID,
 };
 
-if(!firebase.apps.length){
-  firebase.initializeApp(firebaseConfig)
-}
+const app = initializeApp(firebaseConfig);
 
-export default firebase.database().ref()
+const auth = getAuth(app);

@@ -1,11 +1,14 @@
-import firebase from "../../../firebase";
+import { firebase } from "../../../firebase";
+import { getDatabase, ref, push } from "firebase/database";
 
 export default async function handler(req, res) {
   const { data } = JSON.parse(req.body);
+  const db = getDatabase();
+  const items = ref(db, "serviciiUsers");
 
   if (req.method === "POST") {
     try {
-      firebase.child(`serviciiUsers/`).push(data);
+      push(items, data);
       res.json({ creat: `A fost creat userul "${data.utilizator}".` });
     } catch (error) {
       res.json({

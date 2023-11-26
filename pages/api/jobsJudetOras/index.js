@@ -1,10 +1,14 @@
-import firebase from "../../../firebase";
+import { firebase } from "../../../firebase";
+import { getDatabase, ref, onValue } from "firebase/database";
 
 export default async function handler(req, res) {
+  const { search, judet, oras } = req.query;
+  const db = getDatabase();
+  const items = ref(db, `Alin/${judet}`);
+
   if (req.method === "GET") {
-    const { search, judet, oras } = req.query;
     try {
-      firebase.child(`Alin/${judet}`).on("value", (s) => {
+      onValue(items, (s) => {
         const temp = [];
         if (s.val() !== null) {
           [s.val()].map((item) =>

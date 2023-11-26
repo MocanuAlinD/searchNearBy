@@ -59,9 +59,10 @@ const Login = () => {
     const res = await sendData.json();
     if (res.creat) {
       toast.success(res.creat, { icon: "✅", duration: 5000 });
-      setState(initialValues);
       setLoading((prev) => false);
+      setState(initialValues);
     } else if (res.error) {
+      setLoading((prev) => false);
       toast.error(res.error, { icon: "❌", duration: 5000 });
     }
   };

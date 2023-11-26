@@ -1,13 +1,17 @@
-import firebase from "../../../firebase";
+import { firebase } from "../../../firebase";
+import { getDatabase, ref, onValue } from "firebase/database";
 
 export default async function handler(req, res) {
+  const db = getDatabase();
+  const items = ref(db, "Alin");
+
   try {
-    firebase.child(`Alin`).on("value", (s) => {
+    onValue(items, (s) => {
       if (s.val() !== null) {
-        res.json(s.val())
+        res.json(s.val());
       }
     });
   } catch (error) {
-    res.status(404).json({msg: 'Error occured from jobsTotal api.'})
+    res.status(404).json({ msg: "Error occured from jobsTotal api." });
   }
 }
