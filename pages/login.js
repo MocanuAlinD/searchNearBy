@@ -89,7 +89,7 @@ const Login = () => {
       );
       setLoading((prev) => false);
     } else {
-      await postData();
+      postData();
     }
   };
 
@@ -102,11 +102,10 @@ const Login = () => {
     );
 
     const res = await checkData.json();
-    console.log(res.msg.length)
-    if(res.msg.length > 0){
-      console.log("User authenticathed")
+    if (res.msg.length > 0) {
+      console.log("User authenticathed");
     } else {
-      console.log("username or password incorrect")
+      console.log("username or password incorrect");
     }
   };
 

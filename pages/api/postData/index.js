@@ -16,7 +16,6 @@ export default async function handler(req, res) {
       push(items, data);
       res.json({ msg: `Date salvate cu succes in ${data.judet}` });
     } catch (error) {
-      console.log(error);
       res.json({ error: `Datele nu s-au putut inregistra` });
     }
   }
