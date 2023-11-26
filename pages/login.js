@@ -10,21 +10,35 @@ import styles from "../styles/login.module.scss";
 import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 import toast from "react-hot-toast";
 import LoadingCheckUser from "../components/LoadingCheckUser";
+import { firebase } from "../firebase";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut,
+  sendPasswordResetEmail,
+  browserSessionPersistence,
+  setPersistence,
+  inMemoryPersistence,
+  sendEmailVerification,
+} from "firebase/auth";
 
 const Login = () => {
   const initialValues = {
-    numeLogare: "",
-    parolaLogare: "",
-    numeInregistrare: "Mocanu Daniel",
-    numeUtilizator: "daniel8269",
-    parolaOne: "djnightalin",
-    parolaTwo: "djnightalin",
+    emailLogare: "alin_ngt@yahoo.com",
+    parolaLogare: "mocanu",
+    emailInregistrare: "alin_ngt@yahoo.com",
+    parolaOne: "mocanu",
+    parolaTwo: "mocanu",
     showHidePassword: true,
-    email: "daniel82@yahoo.ro",
   };
 
   const [state, setState] = useState(initialValues);
   const [loading, setLoading] = useState(false);
+  const [isUserAuthenticated, setIsUserAuthenticated] = useState("");
+
+  const auth = getAuth();
 
   const changeLeft = () => {
     const el = document.getElementById("bottomContainer");
@@ -44,69 +58,88 @@ const Login = () => {
     el2.style.backgroundColor = "var(--color-blue-darkish";
   };
 
-  const postData = async () => {
-    const nume = state.numeInregistrare;
-    const utilizator = state.numeUtilizator;
-    const parola = state.parolaOne;
-    const email = state.email;
-    const all = { nume, utilizator, email, parola };
+  // add new user to database
+  const addNewUserToAuthDB = async () => {
+    createUserWithEmailAndPassword(
+      auth,
+      state.emailInregistrare,
+      state.parolaTwo
+    )
+      .then((userCredential) => {
+        const user = userCredential.user;
+        toast.success(`User creat cu adresa de email: ${user.email}`);
+      })
+      .catch((error) => {
+        if (error.message.includes("email-already-in-use")) {
+          toast.error("Adresa de email deja exista.");
+        } else if (error.message.includes("invalid-email"))
+          toast.error("Ai introdus o adresa de email invalida.");
+      });
+  };
 
-    const sendData = await fetch("/api/newAccount", {
-      method: "POST",
-      "Content-Type": "application/json",
-      body: JSON.stringify({ data: all }),
-    });
-    const res = await sendData.json();
-    if (res.creat) {
-      toast.success(res.creat, { icon: "✅", duration: 5000 });
-      setLoading((prev) => false);
-      setState(initialValues);
-    } else if (res.error) {
-      setLoading((prev) => false);
-      toast.error(res.error, { icon: "❌", duration: 5000 });
+  // check if user is signed in
+  const checkUserSignedIn = () => {
+    if (auth.currentUser) {
+      toast.success("Userul este logat");
+    } else if (!auth.currentUser) {
+      toast.error("Userul NU este logat.");
     }
   };
 
-  const checkutilizator = async () => {
-    setLoading((prev) => true);
-    const data = await fetch(
-      `/api/checkUserExists?username=${state.numeUtilizator}`,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
-    const res = await data.json();
-
-    if (res.msg > 0) {
-      toast.error(
-        `Utilizatorul "${state.numeUtilizator}" deja exista.\nIncearca alt nume de utilizator.`,
-        {
-          duration: 5000,
-        }
-      );
-      setLoading((prev) => false);
-    } else {
-      postData();
-    }
-  };
-
-  // logare in cont
-  const submitLogare = async (e) => {
+  // LOG IN user
+  const userLogIn = (e) => {
     e.preventDefault();
+    signInWithEmailAndPassword(auth, state.emailLogare, state.parolaLogare)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        setIsUserAuthenticated(user.uid);
+        toast.success("User logged in successfuly");
+      })
+      .catch((error) => {
+        if (error.message.includes("invalid-login-credentials")) {
+          toast.error("Ai introdus gresit emailul sau parola");
+        } else if (error.code.includes("invalid-email")) {
+          toast.error("Adresa de email este invalida.");
+        }
+      });
+  };
 
-    const checkData = await fetch(
-      `/api/userLogin?username=${state.numeLogare}&password=${state.parolaLogare}`
-    );
-
-    const res = await checkData.json();
-    if (res.msg.length > 0) {
-      console.log("User authenticathed");
+  // LOG OUT user
+  const userLogOut = () => {
+    if (auth.currentUser) {
+      signOut(auth)
+        .then(() => {
+          toast.success("Te-ai delogat cu succes.");
+          setIsUserAuthenticated("");
+        })
+        .catch((error) => {
+          toast.error("O eroare a aparul la delogare.");
+        });
     } else {
-      console.log("username or password incorrect");
+      toast.error("Esti deja delogat.");
     }
+  };
+
+  // forgot password (create popup to enter email to send link)
+  const forgotPassword = () => {
+    console.log(state.emailLogare);
+    sendPasswordResetEmail(auth, state.emailLogare)
+      .then(() => {
+        toast.success(
+          `A fost trimis un email pentru resetare parola la adresa ${state.emailLogare}.`,
+          {
+            duration: 5000,
+          }
+        );
+      })
+      .catch((error) => {
+        // const errorCode = error.code;
+        // const errorMessage = error.message;
+        toast.error(
+          "A aparut o eroare la trimiterea emailului de resetare parola."
+        );
+        // ..
+      });
   };
 
   return (
@@ -116,6 +149,11 @@ const Login = () => {
       )}
       <Container>
         <BackButton url="/" text="Pagina principală" />
+        {isUserAuthenticated ? (
+          <h4>User signed in</h4>
+        ) : (
+          <h4>User NOT signed in</h4>
+        )}
         <Wrapper className="d-flex flex-column flex-grow-1 justify-content-start align-items-center m-0 p-0 mt-3">
           <Wrapper className={styles.main}>
             <Wrapper className={styles.topButtons}>
@@ -136,15 +174,14 @@ const Login = () => {
             </Wrapper>
             <div className={styles.torotate}>
               <Wrapper className={styles.bottomContainer} id="bottomContainer">
-                <form className={styles.cardLeft} onSubmit={submitLogare}>
+                <form className={styles.cardLeft} onSubmit={userLogIn}>
                   <Wrapper className={styles.wrapper}>
-                    <LabelCustom htmlFor="utilizator">
-                      Nume utilizator:
-                    </LabelCustom>
+                    <LabelCustom htmlFor="emailLogare">Email:</LabelCustom>
                     <InputCustom
-                      id="utilizator"
+                      id="emailLogare"
+                      value={state.emailLogare}
                       onChange={(e) =>
-                        setState({ ...state, numeLogare: e.target.value })
+                        setState({ ...state, emailLogare: e.target.value })
                       }
                     />
                   </Wrapper>
@@ -154,6 +191,7 @@ const Login = () => {
                       <InputCustom
                         id="password"
                         type="password"
+                        value={state.parolaLogare}
                         onChange={(e) =>
                           setState({ ...state, parolaLogare: e.target.value })
                         }
@@ -184,8 +222,18 @@ const Login = () => {
                       )}
                     </div>
                   </Wrapper>
-                  <Wrapper className={styles.wrapper}>
-                    <h5>Ai uitat parola?</h5>
+                  <Wrapper
+                    className={
+                      styles.wrapper + " m-0 p-0 d-flex  align-items-end"
+                    }
+                  >
+                    <h5
+                      role="button"
+                      className="m-0 p-0 py-2"
+                      onClick={forgotPassword}
+                    >
+                      Ai uitat parola?
+                    </h5>
                   </Wrapper>
                   <Wrapper className={styles.wrapper}>
                     <button className={styles.buttonLogare}>
@@ -196,42 +244,20 @@ const Login = () => {
 
                 <div className={styles.cardRight}>
                   <Wrapper className={styles.wrapper}>
-                    <LabelCustom htmlFor="nume">Nume prenume:</LabelCustom>
-                    <InputCustom
-                      id="nume"
-                      required
-                      value={state.numeInregistrare}
-                      placeholder="nume prenume"
-                      onChange={(e) =>
-                        setState({ ...state, numeInregistrare: e.target.value })
-                      }
-                    />
-                  </Wrapper>
-                  <Wrapper className={styles.wrapper}>
-                    <LabelCustom htmlFor="numeUtilizator">
-                      Nume utilizator:
+                    <LabelCustom htmlFor="emailInregistrare">
+                      Email:
                     </LabelCustom>
                     <InputCustom
-                      id="numeUtilizator"
-                      required
-                      minLength={6}
-                      value={state.numeUtilizator}
-                      placeholder="nume utilizator minim 6 caractere"
-                      onChange={(e) =>
-                        setState({ ...state, numeUtilizator: e.target.value })
-                      }
-                    />
-                  </Wrapper>
-                  <Wrapper className={styles.wrapper}>
-                    <LabelCustom htmlFor="email">Email:</LabelCustom>
-                    <InputCustom
-                      id="email"
+                      id="emailInregistrare"
                       pattern="^\w+([\.\-]?\w+)*@\w+([\.\-]?\w+)*(\.[a-zA-Z]{2,3})+$"
                       required
-                      value={state.email}
+                      value={state.emailInregistrare}
                       placeholder="adresa email"
                       onChange={(e) =>
-                        setState({ ...state, email: e.target.value })
+                        setState({
+                          ...state,
+                          emailInregistrare: e.target.value,
+                        })
                       }
                     />
                   </Wrapper>
@@ -281,7 +307,7 @@ const Login = () => {
 
                     <button
                       className={styles.buttonLogare}
-                      onClick={checkutilizator}
+                      onClick={addNewUserToAuthDB}
                     >
                       Creeaza cont
                     </button>
@@ -291,6 +317,12 @@ const Login = () => {
             </div>
           </Wrapper>
         </Wrapper>
+        <div className="d-flex align-items-center justify-content-center gap-5 p-2">
+          <button onClick={checkUserSignedIn}>
+            Verifica daca userul este autentificat
+          </button>
+          <button onClick={userLogOut}>Sign out</button>
+        </div>
       </Container>
     </>
   );
