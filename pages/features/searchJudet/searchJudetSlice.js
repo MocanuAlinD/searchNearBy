@@ -13,6 +13,16 @@ const initialState = {
   showMenu: false,
   noResultsText: "",
   noResTrigger: false,
+  
+  toate: true,
+  tarifAsc: false,
+  tarifDesc: false,
+  dataAsc: false,
+  dataDesc: false,
+  program: false,
+  night: false,
+  website: false,
+  weekend: false,
 };
 
 export const cautareSlice = createSlice({
@@ -63,6 +73,44 @@ export const cautareSlice = createSlice({
       state.sortedList = [];
       state.noResTrigger = false;
     },
+    setToate: (state, action) => {
+      state.toate = action.payload;
+    },
+    setTarifAsc: (state, action) => {
+      state.tarifAsc = action.payload;
+    },
+    setTarifDesc: (state, action) => {
+      state.tarifDesc = action.payload;
+    },
+    setDataAsc: (state, action) => {
+      state.dataAsc = action.payload;
+    },
+    setDataDesc: (state, action) => {
+      state.dataDesc = action.payload;
+    },
+    setProgram: (state, action) => {
+      state.program = action.payload;
+    },
+    setNight: (state, action) => {
+      state.night = action.payload;
+    },
+    setWebsite: (state, action) => {
+      state.website = action.payload;
+    },
+    setWeekend: (state, action) => {
+      state.weekend = action.payload;
+    },
+    setInitialSort: (state, action) => {
+      state.toate = true;
+      state.tarifAsc = false;
+      state.tarifDesc = false;
+      state.dataAsc = false;
+      state.dataDesc = false;
+      state.program = false;
+      state.night = false;
+      state.website = false;
+      state.weekend = false;
+    },
   },
 });
 
@@ -80,6 +128,16 @@ export const {
   setShowMenu,
   setNoResultText,
   setNoResTrigger,
+  setToate,
+  setTarifAsc,
+  setTarifDesc,
+  setDataAsc,
+  setDataDesc,
+  setProgram,
+  setNight,
+  setWebsite,
+  setWeekend,
+  setInitialSort
 } = cautareSlice.actions;
 
 export default cautareSlice.reducer;

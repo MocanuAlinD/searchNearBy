@@ -9,8 +9,10 @@ import SortItems from "../components/SortItems";
 import LeftMenu from "../components/LeftMenu";
 import Spinner from "../components/Spinner";
 import Title from "../components/Title";
+import { useEffect } from "react";
 import {
   setShow,
+  setShowMenu,
   setSortedList,
   setLoadSearch,
   setOriginalList,
@@ -28,6 +30,13 @@ export default function Home() {
   const loadSearch = useSelector((state) => state.loadSearch);
   const originalList = useSelector((state) => state.originalList);
   const noResTrigger = useSelector((state) => state.noResTrigger);
+
+  useEffect(() => {
+    dispatch(setShowMenu(false));
+    return () => {
+      dispatch(setShowMenu(false));
+    };
+  }, []);
 
   // Button search only in judet
   const searchJudet = async () => {
@@ -126,9 +135,6 @@ export default function Home() {
   return (
     <div className={styles.container + " m-0 p-0"}>
       <BurgerMenu />
-      <h4>{judet}</h4>
-      <h4>{oras}</h4>
-      <h4>{noResTrigger.toString()}</h4>
       <div
         className={
           styles.mainContainer +
