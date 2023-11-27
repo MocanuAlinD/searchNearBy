@@ -4,7 +4,7 @@ import { setShowMenu } from "../features/searchJudet/searchJudetSlice";
 
 const LeftMenu = () => {
   const dispatch = useDispatch();
-  const showMenu = useSelector(state => state.showMenu)
+  const showMenu = useSelector(state => state.search.showMenu)
   return (
     <div className="m-0 p-0 mx-3">
       <svg

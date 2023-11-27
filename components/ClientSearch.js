@@ -24,10 +24,10 @@ import {
 
 const ClientSearch = ({ searchJudet, searchJudetOras }) => {
   const dispatch = useDispatch();
-  const judet = useSelector((state) => state.judet);
-  const oras = useSelector((state) => state.oras);
-  const listaOrase = useSelector((state) => state.listaOrase);
-  const cautare = useSelector((state) => state.cautare);
+  const judet = useSelector((state) => state.search.judet);
+  const oras = useSelector((state) => state.search.oras);
+  const listaOrase = useSelector((state) => state.search.listaOrase);
+  const cautare = useSelector((state) => state.search.cautare);
 
   return (
     <div

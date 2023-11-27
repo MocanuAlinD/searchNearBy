@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 const LoadingSpinner = () => {
   const dispatch = useDispatch();
-  const loadSearch = useSelector((state) => state.loadSearch);
+  const loadSearch = useSelector((state) => state.search.loadSearch);
   return (
     <div className={styles.spinnerContainer}>
       <div className={styles.spinner}></div>

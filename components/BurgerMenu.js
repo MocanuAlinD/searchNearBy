@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useSelector } from "react-redux";
 
 const BurgerMenu = () => {
-  const showMenu = useSelector((state) => state.showMenu);
+  const showMenu = useSelector((state) => state.search.showMenu);
   return (
     <div
       className={
@@ -45,6 +45,11 @@ const BurgerMenu = () => {
       <Link href="/donatii" passHref>
         <span>
           <a className={styles.link + " m-0"}>Donează pentru dezvoltare</a>
+        </span>
+      </Link>
+      <Link href="/test" passHref>
+        <span>
+          <a className={styles.link + " m-0"}>Test</a>
         </span>
       </Link>
     </div>

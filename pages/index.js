@@ -22,14 +22,14 @@ import {
 
 export default function Home() {
   const dispatch = useDispatch();
-  const oras = useSelector((state) => state.oras);
-  const show = useSelector((state) => state.show);
-  const judet = useSelector((state) => state.judet);
-  const cautare = useSelector((state) => state.cautare);
-  const sortedList = useSelector((state) => state.sortedList);
-  const loadSearch = useSelector((state) => state.loadSearch);
-  const originalList = useSelector((state) => state.originalList);
-  const noResTrigger = useSelector((state) => state.noResTrigger);
+  const oras = useSelector((state) => state.search.oras);
+  const show = useSelector((state) => state.search.show);
+  const judet = useSelector((state) => state.search.judet);
+  const cautare = useSelector((state) => state.search.cautare);
+  const sortedList = useSelector((state) => state.search.sortedList);
+  const loadSearch = useSelector((state) => state.search.loadSearch);
+  const originalList = useSelector((state) => state.search.originalList);
+  const noResTrigger = useSelector((state) => state.search.noResTrigger);
 
   useEffect(() => {
     dispatch(setShowMenu(false));
