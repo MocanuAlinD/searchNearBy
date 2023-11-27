@@ -15,38 +15,50 @@ const initialState = {
 const sortItemsSlice = createSlice({
   name: "sortItems",
   initialState,
-  reducer: {
-    reducers: {
-      setToate: (state, action) => {
-        state.toate = action.payload;
-      },
-      setTarifAsc: (state, action) => {
-        state.tarifAsc = action.payload;
-      },
-      setTarifDesc: (state, action) => {
-        state.tarifDesc = action.payload;
-      },
-      setDataAsc: (state, action) => {
-        state.dataAsc = action.payload;
-      },
-      setDataDesc: (state, action) => {
-        state.dataDesc = action.payload;
-      },
-      setProgram: (state, action) => {
-        state.program = action.payload;
-      },
-      setNight: (state, action) => {
-        state.night = action.payload;
-      },
-      setWebsite: (state, action) => {
-        state.website = action.payload;
-      },
-      setWeekend: (state, action) => {
-        state.weekend = action.payload;
-      },
-      setInitialState: (state, action) => {
-        state = initialState;
-      },
+  reducers: {
+    setToate: (state, action) => {
+      state.toate = action.payload;
+    },
+    setTarifAsc: (state, action) => {
+      state.tarifAsc = action.payload;
+    },
+    setTarifDesc: (state, action) => {
+      state.tarifDesc = action.payload;
+    },
+    setDataAsc: (state, action) => {
+      state.dataAsc = action.payload;
+    },
+    setDataDesc: (state, action) => {
+      state.dataDesc = action.payload;
+    },
+    setProgram: (state, action) => {
+      state.program = action.payload;
+    },
+    setNight: (state, action) => {
+      state.night = action.payload;
+    },
+    setWebsite: (state, action) => {
+      state.website = action.payload;
+    },
+    setWeekend: (state, action) => {
+      state.weekend = action.payload;
+    },
+    setInitialState: (state, action) => {
+      initialState;
+    },
+    setFilterSorteraza: (state, action) => {
+      const tmp = ["tarifAsc", "tarifDesc", "dataDesc", "dataAsc", "toate"];
+      for (let item in tmp) {
+        if (tmp[item] === action.payload) {
+          state[tmp[item]] = true;
+        } else {
+          state[tmp[item]] = false;
+        }
+      }
+    },
+    setFilterFilters: (state, action) => {
+      const tmp = ["program", "night", "website", "weekend"];
+      state[action.payload] = !state[action.payload];
     },
   },
 });
@@ -62,6 +74,8 @@ export const {
   setWebsite,
   setWeekend,
   setInitialState,
+  setFilterSorteraza,
+  setFilterFilters,
 } = sortItemsSlice.actions;
 
 export default sortItemsSlice.reducer;
