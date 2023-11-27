@@ -1,6 +1,8 @@
 import "../styles/globals.scss";
 import { useState, useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
+import { Provider } from "react-redux";
+import { store } from "../pages/fstore/store";
 
 /*
 TODO:
@@ -56,7 +58,7 @@ function MyApp({ Component, pageProps }) {
     } else {
       localStorage.setItem("location", JSON.stringify(initialLocation));
     }
-  },[]);
+  }, []);
 
   const getDateToRegister = () => {
     const dt = new Date();
@@ -105,27 +107,29 @@ function MyApp({ Component, pageProps }) {
       body: JSON.stringify({ data: addData }),
     });
     const res = await sendData.json();
-    if(res.msg){
-      toast.success(res.msg)
-    } else if (res.error){
-      toast.error(res.error)
+    if (res.msg) {
+      toast.success(res.msg);
+    } else if (res.error) {
+      toast.error(res.error);
     }
   };
 
   return (
     <>
-      <Component
-        {...pageProps}
-        initialValues={initialValues}
-        state={state}
-        setState={setState}
-        listaOrase={listaOrase}
-        setListaOrase={setListaOrase}
-        postData={postData}
-        location={location}
-        setLocation={setLocation}
-      />
-      <Toaster />
+      <Provider store={store}>
+        <Component
+          {...pageProps}
+          initialValues={initialValues}
+          state={state}
+          setState={setState}
+          listaOrase={listaOrase}
+          setListaOrase={setListaOrase}
+          postData={postData}
+          location={location}
+          setLocation={setLocation}
+        />
+        <Toaster />
+      </Provider>
     </>
   );
 }

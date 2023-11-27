@@ -9,6 +9,8 @@ import LeftMenu from "../components/LeftMenu";
 import Title from "../components/Title";
 import NoResults from "../components/NoResults";
 import BurgerMenu from "../components/BurgerMenu";
+import { useDispatch, useSelector } from "react-redux";
+import { setJudet, setOras } from "./features/searchJudet/searchJudetSlice";
 
 export default function Home() {
   const initialValues = {
@@ -25,6 +27,12 @@ export default function Home() {
   const [showMenu, setShowMenu] = useState(false);
   const [noResultsText, setNoResultsText] = useState("");
   const [noResTrigger, setNoResTrigger] = useState(false);
+
+  const dispatch = useDispatch();
+
+  const judet = useSelector(state => state.judet)
+  const oras = useSelector(state => state.oras)
+  const cautare = useSelector(state => state.cautare)
 
   // Button search only in judet
   const searchJudet = async () => {
@@ -135,6 +143,9 @@ export default function Home() {
   return (
     <div className={styles.container + " m-0 p-0"}>
       <BurgerMenu showMenu={showMenu} />
+      <h4>{judet}</h4>
+      <h4>{oras}</h4>
+      <h4>{cautare}</h4>
       <div
         className={
           styles.mainContainer +

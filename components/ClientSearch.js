@@ -11,15 +11,29 @@ import { BiReset } from "react-icons/bi";
 import { AiOutlineSearch } from "react-icons/ai";
 import styles from "../styles/clientsearch.module.scss";
 import { ButtonWithIcon } from "./singleTags/ButtonWithIcon";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setJudet,
+  setOras,
+  setNoResTrigger,
+  setListaCarduri,
+  setListaOrase,
+  setInitialState,
+  setCautare,
+} from "../pages/features/searchJudet/searchJudetSlice";
 
 const ClientSearch = ({
   state,
   setState,
   searchJudet,
   searchJudetOras,
-  resetSearch,
-  automaticChange,
 }) => {
+  const dispatch = useDispatch();
+  const judet = useSelector((state) => state.judet);
+  const oras = useSelector((state) => state.oras);
+  const listaOrase = useSelector((state) => state.listaOrase);
+  const cautare = useSelector(state => state.cautare)
+
   return (
     <div
       className={
@@ -32,16 +46,13 @@ const ClientSearch = ({
         <div>
           <SelectCustom
             name="judet"
-            value={state.judet}
+            value={judet}
             onChange={(e) => (
-              setState({
-                ...state,
-                judet: e.target.value,
-                listaOrase: alin[e.target.value],
-                oras: alin[e.target.value][0].nume,
-                listaCarduri: [],
-              }),
-              automaticChange()
+              dispatch(setJudet(e.target.value)),
+              dispatch(setListaOrase(alin[e.target.value])),
+              dispatch(setOras(alin[e.target.value][0].nume)),
+              dispatch(setListaCarduri([])),
+              dispatch(setNoResTrigger(false))
             )}
           >
             <option value="" disabled>
@@ -55,20 +66,17 @@ const ClientSearch = ({
           </SelectCustom>
         </div>
 
-        {state.oras ? (
+        {oras ? (
           <div>
             <SelectCustom
               name="oras"
-              value={state.oras}
+              value={oras}
               onChange={(e) => (
-                setState({
-                  ...state,
-                  oras: e.target.value,
-                }),
-                automaticChange()
+                dispatch(setOras(e.target.value)),
+                dispatch(setNoResTrigger(false))
               )}
             >
-              {state.listaOrase.map((item, index) => (
+              {listaOrase.map((item, index) => (
                 <option value={item.nume} key={index}>
                   {item.nume}
                   {item.comuna && ", " + item.comuna}
@@ -80,7 +88,7 @@ const ClientSearch = ({
           []
         )}
 
-        {state.oras && (
+        {oras && (
           <div className="d-flex m-0 p-0 justify-content-between align-items-center">
             <InputContainer fs=".8rem">
               <input
@@ -88,9 +96,9 @@ const ClientSearch = ({
                 type="text"
                 placeholder=" "
                 id="idForLabel"
-                value={state.cautare}
+                value={cautare}
                 onChange={(e) =>
-                  setState({ ...state, cautare: e.target.value })
+                  dispatch(setCautare(e.target.value))
                 }
               />
               <label htmlFor="idForLabel">Cauta....</label>
@@ -115,7 +123,7 @@ const ClientSearch = ({
         )}
       </div>
 
-      {state.judet && (
+      {judet && (
         <div className="row m-0 p-0" id="judetButton">
           <ButtonWithIcon
             hasIcon
@@ -126,7 +134,7 @@ const ClientSearch = ({
             <div className="iconContainer">
               <AiOutlineSearch className="icon" />
             </div>
-            Caută în {state.judet}
+            Caută în {judet}
           </ButtonWithIcon>
           <ButtonWithIcon
             hasIcon
@@ -137,14 +145,14 @@ const ClientSearch = ({
             <div className="iconContainer">
               <AiOutlineSearch className="icon" />
             </div>
-            Caută în {state.judet + ", " + state.oras}
+            Caută în {judet + ", " + oras}
           </ButtonWithIcon>
           <Button
             className={styles.resetBtn + " shadow-sm"}
             size="small"
             color="error"
             variant="outlined"
-            onClick={resetSearch}
+            onClick={() => dispatch(setInitialState())}
             startIcon={<BiReset className={styles.iconReset} />}
           >
             Reset
