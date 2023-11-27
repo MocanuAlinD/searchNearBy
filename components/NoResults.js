@@ -1,10 +1,14 @@
 import React from "react";
 import styles from "../styles/noResult.module.scss";
+import { useSelector } from "react-redux";
 
-const NoResults = ({noRes}) => {
+const NoResults = () => {
   return (
     <div className={styles.container}>
-      <h3>Nu există înregistrări în <strong>{`"${noRes}"`}</strong></h3>
+      <h3>
+        Nu există înregistrări în{" "}
+        <strong>{`"${useSelector((state) => state.noResultsText)}"`}</strong>
+      </h3>
     </div>
   );
 };

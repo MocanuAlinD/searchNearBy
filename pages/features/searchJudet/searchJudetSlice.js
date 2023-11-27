@@ -13,16 +13,12 @@ const initialState = {
   showMenu: false,
   noResultsText: "",
   noResTrigger: false,
-  celina: "",
 };
 
 export const cautareSlice = createSlice({
   name: "cautare",
   initialState,
   reducers: {
-    setCelina: (state, action) => {
-      state.celina = action.payload;
-    },
     setJudet: (state, action) => {
       state.judet = action.payload;
     },
@@ -84,7 +80,6 @@ export const {
   setShowMenu,
   setNoResultText,
   setNoResTrigger,
-  setCelina,
 } = cautareSlice.actions;
 
 export default cautareSlice.reducer;

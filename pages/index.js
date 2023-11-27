@@ -1,87 +1,80 @@
-import styles from "../styles/Home.module.scss";
-import { useState } from "react";
-import ClientSearch from "../components/ClientSearch";
-import Spinner from "../components/Spinner";
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
+import { useDispatch, useSelector } from "react-redux";
+import ClientSearch from "../components/ClientSearch";
 import CardCautare from "../components/CardCautare";
+import BurgerMenu from "../components/BurgerMenu";
+import NoResults from "../components/NoResults";
+import styles from "../styles/Home.module.scss";
 import SortItems from "../components/SortItems";
 import LeftMenu from "../components/LeftMenu";
+import Spinner from "../components/Spinner";
 import Title from "../components/Title";
-import NoResults from "../components/NoResults";
-import BurgerMenu from "../components/BurgerMenu";
-import { useDispatch, useSelector } from "react-redux";
-import { setJudet, setOras } from "./features/searchJudet/searchJudetSlice";
+import {
+  setShow,
+  setSortedList,
+  setLoadSearch,
+  setOriginalList,
+  setNoResultText,
+  setNoResTrigger,
+} from "./features/searchJudet/searchJudetSlice";
 
 export default function Home() {
-  const initialValues = {
-    judet: "",
-    oras: "",
-    cautare: "",
-    sortedList: [],
-  };
-
-  const [state, setState] = useState(initialValues);
-  const [originalList, setOriginalList] = useState([]);
-  const [loadSearch, setLoadSearch] = useState(false);
-  const [show, setShow] = useState(true);
-  const [showMenu, setShowMenu] = useState(false);
-  const [noResultsText, setNoResultsText] = useState("");
-  const [noResTrigger, setNoResTrigger] = useState(false);
-
   const dispatch = useDispatch();
-
-  const judet = useSelector(state => state.judet)
-  const oras = useSelector(state => state.oras)
-  const cautare = useSelector(state => state.cautare)
+  const oras = useSelector((state) => state.oras);
+  const show = useSelector((state) => state.show);
+  const judet = useSelector((state) => state.judet);
+  const cautare = useSelector((state) => state.cautare);
+  const sortedList = useSelector((state) => state.sortedList);
+  const loadSearch = useSelector((state) => state.loadSearch);
+  const originalList = useSelector((state) => state.originalList);
+  const noResTrigger = useSelector((state) => state.noResTrigger);
 
   // Button search only in judet
   const searchJudet = async () => {
-    setNoResTrigger((prev) => false);
+    dispatch(setNoResTrigger(false));
     try {
-      setLoadSearch((prev) => true);
+      dispatch(setLoadSearch(true));
       const getServices = await fetch(
-        `/api/jobsJudet?search=${state.cautare}&judet=${state.judet}`
+        `/api/jobsJudet?search=${cautare}&judet=${judet}`
       );
       const endresult = await getServices.json();
 
-      setState((prev) => ({
-        ...prev,
-        sortedList: endresult,
-      }));
-      setOriginalList(endresult);
-      setLoadSearch((prev) => false);
-
+      dispatch(setSortedList(endresult));
+      dispatch(setOriginalList(endresult));
+      dispatch(setLoadSearch(false));
       if (endresult.length > 0) {
-        setNoResultsText("");
-      } else if (endresult.length === 0) {
-        setNoResultsText(state.judet);
-        setNoResTrigger((prev) => true);
+        dispatch(setNoResultText(""));
+      } else if (endresult.length == 0) {
+        dispatch(setNoResultText(judet));
+        dispatch(setNoResTrigger(true));
       }
     } catch (error) {
-      setLoadSearch((prev) => false);
+      dispatch(setLoadSearch(false));
     }
   };
 
   // Button search in judet and oras
   const searchJudetOras = async () => {
-    setNoResTrigger((prev) => false);
+    dispatch(setNoResTrigger(false));
     try {
+      dispatch(setLoadSearch(true));
+
       const getServices = await fetch(
-        `/api/jobsJudetOras?search=${state.cautare}&judet=${state.judet}&oras=${state.oras}`
+        `/api/jobsJudetOras?search=${cautare}&judet=${judet}&oras=${oras}`
       );
       const endresult = await getServices.json();
 
-      setState((prev) => ({ ...prev, sortedList: endresult }));
-      setOriginalList((prev) => endresult);
-
+      dispatch(setSortedList(endresult));
+      dispatch(setOriginalList(endresult));
+      dispatch(setLoadSearch(false));
       if (endresult.length > 0) {
-        setNoResultsText("");
-      } else if (endresult.length === 0) {
-        setNoResultsText(`${state.judet}, ${state.oras}`);
-        setNoResTrigger((prev) => true);
+        dispatch(setNoResultText(""));
+      } else if (endresult.length == 0) {
+        dispatch(setNoResultText(`${judet}, ${oras}`));
+        dispatch(setNoResTrigger(true));
       }
     } catch (error) {
-      setLoadSearch((prev) => false);
+      dispatch(setLoadSearch(false));
     }
   };
 
@@ -127,25 +120,15 @@ export default function Home() {
         )
       : one;
 
-    setState({ ...state, sortedList: one });
-  };
-
-  const resetSearch = () => {
-    setOriginalList([]);
-    setState(initialValues);
-    setNoResTrigger(false);
-  };
-
-  const automaticChange = () => {
-    setNoResTrigger((prev) => false);
+    dispatch(setSortedList(one));
   };
 
   return (
     <div className={styles.container + " m-0 p-0"}>
-      <BurgerMenu showMenu={showMenu} />
+      <BurgerMenu />
       <h4>{judet}</h4>
       <h4>{oras}</h4>
-      <h4>{cautare}</h4>
+      <h4>{noResTrigger.toString()}</h4>
       <div
         className={
           styles.mainContainer +
@@ -159,13 +142,13 @@ export default function Home() {
             " m-0 p-0 mt-3 d-flex justify-content-between flex-row-reverse flex-md-row"
           }
         >
-          <LeftMenu showMenu={showMenu} setShowMenu={setShowMenu} />
+          <LeftMenu />
 
           <div className="d-flex justify-content-between gap-2 mx-2">
             <input
               type="checkbox"
               id="change"
-              onChange={() => setShow((prev) => !prev)}
+              onChange={() => dispatch(setShow(!show))}
               className={styles.checkbox + " m-0 p-0"}
             />
             {!show && <AiOutlineEye className={"text-white"} />}
@@ -178,46 +161,35 @@ export default function Home() {
 
         {/* Search window with inputs */}
         <ClientSearch
-          state={state}
-          setState={setState}
           searchJudetOras={searchJudetOras}
           searchJudet={searchJudet}
-          resetSearch={resetSearch}
-          automaticChange={automaticChange}
         />
       </div>
 
       {/* Sort menu and search cards */}
       <div className="d-flex flex-column flex-md-row m-0 p-0">
-        {!loadSearch &&
-          originalList.length > 0 &&
-          state.sortedList.length >= 0 && (
-            <SortItems
-              handleToate={handleToate}
-              listLen={state.sortedList.length}
-            />
-          )}
+        {!loadSearch && originalList.length > 0 && sortedList.length >= 0 && (
+          <SortItems handleToate={handleToate} listLen={sortedList.length} />
+        )}
 
         {/* Cards container */}
         <div className="w-100 d-flex flex-wrap m-0 p-0 justify-content-center">
           {!loadSearch &&
             originalList &&
-            state.sortedList.map((item, index) => (
+            sortedList.map((item, index) => (
               <CardCautare data={item} key={index} idx={index} />
             ))}
         </div>
       </div>
 
       {/* Show only if no results found */}
-
-      {/* {!originalList.length && noResultsText === "" && <NoResults noRes={noResultsText} />} */}
       {noResTrigger && (
         <div className={styles.resultsContainer}>
-          <NoResults noRes={noResultsText} />
+          <NoResults />
         </div>
       )}
 
-      {loadSearch && <Spinner setLoadSearch={setLoadSearch} />}
+      {loadSearch && <Spinner />}
     </div>
   );
 }

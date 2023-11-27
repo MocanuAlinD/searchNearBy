@@ -1,13 +1,17 @@
 import React from "react";
+import {useDispatch, useSelector} from "react-redux"
+import { setShowMenu } from "../pages/features/searchJudet/searchJudetSlice";
 
-const LeftMenu = ({ showMenu, setShowMenu }) => {
+const LeftMenu = () => {
+  const dispatch = useDispatch();
+  const showMenu = useSelector(state => state.showMenu)
   return (
     <div className="m-0 p-0 mx-3">
       <svg
         viewBox="0 0 100 100"
         xmlns="http://www.w3.org/2000/svg"
         className={`svg ${showMenu ? " active" : ""}`}
-        onClick={() => setShowMenu((prev) => !prev)}
+        onClick={() => dispatch(setShowMenu(!showMenu))}
       >
         <path
           d="M90,20 h-80 q-40 -10 0 -40 q40 -30 90 0 q20 20 -10 40 l-80 60"

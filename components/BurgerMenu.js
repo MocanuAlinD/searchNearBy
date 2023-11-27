@@ -1,8 +1,10 @@
 import React from "react";
 import styles from "../styles/BurgerMenu.module.scss";
 import Link from "next/link";
+import { useSelector } from "react-redux";
 
-const BurgerMenu = ({ showMenu }) => {
+const BurgerMenu = () => {
+  const showMenu = useSelector((state) => state.showMenu);
   return (
     <div
       className={

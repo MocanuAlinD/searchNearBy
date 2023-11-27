@@ -22,23 +22,17 @@ import {
   setCautare,
 } from "../pages/features/searchJudet/searchJudetSlice";
 
-const ClientSearch = ({
-  state,
-  setState,
-  searchJudet,
-  searchJudetOras,
-}) => {
+const ClientSearch = ({ searchJudet, searchJudetOras }) => {
   const dispatch = useDispatch();
   const judet = useSelector((state) => state.judet);
   const oras = useSelector((state) => state.oras);
   const listaOrase = useSelector((state) => state.listaOrase);
-  const cautare = useSelector(state => state.cautare)
+  const cautare = useSelector((state) => state.cautare);
 
   return (
     <div
       className={
         styles.container +
-        // "  m-0 p-0 align-self-center justify-content-center px-2 px-md-0 pt-3"
         "  m-0 p-0 align-self-center justify-content-center px-2 px-md-0 pt-3"
       }
     >
@@ -97,22 +91,18 @@ const ClientSearch = ({
                 placeholder=" "
                 id="idForLabel"
                 value={cautare}
-                onChange={(e) =>
-                  dispatch(setCautare(e.target.value))
-                }
+                onChange={(e) => dispatch(setCautare(e.target.value))}
               />
               <label htmlFor="idForLabel">Cauta....</label>
             </InputContainer>
 
             <IconButton
               aria-label="delete"
-              disabled={!state.cautare}
-              onClick={() => {
-                setState({ ...state, cautare: "" });
-              }}
+              disabled={!cautare}
+              onClick={() => dispatch(setCautare(""))}
               variant="contained"
               className={`${
-                state.cautare
+                cautare
                   ? " text-warning ms-1 py-1 align-self-end"
                   : " text-muted ms-1 py-2 align-self-end"
               }`}
