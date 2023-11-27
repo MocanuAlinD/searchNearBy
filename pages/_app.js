@@ -2,7 +2,7 @@ import "../styles/globals.scss";
 import { useState, useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { Provider } from "react-redux";
-import { store } from "../pages/fstore/store";
+import { store } from "../fstore/store";
 
 /*
 TODO:

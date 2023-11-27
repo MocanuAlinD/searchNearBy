@@ -1,6 +1,6 @@
 import React from "react";
 import {useDispatch, useSelector} from "react-redux"
-import { setShowMenu } from "../pages/features/searchJudet/searchJudetSlice";
+import { setShowMenu } from "../features/searchJudet/searchJudetSlice";
 
 const LeftMenu = () => {
   const dispatch = useDispatch();

@@ -18,7 +18,7 @@ import {
   setOriginalList,
   setNoResultText,
   setNoResTrigger,
-} from "./features/searchJudet/searchJudetSlice";
+} from "../features/searchJudet/searchJudetSlice";
 
 export default function Home() {
   const dispatch = useDispatch();

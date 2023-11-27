@@ -20,7 +20,7 @@ import {
   setListaOrase,
   setInitialState,
   setCautare,
-} from "../pages/features/searchJudet/searchJudetSlice";
+} from "../features/searchJudet/searchJudetSlice";
 
 const ClientSearch = ({ searchJudet, searchJudetOras }) => {
   const dispatch = useDispatch();
