@@ -47,11 +47,6 @@ const BurgerMenu = () => {
           <a className={styles.link + " m-0"}>Donează pentru dezvoltare</a>
         </span>
       </Link>
-      <Link href="/test" passHref>
-        <span>
-          <a className={styles.link + " m-0"}>Test</a>
-        </span>
-      </Link>
     </div>
   );
 };

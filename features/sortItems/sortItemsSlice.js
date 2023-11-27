@@ -13,9 +13,9 @@ const initialState = {
 };
 
 const sortItemsSlice = createSlice({
+  name: "sortItems",
+  initialState,
   reducer: {
-    name: "sortItems",
-    initialState,
     reducers: {
       setToate: (state, action) => {
         state.toate = action.payload;
