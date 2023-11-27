@@ -2,19 +2,46 @@ import React, { useState } from "react";
 import styles from "../styles/SortItems.module.scss";
 import { ImSortNumbericDesc, ImSortNumericAsc } from "react-icons/im";
 import SingleRow from "./SingleRow";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setTotal,
+  setTarifAsc,
+  setTarifDesc,
+  setDataAsc,
+  setDataDesc,
+  setProgram,
+  setNight,
+  setWebsite,
+  setWeekend,
+} from "../features/sortItems/sortItemsSlice";
 
 const SortItems = ({ handleToate, listLen }) => {
-  const initialValues = {
-    toate: true,
-    tarifAsc: false,
-    tarifDesc: false,
-    dataAsc: false,
-    dataDesc: false,
-    program: false,
-    night: false,
-    website: false,
-    weekend: false,
-  };
+  const dispatch = useDispatch();
+
+  const total = useSelector((state) => state.sort.total);
+  const tarifAsc = useSelector((state) => state.sort.tarifAsc);
+  const tarifDesc = useSelector((state) => state.sort.tarifDesc);
+  const dataAsc = useSelector((state) => state.sort.dataAsc);
+  const dataDesc = useSelector((state) => state.sort.dataDesc);
+  const program = useSelector((state) => state.sort.program);
+  const night = useSelector((state) => state.sort.night);
+  const website = useSelector((state) => state.sort.website);
+  const weekend = useSelector((state) => state.sort.weekend);
+
+  const initialValues = useSelector((state) => state.sort);
+  // console.log(resetState);
+
+  // const initialValues = {
+  //   toate: true,
+  //   tarifAsc: false,
+  //   tarifDesc: false,
+  //   dataAsc: false,
+  //   dataDesc: false,
+  //   program: false,
+  //   night: false,
+  //   website: false,
+  //   weekend: false,
+  // };
 
   const [state, setState] = useState(initialValues);
 
