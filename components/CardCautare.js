@@ -51,6 +51,35 @@ const CardCautare = ({ data, idx }) => {
               Înregistrat din: <b>{formatedDate}</b>
             </p>
           </div>
+          <div className={styles.row}>
+            <p className={styles.disponibil}>
+              Urgente: <b>{data.urgente ? "DA urgente" : "NU urgente"}</b>
+            </p>
+          </div>
+          <div className={styles.row}>
+            <p className={styles.disponibil}>
+              Urgente noapte:{" "}
+              <b>{data.urgenteNoapte ? "DA noapte" : "NU noapte"}</b>
+            </p>
+          </div>
+          <div className={styles.row}>
+            <p className={styles.disponibil}>
+              Weekend: <b>{data.weekend ? "DA weekend" : "NU weekend"}</b>
+            </p>
+          </div>
+          <div className={styles.row}>
+            <p className={styles.disponibil}>
+              Website: <b>{data.website ? "DA website" : "NU website"}</b>
+            </p>
+          </div>
+          <div className={styles.row}>
+            <p className={styles.disponibil}>
+              Tarif:{" "}
+              <b>
+                {data.pretMin} - {data.pretMax}
+              </b>
+            </p>
+          </div>
           <div className={styles.link}>
             <Link href={gotoId}>
               <a target="_blank">Vezi alte detalii</a>
