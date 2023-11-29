@@ -90,7 +90,6 @@ export default function Home() {
   };
 
   const handleToate = (a) => {
-    console.log("handleToate: ", a);
     let one = a.toate
       ? originalList
       : originalList.filter((item) => item && item);

@@ -22,7 +22,6 @@ const Reclamatii = () => {
 
   const sendData = (e) => {
     e.preventDefault();
-    console.log(reclamatie);
     // setReclamatie(defaultReclamatie)
   };
 

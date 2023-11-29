@@ -11,7 +11,8 @@ const SingleRow = ({
   type,
   name,
   icon,
-  cls
+  cls,
+  style
 }) => {
   return (
     <div className={styles.row}>
@@ -31,7 +32,7 @@ const SingleRow = ({
         </>
       )}
       {justTitle && (
-        <h4 className={cls}>{text}</h4>
+        <h4 className={cls} style={style}>{text}</h4>
       )}
     </div>
   );

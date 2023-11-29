@@ -122,7 +122,6 @@ const Login = () => {
 
   // forgot password (create popup to enter email to send link)
   const forgotPassword = () => {
-    console.log(state.emailLogare);
     sendPasswordResetEmail(auth, state.emailLogare)
       .then(() => {
         toast.success(

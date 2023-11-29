@@ -9,7 +9,6 @@ const initialState = {
   program: false,
   night: false,
   website: false,
-  weekend: false,
 };
 
 const sortItemsSlice = createSlice({
@@ -40,9 +39,6 @@ const sortItemsSlice = createSlice({
     setWebsite: (state, action) => {
       state.website = action.payload;
     },
-    setWeekend: (state, action) => {
-      state.weekend = action.payload;
-    },
     setInitialState: (state, action) => {
       return initialState;
     },
@@ -57,13 +53,8 @@ const sortItemsSlice = createSlice({
       }
     },
     setFilterFilters: (state, action) => {
-      // const tmp = ["program", "night", "website", "weekend"];
-      state.toate = false
+      state.toate = false;
       state[action.payload] = !state[action.payload];
-    },
-    getState: (state, action) => {
-      console.log("stat ", { ...state });
-      // return state;
     },
   },
 });
@@ -77,11 +68,9 @@ export const {
   setProgram,
   setNight,
   setWebsite,
-  setWeekend,
   setInitialState,
   setFilterSorteraza,
   setFilterFilters,
-  getState,
 } = sortItemsSlice.actions;
 
 export default sortItemsSlice.reducer;
