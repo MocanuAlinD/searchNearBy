@@ -3,6 +3,7 @@ import styles from "../styles/SortItems.module.scss";
 import { ImSortNumbericDesc, ImSortNumericAsc } from "react-icons/im";
 import SingleRow from "./SingleRow";
 import { useDispatch, useSelector } from "react-redux";
+import { store } from "../fstore/store";
 import {
   setTotal,
   setTarifAsc,
@@ -17,6 +18,7 @@ import {
   setFilterSorteraza,
   setFilterFilters,
   setToate,
+  getState,
 } from "../features/sortItems/sortItemsSlice";
 
 const SortItems = ({ handleToate, listLen }) => {
@@ -32,11 +34,14 @@ const SortItems = ({ handleToate, listLen }) => {
   const website = useSelector((state) => state.sort.website);
   const weekend = useSelector((state) => state.sort.weekend);
 
-  const initialValues = useSelector((state) => state.sort);
+  const currentState = store.getState().sort;
 
   const handleSorteaza = (text) => {
     dispatch(setFilterSorteraza(text));
-    handleToate(initialValues);
+    // console.log("inVals", currentState);
+    // console.log("store state", store.getState().sort);
+    handleToate(store.getState().sort);
+    return;
   };
 
   const handleSelect = (x) => {
@@ -63,7 +68,7 @@ const SortItems = ({ handleToate, listLen }) => {
     const fil = document.getElementById("filtreaza");
     sel.value = "";
     fil.value = "";
-    handleRest(initialValues);
+    handleToate(currentState);
   };
 
   const handleSelectFiltreaza = (x) => {
@@ -73,19 +78,25 @@ const SortItems = ({ handleToate, listLen }) => {
     for (let i = 0; i < filEl.length; i++) {
       tempState[filEl[i].value] = filEl[i].selected;
     }
-    const allNewState = { ...state, ...tempState, toate: false };
-    handleRest(allNewState);
+    const allNewState = { ...currentState, ...tempState, toate: false };
+    console.log(allNewState);
+    handleToate(allNewState);
   };
 
-  const handleRest = (tempState) => {
-    handleToate(tempState);
-  };
+  // const handleRest = (tempState) => {
+  // handleToate(tempState);
+  // };
 
   const handleFilter = (filter) => {
-    dispatch(setToate(false))
-    console.log(filter)
-    dispatch(setFilterFilters(filter))
-    handleToate(initialValues)
+    dispatch(setFilterFilters(filter));
+    handleToate(store.getState().sort);
+  };
+
+  const origList = useSelector((state) => state.search.originalList);
+
+  const resetState = () => {
+    dispatch(setInitialState());
+    handleToate(origList);
   };
 
   return (
@@ -107,8 +118,8 @@ const SortItems = ({ handleToate, listLen }) => {
           id="toate"
           text="Fără filtre"
           state={toate}
-          func={() => handleSorteaza("toate")}
-          list={initialValues}
+          func={resetState}
+          list={currentState}
           type="checkbox"
         />
         <SingleRow justTitle text="Sortează" />
@@ -120,6 +131,7 @@ const SortItems = ({ handleToate, listLen }) => {
           type="radio"
           name="sortBy"
           state={tarifAsc}
+          // state={useSelector((state) => state.sort.tarifAsc)}
           func={() => handleSorteaza("tarifAsc")}
         />
         <SingleRow
@@ -129,6 +141,7 @@ const SortItems = ({ handleToate, listLen }) => {
           type="radio"
           name="sortBy"
           state={tarifDesc}
+          // state={useSelector((state) => state.sort.tarifDesc)}
           func={() => handleSorteaza("tarifDesc")}
         />
 
@@ -138,6 +151,7 @@ const SortItems = ({ handleToate, listLen }) => {
           type="radio"
           name="sortBy"
           state={dataAsc}
+          // state={useSelector((state) => state.sort.dataAsc)}
           func={() => handleSorteaza("dataAsc")}
         />
 
@@ -147,6 +161,7 @@ const SortItems = ({ handleToate, listLen }) => {
           type="radio"
           name="sortBy"
           state={dataDesc}
+          // state={useSelector((state) => state.sort.dataDesc)}
           func={() => handleSorteaza("dataDesc")}
         />
 
@@ -175,13 +190,13 @@ const SortItems = ({ handleToate, listLen }) => {
           state={website}
           func={() => handleFilter("website")}
         />
-        <SingleRow
+        {/* <SingleRow
           id="weekend"
           text="Weekend"
           type="checkbox"
           state={weekend}
           func={() => handleFilter("weekend")}
-        />
+        /> */}
       </div>
 
       {/* MOBILE */}
@@ -220,7 +235,7 @@ const SortItems = ({ handleToate, listLen }) => {
               <option value="program">După 16:00</option>
               <option value="night">Urgențe 24/7</option>
               <option value="website">Website</option>
-              <option value="weekend">Weekend</option>
+              {/* <option value="weekend">Weekend</option> */}
             </select>
           </div>
         </div>

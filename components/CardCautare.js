@@ -53,23 +53,17 @@ const CardCautare = ({ data, idx }) => {
           </div>
           <div className={styles.row}>
             <p className={styles.disponibil}>
-              Urgente: <b>{data.urgente ? "DA urgente" : "NU urgente"}</b>
+              Dupa ora 16( pana seara ): <b>{data.urgente ? "DA" : "NU"}</b>
             </p>
           </div>
           <div className={styles.row}>
             <p className={styles.disponibil}>
-              Urgente noapte:{" "}
-              <b>{data.urgenteNoapte ? "DA noapte" : "NU noapte"}</b>
+              Urgente 24/7: <b>{data.urgenteNoapte ? "DA" : "NU"}</b>
             </p>
           </div>
           <div className={styles.row}>
             <p className={styles.disponibil}>
-              Weekend: <b>{data.weekend ? "DA weekend" : "NU weekend"}</b>
-            </p>
-          </div>
-          <div className={styles.row}>
-            <p className={styles.disponibil}>
-              Website: <b>{data.website ? "DA website" : "NU website"}</b>
+              Website: <b>{data.website ? "DA" : "NU"}</b>
             </p>
           </div>
           <div className={styles.row}>

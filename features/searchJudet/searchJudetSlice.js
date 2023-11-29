@@ -44,7 +44,7 @@ export const cautareSlice = createSlice({
       state.loadSearch = action.payload;
     },
     setShow: (state, action) => {
-      state.show = action.payload;
+      state.show = !state.show;
     },
     setShowMenu: (state, action) => {
       state.showMenu = action.payload;
@@ -56,12 +56,13 @@ export const cautareSlice = createSlice({
       state.noResTrigger = action.payload;
     },
     setInitialState: (state, action) => {
-      state.originalList = [];
-      state.judet = "";
-      state.oras = "";
-      state.cautare = "";
-      state.sortedList = [];
-      state.noResTrigger = false;
+      // state.originalList = [];
+      // state.judet = "";
+      // state.oras = "";
+      // state.cautare = "";
+      // state.sortedList = [];
+      // state.noResTrigger = false;
+      return initialState;
     },
   },
 });

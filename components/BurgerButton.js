@@ -2,7 +2,7 @@ import React from "react";
 import {useDispatch, useSelector} from "react-redux"
 import { setShowMenu } from "../features/searchJudet/searchJudetSlice";
 
-const LeftMenu = () => {
+const BurgerButton = () => {
   const dispatch = useDispatch();
   const showMenu = useSelector(state => state.search.showMenu)
   return (
@@ -95,4 +95,4 @@ const LeftMenu = () => {
   );
 };
 
-export default LeftMenu;
+export default BurgerButton;

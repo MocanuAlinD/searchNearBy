@@ -6,7 +6,7 @@ import BurgerMenu from "../components/BurgerMenu";
 import NoResults from "../components/NoResults";
 import styles from "../styles/Home.module.scss";
 import SortItems from "../components/SortItems";
-import LeftMenu from "../components/LeftMenu";
+import BurgerButton from "../components/BurgerButton";
 import Spinner from "../components/Spinner";
 import Title from "../components/Title";
 import { useEffect } from "react";
@@ -30,6 +30,8 @@ export default function Home() {
   const loadSearch = useSelector((state) => state.search.loadSearch);
   const originalList = useSelector((state) => state.search.originalList);
   const noResTrigger = useSelector((state) => state.search.noResTrigger);
+
+  const tmp = useSelector((state) => state.sort);
 
   useEffect(() => {
     dispatch(setShowMenu(false));
@@ -88,6 +90,7 @@ export default function Home() {
   };
 
   const handleToate = (a) => {
+    console.log("handleToate: ", a);
     let one = a.toate
       ? originalList
       : originalList.filter((item) => item && item);
@@ -148,22 +151,27 @@ export default function Home() {
             " m-0 p-0 mt-3 d-flex justify-content-between flex-row-reverse flex-md-row"
           }
         >
-          <LeftMenu />
+          <BurgerButton />
 
           <div className="d-flex justify-content-between gap-2 mx-2">
             <input
               type="checkbox"
               id="change"
-              onChange={() => dispatch(setShow(!show))}
+              checked={!useSelector((state) => state.search.show)}
+              onChange={() => dispatch(setShow())}
               className={styles.checkbox + " m-0 p-0"}
             />
-            {!show && <AiOutlineEye className={"text-white"} />}
-            {show && <AiOutlineEyeInvisible className={"text-white"} />}
+            {!useSelector((state) => state.search.show) && (
+              <AiOutlineEye className={"text-white"} />
+            )}
+            {useSelector((state) => state.search.show) && (
+              <AiOutlineEyeInvisible className={"text-white"} />
+            )}
           </div>
         </div>
 
         {/* Title */}
-        {show && <Title />}
+        {useSelector((state) => state.search.show) && <Title />}
 
         {/* Search window with inputs */}
         <ClientSearch
