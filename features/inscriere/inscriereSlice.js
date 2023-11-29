@@ -57,10 +57,10 @@ export const inscriereSlice = createSlice({
       state.fullname = action.payload;
     },
     setUrgente: (state, action) => {
-      state.urgente = action.payload;
+      state.urgente = !state.urgente;
     },
     setUrgenteNoapte: (state, action) => {
-      state.urgenteNoapte = action.payload;
+      state.urgenteNoapte = !state.urgenteNoapte;
     },
     setZiInceput: (state, action) => {
       state.ziinceput = action.payload;

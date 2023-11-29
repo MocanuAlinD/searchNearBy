@@ -44,7 +44,6 @@ const FormRegister = ({
   listaOrase,
   setListaOrase,
   postData,
-  initialValues,
 }) => {
   const dispatch = useDispatch();
 
@@ -96,7 +95,8 @@ const FormRegister = ({
             id="numeUtilizator"
             value={fullname}
             placeholder="nume prenume"
-            onChange={(e) => setState({ ...state, fullname: e.target.value })}
+            // onChange={(e) => setState({ ...state, fullname: e.target.value })}
+            onChange={(e) => dispatch(setFullname(e.target.value))}
           />
           <span>&quot;Nume Prenume / Nume Companie&quot; sunt necesare</span>
         </Wrapper>
@@ -113,9 +113,10 @@ const FormRegister = ({
             type="text"
             placeholder="telefon"
             value={phone}
-            onChange={(e) =>
-              setState({ ...state, phone: [...e.target.value.split(",")] })
-            }
+            // onChange={(e) =>
+            //   setState({ ...state, phone: [...e.target.value.split(",")] })
+            // }
+            onChange={(e) => dispatch(setPhone(e.target.value))}
           />
           <span>Numărul de telefon este necesar</span>
         </Wrapper>
@@ -131,9 +132,10 @@ const FormRegister = ({
             type="text"
             placeholder="Email"
             value={email}
-            onChange={(e) =>
-              setState({ ...state, email: [...e.target.value.split(",")] })
-            }
+            // onChange={(e) =>
+            //   setState({ ...state, email: [...e.target.value.split(",")] })
+            // }
+            onChange={(e) => dispatch(setEmail(e.target.value))}
           />
           <span>Adresa de email trebuie să existe și să fie validă</span>
         </Wrapper>
@@ -149,7 +151,8 @@ const FormRegister = ({
             id="meserie"
             value={tipjob}
             placeholder="electrician, instalator, fotograf, etc...."
-            onChange={(e) => setState({ ...state, tipjob: e.target.value })}
+            // onChange={(e) => setState({ ...state, tipjob: e.target.value })}
+            onChange={(e) => dispatch(setTipJob(e.target.value))}
           />
           <span>Tipul de serviciu este necesar</span>
           <datalist id="inputList">
@@ -167,7 +170,8 @@ const FormRegister = ({
             value={pretMin}
             pattern="[0-9]+"
             placeholder="pret minim"
-            onChange={(e) => setState({ ...state, pretMin: e.target.value })}
+            // onChange={(e) => setState({ ...state, pretMin: e.target.value })}
+            onChange={(e) => dispatch(setPretMin(e.target.value))}
           />
           <span>Treceți prețul minim</span>
           <LabelCustom htmlFor="pretMaxID">Preț maxim</LabelCustom>
@@ -177,9 +181,10 @@ const FormRegister = ({
             id="pretMaxID"
             autoComplete="off"
             type="text"
-            value={state.pretMax}
+            value={pretMax}
             placeholder="pret maxim"
-            onChange={(e) => setState({ ...state, pretMax: e.target.value })}
+            // onChange={(e) => setState({ ...state, pretMax: e.target.value })}
+            onChange={(e) => dispatch(setPretMax(e.target.value))}
           />
           <span>Treceți prețul maxim</span>
         </Wrapper>
@@ -192,7 +197,8 @@ const FormRegister = ({
             maxLength={MAX_CHAR_LENGTH}
             name="detalii"
             id="detalii"
-            onChange={(e) => setState({ ...state, detalii: e.target.value })}
+            // onChange={(e) => setState({ ...state, detalii: e.target.value })}
+            onChange={(e) => dispatch(setDetalii(e.target.value))}
             value={detalii}
             rows="6"
             placeholder="Aici poti trece detalii despre serviciul prestat"
@@ -200,10 +206,10 @@ const FormRegister = ({
           <span>Scurta descriere este obligatorie</span>
           <LabelSmallCustom
             htmlFor="detalii"
-            char={state.detalii.length}
+            char={detalii.length}
             maxChar={MAX_CHAR_LENGTH}
           >
-            {"Caractere ramase: " + (+MAX_CHAR_LENGTH - +state.detalii.length)}
+            {"Caractere ramase: " + (+MAX_CHAR_LENGTH - +detalii.length)}
           </LabelSmallCustom>
         </Wrapper>
 
@@ -216,7 +222,8 @@ const FormRegister = ({
             type="text"
             value={website}
             placeholder="denumire-website.ro"
-            onChange={(e) => setState({ ...state, website: e.target.value })}
+            // onChange={(e) => setState({ ...state, website: e.target.value })}
+            onChange={(e) => dispatch(setWebsite(e.target.value))}
           />
         </Wrapper>
 
@@ -228,7 +235,8 @@ const FormRegister = ({
             name="saptamanaStart"
             id="saptamanaStart"
             value={ziinceput}
-            onChange={(e) => setState({ ...state, ziinceput: e.target.value })}
+            // onChange={(e) => setState({ ...state, ziinceput: e.target.value })}
+            onChange={(e) => dispatch(setZiInceput(e.target.value))}
           >
             <option value="Luni">Luni</option>
             <option value="Marti">Marți</option>
@@ -244,8 +252,9 @@ const FormRegister = ({
           <SelectCustom
             name="saptamanaSfarsit"
             id="saptamanaSfarsit"
-            value={state.zisfarsit}
-            onChange={(e) => setState({ ...state, zisfarsit: e.target.value })}
+            value={zisfarsit}
+            // onChange={(e) => setState({ ...state, zisfarsit: e.target.value })}
+            onChange={(e) => dispatch(setZiSfarsit(e.target.value))}
           >
             <option value="Luni">Luni</option>
             <option value="Marti">Marți</option>
@@ -268,7 +277,8 @@ const FormRegister = ({
             w="100%"
             id="programInceput"
             value={orainceput}
-            onChange={(e) => setState({ ...state, orainceput: e.target.value })}
+            // onChange={(e) => setState({ ...state, orainceput: e.target.value })}
+            onChange={(e) => dispatch(setOraInceput(e.target.value))}
           />
           <span>Selectează corect o oră</span>
 
@@ -279,8 +289,9 @@ const FormRegister = ({
             autoComplete="off"
             type="time"
             id="programSfarsit"
-            value={state.orasfarsit}
-            onChange={(e) => setState({ ...state, orasfarsit: e.target.value })}
+            value={orasfarsit}
+            // onChange={(e) => setState({ ...state, orasfarsit: e.target.value })}
+            onChange={(e) => dispatch(setOraSfarsit(e.target.value))}
           />
           <span>Selectează corect o oră</span>
         </Wrapper>
@@ -301,7 +312,8 @@ const FormRegister = ({
               }}
               checked={urgente}
               value=""
-              onChange={() => setState({ ...state, urgente: !state.urgente })}
+              // onChange={() => setState({ ...state, urgente: !state.urgente })}
+              onChange={() => dispatch(setUrgente())}
             />
             Disponibil în afara zilelor/orelor de lucru
           </LabelCustom>
@@ -324,9 +336,10 @@ const FormRegister = ({
               }}
               checked={urgenteNoapte}
               value=""
-              onChange={() =>
-                setState({ ...state, urgenteNoapte: !state.urgenteNoapte })
-              }
+              // onChange={() =>
+              //   setState({ ...state, urgenteNoapte: !state.urgenteNoapte })
+              // }
+              onChange={() => dispatch(setUrgenteNoapte())}
             />
             Urgențe pe timp de noapte
           </LabelCustom>
@@ -364,7 +377,8 @@ const FormRegister = ({
               id="labelComuna"
               name="comune"
               value={oras}
-              onChange={(e) => setState({ ...state, oras: e.target.value })}
+              // onChange={(e) => setState({ ...state, oras: e.target.value })}
+              onChange={(e) => dispatch(setOras(e.target.value))}
             >
               {listaOrase.map((item, index) => (
                 <option key={index}>
