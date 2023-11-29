@@ -14,6 +14,29 @@ import { BiReset } from "react-icons/bi";
 import { judete } from "../lib/judete";
 import { alin } from "../lib";
 import InputSuggestions from "./InputSuggestions";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setId,
+  setJudet,
+  setTipJob,
+  setPretMax,
+  setPretMin,
+  setDetalii,
+  setOras,
+  setDataRegister,
+  setOraRegister,
+  setFullname,
+  setUrgente,
+  setUrgenteNoapte,
+  setZiInceput,
+  setZiSfarsit,
+  setOraInceput,
+  setOraSfarsit,
+  setPhone,
+  setEmail,
+  setWebsite,
+  setInitialState,
+} from "../features/inscriere/inscriereSlice";
 
 const FormRegister = ({
   state,
@@ -23,6 +46,25 @@ const FormRegister = ({
   postData,
   initialValues,
 }) => {
+  const dispatch = useDispatch();
+
+  const fullname = useSelector((state) => state.inscriere.fullname);
+  const phone = useSelector((state) => state.inscriere.phone);
+  const email = useSelector((state) => state.inscriere.email);
+  const tipjob = useSelector((state) => state.inscriere.tipjob);
+  const pretMin = useSelector((state) => state.inscriere.pretMin);
+  const pretMax = useSelector((state) => state.inscriere.pretMax);
+  const detalii = useSelector((state) => state.inscriere.detalii);
+  const website = useSelector((state) => state.inscriere.website);
+  const ziinceput = useSelector((state) => state.inscriere.ziinceput);
+  const zisfarsit = useSelector((state) => state.inscriere.zisfarsit);
+  const orainceput = useSelector((state) => state.inscriere.orainceput);
+  const orasfarsit = useSelector((state) => state.inscriere.orasfarsit);
+  const urgente = useSelector((state) => state.inscriere.urgente);
+  const urgenteNoapte = useSelector((state) => state.inscriere.urgenteNoapte);
+  const judet = useSelector((state) => state.inscriere.judet);
+  const oras = useSelector((state) => state.inscriere.oras);
+
   const MAX_CHAR_LENGTH = "255";
 
   const changeListaOrase = (e) => {
@@ -43,7 +85,7 @@ const FormRegister = ({
     <form onSubmit={postData} method="GET" className="col-12">
       <SmallContainer m="0 0 15rem 0" className="d-flex flex-column mx-auto">
         <Wrapper>
-          <LabelCustom htmlFor="numeUtilizator" m="0">
+          <LabelCustom htmlFor="numeUtilizator">
             Nume Prenume / Nume companie
           </LabelCustom>
           <InputCustom
@@ -52,7 +94,7 @@ const FormRegister = ({
             autoComplete="off"
             type="text"
             id="numeUtilizator"
-            value={state.fullname}
+            value={fullname}
             placeholder="nume prenume"
             onChange={(e) => setState({ ...state, fullname: e.target.value })}
           />
@@ -60,7 +102,7 @@ const FormRegister = ({
         </Wrapper>
 
         <Wrapper>
-          <LabelCustom htmlFor="phoneID" m="0">
+          <LabelCustom htmlFor="phoneID">
             Telefon ( unul sau mai multe desparțite prin &quot;,&quot; )
           </LabelCustom>
           <InputCustom
@@ -70,12 +112,15 @@ const FormRegister = ({
             autoComplete="off"
             type="text"
             placeholder="telefon"
-            value={state.phone}
+            value={phone}
             onChange={(e) =>
               setState({ ...state, phone: [...e.target.value.split(",")] })
             }
           />
           <span>Numărul de telefon este necesar</span>
+        </Wrapper>
+
+        <Wrapper>
           <LabelCustom htmlFor="emailID">
             Email ( unul sau mai multe desparțite prin &quot;,&quot; )
           </LabelCustom>
@@ -85,7 +130,7 @@ const FormRegister = ({
             autoComplete="off"
             type="text"
             placeholder="Email"
-            value={state.email}
+            value={email}
             onChange={(e) =>
               setState({ ...state, email: [...e.target.value.split(",")] })
             }
@@ -102,7 +147,7 @@ const FormRegister = ({
             autoComplete="off"
             type="text"
             id="meserie"
-            value={state.tipjob}
+            value={tipjob}
             placeholder="electrician, instalator, fotograf, etc...."
             onChange={(e) => setState({ ...state, tipjob: e.target.value })}
           />
@@ -119,7 +164,7 @@ const FormRegister = ({
             id="pretMinID"
             autoComplete="off"
             type="text"
-            value={state.pretMin}
+            value={pretMin}
             pattern="[0-9]+"
             placeholder="pret minim"
             onChange={(e) => setState({ ...state, pretMin: e.target.value })}
@@ -148,7 +193,7 @@ const FormRegister = ({
             name="detalii"
             id="detalii"
             onChange={(e) => setState({ ...state, detalii: e.target.value })}
-            value={state.detalii}
+            value={detalii}
             rows="6"
             placeholder="Aici poti trece detalii despre serviciul prestat"
           ></TextAreaCustom>
@@ -169,7 +214,7 @@ const FormRegister = ({
             id="website"
             autoComplete="off"
             type="text"
-            value={state.website}
+            value={website}
             placeholder="denumire-website.ro"
             onChange={(e) => setState({ ...state, website: e.target.value })}
           />
@@ -182,7 +227,7 @@ const FormRegister = ({
           <SelectCustom
             name="saptamanaStart"
             id="saptamanaStart"
-            value={state.ziinceput}
+            value={ziinceput}
             onChange={(e) => setState({ ...state, ziinceput: e.target.value })}
           >
             <option value="Luni">Luni</option>
@@ -214,7 +259,7 @@ const FormRegister = ({
 
         <Wrapper m="0">
           <LabelCustom htmlFor="programInceput" m="0rem 0 .2rem 0">
-            Disponibil de la ora
+            Disponibil incepand cu ora
           </LabelCustom>
           <InputCustom
             required
@@ -222,7 +267,7 @@ const FormRegister = ({
             type="time"
             w="100%"
             id="programInceput"
-            value={state.orainceput}
+            value={orainceput}
             onChange={(e) => setState({ ...state, orainceput: e.target.value })}
           />
           <span>Selectează corect o oră</span>
@@ -254,7 +299,7 @@ const FormRegister = ({
                 marginRight: ".5rem",
                 padding: 0,
               }}
-              checked={state.urgente}
+              checked={urgente}
               value=""
               onChange={() => setState({ ...state, urgente: !state.urgente })}
             />
@@ -277,7 +322,7 @@ const FormRegister = ({
                 marginRight: ".5rem",
                 padding: 0,
               }}
-              checked={state.urgenteNoapte}
+              checked={urgenteNoapte}
               value=""
               onChange={() =>
                 setState({ ...state, urgenteNoapte: !state.urgenteNoapte })
@@ -295,7 +340,7 @@ const FormRegister = ({
             required
             name="orase"
             id="labelOrase"
-            value={state.judet}
+            value={judet}
             onChange={(e) => changeListaOrase(e)}
           >
             <option value="" disabled>
@@ -318,7 +363,7 @@ const FormRegister = ({
               required
               id="labelComuna"
               name="comune"
-              value={state.oras}
+              value={oras}
               onChange={(e) => setState({ ...state, oras: e.target.value })}
             >
               {listaOrase.map((item, index) => (
@@ -339,7 +384,7 @@ const FormRegister = ({
             w="45%"
             m=".5rem 0 .5rem"
             className="shadow"
-            onClick={() => setState(initialValues)}
+            onClick={() => dispatch(setInitialState())}
           >
             <div className="iconContainer">
               <BiReset className="icon" />
