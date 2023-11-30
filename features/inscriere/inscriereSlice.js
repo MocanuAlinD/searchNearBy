@@ -20,6 +20,7 @@ const initialState = {
   phone: ["0721345678"],
   email: ["email@yahoo.com"],
   website: "",
+  listaOrase: [],
 };
 
 export const inscriereSlice = createSlice({
@@ -86,6 +87,9 @@ export const inscriereSlice = createSlice({
     setInitialState: (state, action) => {
       return initialState;
     },
+    setListaOrase: (state, action) => {
+      state.listaOrase = action.payload;
+    },
   },
 });
 
@@ -110,6 +114,7 @@ export const {
   setEmail,
   setWebsite,
   setInitialState,
+  setListaOrase
 } = inscriereSlice.actions;
 
 export default inscriereSlice.reducer;

@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Wrapper,
   SmallContainer,
@@ -14,17 +13,15 @@ import { BiReset } from "react-icons/bi";
 import { judete } from "../lib/judete";
 import { alin } from "../lib";
 import InputSuggestions from "./InputSuggestions";
+import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  setId,
   setJudet,
   setTipJob,
   setPretMax,
   setPretMin,
   setDetalii,
   setOras,
-  setDataRegister,
-  setOraRegister,
   setFullname,
   setUrgente,
   setUrgenteNoapte,
@@ -36,15 +33,18 @@ import {
   setEmail,
   setWebsite,
   setInitialState,
+  setListaOrase,
 } from "../features/inscriere/inscriereSlice";
 
-const FormRegister = ({
-  state,
-  setState,
-  listaOrase,
-  setListaOrase,
-  postData,
-}) => {
+const FormRegister = (
+  {
+    // state,
+    // setState,
+    // listaOrase,
+    // setListaOrase,
+    // postData,
+  }
+) => {
   const dispatch = useDispatch();
 
   const fullname = useSelector((state) => state.inscriere.fullname);
@@ -63,6 +63,7 @@ const FormRegister = ({
   const urgenteNoapte = useSelector((state) => state.inscriere.urgenteNoapte);
   const judet = useSelector((state) => state.inscriere.judet);
   const oras = useSelector((state) => state.inscriere.oras);
+  const listaOrase = useSelector((state) => state.inscriere.listaOrase);
 
   const MAX_CHAR_LENGTH = "255";
 
@@ -70,14 +71,82 @@ const FormRegister = ({
     const tempSorted = alin[e.target.value].sort(
       (a, b) => (a.nume > b.nume && 1) || -1
     );
-    setState({
-      ...state,
-      judet: e.target.value,
-      oras:
+    // setState({
+    //   ...state,
+    //   judet: e.target.value,
+    //   oras:
+    //     tempSorted[0].nume +
+    //     (tempSorted[0].comuna ? ", " + tempSorted[0].comuna : ""),
+    // });
+    dispatch(setJudet(e.target.value));
+    dispatch(
+      setOras(
         tempSorted[0].nume +
-        (tempSorted[0].comuna ? ", " + tempSorted[0].comuna : ""),
-    });
-    setListaOrase(tempSorted);
+          (tempSorted[0].comuna ? ", " + tempSorted[0].comuna : "")
+      )
+    );
+    dispatch(setListaOrase(tempSorted));
+    // setListaOrase(tempSorted);
+  };
+
+  const getDateToRegister = () => {
+    const dt = new Date();
+    const yr = dt.getFullYear();
+    const mth = dt.getMonth() + 1;
+    const day = dt.getDate();
+    const finalDate = `${yr}-${mth < 10 ? "0" + mth : mth}-${
+      day < 10 ? "0" + day : day
+    }`;
+    return finalDate;
+  };
+
+  // Inregistrare fara plata
+  const postData = async (e) => {
+    e.preventDefault();
+
+    // La id sa fie uid de la logare
+    // La id sa fie uid de la logare
+    // La id sa fie uid de la logare
+    // La id sa fie uid de la logare
+
+    const addData = {
+      contact: {
+        email: email,
+        phone: phone,
+      },
+      // dataregister: new Date().toLocaleDateString(),
+      dataregister: getDateToRegister(),
+      detalii: detalii,
+      fullname: fullname,
+      id: `${
+        new Date().getTime().toString() + Math.ceil(Math.random() * 100000)
+      }`,
+      judet: judet,
+      orainceput: orainceput,
+      oraregister: new Date().toLocaleTimeString(),
+      oras: oras,
+      orasfarsit: orasfarsit,
+      pretMin: pretMin,
+      pretMax: pretMax,
+      tipjob: tipjob,
+      urgente: urgente,
+      urgenteNoapte: urgenteNoapte,
+      ziinceput: ziinceput,
+      zisfarsit: zisfarsit,
+      website: website ? "https://www." + website : "",
+    };
+
+    // const sendData = await fetch("/api/postData", {
+    //   method: "POST",
+    //   "Content-Type": "application/json",
+    //   body: JSON.stringify({ data: addData }),
+    // });
+    // const res = await sendData.json();
+    // if (res.msg) {
+    //   toast.success(res.msg);
+    // } else if (res.error) {
+    //   toast.error(res.error);
+    // }
   };
 
   return (
@@ -367,7 +436,7 @@ const FormRegister = ({
           </SelectCustom>
         </Wrapper>
 
-        {state.oras ? (
+        {oras ? (
           <Wrapper m="0">
             <LabelCustom htmlFor="labelComuna" m="0">
               Localitate:{" "}
