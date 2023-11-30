@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  id: "",
   judet: "",
   tipjob: "electrician",
   pretMin: "100",
@@ -17,8 +16,8 @@ const initialState = {
   zisfarsit: "Vineri",
   orainceput: "08:00",
   orasfarsit: "16:00",
-  phone: ["0721345678"],
-  email: ["email@yahoo.com"],
+  phone: "0721345678",
+  email: "email@yahoo.com",
   website: "",
   listaOrase: [],
 };
@@ -27,9 +26,6 @@ export const inscriereSlice = createSlice({
   name: "inscriere",
   initialState,
   reducers: {
-    setId: (state, action) => {
-      state.id = action.payload;
-    },
     setJudet: (state, action) => {
       state.judet = action.payload;
     },
@@ -76,10 +72,10 @@ export const inscriereSlice = createSlice({
       state.orasfarsit = action.payload;
     },
     setPhone: (state, action) => {
-      state.phone.push(action.payload);
+      state.phone = action.payload;
     },
     setEmail: (state, action) => {
-      state.email.push(action.payload);
+      state.email = action.payload;
     },
     setWebsite: (state, action) => {
       state.website = action.payload;
@@ -94,7 +90,6 @@ export const inscriereSlice = createSlice({
 });
 
 export const {
-  setId,
   setJudet,
   setTipJob,
   setPretMax,
@@ -114,7 +109,7 @@ export const {
   setEmail,
   setWebsite,
   setInitialState,
-  setListaOrase
+  setListaOrase,
 } = inscriereSlice.actions;
 
 export default inscriereSlice.reducer;

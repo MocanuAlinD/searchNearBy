@@ -36,15 +36,7 @@ import {
   setListaOrase,
 } from "../features/inscriere/inscriereSlice";
 
-const FormRegister = (
-  {
-    // state,
-    // setState,
-    // listaOrase,
-    // setListaOrase,
-    // postData,
-  }
-) => {
+const FormRegister = () => {
   const dispatch = useDispatch();
 
   const fullname = useSelector((state) => state.inscriere.fullname);
@@ -71,13 +63,6 @@ const FormRegister = (
     const tempSorted = alin[e.target.value].sort(
       (a, b) => (a.nume > b.nume && 1) || -1
     );
-    // setState({
-    //   ...state,
-    //   judet: e.target.value,
-    //   oras:
-    //     tempSorted[0].nume +
-    //     (tempSorted[0].comuna ? ", " + tempSorted[0].comuna : ""),
-    // });
     dispatch(setJudet(e.target.value));
     dispatch(
       setOras(
@@ -86,7 +71,6 @@ const FormRegister = (
       )
     );
     dispatch(setListaOrase(tempSorted));
-    // setListaOrase(tempSorted);
   };
 
   const getDateToRegister = () => {
@@ -111,10 +95,9 @@ const FormRegister = (
 
     const addData = {
       contact: {
-        email: email,
-        phone: phone,
+        email: email.split(","),
+        phone: phone.split(","),
       },
-      // dataregister: new Date().toLocaleDateString(),
       dataregister: getDateToRegister(),
       detalii: detalii,
       fullname: fullname,
@@ -136,17 +119,17 @@ const FormRegister = (
       website: website ? "https://www." + website : "",
     };
 
-    // const sendData = await fetch("/api/postData", {
-    //   method: "POST",
-    //   "Content-Type": "application/json",
-    //   body: JSON.stringify({ data: addData }),
-    // });
-    // const res = await sendData.json();
-    // if (res.msg) {
-    //   toast.success(res.msg);
-    // } else if (res.error) {
-    //   toast.error(res.error);
-    // }
+    const sendData = await fetch("/api/postData", {
+      method: "POST",
+      "Content-Type": "application/json",
+      body: JSON.stringify({ data: addData }),
+    });
+    const res = await sendData.json();
+    if (res.msg) {
+      toast.success(res.msg);
+    } else if (res.error) {
+      toast.error(res.error);
+    }
   };
 
   return (
