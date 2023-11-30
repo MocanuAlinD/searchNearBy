@@ -26,90 +26,24 @@ export const inscriereSlice = createSlice({
   name: "inscriere",
   initialState,
   reducers: {
-    setJudet: (state, action) => {
-      state.judet = action.payload;
-    },
-    setTipJob: (state, action) => {
-      state.tipjob = action.payload;
-    },
-    setPretMin: (state, action) => {
-      state.pretMin = action.payload;
-    },
-    setPretMax: (state, action) => {
-      state.pretMax = action.payload;
-    },
-    setDetalii: (state, action) => {
-      state.detalii = action.payload;
-    },
-    setOras: (state, action) => {
-      state.oras = action.payload;
-    },
-    setDataRegister: (state, action) => {
-      state.dataregister = action.payload;
-    },
-    setOraRegister: (state, action) => {
-      state.oraregister = action.payload;
-    },
-    setFullname: (state, action) => {
-      state.fullname = action.payload;
-    },
     setUrgente: (state, action) => {
       state.urgente = !state.urgente;
     },
     setUrgenteNoapte: (state, action) => {
       state.urgenteNoapte = !state.urgenteNoapte;
     },
-    setZiInceput: (state, action) => {
-      state.ziinceput = action.payload;
-    },
-    setZiSfarsit: (state, action) => {
-      state.zisfarsit = action.payload;
-    },
-    setOraInceput: (state, action) => {
-      state.orainceput = action.payload;
-    },
-    setOraSfarsit: (state, action) => {
-      state.orasfarsit = action.payload;
-    },
-    setPhone: (state, action) => {
-      state.phone = action.payload;
-    },
-    setEmail: (state, action) => {
-      state.email = action.payload;
-    },
-    setWebsite: (state, action) => {
-      state.website = action.payload;
-    },
     setInitialState: (state, action) => {
       return initialState;
     },
-    setListaOrase: (state, action) => {
-      state.listaOrase = action.payload;
+    changeState: (state, action) => {
+      const actOne = action.payload[0];
+      const actTwo = action.payload[1];
+      state[actOne] = actTwo;
     },
   },
 });
 
-export const {
-  setJudet,
-  setTipJob,
-  setPretMax,
-  setPretMin,
-  setDetalii,
-  setOras,
-  setDataRegister,
-  setOraRegister,
-  setFullname,
-  setUrgente,
-  setUrgenteNoapte,
-  setZiInceput,
-  setZiSfarsit,
-  setOraInceput,
-  setOraSfarsit,
-  setPhone,
-  setEmail,
-  setWebsite,
-  setInitialState,
-  setListaOrase,
-} = inscriereSlice.actions;
+export const { setUrgente, setUrgenteNoapte, setInitialState, changeState } =
+  inscriereSlice.actions;
 
 export default inscriereSlice.reducer;

@@ -16,24 +16,10 @@ import InputSuggestions from "./InputSuggestions";
 import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  setJudet,
-  setTipJob,
-  setPretMax,
-  setPretMin,
-  setDetalii,
-  setOras,
-  setFullname,
   setUrgente,
   setUrgenteNoapte,
-  setZiInceput,
-  setZiSfarsit,
-  setOraInceput,
-  setOraSfarsit,
-  setPhone,
-  setEmail,
-  setWebsite,
   setInitialState,
-  setListaOrase,
+  changeState,
 } from "../features/inscriere/inscriereSlice";
 
 const FormRegister = () => {
@@ -63,14 +49,16 @@ const FormRegister = () => {
     const tempSorted = alin[e.target.value].sort(
       (a, b) => (a.nume > b.nume && 1) || -1
     );
-    dispatch(setJudet(e.target.value));
+    // dispatch(setJudet(e.target.value));
+    dispatch(changeState(["judet", e.target.value]));
     dispatch(
-      setOras(
+      changeState([
+        "oras",
         tempSorted[0].nume +
-          (tempSorted[0].comuna ? ", " + tempSorted[0].comuna : "")
-      )
+          (tempSorted[0].comuna ? ", " + tempSorted[0].comuna : ""),
+      ])
     );
-    dispatch(setListaOrase(tempSorted));
+    dispatch(changeState(["listaOrase", tempSorted]));
   };
 
   const getDateToRegister = () => {
@@ -142,7 +130,9 @@ const FormRegister = () => {
             id="numeUtilizator"
             value={fullname}
             placeholder="nume prenume"
-            onChange={(e) => dispatch(setFullname(e.target.value))}
+            onChange={(e) =>
+              dispatch(changeState(["fullname", e.target.value]))
+            }
           />
           <span>&quot;Nume Prenume / Nume Companie&quot; sunt necesare</span>
         </Wrapper>
@@ -159,7 +149,7 @@ const FormRegister = () => {
             type="text"
             placeholder="telefon"
             value={phone}
-            onChange={(e) => dispatch(setPhone(e.target.value))}
+            onChange={(e) => dispatch(changeState(["phone", e.target.value]))}
           />
           <span>Numărul de telefon este necesar</span>
         </Wrapper>
@@ -175,7 +165,7 @@ const FormRegister = () => {
             type="text"
             placeholder="Email"
             value={email}
-            onChange={(e) => dispatch(setEmail(e.target.value))}
+            onChange={(e) => dispatch(changeState(["email", e.target.value]))}
           />
           <span>Adresa de email trebuie să existe și să fie validă</span>
         </Wrapper>
@@ -191,7 +181,7 @@ const FormRegister = () => {
             id="meserie"
             value={tipjob}
             placeholder="electrician, instalator, fotograf, etc...."
-            onChange={(e) => dispatch(setTipJob(e.target.value))}
+            onChange={(e) => dispatch(changeState(["tipjob", e.target.value]))}
           />
           <span>Tipul de serviciu este necesar</span>
           <datalist id="inputList">
@@ -209,7 +199,7 @@ const FormRegister = () => {
             value={pretMin}
             pattern="[0-9]+"
             placeholder="pret minim"
-            onChange={(e) => dispatch(setPretMin(e.target.value))}
+            onChange={(e) => dispatch(changeState(["pretMin", e.target.value]))}
           />
           <span>Treceți prețul minim</span>
           <LabelCustom htmlFor="pretMaxID">Preț maxim</LabelCustom>
@@ -221,7 +211,7 @@ const FormRegister = () => {
             type="text"
             value={pretMax}
             placeholder="pret maxim"
-            onChange={(e) => dispatch(setPretMax(e.target.value))}
+            onChange={(e) => dispatch(changeState(["pretMax", e.target.value]))}
           />
           <span>Treceți prețul maxim</span>
         </Wrapper>
@@ -234,7 +224,7 @@ const FormRegister = () => {
             maxLength={MAX_CHAR_LENGTH}
             name="detalii"
             id="detalii"
-            onChange={(e) => dispatch(setDetalii(e.target.value))}
+            onChange={(e) => dispatch(changeState(["detalii", e.target.value]))}
             value={detalii}
             rows="6"
             placeholder="Aici poti trece detalii despre serviciul prestat"
@@ -258,7 +248,7 @@ const FormRegister = () => {
             type="text"
             value={website}
             placeholder="denumire-website.ro"
-            onChange={(e) => dispatch(setWebsite(e.target.value))}
+            onChange={(e) => dispatch(changeState(["website", e.target.value]))}
           />
         </Wrapper>
 
@@ -270,7 +260,7 @@ const FormRegister = () => {
             name="saptamanaStart"
             id="saptamanaStart"
             value={ziinceput}
-            onChange={(e) => dispatch(setZiInceput(e.target.value))}
+            onChange={(e) => dispatch(changeState(["ziinceput", e.target.value]))}
           >
             <option value="Luni">Luni</option>
             <option value="Marti">Marți</option>
@@ -287,7 +277,7 @@ const FormRegister = () => {
             name="saptamanaSfarsit"
             id="saptamanaSfarsit"
             value={zisfarsit}
-            onChange={(e) => dispatch(setZiSfarsit(e.target.value))}
+            onChange={(e) => dispatch(changeState(["zisfarsit", e.target.value]))}
           >
             <option value="Luni">Luni</option>
             <option value="Marti">Marți</option>
@@ -310,7 +300,7 @@ const FormRegister = () => {
             w="100%"
             id="programInceput"
             value={orainceput}
-            onChange={(e) => dispatch(setOraInceput(e.target.value))}
+            onChange={(e) => dispatch(changeState(["orainceput", e.target.value]))}
           />
           <span>Selectează corect o oră</span>
 
@@ -322,7 +312,7 @@ const FormRegister = () => {
             type="time"
             id="programSfarsit"
             value={orasfarsit}
-            onChange={(e) => dispatch(setOraSfarsit(e.target.value))}
+            onChange={(e) => dispatch(changeState(["orasfarsit", e.target.value]))}
           />
           <span>Selectează corect o oră</span>
         </Wrapper>
@@ -404,7 +394,7 @@ const FormRegister = () => {
               id="labelComuna"
               name="comune"
               value={oras}
-              onChange={(e) => dispatch(setOras(e.target.value))}
+              onChange={(e) => dispatch(changeState(["oras", e.target.value]))}
             >
               {listaOrase.map((item, index) => (
                 <option key={index}>
