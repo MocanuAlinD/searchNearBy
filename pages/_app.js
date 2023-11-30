@@ -22,16 +22,10 @@ function MyApp({ Component, pageProps }) {
   }, []);
 
   return (
-    <>
-      <Provider store={store}>
-        <Component
-          {...pageProps}
-          location={location}
-          setLocation={setLocation}
-        />
-        <Toaster />
-      </Provider>
-    </>
+    <Provider store={store}>
+      <Component {...pageProps} location={location} setLocation={setLocation} />
+      <Toaster />
+    </Provider>
   );
 }
 

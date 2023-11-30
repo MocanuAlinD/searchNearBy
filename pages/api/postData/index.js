@@ -3,6 +3,7 @@ import { getDatabase, ref, push } from "firebase/database";
 
 export default async function handler(req, res) {
   const { data } = JSON.parse(req.body);
+  console.log(data)
   // USE THIS FOR AUTH.UID TO ADD AS KEY
   // const id = Math.floor(Math.random() * 99999);
   // const dt = Date.now();

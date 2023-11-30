@@ -75,11 +75,13 @@ const FormRegister = () => {
   // Inregistrare fara plata
   const postData = async (e) => {
     e.preventDefault();
+    const newPhone = phone.split(",");
+    const newEmail = email.split(",");
     // La id sa fie uid de la logare
     const addData = {
       contact: {
-        email: email.split(","),
-        phone: phone.split(","),
+        email: newEmail,
+        phone: newPhone,
       },
       dataregister: getDateToRegister(),
       detalii: detalii,
@@ -260,7 +262,9 @@ const FormRegister = () => {
             name="saptamanaStart"
             id="saptamanaStart"
             value={ziinceput}
-            onChange={(e) => dispatch(changeState(["ziinceput", e.target.value]))}
+            onChange={(e) =>
+              dispatch(changeState(["ziinceput", e.target.value]))
+            }
           >
             <option value="Luni">Luni</option>
             <option value="Marti">Marți</option>
@@ -277,7 +281,9 @@ const FormRegister = () => {
             name="saptamanaSfarsit"
             id="saptamanaSfarsit"
             value={zisfarsit}
-            onChange={(e) => dispatch(changeState(["zisfarsit", e.target.value]))}
+            onChange={(e) =>
+              dispatch(changeState(["zisfarsit", e.target.value]))
+            }
           >
             <option value="Luni">Luni</option>
             <option value="Marti">Marți</option>
@@ -300,7 +306,9 @@ const FormRegister = () => {
             w="100%"
             id="programInceput"
             value={orainceput}
-            onChange={(e) => dispatch(changeState(["orainceput", e.target.value]))}
+            onChange={(e) =>
+              dispatch(changeState(["orainceput", e.target.value]))
+            }
           />
           <span>Selectează corect o oră</span>
 
@@ -312,7 +320,9 @@ const FormRegister = () => {
             type="time"
             id="programSfarsit"
             value={orasfarsit}
-            onChange={(e) => dispatch(changeState(["orasfarsit", e.target.value]))}
+            onChange={(e) =>
+              dispatch(changeState(["orasfarsit", e.target.value]))
+            }
           />
           <span>Selectează corect o oră</span>
         </Wrapper>
