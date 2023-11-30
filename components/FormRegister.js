@@ -87,12 +87,7 @@ const FormRegister = () => {
   // Inregistrare fara plata
   const postData = async (e) => {
     e.preventDefault();
-
     // La id sa fie uid de la logare
-    // La id sa fie uid de la logare
-    // La id sa fie uid de la logare
-    // La id sa fie uid de la logare
-
     const addData = {
       contact: {
         email: email.split(","),
@@ -147,7 +142,6 @@ const FormRegister = () => {
             id="numeUtilizator"
             value={fullname}
             placeholder="nume prenume"
-            // onChange={(e) => setState({ ...state, fullname: e.target.value })}
             onChange={(e) => dispatch(setFullname(e.target.value))}
           />
           <span>&quot;Nume Prenume / Nume Companie&quot; sunt necesare</span>
@@ -165,9 +159,6 @@ const FormRegister = () => {
             type="text"
             placeholder="telefon"
             value={phone}
-            // onChange={(e) =>
-            //   setState({ ...state, phone: [...e.target.value.split(",")] })
-            // }
             onChange={(e) => dispatch(setPhone(e.target.value))}
           />
           <span>Numărul de telefon este necesar</span>
@@ -184,9 +175,6 @@ const FormRegister = () => {
             type="text"
             placeholder="Email"
             value={email}
-            // onChange={(e) =>
-            //   setState({ ...state, email: [...e.target.value.split(",")] })
-            // }
             onChange={(e) => dispatch(setEmail(e.target.value))}
           />
           <span>Adresa de email trebuie să existe și să fie validă</span>
@@ -203,7 +191,6 @@ const FormRegister = () => {
             id="meserie"
             value={tipjob}
             placeholder="electrician, instalator, fotograf, etc...."
-            // onChange={(e) => setState({ ...state, tipjob: e.target.value })}
             onChange={(e) => dispatch(setTipJob(e.target.value))}
           />
           <span>Tipul de serviciu este necesar</span>
@@ -222,7 +209,6 @@ const FormRegister = () => {
             value={pretMin}
             pattern="[0-9]+"
             placeholder="pret minim"
-            // onChange={(e) => setState({ ...state, pretMin: e.target.value })}
             onChange={(e) => dispatch(setPretMin(e.target.value))}
           />
           <span>Treceți prețul minim</span>
@@ -235,7 +221,6 @@ const FormRegister = () => {
             type="text"
             value={pretMax}
             placeholder="pret maxim"
-            // onChange={(e) => setState({ ...state, pretMax: e.target.value })}
             onChange={(e) => dispatch(setPretMax(e.target.value))}
           />
           <span>Treceți prețul maxim</span>
@@ -249,7 +234,6 @@ const FormRegister = () => {
             maxLength={MAX_CHAR_LENGTH}
             name="detalii"
             id="detalii"
-            // onChange={(e) => setState({ ...state, detalii: e.target.value })}
             onChange={(e) => dispatch(setDetalii(e.target.value))}
             value={detalii}
             rows="6"
@@ -274,7 +258,6 @@ const FormRegister = () => {
             type="text"
             value={website}
             placeholder="denumire-website.ro"
-            // onChange={(e) => setState({ ...state, website: e.target.value })}
             onChange={(e) => dispatch(setWebsite(e.target.value))}
           />
         </Wrapper>
@@ -287,7 +270,6 @@ const FormRegister = () => {
             name="saptamanaStart"
             id="saptamanaStart"
             value={ziinceput}
-            // onChange={(e) => setState({ ...state, ziinceput: e.target.value })}
             onChange={(e) => dispatch(setZiInceput(e.target.value))}
           >
             <option value="Luni">Luni</option>
@@ -305,7 +287,6 @@ const FormRegister = () => {
             name="saptamanaSfarsit"
             id="saptamanaSfarsit"
             value={zisfarsit}
-            // onChange={(e) => setState({ ...state, zisfarsit: e.target.value })}
             onChange={(e) => dispatch(setZiSfarsit(e.target.value))}
           >
             <option value="Luni">Luni</option>
@@ -329,7 +310,6 @@ const FormRegister = () => {
             w="100%"
             id="programInceput"
             value={orainceput}
-            // onChange={(e) => setState({ ...state, orainceput: e.target.value })}
             onChange={(e) => dispatch(setOraInceput(e.target.value))}
           />
           <span>Selectează corect o oră</span>
@@ -342,7 +322,6 @@ const FormRegister = () => {
             type="time"
             id="programSfarsit"
             value={orasfarsit}
-            // onChange={(e) => setState({ ...state, orasfarsit: e.target.value })}
             onChange={(e) => dispatch(setOraSfarsit(e.target.value))}
           />
           <span>Selectează corect o oră</span>
@@ -364,7 +343,6 @@ const FormRegister = () => {
               }}
               checked={urgente}
               value=""
-              // onChange={() => setState({ ...state, urgente: !state.urgente })}
               onChange={() => dispatch(setUrgente())}
             />
             Disponibil în afara zilelor/orelor de lucru
@@ -388,9 +366,6 @@ const FormRegister = () => {
               }}
               checked={urgenteNoapte}
               value=""
-              // onChange={() =>
-              //   setState({ ...state, urgenteNoapte: !state.urgenteNoapte })
-              // }
               onChange={() => dispatch(setUrgenteNoapte())}
             />
             Urgențe pe timp de noapte
@@ -429,7 +404,6 @@ const FormRegister = () => {
               id="labelComuna"
               name="comune"
               value={oras}
-              // onChange={(e) => setState({ ...state, oras: e.target.value })}
               onChange={(e) => dispatch(setOras(e.target.value))}
             >
               {listaOrase.map((item, index) => (
