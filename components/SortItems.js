@@ -41,12 +41,8 @@ const SortItems = ({ handleToate, listLen }) => {
 
   return (
     <div className={styles.container + " sticky-top"}>
-      {/* DESKTOP */}
       <div
-        className={
-          styles.desktop +
-          " d-md-flex w-100 m-0 p-0 ms-2 py-2 px-1"
-        }
+        className={styles.desktop + " d-md-flex w-100 m-0 p-0 ms-2 py-2 px-1"}
       >
         <SingleRow
           cls="w-100 text-center fs-bold"
@@ -131,17 +127,6 @@ const SortItems = ({ handleToate, listLen }) => {
           state={website}
           func={() => handleFilter("website")}
         />
-        {!toate && (
-          <div className={styles.filters}>
-            {tarifAsc && <h6>Tarif 1 &gt; 9</h6>}
-            {tarifDesc && <h6>Tarif 1 &lt; 9</h6>}
-            {dataAsc && <h6>Data recenta</h6>}
-            {dataDesc && <h6>Data veche</h6>}
-            {program && <h6>Dupa ora 16</h6>}
-            {website && <h6>Website</h6>}
-            {night && <h6>24/7</h6>}
-          </div>
-        )}
       </div>
     </div>
   );
