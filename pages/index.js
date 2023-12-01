@@ -180,7 +180,7 @@ export default function Home() {
       </div>
 
       {/* Sort menu and search cards */}
-      <div className="d-flex flex-column flex-md-row m-0 p-0">
+      <div className="d-flex flex-column flex-md-row m-0 p-0 mt-2">
         {!loadSearch && originalList.length > 0 && sortedList.length >= 0 && (
           <SortItems handleToate={handleToate} listLen={sortedList.length} />
         )}
