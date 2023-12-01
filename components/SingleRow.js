@@ -12,16 +12,12 @@ const SingleRow = ({
   name,
   icon,
   cls,
-  style
+  style,
 }) => {
   return (
     <div className={styles.row}>
       {!justTitle && (
         <>
-          <label htmlFor={id}>
-            {text}
-            {icon && icon}
-          </label>
           <input
             type={type}
             id={id}
@@ -29,10 +25,16 @@ const SingleRow = ({
             checked={state}
             onChange={() => func(list && list)}
           />
+          <label htmlFor={id}>
+            {text}
+            {icon && icon}
+          </label>
         </>
       )}
       {justTitle && (
-        <h4 className={cls} style={style}>{text}</h4>
+        <h4 className={cls} style={style}>
+          {text}
+        </h4>
       )}
     </div>
   );

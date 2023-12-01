@@ -40,9 +40,14 @@ const SortItems = ({ handleToate, listLen }) => {
   };
 
   return (
-    <div className={styles.container + " sticky-top w-md-100"}>
+    <div className={styles.container + " sticky-top"}>
       {/* DESKTOP */}
-      <div className={styles.desktop + " d-none d-md-flex"}>
+      <div
+        className={
+          styles.desktop +
+          " d-md-flex w-100 m-0 p-0 ms-2 py-2 px-1"
+        }
+      >
         <SingleRow
           cls="w-100 text-center fs-bold"
           justTitle
@@ -71,7 +76,6 @@ const SortItems = ({ handleToate, listLen }) => {
           type="radio"
           name="sortBy"
           state={tarifAsc}
-          // state={useSelector((state) => state.sort.tarifAsc)}
           func={() => handleSorteaza("tarifAsc")}
         />
         <SingleRow
@@ -81,7 +85,6 @@ const SortItems = ({ handleToate, listLen }) => {
           type="radio"
           name="sortBy"
           state={tarifDesc}
-          // state={useSelector((state) => state.sort.tarifDesc)}
           func={() => handleSorteaza("tarifDesc")}
         />
 
@@ -91,7 +94,6 @@ const SortItems = ({ handleToate, listLen }) => {
           type="radio"
           name="sortBy"
           state={dataAsc}
-          // state={useSelector((state) => state.sort.dataAsc)}
           func={() => handleSorteaza("dataAsc")}
         />
 
@@ -101,7 +103,6 @@ const SortItems = ({ handleToate, listLen }) => {
           type="radio"
           name="sortBy"
           state={dataDesc}
-          // state={useSelector((state) => state.sort.dataDesc)}
           func={() => handleSorteaza("dataDesc")}
         />
 
@@ -141,95 +142,6 @@ const SortItems = ({ handleToate, listLen }) => {
             {night && <h6>24/7</h6>}
           </div>
         )}
-      </div>
-
-      {/* MOBILE */}
-      <div className={styles.mobile + " d-flex d-md-none"}>
-        <div className={styles.wrapper + " d-flex flex-column"}>
-          <div className="w-100 d-flex flex-column align-items-center">
-            <SingleRow
-              justTitle
-              text={
-                listLen >= 0 && listLen === 0
-                  ? "-"
-                  : listLen === 1
-                  ? "1 rezultat"
-                  : listLen > 1 && listLen + " rezultate"
-              }
-            />
-            {!toate && (
-              <div className={styles.filters}>
-                {tarifAsc && <h6>Tarif 1 &gt; 9</h6>}
-                {tarifDesc && <h6>Tarif 1 &lt; 9</h6>}
-                {dataAsc && <h6>Data recenta</h6>}
-                {dataDesc && <h6>Data veche</h6>}
-                {program && <h6>Dupa ora 16</h6>}
-                {website && <h6>Website</h6>}
-                {night && <h6>24/7</h6>}
-              </div>
-            )}
-          </div>
-          <div className="w-100 d-flex justify-content-around">
-            <div className={styles.row}>
-              <label htmlFor="noFilters">Fără filtre</label>
-              <input
-                type="checkbox"
-                id="noFilters"
-                checked={toate}
-                onChange={resetState}
-              />
-            </div>
-            <div className={styles.row}>
-              <label htmlFor="select">Sortează</label>
-              <select
-                id="select"
-                onChange={(e) => handleSorteaza(e.target.value)}
-              >
-                <optgroup label="Tarif">
-                  <option value="" selected={toate} disabled hidden>
-                    -Sorteaza-
-                  </option>
-                  <option value="tarifAsc" selected={tarifAsc}>
-                    Tarif 1 &gt; 9
-                  </option>
-                  <option value="tarifDesc" selected={tarifDesc}>
-                    Tarif 9 &gt; 1
-                  </option>
-                </optgroup>
-                <optgroup label="Data">
-                  <option value="dataAsc" selected={dataAsc}>
-                    Dată recentă
-                  </option>
-                  <option value="dataDesc" selected={dataDesc}>
-                    Dată veche
-                  </option>
-                </optgroup>
-              </select>
-            </div>
-
-            <div className={styles.row}>
-              <label htmlFor="filtreaza">Filtrează</label>
-              <select
-                multiple
-                id="filtreaza"
-                onChange={(e) => handleFilter(e.target.value)}
-              >
-                <option value="" selected={toate} disabled hidden>
-                  -Filtreaza-
-                </option>
-                <option value="program" selected={program}>
-                  După 16:00
-                </option>
-                <option value="night" selected={night}>
-                  Urgențe 24/7
-                </option>
-                <option value="website" selected={website}>
-                  Website
-                </option>
-              </select>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   );

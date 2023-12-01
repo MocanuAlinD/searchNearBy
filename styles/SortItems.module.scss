@@ -2,28 +2,8 @@
     display: flex;
     height: fit-content;
     justify-content: space-around;
-    margin-bottom: .5rem;
-    
-    .filters {
-        margin: 0;
-        padding: 0;
-        display: flex;
-        align-items: center;
-        
-        h6 {
-            font-size: .5rem;
-            margin: 0 0.1rem;
-            padding: .05rem .2rem;
-            white-space: nowrap;
-            border: 1px solid gray;
-            background-color: rgba(0,0,0, 0.1);
-            border-radius: var(--border-radius);
-            margin-top: .5rem;
-            user-select: none;
-        }
-        
-    }
-    
+    // margin-bottom: .5rem;
+
     // DESKTOP
     .desktop {
         align-items: flex-start;
@@ -32,86 +12,29 @@
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        margin-left: .5rem;
         min-width: 10rem;
-        padding-bottom: .5rem;
-        width: fit-content;
     }
 
-
-
-    // MOBILE
-    .mobile {
-        $clr: var(--color-blue-light);
-        align-items: center;
+    .filters {
+        margin: 0;
+        padding: 0;
         display: flex;
-        justify-content: center;
-        margin-top: 1rem;
-        width: 100%;
+        align-items: center;
 
-        .wrapper {
-            align-items: center;
-            background-color: var(--color-light);
+        h6 {
+            font-size: .5rem;
+            margin: 0 0.1rem;
+            padding: .05rem .2rem;
+            white-space: nowrap;
+            border: 1px solid gray;
+            background-color: rgba(0, 0, 0, 0.1);
             border-radius: var(--border-radius);
-            box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.2);
-            display: flex;
-            height: fit-content;
-            justify-content: space-around;
-            margin-inline: .5rem;
-            padding-block: .15rem;
-            width: 100%;
-
-
-
-            .row {
-                width: fit-content;
-                margin: 0;
-                padding: 0;
-                padding-block: .3rem;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-
-                @media screen and (max-width: 411px) {
-                    flex-direction: column;
-                }
-
-                label {
-                    width: 100%;
-                    color: var(--color-blue-dark);
-                    user-select: none;
-                    font-size: .7rem;
-                    padding-right: .3rem;
-                }
-
-                input {
-                    appearance: none;
-                    width: .5rem;
-                    height: .5rem;
-                    background-color: var(--color-light);
-                    border-radius: 50%;
-                    outline: 1px solid $clr;
-                    outline-offset: 2px;
-                    margin: .3rem;
-                    transition: all .2s ease-in-out;
-                }
-
-                input:checked {
-                    background-color: $clr;
-                    outline-color: $clr;
-                }
-
-                select {
-                    appearance: none;
-                    border-radius: var(--border-radius);
-                    padding-inline: .2rem;
-                    border: none;
-                    font-size: .7rem;
-                    background-color: var(--color-light);
-                    color: $clr;
-                    outline: 1px solid $clr;
-                }
-            }
+            margin-top: .25rem;
+            user-select: none;
         }
+
     }
+
+
+
 }
