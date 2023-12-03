@@ -23,22 +23,33 @@ import {
   inMemoryPersistence,
   sendEmailVerification,
 } from "firebase/auth";
+import { useDispatch, useSelector } from "react-redux";
+import { setEmail, setPassword, setUid } from "../features/login/loginSlice";
+import {
+  setEmailInregistrare,
+  setParolaOne,
+  setParolaTwo,
+  setInitialStateInregistrare,
+} from "../features/signup/signupSlice";
 
 const Login = () => {
-  const initialValues = {
-    emailLogare: "alin_ngt@yahoo.com",
-    parolaLogare: "mocanu",
-    emailInregistrare: "alin_ngt@yahoo.com",
-    parolaOne: "mocanu",
-    parolaTwo: "mocanu",
-    showHidePassword: true,
-  };
-
-  const [state, setState] = useState(initialValues);
-  const [loading, setLoading] = useState(false);
-  const [isUserAuthenticated, setIsUserAuthenticated] = useState("");
-
+  const dispatch = useDispatch();
   const auth = getAuth();
+
+  // Login
+  const emailLogare = useSelector((state) => state.login.emailLogare);
+  const parolaLogare = useSelector((state) => state.login.parolaLogare);
+  const uid = useSelector((state) => state.login.uid);
+
+  // Sign up
+  const emailInregistrare = useSelector(
+    (state) => state.signup.emailInregistrare
+  );
+  const parolaOne = useSelector((state) => state.signup.parolaOne);
+  const parolaTwo = useSelector((state) => state.signup.parolaTwo);
+
+  const [showHidePassword, setShowHidePassword] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const changeLeft = () => {
     const el = document.getElementById("bottomContainer");
@@ -60,11 +71,7 @@ const Login = () => {
 
   // add new user to database
   const addNewUserToAuthDB = async () => {
-    createUserWithEmailAndPassword(
-      auth,
-      state.emailInregistrare,
-      state.parolaTwo
-    )
+    createUserWithEmailAndPassword(auth, emailInregistrare, parolaTwo)
       .then((userCredential) => {
         const user = userCredential.user;
         toast.success(`User creat cu adresa de email: ${user.email}`);
@@ -80,6 +87,7 @@ const Login = () => {
   // check if user is signed in
   const checkUserSignedIn = () => {
     if (auth.currentUser) {
+      console.log(auth.currentUser.uid);
       toast.success("Userul este logat");
     } else if (!auth.currentUser) {
       toast.error("Userul NU este logat.");
@@ -89,10 +97,10 @@ const Login = () => {
   // LOG IN user
   const userLogIn = (e) => {
     e.preventDefault();
-    signInWithEmailAndPassword(auth, state.emailLogare, state.parolaLogare)
+    signInWithEmailAndPassword(auth, emailLogare, parolaLogare)
       .then((userCredential) => {
         const user = userCredential.user;
-        setIsUserAuthenticated(user.uid);
+        dispatch(setUid(user.uid));
         toast.success("User logged in successfuly");
       })
       .catch((error) => {
@@ -110,7 +118,7 @@ const Login = () => {
       signOut(auth)
         .then(() => {
           toast.success("Te-ai delogat cu succes.");
-          setIsUserAuthenticated("");
+          dispatch(setUid(""));
         })
         .catch((error) => {
           toast.error("O eroare a aparul la delogare.");
@@ -122,10 +130,10 @@ const Login = () => {
 
   // forgot password (create popup to enter email to send link)
   const forgotPassword = () => {
-    sendPasswordResetEmail(auth, state.emailLogare)
+    sendPasswordResetEmail(auth, emailLogare)
       .then(() => {
         toast.success(
-          `A fost trimis un email pentru resetare parola la adresa ${state.emailLogare}.`,
+          `A fost trimis un email pentru resetare parola la adresa ${emailLogare}.`,
           {
             duration: 5000,
           }
@@ -148,11 +156,7 @@ const Login = () => {
       )}
       <Container>
         <BackButton url="/" text="Pagina principală" />
-        {isUserAuthenticated ? (
-          <h4>User signed in</h4>
-        ) : (
-          <h4>User NOT signed in</h4>
-        )}
+        {uid ? <h4>User signed in</h4> : <h4>User NOT signed in</h4>}
         <Wrapper className="d-flex flex-column flex-grow-1 justify-content-start align-items-center m-0 p-0 mt-3">
           <Wrapper className={styles.main}>
             <Wrapper className={styles.topButtons}>
@@ -171,6 +175,7 @@ const Login = () => {
                 Creeaza cont nou
               </button>
             </Wrapper>
+
             <div className={styles.torotate}>
               <Wrapper className={styles.bottomContainer} id="bottomContainer">
                 <form className={styles.cardLeft} onSubmit={userLogIn}>
@@ -178,10 +183,8 @@ const Login = () => {
                     <LabelCustom htmlFor="emailLogare">Email:</LabelCustom>
                     <InputCustom
                       id="emailLogare"
-                      value={state.emailLogare}
-                      onChange={(e) =>
-                        setState({ ...state, emailLogare: e.target.value })
-                      }
+                      value={emailLogare}
+                      onChange={(e) => dispatch(setEmail(e.target.value))}
                     />
                   </Wrapper>
                   <Wrapper className={styles.wrapper}>
@@ -190,33 +193,28 @@ const Login = () => {
                       <InputCustom
                         id="password"
                         type="password"
-                        value={state.parolaLogare}
-                        onChange={(e) =>
-                          setState({ ...state, parolaLogare: e.target.value })
-                        }
+                        value={parolaLogare}
+                        onChange={(e) => dispatch(setPassword(e.target.value))}
                       />
-                      {state.showHidePassword ? (
+                      {showHidePassword ? (
                         <IoEyeOutline
                           className={styles.showHidePassword}
-                          onClick={() => (
-                            setState({
-                              ...state,
-                              showHidePassword: !state.showHidePassword,
-                            }),
-                            (document.getElementById("password").type = "text")
-                          )}
+                          onClick={() =>
+                            setShowHidePassword(!showHidePassword)(
+                              (document.getElementById("password").type =
+                                "text")
+                            )
+                          }
                         />
                       ) : (
                         <IoEyeOffOutline
                           className={styles.showHidePassword}
-                          onClick={() => (
-                            setState({
-                              ...state,
-                              showHidePassword: !state.showHidePassword,
-                            }),
-                            (document.getElementById("password").type =
-                              "password")
-                          )}
+                          onClick={() =>
+                            setShowHidePassword(!showHidePassword)(
+                              (document.getElementById("password").type =
+                                "password")
+                            )
+                          }
                         />
                       )}
                     </div>
@@ -250,13 +248,10 @@ const Login = () => {
                       id="emailInregistrare"
                       pattern="^\w+([\.\-]?\w+)*@\w+([\.\-]?\w+)*(\.[a-zA-Z]{2,3})+$"
                       required
-                      value={state.emailInregistrare}
+                      value={emailInregistrare}
                       placeholder="adresa email"
                       onChange={(e) =>
-                        setState({
-                          ...state,
-                          emailInregistrare: e.target.value,
-                        })
+                        dispatch(setEmailInregistrare(e.target.value))
                       }
                     />
                   </Wrapper>
@@ -265,14 +260,12 @@ const Login = () => {
                     <InputCustom
                       id="parolaOne"
                       pattern="[0-9a-zA-Z!@#$%^&*,.]+"
-                      value={state.parolaOne}
+                      value={parolaOne}
                       placeholder="6 caractere minim"
                       required
                       minLength={6}
                       autoComplete="off"
-                      onChange={(e) =>
-                        setState({ ...state, parolaOne: e.target.value })
-                      }
+                      onChange={(e) => dispatch(setParolaOne(e.target.value))}
                     />
                     <span>Parola invalida</span>
                   </Wrapper>
@@ -284,12 +277,10 @@ const Login = () => {
                       id="parolaTwo"
                       placeholder="reintrodu parola"
                       required
-                      pattern={state.parolaOne}
-                      value={state.parolaTwo}
+                      pattern={parolaOne}
+                      value={parolaTwo}
                       autoComplete="off"
-                      onChange={(e) =>
-                        setState({ ...state, parolaTwo: e.target.value })
-                      }
+                      onChange={(e) => dispatch(setParolaTwo(e.target.value))}
                     />
                     <span>Parolele nu corespund</span>
                   </Wrapper>
@@ -299,7 +290,7 @@ const Login = () => {
                   >
                     <button
                       className={styles.buttonLogare}
-                      onClick={() => setState(initialValues)}
+                      onClick={() => dispatch(setInitialStateInregistrare())}
                     >
                       Reset
                     </button>
