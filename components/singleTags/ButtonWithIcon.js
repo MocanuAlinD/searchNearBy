@@ -20,7 +20,7 @@ hasIcon
 export const ButtonWithIcon = styled.button`
   background: ${({ bg }) => (bg ? bg : "var(--color-blue-darkish)")};
   border-radius: var(--border-radius);
-  border: none;
+  border: ${({ border }) => (border ? border : "none")};
   color: ${({ color }) => (color ? color : "var(--color-light)")};
   font-size: ${({ fs }) => (fs ? fs : "var(--font-size08)")};
   font-weight: 200;

@@ -99,6 +99,7 @@ const Reclamatii = () => {
                   name="Reply email:"
                   type="email"
                   value={emailReclamant}
+                  autoComplete="off"
                   onChange={(e) => dispatch(setEmailReclamant(e.target.value))}
                 />
               </Wrapper>
@@ -106,12 +107,20 @@ const Reclamatii = () => {
                 Campurile marcate cu * sunt obligatorii.
               </LabelCustom>
 
-              <div className='d-flex gap-2 m-0 p-0'>
-                <ButtonWithIcon role="button">Reset</ButtonWithIcon>
+              <div className="d-flex gap-2 m-0 p-0">
+                <ButtonWithIcon
+                  type="reset"
+                  border="1px solid var(--color-blue-light)"
+                  bg="none"
+                  onClick={() => dispatch(setInitialStateReclamatie())}
+                >
+                  Reset
+                </ButtonWithIcon>
                 <ButtonWithIcon type="submit">Trimite</ButtonWithIcon>
               </div>
             </SmallContainer>
           </form>
+
           <SmallContainer className={styles.whatsapp}>
             <p>- sau -</p>
             <SmallContainer className={styles.bottomPartWhatsApp}>

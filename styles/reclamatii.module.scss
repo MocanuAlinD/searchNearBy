@@ -62,7 +62,7 @@
                 span {
                     transform: scale(1);
                     transition: transform .35s ease-in-out;
-                    animation: wa 1s infinite reverse;
+                    // animation: wa 1s infinite reverse;
 
                     a {
                         text-decoration: none;
@@ -70,21 +70,21 @@
                     }
                 }
 
-                span:hover {
-                    animation: none;
-                }
+                // span:hover {
+                //     animation: none;
+                // }
 
-                @keyframes wa {
+                // @keyframes wa {
 
-                    0%,
-                    100% {
-                        transform: scale(1);
-                    }
+                //     0%,
+                //     100% {
+                //         transform: scale(1);
+                //     }
 
-                    50% {
-                        transform: scale(1.05);
-                    }
-                }
+                //     50% {
+                //         transform: scale(1.05);
+                //     }
+                // }
             }
 
         }
