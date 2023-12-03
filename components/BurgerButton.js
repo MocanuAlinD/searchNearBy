@@ -6,7 +6,7 @@ const BurgerButton = () => {
   const dispatch = useDispatch();
   const showMenu = useSelector(state => state.search.showMenu)
   return (
-    <div className="m-0 p-0 mx-3">
+    <div className="m-0 p-0 mx-2">
       <svg
         viewBox="0 0 100 100"
         xmlns="http://www.w3.org/2000/svg"

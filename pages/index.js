@@ -135,12 +135,12 @@ export default function Home() {
   };
 
   return (
-    <div className={styles.container + " m-0 p-0"}>
+    <div className={styles.container + " m-0 p-0 border"}>
       <BurgerMenu />
       <div
         className={
           styles.mainContainer +
-          " row d-flex flex-column justify-content-start m-0 p-0 mb-2"
+          " row d-flex flex-column justify-content-start m-0 p-0"
         }
       >
         {/* Top part (search inputs, title, burger menu and switch) */}
@@ -170,7 +170,9 @@ export default function Home() {
         </div>
 
         {/* Title */}
-        {useSelector((state) => state.search.show) && <Title />}
+        {useSelector((state) => state.search.show) && (
+          <Title />
+        )}
 
         {/* Search window with inputs */}
         <ClientSearch

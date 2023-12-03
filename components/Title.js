@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
 import styles from "../styles/title.module.scss";
 
-const Title = () => {
+const Title = ({ width, height, spd }) => {
   useEffect(() => {
     clickme();
   }, []);
 
   const clickme = () => {
     const all = document.querySelectorAll(".svgTitle path");
-    const speed = 600;
+    const speed = spd ? spd : 1000;
     let i = 0;
     all.forEach((item, index) => {
       i++;
@@ -37,6 +37,10 @@ const Title = () => {
       <svg
         id="svgtitle"
         className="svgTitle"
+        style={{
+          width: width ? width : "25rem",
+          height: height ? height : "100%",
+        }}
         viewBox="0 0 258 81"
         fill="url(#rainbow)"
         fillOpacity="0"

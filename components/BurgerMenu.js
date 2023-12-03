@@ -12,6 +12,11 @@ const BurgerMenu = () => {
       }
       style={{ transform: `rotateZ(${showMenu ? "0" : "90deg"})` }}
     >
+      <Link href="/" passHref>
+        <span>
+          <a className={styles.link + " m-0"}>Home</a>
+        </span>
+      </Link>
       <Link href="/servicii" passHref>
         <span>
           <a className={styles.link + " m-0"}>Toate judetele</a>
@@ -45,6 +50,11 @@ const BurgerMenu = () => {
       <Link href="/donatii" passHref>
         <span>
           <a className={styles.link + " m-0"}>Donează pentru dezvoltare</a>
+        </span>
+      </Link>
+      <Link href="/test" passHref>
+        <span>
+          <a className={styles.link + " m-0"}>Test</a>
         </span>
       </Link>
     </div>
