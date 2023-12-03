@@ -4,6 +4,7 @@ import sortItemsReducer from "../features/sortItems/sortItemsSlice";
 import inscriereReducer from "../features/inscriere/inscriereSlice";
 import loginReducer from "../features/login/loginSlice";
 import signupReducer from "../features/signup/signupSlice";
+import reclamatieReducer from "../features/reclamatie/reclamatieSlice";
 
 const rootReducers = combineReducers({
   search: searchReducers,
@@ -11,6 +12,7 @@ const rootReducers = combineReducers({
   inscriere: inscriereReducer,
   login: loginReducer,
   signup: signupReducer,
+  reclamatie: reclamatieReducer,
 });
 
 export const store = configureStore({

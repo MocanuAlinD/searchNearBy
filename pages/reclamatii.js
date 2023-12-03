@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "../styles/reclamatii.module.scss";
 import BackButton from "../components/BackButton";
 import {
@@ -10,15 +10,25 @@ import {
   Container,
 } from "../components/singleTags/elemetsCustom";
 import { ButtonWithIcon } from "../components/singleTags/ButtonWithIcon";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setTelefonReclamat,
+  setMotivReclamatie,
+  setEmailReclamant,
+  setInitialStateReclamatie,
+} from "../features/reclamatie/reclamatieSlice";
 
 const Reclamatii = () => {
-  const defaultReclamatie = {
-    telefonReclamat: "",
-    motivReclamatie: "",
-    emailReclamant: "",
-  };
-
-  const [reclamatie, setReclamatie] = useState(defaultReclamatie);
+  const dispatch = useDispatch();
+  let telefonReclamat = useSelector(
+    (state) => state.reclamatie.telefonReclamat
+  );
+  let motivReclamatie = useSelector(
+    (state) => state.reclamatie.motivReclamatie
+  );
+  let emailReclamant = useSelector(
+    (state) => state.reclamatie.emailReclamant
+  );
 
   const sendData = (e) => {
     e.preventDefault();
@@ -33,7 +43,8 @@ const Reclamatii = () => {
           <LabelCustom>
             Reclamația dumneavoastră va fi supusă unui control în detaliu. Dacă
             nu se găsesc nereguli, anunțul reclamat nu va fi șters sau
-            modificat.
+            modificat. Ne poti trimite detalii in formularul de mai jos, sau pe
+            WhatsApp (captura de ecran sau in scris).
           </LabelCustom>
         </SmallContainer>
 
@@ -59,14 +70,9 @@ const Reclamatii = () => {
                   type="text"
                   id="telefonReclamatie"
                   pattern="[0-9,]+"
-                  value={reclamatie.telefonReclamat}
+                  value={telefonReclamat}
                   placeholder="0721987654"
-                  onChange={(e) =>
-                    setReclamatie({
-                      ...reclamatie,
-                      telefonReclamat: e.target.value,
-                    })
-                  }
+                  onChange={(e) => dispatch(setTelefonReclamat(e.target.value))}
                 />
               </Wrapper>
 
@@ -79,14 +85,9 @@ const Reclamatii = () => {
                   required
                   type="text"
                   rows="6"
-                  value={reclamatie.motivReclamatie}
+                  value={motivReclamatie}
                   placeholder="Adaugă aici motivul reclamației"
-                  onChange={(e) =>
-                    setReclamatie({
-                      ...reclamatie,
-                      motivReclamatie: e.target.value,
-                    })
-                  }
+                  onChange={(e) => dispatch(setMotivReclamatie(e.target.value))}
                 />
               </Wrapper>
 
@@ -98,13 +99,8 @@ const Reclamatii = () => {
                 <InputCustom
                   name="Reply email:"
                   type="email"
-                  value={reclamatie.emailReclamant}
-                  onChange={(e) =>
-                    setReclamatie({
-                      ...reclamatie,
-                      emailReclamant: e.target.value,
-                    })
-                  }
+                  value={emailReclamant}
+                  onChange={(e) => dispatch(setEmailReclamant(e.target.value))}
                 />
               </Wrapper>
               <LabelCustom m="0" fw="400">
