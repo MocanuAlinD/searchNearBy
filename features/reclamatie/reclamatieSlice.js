@@ -8,7 +8,7 @@ const initialState = {
 
 export const reclamatieSlice = createSlice({
   name: "reclamatie",
-  initialState: "",
+  initialState,
   reducers: {
     setTelefonReclamat: (state, action) => {
       state.telefonReclamat = action.payload;

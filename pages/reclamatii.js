@@ -20,15 +20,14 @@ import {
 
 const Reclamatii = () => {
   const dispatch = useDispatch();
+
   let telefonReclamat = useSelector(
     (state) => state.reclamatie.telefonReclamat
   );
   let motivReclamatie = useSelector(
     (state) => state.reclamatie.motivReclamatie
   );
-  let emailReclamant = useSelector(
-    (state) => state.reclamatie.emailReclamant
-  );
+  let emailReclamant = useSelector((state) => state.reclamatie.emailReclamant);
 
   const sendData = (e) => {
     e.preventDefault();
@@ -107,7 +106,10 @@ const Reclamatii = () => {
                 Campurile marcate cu * sunt obligatorii.
               </LabelCustom>
 
-              <ButtonWithIcon type="submit">Trimite</ButtonWithIcon>
+              <div className='d-flex gap-2 m-0 p-0'>
+                <ButtonWithIcon role="button">Reset</ButtonWithIcon>
+                <ButtonWithIcon type="submit">Trimite</ButtonWithIcon>
+              </div>
             </SmallContainer>
           </form>
           <SmallContainer className={styles.whatsapp}>
