@@ -21,18 +21,15 @@ import {
 const Reclamatii = () => {
   const dispatch = useDispatch();
 
-  let telefonReclamat = useSelector(
+  const telefonReclamat = useSelector(
     (state) => state.reclamatie.telefonReclamat
   );
-  let motivReclamatie = useSelector(
+  const motivReclamatie = useSelector(
     (state) => state.reclamatie.motivReclamatie
   );
-  let emailReclamant = useSelector((state) => state.reclamatie.emailReclamant);
-
-  const sendData = (e) => {
-    e.preventDefault();
-    // setReclamatie(defaultReclamatie)
-  };
+  const emailReclamant = useSelector(
+    (state) => state.reclamatie.emailReclamant
+  );
 
   return (
     <Container>

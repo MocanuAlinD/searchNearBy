@@ -31,10 +31,12 @@ import {
   setParolaTwo,
   setInitialStateInregistrare,
 } from "../features/signup/signupSlice";
+import { useRouter } from "next/router";
 
-const Login = () => {
+const Login = ({ req }) => {
   const dispatch = useDispatch();
   const auth = getAuth();
+  const router = useRouter();
 
   // Login
   const emailLogare = useSelector((state) => state.login.emailLogare);
@@ -97,11 +99,15 @@ const Login = () => {
   // LOG IN user
   const userLogIn = (e) => {
     e.preventDefault();
+    console.log(router.query.q);
     signInWithEmailAndPassword(auth, emailLogare, parolaLogare)
       .then((userCredential) => {
         const user = userCredential.user;
         dispatch(setUid(user.uid));
         toast.success("User logged in successfuly");
+        if (router.query.q === "inregistrare") {
+          router.push("/inscriere");
+        }
       })
       .catch((error) => {
         if (error.message.includes("invalid-login-credentials")) {
@@ -199,22 +205,19 @@ const Login = () => {
                       {showHidePassword ? (
                         <IoEyeOutline
                           className={styles.showHidePassword}
-                          onClick={() =>
-                            setShowHidePassword(!showHidePassword)(
-                              (document.getElementById("password").type =
-                                "text")
-                            )
-                          }
+                          onClick={() => (
+                            setShowHidePassword((prev) => !showHidePassword),
+                            (document.getElementById("password").type = "text")
+                          )}
                         />
                       ) : (
                         <IoEyeOffOutline
                           className={styles.showHidePassword}
-                          onClick={() =>
-                            setShowHidePassword(!showHidePassword)(
-                              (document.getElementById("password").type =
-                                "password")
-                            )
-                          }
+                          onClick={() => (
+                            setShowHidePassword((prev) => !showHidePassword),
+                            (document.getElementById("password").type =
+                              "password")
+                          )}
                         />
                       )}
                     </div>
