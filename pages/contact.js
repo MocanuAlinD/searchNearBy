@@ -3,7 +3,6 @@ import {
   Container,
   SmallContainer,
 } from "../components/singleTags/elemetsCustom";
-import BackButton from "../components/BackButton";
 import styles from "../styles/contact.module.scss";
 import { FaWhatsapp } from "react-icons/fa";
 import PageTitle from "../components/pageTitle";
@@ -14,7 +13,6 @@ const Contact = () => {
       className={styles.container + " d-flex align-items-center flex-column"}
     >
       <PageTitle text="Contact" />
-      {/* <BackButton url="/" text="Pagina principală" /> */}
       <SmallContainer
         className={
           styles.wrapper +

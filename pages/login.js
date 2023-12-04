@@ -5,7 +5,6 @@ import {
   LabelCustom,
   InputCustom,
 } from "../components/singleTags/elemetsCustom";
-import BackButton from "../components/BackButton";
 import styles from "../styles/login.module.scss";
 import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 import toast from "react-hot-toast";
@@ -161,7 +160,6 @@ const Login = ({ req }) => {
         <LoadingCheckUser changeLoadState={() => setLoading((prev) => false)} />
       )}
       <Container>
-        {/* <BackButton url="/" text="Pagina principală" /> */}
         {uid ? <h4>User signed in</h4> : <h4>User NOT signed in</h4>}
         <Wrapper className="d-flex flex-column flex-grow-1 justify-content-start align-items-center m-0 p-0 mt-3">
           <Wrapper className={styles.main}>

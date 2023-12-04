@@ -1,6 +1,5 @@
 import { Container } from "../components/singleTags/elemetsCustom";
 import FormRegister from "../components/FormRegister";
-import BackButton from "../components/BackButton";
 import NotSignedIn from "../components/NotSignedIn";
 import { firebase } from "../firebase";
 import { getAuth } from "firebase/auth";
@@ -18,8 +17,6 @@ export default function Inscriere({
     <Container
       bg={`linear-gradient(to bottom right, var(--color-blue-light), var(--color-blue-dark))`}
     >
-      {/* <BackButton url="/" text="Pagina principală" /> */}
-
       {auth.currentUser ? (
         <FormRegister
           listaOrase={listaOrase}

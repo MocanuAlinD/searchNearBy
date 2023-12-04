@@ -1,12 +1,10 @@
 import React from "react";
 import styles from "../styles/infofaq.module.scss";
-import BackButton from "../components/BackButton";
 import { Container } from "../components/singleTags/elemetsCustom";
 
 const Info = () => {
   return (
     <Container>
-      {/* <BackButton url="/" text="Pagina principală" /> */}
       <div
         className={
           styles.contentContainer +

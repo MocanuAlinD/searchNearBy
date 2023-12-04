@@ -14,11 +14,6 @@ import {
   setNoResTrigger,
 } from "../features/searchJudet/searchJudetSlice";
 
-// import {
-//   setShowTitle,
-//   setShowTitleInitialState,
-// } from "../features/showTitle/showTitleSlice";
-
 export default function Home() {
   const dispatch = useDispatch();
   const oras = useSelector((state) => state.search.oras);

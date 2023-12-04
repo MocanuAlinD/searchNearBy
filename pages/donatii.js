@@ -1,9 +1,7 @@
 import React from "react";
 import {
   Container,
-  SmallContainer,
 } from "../components/singleTags/elemetsCustom";
-import BackButton from "../components/BackButton";
 import styles from "../styles/donatii.module.scss";
 import { ImCopy } from "react-icons/im";
 import toast from "react-hot-toast";
@@ -19,7 +17,6 @@ const Donatii = () => {
 
   return (
     <Container>
-      {/* <BackButton url="/" text="Pagina principala" /> */}
       <div className={styles.donatii + " m-0 p-0 px-3 pb-5 my-3 m-auto"}>
         <h2 className={styles.title}>Dragi prieteni,</h2>
         <p className={styles.para}>
