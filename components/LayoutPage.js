@@ -5,12 +5,14 @@ import Navbar from "./Navbar";
 
 const LayoutPage = ({ children }) => {
   return (
-    <Container bg="var(--color-blue)">
+    <div className="d-flex flex-column min-vh-100">
       <Navbar />
       {children}
       <BurgerMenu />
-    </Container>
+    </div>
   );
 };
 
 export default LayoutPage;
+
+// style={{ minHeight: "100vh" }}

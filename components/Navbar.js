@@ -9,8 +9,8 @@ const Navbar = () => {
 
   return (
     <div
-      className="m-0 p-0 px-3 pt-0 d-flex py-0 align-items-center my-2 justify-content-between"
-      style={{ height: "3rem" }}
+      className="m-0 p-0 px-3 pt-0 d-flex py-0 align-items-center justify-content-between"
+      style={{ height: "3rem", backgroundColor: "var(--color-blue-dark)" }}
     >
       <BurgerButton />
       {pathname !== "/" ? (

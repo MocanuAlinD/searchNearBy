@@ -8,7 +8,7 @@ const Info = () => {
       <div
         className={
           styles.contentContainer +
-          " m-0 p-0 p-5 d-flex flex-grow-1 justify-content-center align-items-start flex-column"
+          " m-0 p-0 p-5 d-flex justify-content-center align-items-start flex-column"
         }
       >
         <h2 className={styles.title}>Info & FAQ</h2>

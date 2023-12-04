@@ -13,6 +13,7 @@ import {
   setNoResultText,
   setNoResTrigger,
 } from "../features/searchJudet/searchJudetSlice";
+import { Container } from "../components/singleTags/elemetsCustom";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -119,7 +120,7 @@ export default function Home() {
   };
 
   return (
-    <div className={styles.container + " "}>
+    <Container>
       <div
         className={
           styles.mainContainer +
@@ -159,6 +160,6 @@ export default function Home() {
       )}
 
       {loadSearch && <Spinner />}
-    </div>
+    </Container>
   );
 }

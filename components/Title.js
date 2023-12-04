@@ -38,8 +38,8 @@ const Title = ({ width, height, spd }) => {
         id="svgtitle"
         className="svgTitle"
         style={{
-          width: width ? width : "25rem",
           height: height ? height : "100%",
+          width: width ? width : "min(90%, 25rem)",
         }}
         viewBox="0 0 258 81"
         fill="url(#rainbow)"

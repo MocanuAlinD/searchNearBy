@@ -14,9 +14,7 @@ export default function Inscriere({
 }) {
   const auth = getAuth();
   return (
-    <Container
-      bg={`linear-gradient(to bottom right, var(--color-blue-light), var(--color-blue-dark))`}
-    >
+    <Container>
       {auth.currentUser ? (
         <FormRegister
           listaOrase={listaOrase}

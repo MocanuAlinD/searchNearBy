@@ -23,16 +23,16 @@ color - color
 */
 
 export const Container = styled.div`
-  background: ${({ bg }) =>
+  /* background: ${({ bg }) =>
     bg
       ? bg
-      : "linear-gradient(to bottom right, var(--color-blue-light), var(--color-blue-dark))"};
-  height: ${({ h }) => (h ? h : "fit-content")};
-  min-height: ${({ minh }) => (minh ? minh : "100vh")};
+      : "linear-gradient(to bottom right, var(--color-blue-light), var(--color-blue-dark))"}; */
+  background: ${({ bg }) => (bg ? bg : "var(--color-blue)")};
+  /* height: ${({ h }) => (h ? h : "fit-content")}; */
+  /* min-height: ${({ minh }) => (minh ? minh : "100vh")}; */
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
+  flex-grow: 1;
 `;
 
 export const SmallContainer = styled.div`

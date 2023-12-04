@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "../../styles/servicii.module.scss";
-import BackButton from "../../components/BackButton";
 import LinkButton from "../../components/LinkButton";
 import { Container } from "../../components/singleTags/elemetsCustom";
 
@@ -26,7 +25,6 @@ const Servicii = ({ citys }) => {
   if (!citys) {
     return (
       <Container className={styles.joburi}>
-        <BackButton url="/" text="Pagina principala" />
         <div className="text-center text-white d-flex align-items-center justify-content-center flex-grow-1">
           Date indisponibile. Va rugam reveniti.
         </div>
@@ -46,7 +44,6 @@ const Servicii = ({ citys }) => {
 
   return (
     <Container className={styles.joburi}>
-      {/* <BackButton url="/" text="Pagina principală" /> */}
       <div className="row m-0 p-0 col-12 px-2 mb-5 d-flex justify-content-center">
         {citys ? (
           <table className="table m-0 p-0 mt-4">

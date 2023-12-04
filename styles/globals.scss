@@ -8,7 +8,8 @@ html,
 body {
   font-family: Poppins, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  background: var(--color-blue);
+  background: var(--color-dark);
+  color: var(--color-light);
   --transition: all 0.35s ease-in-out;
   --color-light: whitesmoke;
   --color-dark: #222;
