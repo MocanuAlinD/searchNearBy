@@ -1,18 +1,12 @@
-import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import ClientSearch from "../components/ClientSearch";
 import CardCautare from "../components/CardCautare";
-import BurgerMenu from "../components/BurgerMenu";
 import NoResults from "../components/NoResults";
 import styles from "../styles/Home.module.scss";
 import SortItems from "../components/SortItems";
-import BurgerButton from "../components/BurgerButton";
 import Spinner from "../components/Spinner";
 import Title from "../components/Title";
-import { useEffect } from "react";
 import {
-  setShow,
-  setShowMenu,
   setSortedList,
   setLoadSearch,
   setOriginalList,
@@ -23,22 +17,12 @@ import {
 export default function Home() {
   const dispatch = useDispatch();
   const oras = useSelector((state) => state.search.oras);
-  const show = useSelector((state) => state.search.show);
   const judet = useSelector((state) => state.search.judet);
   const cautare = useSelector((state) => state.search.cautare);
   const sortedList = useSelector((state) => state.search.sortedList);
   const loadSearch = useSelector((state) => state.search.loadSearch);
   const originalList = useSelector((state) => state.search.originalList);
   const noResTrigger = useSelector((state) => state.search.noResTrigger);
-
-  const tmp = useSelector((state) => state.sort);
-
-  useEffect(() => {
-    dispatch(setShowMenu(false));
-    return () => {
-      dispatch(setShowMenu(false));
-    };
-  }, []);
 
   // Button search only in judet
   const searchJudet = async () => {
@@ -135,44 +119,14 @@ export default function Home() {
   };
 
   return (
-    <div className={styles.container + " m-0 p-0 border"}>
-      <BurgerMenu />
+    <div className={styles.container + " "}>
       <div
         className={
           styles.mainContainer +
           " row d-flex flex-column justify-content-start m-0 p-0"
         }
       >
-        {/* Top part (search inputs, title, burger menu and switch) */}
-        <div
-          className={
-            styles.checkboxContainer +
-            " m-0 p-0 mt-3 d-flex justify-content-between flex-row-reverse flex-md-row"
-          }
-        >
-          <BurgerButton />
-
-          <div className="d-flex justify-content-between gap-2 mx-2">
-            <input
-              type="checkbox"
-              id="change"
-              checked={!useSelector((state) => state.search.show)}
-              onChange={() => dispatch(setShow())}
-              className={styles.checkbox + " m-0 p-0"}
-            />
-            {!useSelector((state) => state.search.show) && (
-              <AiOutlineEye className={"text-white"} />
-            )}
-            {useSelector((state) => state.search.show) && (
-              <AiOutlineEyeInvisible className={"text-white"} />
-            )}
-          </div>
-        </div>
-
-        {/* Title */}
-        {useSelector((state) => state.search.show) && (
-          <Title />
-        )}
+        {useSelector((state) => state.search.show) && <Title />}
 
         {/* Search window with inputs */}
         <ClientSearch
@@ -187,7 +141,7 @@ export default function Home() {
           <SortItems handleToate={handleToate} listLen={sortedList.length} />
         )}
 
-        {/* Cards container */}
+        {/* Show Cards container if results find */}
         <div className="w-100 d-flex flex-wrap m-0 p-0 justify-content-center">
           {!loadSearch &&
             originalList &&

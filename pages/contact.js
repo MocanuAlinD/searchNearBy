@@ -14,7 +14,7 @@ const Contact = () => {
       className={styles.container + " d-flex align-items-center flex-column"}
     >
       <PageTitle text="Contact" />
-      <BackButton url="/" text="Pagina principală" />
+      {/* <BackButton url="/" text="Pagina principală" /> */}
       <SmallContainer
         className={
           styles.wrapper +

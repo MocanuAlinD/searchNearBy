@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { Provider } from "react-redux";
 import { store } from "../fstore/store";
+import Layout from "../components/LayoutPage";
 
 function MyApp({ Component, pageProps }) {
   const initialLocation = {
@@ -23,8 +24,14 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <Provider store={store}>
-      <Component {...pageProps} location={location} setLocation={setLocation} />
-      <Toaster />
+      <Layout>
+        <Component
+          {...pageProps}
+          location={location}
+          setLocation={setLocation}
+        />
+        <Toaster />
+      </Layout>
     </Provider>
   );
 }

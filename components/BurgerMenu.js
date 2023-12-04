@@ -1,10 +1,11 @@
 import React from "react";
 import styles from "../styles/BurgerMenu.module.scss";
-import Link from "next/link";
 import { useSelector } from "react-redux";
+import CustomLink from "./CustomLink";
 
 const BurgerMenu = () => {
   const showMenu = useSelector((state) => state.search.showMenu);
+
   return (
     <div
       className={
@@ -12,51 +13,15 @@ const BurgerMenu = () => {
       }
       style={{ transform: `rotateZ(${showMenu ? "0" : "90deg"})` }}
     >
-      <Link href="/" passHref>
-        <span>
-          <a className={styles.link + " m-0"}>Home</a>
-        </span>
-      </Link>
-      <Link href="/servicii" passHref>
-        <span>
-          <a className={styles.link + " m-0"}>Toate judetele</a>
-        </span>
-      </Link>
-      <Link href="/infofaq" passHref>
-        <span>
-          <a className={styles.link + " m-0"}>Info & FAQ</a>
-        </span>
-      </Link>
-      <Link href="/reclamatii" passHref>
-        <span>
-          <a className={styles.link + " m-0"}>Reclamatii</a>
-        </span>
-      </Link>
-      <Link href="/contact" passHref>
-        <span>
-          <a className={styles.link + " m-0"}>Contact</a>
-        </span>
-      </Link>
-      <Link href="/login" passHref>
-        <span>
-          <a className={styles.link + " m-0"}>Login & Sign up</a>
-        </span>
-      </Link>
-      <Link href="/inscriere" passHref>
-        <span className="m-0 mt-5">
-          <a className={styles.link}>Înregistrare gratuită</a>
-        </span>
-      </Link>
-      <Link href="/donatii" passHref>
-        <span>
-          <a className={styles.link + " m-0"}>Donează pentru dezvoltare</a>
-        </span>
-      </Link>
-      <Link href="/test" passHref>
-        <span>
-          <a className={styles.link + " m-0"}>Test</a>
-        </span>
-      </Link>
+      <CustomLink link="/" text="Home" />
+      <CustomLink link="/servicii" text="Toate judetele" />
+      <CustomLink link="/infofaq" text="Info si FAQ" />
+      <CustomLink link="/reclamatii" text="Reclamatii" />
+      <CustomLink link="/contact" text="Contact" />
+      <CustomLink link="/login" text="Log-in si sign-up" />
+      <CustomLink link="/inscriere" text="Inregistrare gratuita" />
+      <CustomLink link="/donatii" text="Doneaza pentru dezvoltare" />
+      <CustomLink link="/test" text="Test" />
     </div>
   );
 };

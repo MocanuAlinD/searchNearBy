@@ -19,7 +19,7 @@ const Donatii = () => {
 
   return (
     <Container>
-      <BackButton url="/" text="Pagina principala" />
+      {/* <BackButton url="/" text="Pagina principala" /> */}
       <div className={styles.donatii + " m-0 p-0 px-3 pb-5 my-3 m-auto"}>
         <h2 className={styles.title}>Dragi prieteni,</h2>
         <p className={styles.para}>

@@ -46,7 +46,7 @@ const Servicii = ({ citys }) => {
 
   return (
     <Container className={styles.joburi}>
-      <BackButton url="/" text="Pagina principală" />
+      {/* <BackButton url="/" text="Pagina principală" /> */}
       <div className="row m-0 p-0 col-12 px-2 mb-5 d-flex justify-content-center">
         {citys ? (
           <table className="table m-0 p-0 mt-4">

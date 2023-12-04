@@ -6,7 +6,7 @@ import { Container } from "../components/singleTags/elemetsCustom";
 const Info = () => {
   return (
     <Container>
-      <BackButton url="/" text="Pagina principală" />
+      {/* <BackButton url="/" text="Pagina principală" /> */}
       <div
         className={
           styles.contentContainer +

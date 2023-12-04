@@ -1,0 +1,32 @@
+.checkbox {
+    appearance: none;
+    background-color: var(--color-green);
+    border-radius: .5rem;
+    box-shadow: inset 0px 0px 1px 1px #ffffff33;
+    cursor: pointer;
+    height: 1rem;
+    position: relative;
+    transition: var(--transition);
+    width: 2rem;
+}
+
+.checkbox::before {
+    background-color: var(--color-blue-dark);
+    border-radius: .5rem;
+    content: "";
+    height: .9rem;
+    position: absolute;
+    width: .9rem;
+    top: 5%;
+    left: 3%;
+    transition: var(--transition);
+}
+
+.checkbox:checked::before {
+    background-color: var(--color-blue-dark);
+    left: 52%;
+}
+
+.checkbox:checked {
+    background-color: var(--color-light);
+}

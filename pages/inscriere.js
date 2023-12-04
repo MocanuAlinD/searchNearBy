@@ -18,7 +18,7 @@ export default function Inscriere({
     <Container
       bg={`linear-gradient(to bottom right, var(--color-blue-light), var(--color-blue-dark))`}
     >
-      <BackButton url="/" text="Pagina principală" />
+      {/* <BackButton url="/" text="Pagina principală" /> */}
 
       {auth.currentUser ? (
         <FormRegister

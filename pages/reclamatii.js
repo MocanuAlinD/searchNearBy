@@ -33,7 +33,7 @@ const Reclamatii = () => {
 
   return (
     <Container>
-      <BackButton url="/" text="Pagina principală" />
+      {/* <BackButton url="/" text="Pagina principală" /> */}
       <div className={styles.mainContent}>
         <SmallContainer className={styles.infoContainer} m="1rem 0 0 0">
           <LabelCustom>
