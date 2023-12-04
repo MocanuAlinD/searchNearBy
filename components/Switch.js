@@ -1,7 +1,7 @@
 import React from "react";
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
-import { setShow } from "../features/searchJudet/searchJudetSlice";
+import { setShowTitle } from "../features/showTitle/showTitleSlice";
 import styles from "../styles/Switch.module.scss";
 
 const Switch = () => {
@@ -11,14 +11,14 @@ const Switch = () => {
       <input
         type="checkbox"
         id="change"
-        checked={!useSelector((state) => state.search.show)}
-        onChange={() => dispatch(setShow())}
+        checked={!useSelector((state) => state.showTitle.showTitle)}
+        onChange={() => dispatch(setShowTitle())}
         className={styles.checkbox + " m-0 p-0"}
       />
-      {!useSelector((state) => state.search.show) && (
+      {!useSelector((state) => state.showTitle.showTitle) && (
         <AiOutlineEye className={"text-white"} />
       )}
-      {useSelector((state) => state.search.show) && (
+      {useSelector((state) => state.showTitle.showTitle) && (
         <AiOutlineEyeInvisible className={"text-white"} />
       )}
     </div>

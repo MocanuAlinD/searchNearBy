@@ -14,6 +14,11 @@ import {
   setNoResTrigger,
 } from "../features/searchJudet/searchJudetSlice";
 
+// import {
+//   setShowTitle,
+//   setShowTitleInitialState,
+// } from "../features/showTitle/showTitleSlice";
+
 export default function Home() {
   const dispatch = useDispatch();
   const oras = useSelector((state) => state.search.oras);
@@ -126,7 +131,7 @@ export default function Home() {
           " row d-flex flex-column justify-content-start m-0 p-0"
         }
       >
-        {useSelector((state) => state.search.show) && <Title />}
+        {useSelector((state) => state.showTitle.showTitle) && <Title />}
 
         {/* Search window with inputs */}
         <ClientSearch
