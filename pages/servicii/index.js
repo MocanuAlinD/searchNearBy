@@ -24,11 +24,9 @@ export const getStaticProps = async () => {
 const Servicii = ({ citys }) => {
   if (!citys) {
     return (
-      <Container className={styles.joburi}>
-        <div className="text-center text-white d-flex align-items-center justify-content-center flex-grow-1">
-          Date indisponibile. Va rugam reveniti.
-        </div>
-      </Container>
+      <div className="text-center text-white d-flex align-items-center justify-content-center flex-grow-1">
+        Date indisponibile. Va rugam reveniti.
+      </div>
     );
   }
 
@@ -43,41 +41,41 @@ const Servicii = ({ citys }) => {
   });
 
   return (
-    <Container className={styles.joburi}>
-      <div className="row m-0 p-0 col-12 px-2 mb-5 d-flex justify-content-center">
-        {citys ? (
-          <table className="table m-0 p-0 mt-4">
-            <thead>
-              <tr>
-                <th>Judet</th>
-                <th className="">Total</th>
-                <th className="text-end">Detalii</th>
-              </tr>
-            </thead>
-            <tbody>
-              {all.map((item, index) => (
-                <tr key={index}>
-                  <td className="px-2 text-uppercase">{item.name}</td>
-                  <td>{item.value}</td>
-                  <td>
-                    <LinkButton name={`/servicii/${item.name}`} />
-                  </td>
-                </tr>
-              ))}
-              <tr>
-                <td className={"text-warning m-0"}>Total:</td>
-                <td colSpan="2" className={"text-warning m-0 text-start"}>
-                  {tmp}
+    <Container
+      className={styles.joburi + " w-100 d-flex justify-content-center"}
+    >
+      {citys ? (
+        <table className="table m-0 p-0 mt-4">
+          <thead>
+            <tr>
+              <th>Judet</th>
+              <th className="">Total</th>
+              <th className="text-end">Detalii</th>
+            </tr>
+          </thead>
+          <tbody>
+            {all.map((item, index) => (
+              <tr key={index}>
+                <td className="px-2 text-uppercase">{item.name}</td>
+                <td>{item.value}</td>
+                <td>
+                  <LinkButton name={`/servicii/${item.name}`} />
                 </td>
               </tr>
-            </tbody>
-          </table>
-        ) : (
-          <div className="d-flex justify-content-center align-items center py-5 mt-5">
-            Baza de date este goala.
-          </div>
-        )}
-      </div>
+            ))}
+            <tr>
+              <td className={"text-warning m-0"}>Total:</td>
+              <td colSpan="2" className={"text-warning m-0 text-start"}>
+                {tmp}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      ) : (
+        <div className="d-flex justify-content-center align-items center py-5 mt-5">
+          Baza de date este goala.
+        </div>
+      )}
     </Container>
   );
 };

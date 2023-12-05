@@ -45,7 +45,6 @@ const Person = ({ res, oras, setLocation }) => {
       <Container>
         <BackButton url={`/servicii/`} text="Servicii" />
         <h4 className="text-center text-white">Pagina nu exista</h4>
-        <h4 className="text-center text-white">{`${oras}`}</h4>
       </Container>
     );
   }
@@ -54,7 +53,7 @@ const Person = ({ res, oras, setLocation }) => {
   return (
     <Container>
       <BackButton url={`/servicii/${oras}`} text={`${oras}`} />
-      <div className="row col-12 m-0 p-0 d-flex justify-content-center align-items-center mt-2">
+      <div className="row col-12 m-0 p-0 pb-3 d-flex justify-content-center align-items-center mt-2">
         <Card data={item} setLocation={setLocation} />
       </div>
     </Container>

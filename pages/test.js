@@ -1,12 +1,7 @@
 import React from "react";
-import LayoutPage from "../components/LayoutPage";
 
 const test = () => {
-  return (
-    <div>
-      <p>Paragraph</p>{" "}
-    </div>
-  );
+  return <span className='border border-danger'>Paragraph</span>;
 };
 
 export default test;

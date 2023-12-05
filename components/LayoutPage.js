@@ -1,5 +1,4 @@
 import React from "react";
-import { Container } from "./singleTags/elemetsCustom";
 import BurgerMenu from "./BurgerMenu";
 import Navbar from "./Navbar";
 
@@ -7,12 +6,15 @@ const LayoutPage = ({ children }) => {
   return (
     <div className="d-flex flex-column min-vh-100">
       <Navbar />
-      {children}
+      <div
+        className="d-flex flex-grow-1 justify-content-center align-items-start m-0 p-0"
+        style={{ backgroundColor: "var(--color-blue-light)" }}
+      >
+        {children}
+      </div>
       <BurgerMenu />
     </div>
   );
 };
 
 export default LayoutPage;
-
-// style={{ minHeight: "100vh" }}

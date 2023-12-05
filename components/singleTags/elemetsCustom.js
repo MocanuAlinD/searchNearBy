@@ -27,11 +27,14 @@ export const Container = styled.div`
     bg
       ? bg
       : "linear-gradient(to bottom right, var(--color-blue-light), var(--color-blue-dark))"}; */
-  background: ${({ bg }) => (bg ? bg : "var(--color-blue)")};
+  /* background: ${({ bg }) => (bg ? bg : "var(--color-blue)")}; */
+  /* background: ${({ bg }) => bg && bg}; */
+  background: ${({ bg }) => (bg ? bg : "")};
   /* height: ${({ h }) => (h ? h : "fit-content")}; */
   /* min-height: ${({ minh }) => (minh ? minh : "100vh")}; */
   margin: 0;
   padding: 0;
+  /* border: 3px solid red; */
   flex-grow: 1;
 `;
 

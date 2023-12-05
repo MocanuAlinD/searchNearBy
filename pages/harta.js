@@ -1,15 +1,11 @@
 import React from "react";
 import BackButton from "../components/BackButton";
-import {
-  Container,
-  SmallContainer,
-} from "../components/singleTags/elemetsCustom";
 
 const Maps = ({ location }) => {
   return (
-    <Container>
+    <div className="d-flex flex-column">
       {location.judet ? (
-        <>
+        <div>
           <BackButton
             url={`/servicii/${location.judet}/${location.id}`}
             text="Inapoi"
@@ -22,12 +18,15 @@ const Maps = ({ location }) => {
               {location.judet}, {location.oras}
             </h4>
           </div>
-        </>
+        </div>
       ) : (
         <BackButton url={`/servicii`} text="Inapoi" />
       )}
 
-      <div className="row col-12 m-0 p-0 flex-grow-1 px-3 pt-3 pb-2 mt-2">
+      <div
+        className="row col-12 m-0 p-0 px-3 py-1 mt-2"
+        style={{ height: "max(10rem, 75vh)" }}
+      >
         {location.id ? (
           <iframe
             className="shadow border border-dark m-0 p-0 rounded-3"
@@ -48,7 +47,7 @@ const Maps = ({ location }) => {
           ></iframe>
         )}
       </div>
-    </Container>
+    </div>
   );
 };
 

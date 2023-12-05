@@ -5,7 +5,8 @@
         color: var(--color-light);
         background-color: var(--color-blue-dark);
     }
-    table tbody tr:nth-child(odd){
+
+    table tbody tr:nth-child(odd) {
         background-color: var(--color-blue-light1);
     }
 

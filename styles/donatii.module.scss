@@ -1,123 +1,118 @@
 .donatii {
-    $color-blue-light: var(--color-blue-light2);
-    $color-light: var(--color-light);
-    width: clamp(2rem, 95%, 45rem);
-    background-color: var(--color-blue-dark);
-    border-radius: 1rem;
-    height: fit-content;
-    text-align: justify;
-    user-select: none;
+  $color-blue-light: var(--color-blue-light2);
+  $color-light: var(--color-light);
+  border-radius: 1rem;
+  height: fit-content;
+  text-align: justify;
+  user-select: none;
 
-    .title {
-        color: $color-light;
-        text-decoration-thickness: .1rem;
-        margin-top: 2rem;
-        font-size: clamp(1.3rem, 4.5vw, 2rem);
+  .title {
+    color: $color-light;
+    text-decoration-thickness: 0.1rem;
+    margin-top: 2rem;
+    font-size: clamp(1.3rem, 4.5vw, 2rem);
+  }
+
+  .para {
+    color: $color-light;
+    font-weight: 200;
+    font-size: clamp(0.8rem, 2.5vw, 1rem);
+    line-height: 135%;
+
+    .gratuit {
+      font-weight: 400;
+      text-transform: uppercase;
+      font-size: clamp(0.8rem, 2.5vw, 1rem);
+      letter-spacing: 1px;
     }
+  }
 
-    .para {
-        color: $color-light;
-        font-weight: 200;
-        font-size: clamp(.8rem, 2.5vw, 1rem);
-        line-height: 135%;
+  .para:first-letter {
+    color: $color-blue-light;
+    font-weight: 400;
+    font-size: clamp(1.1rem, 3vw, 1.4rem);
+    padding-right: 0.1rem;
+    margin-left: 2rem;
+  }
 
-        .gratuit {
-            font-weight: 400;
-            text-transform: uppercase;
-            font-size: clamp(.8rem, 2.5vw, 1rem);
-            letter-spacing: 1px;
-        }
-    }
+  ol {
+    color: $color-light;
+    width: 100%;
 
-    .para:first-letter {
-        color: $color-blue-light;
+    li {
+      font-weight: 200;
+      font-size: clamp(0.8rem, 2.5vw, 1rem);
+      margin-bottom: 0.5rem;
+
+      span {
         font-weight: 400;
-        font-size: clamp(1.1rem, 3vw, 1.4rem);
-        padding-right: .1rem;
-        margin-left: 2rem;
+        font-size: clamp(0.8rem, 2.5vw, 1rem);
+        color: $color-blue-light;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  .cont {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $color-light;
+
+    h4 {
+      margin: 0;
+      padding: 0;
+      white-space: nowrap;
+      padding-right: 1rem;
+      font-size: clamp(0.8rem, 2.5vw, 1rem);
+      font-weight: 200;
+      width: 5rem;
+      text-align: end;
     }
 
-    ol {
+    p {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      font-size: clamp(0.85rem, 2.5vw, 1.05rem);
+      user-select: text;
+      width: 100%;
+
+      .copyIcon {
         color: $color-light;
-        width: 100%;
+        margin-left: 1rem;
 
-        li {
-            font-weight: 200;
-            font-size: clamp(.8rem, 2.5vw, 1rem);
-            margin-bottom: .5rem;
-
-            span {
-                font-weight: 400;
-                font-size: clamp(.8rem, 2.5vw, 1rem);
-                color: $color-blue-light;
-                text-transform: uppercase;
-            }
+        &:hover {
+          color: $color-blue-light;
+          cursor: pointer;
         }
-    }
 
+        &:active {
+          font-size: 0.8em;
+        }
+      }
+    }
+  }
+
+  .separator {
+    height: 2px;
+    background-color: $color-light;
+    width: 100%;
+  }
+
+  @media screen and (max-width: 565px) {
     .cont {
-        width: 100%;
-        display: flex;
+      flex-direction: column;
+
+      h4 {
+        text-align: center;
+      }
+
+      p {
         justify-content: center;
-        align-items: center;
-        color: $color-light;
-
-        h4 {
-            margin: 0;
-            padding: 0;
-            white-space: nowrap;
-            padding-right: 1rem;
-            font-size: clamp(.8rem, 2.5vw, 1rem);
-            font-weight: 200;
-            width: 5rem;
-            text-align: end;
-        }
-        
-        p {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            font-size: clamp(.85rem, 2.5vw, 1.05rem);
-            user-select: text;
-            width: 100%;
-
-            .copyIcon {
-                color: $color-light;
-                margin-left: 1rem;
-
-                &:hover {
-                    color: $color-blue-light;
-                    cursor: pointer;
-                }
-
-                &:active {
-                    font-size: .8em;
-                }
-
-            }
-        }
+      }
     }
-
-    .separator {
-        height: 2px;
-        background-color: $color-light;
-        width: 100%;
-
-    }
-
-    @media screen and (max-width: 565px) {
-        .cont {
-            flex-direction: column;
-
-            h4 {
-                text-align: center;
-            }
-
-            p {
-                justify-content: center;
-            }
-        }
-    }
-
+  }
 }
