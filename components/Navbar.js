@@ -33,11 +33,13 @@ const Navbar = () => {
       {pathname === "/" ? <Switch /> : ""}
 
       <div className="d-flex align-items-center justify-content-center m-0 p-0">
-        {useSelector((state) => state.login.uid) ? (
-          <span style={{ fontSize: ".8rem" }}>{user}</span>
+        {uid ? (
+          <span style={{ fontSize: ".8rem", whiteSpace: "nowrap" }}>
+            {user} &ensp;
+          </span>
         ) : (
           <span style={{ whiteSpace: "nowrap", fontSize: ".8rem" }}>
-            Not signed in
+            Not signed in &ensp;
           </span>
         )}
         <img
