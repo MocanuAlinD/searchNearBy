@@ -7,7 +7,7 @@ const LayoutPage = ({ children }) => {
     <div className="d-flex flex-column min-vh-100">
       <Navbar />
       <div
-        className="d-flex flex-grow-1 justify-content-center align-items-start m-0 p-0"
+        className="d-flex flex-grow-1 justify-content-center align-items-start m-0 p-0 border border-danger"
         style={{ backgroundColor: "var(--color-blue-light)" }}
       >
         {children}

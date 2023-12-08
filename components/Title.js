@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
 import styles from "../styles/title.module.scss";
+import { useRouter } from "next/router";
 
 const Title = ({ width, height, spd }) => {
+  const { pathname } = useRouter();
   useEffect(() => {
     clickme();
   }, []);
@@ -56,9 +58,33 @@ const Title = ({ width, height, spd }) => {
             gradientUnits="userSpaceOnUse"
             gradientTransform="rotate(45)"
           >
-            <stop stopColor="var(--color-blue-dark)" offset="20%" />
+            <stop
+              stopColor={
+                pathname === "/"
+                  ? "var(--color-blue-dark)"
+                  : "var(--color-blue-light1)"
+              }
+              offset="20%"
+            />
+            <stop
+              stopColor={
+                pathname === "/"
+                  ? "var(--color-blue-dark)"
+                  : "var(--color-blue-light2)"
+              }
+              offset="50%"
+            />
+            <stop
+              stopColor={
+                pathname === "/"
+                  ? "var(--color-blue-dark)"
+                  : "var(--color-blue-light1)"
+              }
+              offset="100%"
+            />
+            {/* <stop stopColor="var(--color-blue-dark)" offset="20%" />
             <stop stopColor="var(--color-blue-darkish)" offset="50%" />
-            <stop stopColor="var(--color-blue-dark)" offset="100%" />
+            <stop stopColor="var(--color-blue-dark)" offset="100%" /> */}
           </linearGradient>
         </defs>
         <animate

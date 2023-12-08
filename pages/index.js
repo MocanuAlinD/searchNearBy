@@ -25,6 +25,8 @@ export default function Home() {
   const originalList = useSelector((state) => state.search.originalList);
   const noResTrigger = useSelector((state) => state.search.noResTrigger);
 
+
+
   // Button search only in judet
   const searchJudet = async () => {
     dispatch(setNoResTrigger(false));
@@ -34,7 +36,7 @@ export default function Home() {
         `/api/jobsJudet?search=${cautare}&judet=${judet}`
       );
       const endresult = await getServices.json();
-
+      
       dispatch(setSortedList(endresult));
       dispatch(setOriginalList(endresult));
       dispatch(setLoadSearch(false));
@@ -118,6 +120,8 @@ export default function Home() {
 
     dispatch(setSortedList(one));
   };
+
+
 
   return (
     <Container>
