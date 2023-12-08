@@ -8,10 +8,9 @@ import { getAuth } from "firebase/auth";
 import { useSelector } from "react-redux";
 
 const Navbar = () => {
-  const { pathname } = useRouter();
+  const { pathname,push } = useRouter();
   const auth = getAuth();
   const user = auth.currentUser?.email.split("@")[0];
-  console.log("auth", auth.currentUser);
 
   return (
     <div
@@ -46,8 +45,10 @@ const Navbar = () => {
               ? "icon48.png"
               : "iconwho48.png"
           }
+          onClick={() => push("/login")}
           alt="userIcon"
           height=".5rem"
+          style={{cursor: "pointer"}}
         />
       </div>
     </div>

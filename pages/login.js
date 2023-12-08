@@ -89,7 +89,6 @@ const Login = ({ req }) => {
   // check if user is signed in
   const checkUserSignedIn = () => {
     if (auth.currentUser) {
-      console.log(auth.currentUser.uid);
       toast.success("Userul este logat");
     } else if (!auth.currentUser) {
       toast.error("Userul NU este logat.");
