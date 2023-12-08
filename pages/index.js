@@ -128,7 +128,7 @@ export default function Home() {
       <div
         className={
           styles.mainContainer +
-          " row d-flex flex-column justify-content-start m-0 p-0"
+          " w-100 row d-flex flex-column justify-content-start m-0 p-0"
         }
       >
         {useSelector((state) => state.showTitle.showTitle) && <Title />}

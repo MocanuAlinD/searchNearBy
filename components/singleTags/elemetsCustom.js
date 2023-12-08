@@ -23,34 +23,30 @@ color - color
 */
 
 export const Container = styled.div`
-  /* background: ${({ bg }) =>
-    bg
-      ? bg
-      : "linear-gradient(to bottom right, var(--color-blue-light), var(--color-blue-dark))"}; */
-  /* background: ${({ bg }) => (bg ? bg : "var(--color-blue)")}; */
-  /* background: ${({ bg }) => bg && bg}; */
   background: ${({ bg }) => (bg ? bg : "")};
-  /* height: ${({ h }) => (h ? h : "fit-content")}; */
-  /* min-height: ${({ minh }) => (minh ? minh : "100vh")}; */
   margin: 0;
   padding: 0;
-  /* border: 3px solid red; */
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+  border: 2px solid yellow;
   flex-grow: 1;
 `;
 
 export const SmallContainer = styled.div`
-  width: ${({ w }) => (w ? w : "30rem")};
-  margin: ${({ m }) => (m ? m : "1rem 0")};
-  @media (max-width: 520px) {
-    width: 90%;
-  }
+  width: ${({ w }) => (w ? w : "min(95%, 35rem)")};
+  margin: 1rem auto;
+  /* padding: 1rem; */
+  padding: ${({ p }) => (p ? p : "1rem")};
+  background-color: ${({ bg }) => (bg ? "var(--color-blue-dark)" : "")};
+  border-radius: var(--border-radius);
 `;
 
 export const Wrapper = styled.div`
   background: ${({ bg }) => bg && bg};
   border: ${({ border }) => border && border};
-  color: var(--color-light);
-  display: ${({ display }) => (display ? display : "flex")};
+  display: flex;
   flex-direction: ${({ fd }) => (fd ? fd : "column")};
   margin: ${({ m }) => (m ? m : "0.25rem 0")};
   @media (max-width: 450px) {
@@ -189,8 +185,8 @@ export const LabelSmallCustom = styled.label`
 
 export const H4Custom = styled.h4`
   color: ${({ color }) => (color ? color : "whitesmoke")};
-  font-size: ${({ fs }) => (fs ? fs : "1.2rem")};
-  font-weight: ${({ fw }) => (fw ? fw : "400")};
+  font-size: ${({ fs }) => (fs ? fs : "1rem")};
+  font-weight: ${({ fw }) => (fw ? fw : "200")};
   background: ${({ bg }) => (bg ? bg : "")};
   display: ${({ display }) => (display ? display : "flex")};
   justify-content: ${({ jc }) => (jc ? js : "center")};
@@ -198,7 +194,7 @@ export const H4Custom = styled.h4`
   margin: ${({ m }) => (m ? m : "0")};
   padding: ${({ p }) => (p ? p : "0")};
   @media (max-width: 500px) {
-    font-size: 1rem;
+    font-size: .8rem;
   }
 `;
 

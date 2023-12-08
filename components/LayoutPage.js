@@ -4,14 +4,12 @@ import Navbar from "./Navbar";
 
 const LayoutPage = ({ children }) => {
   return (
-    <div className="d-flex flex-column min-vh-100">
+    <div
+      className="d-flex flex-column min-vh-100"
+      style={{ backgroundColor: "var(--color-blue-light)" }}
+    >
       <Navbar />
-      <div
-        className="d-flex flex-grow-1 justify-content-center align-items-start m-0 p-0 border border-danger"
-        style={{ backgroundColor: "var(--color-blue-light)" }}
-      >
-        {children}
-      </div>
+      {children}
       <BurgerMenu />
     </div>
   );

@@ -1,14 +1,15 @@
 import React from "react";
+import { Container } from "../components/singleTags/elemetsCustom";
 
 const test = () => {
   const alin = () => {
     console.log(window.outerHeight);
   };
   return (
-    <div className="">
-      <span onClick={alin}>Paragraph</span>;
+    <Container>
+      <span onClick={alin}>Paragraph</span>
       <p>
-        Eiusmod aliqua exercitation sit non in ipsum ad excepteur elit.
+        AlinEiusmod aliqua exercitation sit non in ipsum ad excepteur elit.
         Consequat excepteur qui occaecat enim magna ea ex. Irure nulla ea minim
         minim velit culpa laborum nisi. Nostrud ipsum deserunt exercitation anim
         nulla commodo duis. Officia ipsum aliquip excepteur id deserunt anim
@@ -33,11 +34,10 @@ const test = () => {
         occaecat nisi consequat quis quis. Laboris exercitation do sint
         cupidatat laboris. Ipsum amet elit laborum laborum Lorem dolor pariatur
         cupidatat laboris. Ipsum amet elit laborum laborum Lorem dolor pariatur
-        cupidatat lab
-        ullamco excepteur anim occaecat qui. Sunt mollit ex in nostrud
-        consectetur consectetur nulla sit culpa. Ea deserunt voluptate amet
-        deserunt mollit commodo dolor culpa non. Cupidatat labore eiusmod sunt
-        incididunt duis ex ullamco. Sint laboris eiusmod cillum sit velit
+        cupidatat lab ullamco excepteur anim occaecat qui. Sunt mollit ex in
+        nostrud consectetur consectetur nulla sit culpa. Ea deserunt voluptate
+        amet deserunt mollit commodo dolor culpa non. Cupidatat labore eiusmod
+        sunt incididunt duis ex ullamco. Sint laboris eiusmod cillum sit velit
         officia consectetur ex minim. Nisi excepteur cupidatat est velit.
         Laborum ea quis veniam cupidatat ex sit nostrud do incididunt veniam ex
         nostrud anim. Veniam nisi laborum anim nostrud eiusmod tempor
@@ -46,7 +46,7 @@ const test = () => {
         non aute Lorem excepteur mollit eiusmod commodo aliqua amet fugiat elit
         anim.
       </p>
-    </div>
+    </Container>
   );
 };
 

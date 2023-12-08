@@ -9,17 +9,10 @@ import PageTitle from "../components/pageTitle";
 
 const Contact = () => {
   return (
-    <Container
-      className={styles.container + " d-flex align-items-center flex-column"}
-    >
+    <Container className={styles.container}>
       <PageTitle text="Contact" />
-      <SmallContainer
-        className={
-          styles.wrapper +
-          " d-flex justify-content-start align-items-center flex-column px-5 mt-2 py-5"
-        }
-      >
-        <h4 className={styles.title + " m-0 p-0 mb-5"}>Contact</h4>
+      <SmallContainer>
+        <h4 className={styles.title + " m-0 p-0 mb-5 text-center"}>Contact</h4>
         <p>
           Bine ați venit pe pagina noastră de contact! Suntem încântați să vă
           oferim mai multe informații și să răspundem întrebărilor

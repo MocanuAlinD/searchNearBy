@@ -1,10 +1,13 @@
 import React from "react";
+import { Container } from "../components/singleTags/elemetsCustom";
 
 const Custom404 = () => {
   return (
-    <div className="d-flex align-items-center justify-content-center m-0 p-0 border flex-grow-1">
-      404
-    </div>
+    <Container>
+      <div className='w-100 d-flex flex-grow-1 justify-content-center align-items-center'>
+        <h1>Pagina nu a fost gasita</h1>
+      </div>
+    </Container>
   );
 };
 
