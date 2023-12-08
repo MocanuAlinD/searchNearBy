@@ -13,6 +13,7 @@ fw - font-weight
 fs - font-size
 h - height
 w - width
+ws - white-space
 minh - min-height
 maxh - max-height
 minw - min-width
@@ -30,7 +31,6 @@ export const Container = styled.div`
   justify-content: start;
   align-items: center;
   flex-direction: column;
-  border: 2px solid yellow;
   flex-grow: 1;
 `;
 
@@ -105,7 +105,7 @@ export const InputCustom = styled.input`
   transition: var(--transition);
   width: ${({ w }) => w && w};
   ::placeholder {
-    /* color: var(--color-placeholder); */
+    color: var(--color-placeholder);
     transition: var(--transition);
   }
   :focus {
@@ -184,28 +184,46 @@ export const LabelSmallCustom = styled.label`
 `;
 
 export const H4Custom = styled.h4`
-  color: ${({ color }) => (color ? color : "whitesmoke")};
-  font-size: ${({ fs }) => (fs ? fs : "1rem")};
-  font-weight: ${({ fw }) => (fw ? fw : "200")};
+  color: ${({ color }) => (color ? color : "var(--color-light)")};
+  font-size: ${({ fs }) => (fs ? fs : "")};
+  /* font-size: clamp(0.8rem, 2.5vw, 1.43rem); */
+  font-weight: ${({ fw }) => (fw ? fw : "400")};
+  background: ${({ bg }) => (bg ? bg : "")};
+  display: ${({ display }) => (display ? display : "flex")};
+  justify-content: ${({ jc }) => (jc ? js : "center")};
+  align-items: ${({ ai }) => (ai ? ai : "center")};
+  margin: ${({ m }) => (m ? m : "0 0 1rem 0")};
+  padding: ${({ p }) => (p ? p : "0")};
+  width: ${({ w }) => (w ? w : "fit-content")};
+  white-space: ${({ ws }) => (ws ? ws : "nowrap")};
+`;
+
+export const H5Custom = styled.h5`
+  color: ${({ color }) => (color ? color : "var(--color-light)")};
+  font-size: ${({ fs }) => (fs ? fs : "")};
+  font-weight: ${({ fw }) => (fw ? fw : "400")};
   background: ${({ bg }) => (bg ? bg : "")};
   display: ${({ display }) => (display ? display : "flex")};
   justify-content: ${({ jc }) => (jc ? js : "center")};
   align-items: ${({ ai }) => (ai ? ai : "center")};
   margin: ${({ m }) => (m ? m : "0")};
   padding: ${({ p }) => (p ? p : "0")};
-  @media (max-width: 500px) {
-    font-size: .8rem;
-  }
+  width: ${({ w }) => (w ? w : "fit-content")};
+  white-space: ${({ ws }) => (ws ? ws : "nowrap")};
 `;
 
-export const H6Custom = styled.h4`
-  color: ${({ color }) => (color ? color : "whitesmoke")};
-  background: ${({ bg }) => (bg ? bg : "transparent")};
-  font-size: ${({ fs }) => (fs ? fs : "1rem")};
-  font-weight: ${({ fw }) => (fw ? fw : "200")};
-  width: ${({ w }) => (w ? w : "fit-content")};
-  height: ${({ h }) => h && h};
+export const H6Custom = styled(H4Custom)`
+  color: ${({ color }) => (color ? color : "var(--color-light)")};
+  font-size: ${({ fs }) => (fs ? fs : "")};
+  font-weight: ${({ fw }) => (fw ? fw : "400")};
+  background: ${({ bg }) => (bg ? bg : "")};
+  display: ${({ display }) => (display ? display : "flex")};
+  justify-content: ${({ jc }) => (jc ? js : "center")};
+  align-items: ${({ ai }) => (ai ? ai : "center")};
   margin: ${({ m }) => (m ? m : "0")};
+  padding: ${({ p }) => (p ? p : "0")};
+  width: ${({ w }) => (w ? w : "fit-content")};
+  white-space: ${({ ws }) => (ws ? ws : "nowrap")};
 `;
 
 /* 

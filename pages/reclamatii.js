@@ -8,6 +8,7 @@ import {
   SmallContainer,
   Container,
   H4Custom,
+  H6Custom,
 } from "../components/singleTags/elemetsCustom";
 import { ButtonWithIcon } from "../components/singleTags/ButtonWithIcon";
 import { useDispatch, useSelector } from "react-redux";
@@ -35,11 +36,12 @@ const Reclamatii = () => {
     <Container>
       <SmallContainer bg p="0">
         <SmallContainer className={styles.infoContainer} p="0">
+          <H4Custom w="100%"> 🔖&emsp;Depune o reclamație</H4Custom>
           <LabelCustom>
             &emsp;Reclamația dumneavoastră va fi supusă unui control în detaliu.
             Dacă nu se găsesc nereguli, anunțul reclamat nu va fi șters sau
-            modificat. Ne poti trimite detalii in formularul de mai jos, sau pe
-            WhatsApp (captura de ecran sau in scris).
+            modificat. Ne poti trimite detalii în formularul de mai jos, sau pe
+            WhatsApp (captură de ecran sau în scris).
           </LabelCustom>
         </SmallContainer>
 
@@ -116,8 +118,8 @@ const Reclamatii = () => {
 
           <Wrapper className={styles.whatsapp}>
             <p>- sau -</p>
-            <div className={styles.bottomPartWhatsApp}>
-              <H4Custom>Ne poți trimite pe &nbsp;</H4Custom>
+            <H6Custom>
+              Ne poți trimite pe &nbsp;
               <a
                 href="http://wa.me/+40748221577"
                 target="_blank"
@@ -126,7 +128,7 @@ const Reclamatii = () => {
               >
                 WhatsApp
               </a>
-            </div>
+            </H6Custom>
           </Wrapper>
         </SmallContainer>
       </SmallContainer>

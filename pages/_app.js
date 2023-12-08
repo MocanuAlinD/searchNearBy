@@ -4,6 +4,8 @@ import toast, { Toaster } from "react-hot-toast";
 import { Provider } from "react-redux";
 import { store } from "../fstore/store";
 import Layout from "../components/LayoutPage";
+import { useRouter } from "next/router";
+import PageTitle from "../components/pageTitle";
 
 function MyApp({ Component, pageProps }) {
   const initialLocation = {
@@ -13,6 +15,8 @@ function MyApp({ Component, pageProps }) {
   };
 
   const [location, setLocation] = useState(initialLocation);
+
+  const router = useRouter();
 
   useEffect(() => {
     if (localStorage.getItem("location")) {
@@ -25,6 +29,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <Provider store={store}>
       <Layout>
+        <PageTitle text={router.pathname.split("/")[1]} />
         <Component
           {...pageProps}
           location={location}

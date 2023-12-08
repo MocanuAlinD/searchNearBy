@@ -99,7 +99,6 @@ const Login = ({ req }) => {
   // LOG IN user
   const userLogIn = (e) => {
     e.preventDefault();
-    console.log(router.query.q);
     signInWithEmailAndPassword(auth, emailLogare, parolaLogare)
       .then((userCredential) => {
         const user = userCredential.user;
@@ -162,7 +161,11 @@ const Login = ({ req }) => {
       )}
       <Container>
         <SmallContainer p="0">
-          {uid ? <h4>User signed in</h4> : <h4>User NOT signed in</h4>}
+          {useSelector((state) => state.login.uid) ? (
+            <h4>User signed in</h4>
+          ) : (
+            <h4>User NOT signed in</h4>
+          )}
           <Wrapper className="d-flex flex-column flex-grow-1 justify-content-start align-items-center m-0 p-0 mt-3">
             <Wrapper className={styles.main}>
               <Wrapper className={styles.topButtons}>

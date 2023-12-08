@@ -1,6 +1,8 @@
 import React from "react";
 import {
   Container,
+  H4Custom,
+  LabelCustom,
   SmallContainer,
 } from "../components/singleTags/elemetsCustom";
 import styles from "../styles/contact.module.scss";
@@ -11,8 +13,8 @@ const Contact = () => {
   return (
     <Container className={styles.container}>
       <PageTitle text="Contact" />
-      <SmallContainer>
-        <h4 className={styles.title + " m-0 p-0 mb-5 text-center"}>Contact</h4>
+      <SmallContainer bg>
+        <H4Custom w="100%">☎︎&emsp;Contact</H4Custom>
         <p>
           Bine ați venit pe pagina noastră de contact! Suntem încântați să vă
           oferim mai multe informații și să răspundem întrebărilor

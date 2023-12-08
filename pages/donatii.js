@@ -4,6 +4,9 @@ import { ImCopy } from "react-icons/im";
 import toast from "react-hot-toast";
 import {
   Container,
+  H4Custom,
+  H5Custom,
+  H6Custom,
   SmallContainer,
 } from "../components/singleTags/elemetsCustom";
 
@@ -19,7 +22,9 @@ const Donatii = () => {
   return (
     <Container className={styles.donatii}>
       <SmallContainer bg>
-        <h2 className={styles.title}>Dragi prieteni,</h2>
+        <H4Custom p="1rem 0" m="0 auto">
+          Dragi prieteni,
+        </H4Custom>
         <p className={styles.para}>
           Vrem să vă spunem cât suntem de recunoscători pentru faptul că sunteți
           parte din această experiență minunată pe platforma noastră. Suntem
@@ -71,7 +76,7 @@ const Donatii = () => {
         </p>
         <hr className={styles.separator} />
         <div className={styles.cont}>
-          <h4>Cont ING: </h4>
+          <h4>Cont ING:</h4>
           <p>
             RO90ING1234567890ING
             <ImCopy

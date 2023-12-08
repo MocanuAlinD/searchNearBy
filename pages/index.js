@@ -14,6 +14,7 @@ import {
   setNoResTrigger,
 } from "../features/searchJudet/searchJudetSlice";
 import { Container } from "../components/singleTags/elemetsCustom";
+import PageTitle from "../components/pageTitle";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -24,6 +25,7 @@ export default function Home() {
   const loadSearch = useSelector((state) => state.search.loadSearch);
   const originalList = useSelector((state) => state.search.originalList);
   const noResTrigger = useSelector((state) => state.search.noResTrigger);
+
 
   // Button search only in judet
   const searchJudet = async () => {
@@ -121,6 +123,7 @@ export default function Home() {
 
   return (
     <Container>
+      <PageTitle text="SearchNearBy" />
       <div
         className={
           styles.mainContainer +

@@ -4,6 +4,7 @@ const initialState = {
   emailLogare: "alin_ngt@yahoo.com",
   parolaLogare: "mocanu",
   uid: "",
+  logImage: "",
 };
 
 export const loginSlice = createSlice({
@@ -19,8 +20,11 @@ export const loginSlice = createSlice({
     setUid: (state, action) => {
       state.uid = action.payload;
     },
+    setImage: (state, action) => {
+      state.logImage = action.payload;
+    },
   },
 });
 
-export const { setEmail, setPassword, setUid } = loginSlice.actions;
+export const { setEmail, setPassword, setUid, setImage } = loginSlice.actions;
 export default loginSlice.reducer;

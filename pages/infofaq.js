@@ -3,14 +3,18 @@ import styles from "../styles/infofaq.module.scss";
 import {
   Container,
   SmallContainer,
+  H4Custom,
+  LabelCustom,
 } from "../components/singleTags/elemetsCustom";
 
 const Info = () => {
   return (
     <Container>
       <SmallContainer bg>
-        <h2 className="text-center fs-2">Info & FAQ</h2>
-        <p style={{ fontWeight: "200" }}>
+        <H4Custom w="100%" m="0 0 1rem 0">
+          ℹ️&emsp;Info & FAQ
+        </H4Custom>
+        <LabelCustom>
           &emsp;Bine ați venit pe platforma noastră dedicată micilor afaceri din
           România! Suntem mândri să vă oferim oportunitatea de a descoperi și
           accesa servicii de la aceste întreprinderi locale. Ne-am dedicat
@@ -31,7 +35,7 @@ const Info = () => {
           comunității noastre și descoperiți servicii de calitate superioară de
           la micile afaceri din întreaga țară. Apreciază și sprijină
           antreprenorii locali.
-        </p>
+        </LabelCustom>
       </SmallContainer>
     </Container>
   );

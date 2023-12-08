@@ -8,13 +8,14 @@
     color: $color-light;
     text-decoration-thickness: 0.1rem;
     margin-top: 2rem;
-    font-size: clamp(1.3rem, 4.5vw, 2rem);
+    font-size: clamp(0.8rem, 4.5vw, 2rem);
   }
 
   .para {
     color: $color-light;
     font-weight: 200;
-    font-size: clamp(0.8rem, 2.5vw, 1rem);
+    // font-size: clamp(0.4rem, 2.5vw, 1rem);
+    // font-size: normal;
     line-height: 135%;
 
     .gratuit {

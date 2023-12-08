@@ -7,7 +7,7 @@ import styles from "../styles/Switch.module.scss";
 const Switch = () => {
   const dispatch = useDispatch();
   return (
-    <div className="d-flex justify-content-between gap-2 mx-2">
+    <div className="w-100 d-flex justify-content-start gap-2 mx-2">
       <input
         type="checkbox"
         id="change"
