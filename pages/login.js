@@ -4,6 +4,7 @@ import {
   Wrapper,
   LabelCustom,
   InputCustom,
+  SmallContainer,
 } from "../components/singleTags/elemetsCustom";
 import styles from "../styles/login.module.scss";
 import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
@@ -160,160 +161,168 @@ const Login = ({ req }) => {
         <LoadingCheckUser changeLoadState={() => setLoading((prev) => false)} />
       )}
       <Container>
-        {uid ? <h4>User signed in</h4> : <h4>User NOT signed in</h4>}
-        <Wrapper className="d-flex flex-column flex-grow-1 justify-content-start align-items-center m-0 p-0 mt-3">
-          <Wrapper className={styles.main}>
-            <Wrapper className={styles.topButtons}>
-              <button
-                onClick={changeLeft}
-                className={styles.buttonLeft}
-                id="buttonLeft"
-              >
-                Logare in cont
-              </button>
-              <button
-                onClick={changeRight}
-                className={styles.buttonRight}
-                id="buttonRight"
-              >
-                Creeaza cont nou
-              </button>
-            </Wrapper>
-
-            <div className={styles.torotate}>
-              <Wrapper className={styles.bottomContainer} id="bottomContainer">
-                <form className={styles.cardLeft} onSubmit={userLogIn}>
-                  <Wrapper className={styles.wrapper}>
-                    <LabelCustom htmlFor="emailLogare">Email:</LabelCustom>
-                    <InputCustom
-                      id="emailLogare"
-                      value={emailLogare}
-                      onChange={(e) => dispatch(setEmail(e.target.value))}
-                    />
-                  </Wrapper>
-                  <Wrapper className={styles.wrapper}>
-                    <LabelCustom htmlFor="password">Parola:</LabelCustom>
-                    <div className="d-flex justify-content-center align-items-center">
-                      <InputCustom
-                        id="password"
-                        type="password"
-                        value={parolaLogare}
-                        onChange={(e) => dispatch(setPassword(e.target.value))}
-                      />
-                      {showHidePassword ? (
-                        <IoEyeOutline
-                          className={styles.showHidePassword}
-                          onClick={() => (
-                            setShowHidePassword((prev) => !showHidePassword),
-                            (document.getElementById("password").type = "text")
-                          )}
-                        />
-                      ) : (
-                        <IoEyeOffOutline
-                          className={styles.showHidePassword}
-                          onClick={() => (
-                            setShowHidePassword((prev) => !showHidePassword),
-                            (document.getElementById("password").type =
-                              "password")
-                          )}
-                        />
-                      )}
-                    </div>
-                  </Wrapper>
-                  <Wrapper
-                    className={
-                      styles.wrapper + " m-0 p-0 d-flex  align-items-end"
-                    }
-                  >
-                    <h5
-                      role="button"
-                      className="m-0 p-0 py-2"
-                      onClick={forgotPassword}
-                    >
-                      Ai uitat parola?
-                    </h5>
-                  </Wrapper>
-                  <Wrapper className={styles.wrapper}>
-                    <button className={styles.buttonLogare}>
-                      Intra in cont
-                    </button>
-                  </Wrapper>
-                </form>
-
-                <div className={styles.cardRight}>
-                  <Wrapper className={styles.wrapper}>
-                    <LabelCustom htmlFor="emailInregistrare">
-                      Email:
-                    </LabelCustom>
-                    <InputCustom
-                      id="emailInregistrare"
-                      pattern="^\w+([\.\-]?\w+)*@\w+([\.\-]?\w+)*(\.[a-zA-Z]{2,3})+$"
-                      required
-                      value={emailInregistrare}
-                      placeholder="adresa email"
-                      onChange={(e) =>
-                        dispatch(setEmailInregistrare(e.target.value))
-                      }
-                    />
-                  </Wrapper>
-                  <Wrapper className={styles.wrapper}>
-                    <LabelCustom htmlFor="parolaOne">Parola:</LabelCustom>
-                    <InputCustom
-                      id="parolaOne"
-                      pattern="[0-9a-zA-Z!@#$%^&*,.]+"
-                      value={parolaOne}
-                      placeholder="6 caractere minim"
-                      required
-                      minLength={6}
-                      autoComplete="off"
-                      onChange={(e) => dispatch(setParolaOne(e.target.value))}
-                    />
-                    <span>Parola invalida</span>
-                  </Wrapper>
-                  <Wrapper className={styles.wrapper}>
-                    <LabelCustom htmlFor="parolaTwo">
-                      Reintrodu parola:
-                    </LabelCustom>
-                    <InputCustom
-                      id="parolaTwo"
-                      placeholder="reintrodu parola"
-                      required
-                      pattern={parolaOne}
-                      value={parolaTwo}
-                      autoComplete="off"
-                      onChange={(e) => dispatch(setParolaTwo(e.target.value))}
-                    />
-                    <span>Parolele nu corespund</span>
-                  </Wrapper>
-
-                  <Wrapper
-                    className={styles.wrapper + "  " + styles.endButtons}
-                  >
-                    <button
-                      className={styles.buttonLogare}
-                      onClick={() => dispatch(setInitialStateInregistrare())}
-                    >
-                      Reset
-                    </button>
-
-                    <button
-                      className={styles.buttonLogare}
-                      onClick={addNewUserToAuthDB}
-                    >
-                      Creeaza cont
-                    </button>
-                  </Wrapper>
-                </div>
+        <SmallContainer p="0">
+          {uid ? <h4>User signed in</h4> : <h4>User NOT signed in</h4>}
+          <Wrapper className="d-flex flex-column flex-grow-1 justify-content-start align-items-center m-0 p-0 mt-3">
+            <Wrapper className={styles.main}>
+              <Wrapper className={styles.topButtons}>
+                <button
+                  onClick={changeLeft}
+                  className={styles.buttonLeft}
+                  id="buttonLeft"
+                >
+                  Logare in cont
+                </button>
+                <button
+                  onClick={changeRight}
+                  className={styles.buttonRight}
+                  id="buttonRight"
+                >
+                  Creeaza cont nou
+                </button>
               </Wrapper>
-            </div>
+
+              <div className={styles.torotate}>
+                <Wrapper
+                  className={styles.bottomContainer}
+                  id="bottomContainer"
+                >
+                  <form className={styles.cardLeft} onSubmit={userLogIn}>
+                    <Wrapper className={styles.wrapper}>
+                      <LabelCustom htmlFor="emailLogare">Email:</LabelCustom>
+                      <InputCustom
+                        id="emailLogare"
+                        value={emailLogare}
+                        onChange={(e) => dispatch(setEmail(e.target.value))}
+                      />
+                    </Wrapper>
+                    <Wrapper className={styles.wrapper}>
+                      <LabelCustom htmlFor="password">Parola:</LabelCustom>
+                      <div className="d-flex justify-content-center align-items-center">
+                        <InputCustom
+                          id="password"
+                          type="password"
+                          value={parolaLogare}
+                          onChange={(e) =>
+                            dispatch(setPassword(e.target.value))
+                          }
+                        />
+                        {showHidePassword ? (
+                          <IoEyeOutline
+                            className={styles.showHidePassword}
+                            onClick={() => (
+                              setShowHidePassword((prev) => !showHidePassword),
+                              (document.getElementById("password").type =
+                                "text")
+                            )}
+                          />
+                        ) : (
+                          <IoEyeOffOutline
+                            className={styles.showHidePassword}
+                            onClick={() => (
+                              setShowHidePassword((prev) => !showHidePassword),
+                              (document.getElementById("password").type =
+                                "password")
+                            )}
+                          />
+                        )}
+                      </div>
+                    </Wrapper>
+                    <Wrapper
+                      className={
+                        styles.wrapper + " m-0 p-0 d-flex  align-items-end"
+                      }
+                    >
+                      <h5
+                        role="button"
+                        className="m-0 p-0 py-2"
+                        onClick={forgotPassword}
+                      >
+                        Ai uitat parola?
+                      </h5>
+                    </Wrapper>
+                    <Wrapper className={styles.wrapper}>
+                      <button className={styles.buttonLogare}>
+                        Intra in cont
+                      </button>
+                    </Wrapper>
+                  </form>
+
+                  <div className={styles.cardRight}>
+                    <Wrapper className={styles.wrapper}>
+                      <LabelCustom htmlFor="emailInregistrare">
+                        Email:
+                      </LabelCustom>
+                      <InputCustom
+                        id="emailInregistrare"
+                        pattern="^\w+([\.\-]?\w+)*@\w+([\.\-]?\w+)*(\.[a-zA-Z]{2,3})+$"
+                        required
+                        value={emailInregistrare}
+                        placeholder="adresa email"
+                        onChange={(e) =>
+                          dispatch(setEmailInregistrare(e.target.value))
+                        }
+                      />
+                    </Wrapper>
+                    <Wrapper className={styles.wrapper}>
+                      <LabelCustom htmlFor="parolaOne">Parola:</LabelCustom>
+                      <InputCustom
+                        id="parolaOne"
+                        pattern="[0-9a-zA-Z!@#$%^&*,.]+"
+                        value={parolaOne}
+                        placeholder="6 caractere minim"
+                        required
+                        minLength={6}
+                        autoComplete="off"
+                        onChange={(e) => dispatch(setParolaOne(e.target.value))}
+                      />
+                      <span>Parola invalida</span>
+                    </Wrapper>
+                    <Wrapper className={styles.wrapper}>
+                      <LabelCustom htmlFor="parolaTwo">
+                        Reintrodu parola:
+                      </LabelCustom>
+                      <InputCustom
+                        id="parolaTwo"
+                        placeholder="reintrodu parola"
+                        required
+                        pattern={parolaOne}
+                        value={parolaTwo}
+                        autoComplete="off"
+                        onChange={(e) => dispatch(setParolaTwo(e.target.value))}
+                      />
+                      <span>Parolele nu corespund</span>
+                    </Wrapper>
+
+                    <Wrapper
+                      className={styles.wrapper + "  " + styles.endButtons}
+                    >
+                      <button
+                        className={styles.buttonLogare}
+                        onClick={() => dispatch(setInitialStateInregistrare())}
+                      >
+                        Reset
+                      </button>
+
+                      <button
+                        className={styles.buttonLogare}
+                        onClick={addNewUserToAuthDB}
+                      >
+                        Creeaza cont
+                      </button>
+                    </Wrapper>
+                  </div>
+                </Wrapper>
+              </div>
+            </Wrapper>
           </Wrapper>
-        </Wrapper>
-        <div className="d-flex align-items-center justify-content-center gap-5 p-2">
-          <button onClick={checkUserSignedIn}>
-            Verifica daca userul este autentificat
-          </button>
-          <button onClick={userLogOut}>Sign out</button>
-        </div>
+          <div className="d-flex align-items-center justify-content-center gap-5 p-2">
+            <button onClick={checkUserSignedIn}>
+              Verifica daca userul este autentificat
+            </button>
+            <button onClick={userLogOut}>Sign out</button>
+          </div>
+        </SmallContainer>
       </Container>
     </>
   );

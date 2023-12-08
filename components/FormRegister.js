@@ -119,7 +119,7 @@ const FormRegister = () => {
 
   return (
     <form onSubmit={postData} method="GET" className="col-12">
-      <SmallContainer>
+      <SmallContainer bg>
         <Wrapper>
           <LabelCustom htmlFor="numeUtilizator">
             Nume Prenume / Nume companie

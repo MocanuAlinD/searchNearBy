@@ -1,19 +1,17 @@
 import React from "react";
 import styles from "../styles/infofaq.module.scss";
-import { Container } from "../components/singleTags/elemetsCustom";
+import {
+  Container,
+  SmallContainer,
+} from "../components/singleTags/elemetsCustom";
 
 const Info = () => {
   return (
     <Container>
-      <div
-        className={
-          styles.contentContainer +
-          " m-0 p-0 p-5 d-flex justify-content-center align-items-start flex-column"
-        }
-      >
-        <h2 className={styles.title}>Info & FAQ</h2>
-        <p>
-          Bine ați venit pe platforma noastră dedicată micilor afaceri din
+      <SmallContainer bg>
+        <h2 className="text-center fs-2">Info & FAQ</h2>
+        <p style={{ fontWeight: "200" }}>
+          &emsp;Bine ați venit pe platforma noastră dedicată micilor afaceri din
           România! Suntem mândri să vă oferim oportunitatea de a descoperi și
           accesa servicii de la aceste întreprinderi locale. Ne-am dedicat
           misiunii de a sprijini aceste afaceri și de a face procesul de găsire
@@ -34,8 +32,7 @@ const Info = () => {
           la micile afaceri din întreaga țară. Apreciază și sprijină
           antreprenorii locali.
         </p>
-        <hr />
-      </div>
+      </SmallContainer>
     </Container>
   );
 };
