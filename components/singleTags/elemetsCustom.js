@@ -198,7 +198,7 @@ export const H4Custom = styled.h4`
   white-space: ${({ ws }) => (ws ? ws : "nowrap")};
 `;
 
-export const H5Custom = styled.h5`
+export const H6Custom = styled(H4Custom)`
   color: ${({ color }) => (color ? color : "var(--color-light)")};
   font-size: ${({ fs }) => (fs ? fs : "")};
   font-weight: ${({ fw }) => (fw ? fw : "400")};
@@ -212,18 +212,15 @@ export const H5Custom = styled.h5`
   white-space: ${({ ws }) => (ws ? ws : "nowrap")};
 `;
 
-export const H6Custom = styled(H4Custom)`
-  color: ${({ color }) => (color ? color : "var(--color-light)")};
-  font-size: ${({ fs }) => (fs ? fs : "")};
-  font-weight: ${({ fw }) => (fw ? fw : "400")};
-  background: ${({ bg }) => (bg ? bg : "")};
-  display: ${({ display }) => (display ? display : "flex")};
-  justify-content: ${({ jc }) => (jc ? js : "center")};
-  align-items: ${({ ai }) => (ai ? ai : "center")};
-  margin: ${({ m }) => (m ? m : "0")};
-  padding: ${({ p }) => (p ? p : "0")};
-  width: ${({ w }) => (w ? w : "fit-content")};
-  white-space: ${({ ws }) => (ws ? ws : "nowrap")};
+export const ParaCustom = styled.p`
+margin: ${({ m }) => (m ? m : "0")};
+padding: ${({ p }) => (p ? p : "0")};
+color: ${({ clr }) => (clr ? clr : "var(--color-light)")};
+font-weight: ${({ fw }) => (fw ? fw : "200")};
+font-size: ${({ fs }) => (fs ? fs : ".9rem")};
+width: ${({ w }) => (w ? w : "100%")};
+/* line-height: 135%; */
+/* border: 1px solid red; */
 `;
 
 /* 

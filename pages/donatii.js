@@ -5,9 +5,9 @@ import toast from "react-hot-toast";
 import {
   Container,
   H4Custom,
-  H5Custom,
   H6Custom,
   SmallContainer,
+  ParaCustom,
 } from "../components/singleTags/elemetsCustom";
 
 const Donatii = () => {
@@ -25,22 +25,22 @@ const Donatii = () => {
         <H4Custom p="1rem 0" m="0 auto">
           Dragi prieteni,
         </H4Custom>
-        <p className={styles.para}>
+        <ParaCustom className={styles.para}>
           Vrem să vă spunem cât suntem de recunoscători pentru faptul că sunteți
           parte din această experiență minunată pe platforma noastră. Suntem
-          mândri să oferim servicii{" "}
-          <span className={styles.gratuit}>gratuite</span> atât pentru cei care
-          oferă servicii, cât și pentru cei care le utilizează, dar asta vine cu
-          cheltuieli pentru a menține platforma în funcțiune și în dezvoltare
-          continuă.
-        </p>
-        <p className={styles.para}>
+          mândri să oferim servicii&emsp;
+          <span className={styles.gratuit}>gratuite</span>&emsp;atât pentru cei
+          care oferă servicii, cât și pentru cei care le utilizează, dar asta
+          vine cu cheltuieli pentru a menține platforma în funcțiune și în
+          dezvoltare continuă.
+        </ParaCustom>
+        <ParaCustom className={styles.para}>
           Am decis să nu percepem taxe pentru a facilita accesul la serviciile
           noastre, pentru a sprijini micile afaceri și antreprenorii. Cu toate
           acestea, pentru a asigura o experiență de calitate, avem nevoie de
           sprijinul vostru. Donațiile voastre sunt cruciale pentru a ne ajuta să
           finanțăm următoarele aspecte esențiale:
-        </p>
+        </ParaCustom>
         <ol>
           <li>
             <span>Baze de date robuste:</span> Donațiile contribuie la creșterea
@@ -65,7 +65,7 @@ const Donatii = () => {
             plăcută. Donațiile ne ajută să compensăm aceste pierderi.
           </li>
         </ol>
-        <p className={styles.para}>
+        <ParaCustom className={styles.para}>
           Fiecare donație, indiferent de mărime, face o diferență semnificativă.
           Vă rugăm să vă gândiți să sprijiniți platforma noastră pentru a
           continua să oferim servicii de calitate superioară și pentru a susține
@@ -73,27 +73,31 @@ const Donatii = () => {
           voastră și pentru că sunteți alături de noi în această călătorie. Cu
           sprijinul vostru, suntem hotărâți să facem platforma noastră și mai
           bună și mai utilă pentru toți utilizatorii noștri.
-        </p>
+        </ParaCustom>
         <hr className={styles.separator} />
         <div className={styles.cont}>
-          <h4>Cont ING:</h4>
-          <p>
+          <H4Custom p="0 1rem 0 0" m="0" fs="1rem" fw="200">
+            Cont ING:
+          </H4Custom>
+          <ParaCustom>
             RO90ING1234567890ING
             <ImCopy
               className={styles.copyIcon}
               onClick={() => copyToClipboard("RO90ING1234567890ING")}
             />
-          </p>
+          </ParaCustom>
         </div>
         <div className={styles.cont}>
-          <h4>Cont BT: </h4>
-          <p>
+          <H4Custom p="0 1rem 0 0" m="0" fs="1rem" fw="200">
+            Cont BT:{" "}
+          </H4Custom>
+          <ParaCustom>
             RO90BT9876543210BT
             <ImCopy
               className={styles.copyIcon}
               onClick={() => copyToClipboard("RO90BT9876543210BT")}
             />
-          </p>
+          </ParaCustom>
         </div>
       </SmallContainer>
     </Container>

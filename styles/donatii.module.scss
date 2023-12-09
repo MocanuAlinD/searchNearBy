@@ -4,39 +4,25 @@
   text-align: justify;
   user-select: none;
 
-  .title {
-    color: $color-light;
-    text-decoration-thickness: 0.1rem;
-    margin-top: 2rem;
-    font-size: clamp(0.8rem, 4.5vw, 2rem);
-  }
-
-  .para {
-    color: $color-light;
-    font-weight: 200;
-    // font-size: clamp(0.4rem, 2.5vw, 1rem);
-    // font-size: normal;
-    line-height: 135%;
-
-    .gratuit {
-      font-weight: 400;
-      text-transform: uppercase;
-      font-size: clamp(0.8rem, 2.5vw, 1rem);
-      letter-spacing: 1px;
-    }
+  .gratuit {
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: clamp(0.8rem, 2.5vw, 1rem);
+    letter-spacing: 1px;
+    text-decoration: underline;
+    text-underline-offset: 0.15rem;
   }
 
   .para:first-letter {
     color: $color-blue-light;
     font-weight: 400;
-    font-size: clamp(1.1rem, 3vw, 1.4rem);
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
     padding-right: 0.1rem;
     margin-left: 2rem;
   }
 
   ol {
     color: $color-light;
-    width: 100%;
 
     li {
       font-weight: 200;
@@ -53,32 +39,11 @@
   }
 
   .cont {
-    width: 100%;
     display: flex;
-    justify-content: center;
     align-items: center;
-    color: $color-light;
-
-    h4 {
-      margin: 0;
-      padding: 0;
-      white-space: nowrap;
-      padding-right: 1rem;
-      font-size: clamp(0.8rem, 2.5vw, 1rem);
-      font-weight: 200;
-      width: 5rem;
-      text-align: end;
-    }
+    justify-content: center;
 
     p {
-      margin: 0;
-      padding: 0;
-      display: flex;
-      align-items: center;
-      font-size: clamp(0.85rem, 2.5vw, 1.05rem);
-      user-select: text;
-      width: 100%;
-
       .copyIcon {
         color: $color-light;
         margin-left: 1rem;
@@ -111,6 +76,7 @@
 
       p {
         justify-content: center;
+        text-align: center;
       }
     }
   }
