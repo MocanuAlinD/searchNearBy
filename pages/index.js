@@ -15,13 +15,9 @@ import {
 } from "../features/searchJudet/searchJudetSlice";
 import { Container } from "../components/singleTags/elemetsCustom";
 import PageTitle from "../components/pageTitle";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { useEffect } from "react";
-import { setImage, setUid } from "../features/login/loginSlice";
 
 export default function Home() {
   const dispatch = useDispatch();
-  const auth = getAuth();
   const oras = useSelector((state) => state.search.oras);
   const judet = useSelector((state) => state.search.judet);
   const cautare = useSelector((state) => state.search.cautare);
@@ -29,18 +25,6 @@ export default function Home() {
   const loadSearch = useSelector((state) => state.search.loadSearch);
   const originalList = useSelector((state) => state.search.originalList);
   const noResTrigger = useSelector((state) => state.search.noResTrigger);
-
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        dispatch(setUid(user.uid));
-        dispatch(setImage("icon48.png"));
-      } else {
-        dispatch(setUid(""));
-        dispatch(setImage("iconwho48.png"));
-      }
-    });
-  }, []);
 
   // Button search only in judet
   const searchJudet = async () => {
