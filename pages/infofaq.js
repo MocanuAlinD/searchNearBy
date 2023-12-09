@@ -5,16 +5,17 @@ import {
   SmallContainer,
   H4Custom,
   LabelCustom,
+  ParaCustom,
 } from "../components/singleTags/elemetsCustom";
 
 const Info = () => {
   return (
     <Container>
       <SmallContainer bg>
-        <H4Custom w="100%" m="0 0 1rem 0">
+        <H4Custom w="100%" className="mb-3">
           ℹ️&emsp;Info & FAQ
         </H4Custom>
-        <LabelCustom>
+        <ParaCustom>
           &emsp;Bine ați venit pe platforma noastră dedicată micilor afaceri din
           România! Suntem mândri să vă oferim oportunitatea de a descoperi și
           accesa servicii de la aceste întreprinderi locale. Ne-am dedicat
@@ -35,7 +36,7 @@ const Info = () => {
           comunității noastre și descoperiți servicii de calitate superioară de
           la micile afaceri din întreaga țară. Apreciază și sprijină
           antreprenorii locali.
-        </LabelCustom>
+        </ParaCustom>
       </SmallContainer>
     </Container>
   );

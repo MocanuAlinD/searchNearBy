@@ -162,7 +162,7 @@ const Login = ({ req }) => {
       <Container>
         <SmallContainer p="0">
           <Wrapper className="d-flex flex-column flex-grow-1 justify-content-start align-items-center m-0 p-0">
-            <Wrapper className={styles.main}>
+            <Wrapper className={styles.main} m="0">
               <Wrapper className={styles.topButtons}>
                 <ButtonWithIcon
                   onClick={changeLeft}
@@ -252,7 +252,6 @@ const Login = ({ req }) => {
                       <InputCustom
                         id="emailInregistrare"
                         pattern="^\w+([\.\-]?\w+)*@\w+([\.\-]?\w+)*(\.[a-zA-Z]{2,3})+$"
-                        required
                         value={emailInregistrare}
                         placeholder="adresa email"
                         onChange={(e) =>
@@ -267,7 +266,6 @@ const Login = ({ req }) => {
                         pattern="[0-9a-zA-Z!@#$%^&*,.]+"
                         value={parolaOne}
                         placeholder="6 caractere minim"
-                        required
                         minLength={6}
                         autoComplete="off"
                         onChange={(e) => dispatch(setParolaOne(e.target.value))}
@@ -281,7 +279,6 @@ const Login = ({ req }) => {
                       <InputCustom
                         id="parolaTwo"
                         placeholder="reintrodu parola"
-                        required
                         pattern={parolaOne}
                         value={parolaTwo}
                         autoComplete="off"
@@ -314,13 +311,13 @@ const Login = ({ req }) => {
                 </Wrapper>
               </div>
             </Wrapper>
+            <div className="w-100 d-flex gap-3">
+              <ButtonWithIcon onClick={checkUserSignedIn}>
+                Verifica userul
+              </ButtonWithIcon>
+              <ButtonWithIcon onClick={userLogOut}>Sign out</ButtonWithIcon>
+            </div>
           </Wrapper>
-          <div className="d-flex align-items-center justify-content-center gap-5">
-            <ButtonWithIcon onClick={checkUserSignedIn}>
-              Verifica userul
-            </ButtonWithIcon>
-            <ButtonWithIcon onClick={userLogOut}>Sign out</ButtonWithIcon>
-          </div>
         </SmallContainer>
       </Container>
     </>

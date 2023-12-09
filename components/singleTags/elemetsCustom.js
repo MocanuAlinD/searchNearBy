@@ -219,6 +219,7 @@ color: ${({ clr }) => (clr ? clr : "var(--color-light)")};
 font-weight: ${({ fw }) => (fw ? fw : "200")};
 font-size: ${({ fs }) => (fs ? fs : ".9rem")};
 width: ${({ w }) => (w ? w : "100%")};
+text-align: ${({ ta }) => (ta ? ta : "justify")};
 /* line-height: 135%; */
 /* border: 1px solid red; */
 `;

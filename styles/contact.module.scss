@@ -1,8 +1,5 @@
 .container {
   p {
-    text-align: justify;
-    color: var(--color-light);
-    font-weight: 200;
     margin-bottom: 2rem;
 
     span {
@@ -18,9 +15,5 @@
       padding: 0 1rem;
       font-weight: 400;
     }
-  }
-
-  .title {
-    color: var(--color-light);
   }
 }

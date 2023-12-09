@@ -9,6 +9,7 @@ import {
   Container,
   H4Custom,
   H6Custom,
+  ParaCustom,
 } from "../components/singleTags/elemetsCustom";
 import { ButtonWithIcon } from "../components/singleTags/ButtonWithIcon";
 import { useDispatch, useSelector } from "react-redux";
@@ -37,12 +38,12 @@ const Reclamatii = () => {
       <SmallContainer bg p="0">
         <SmallContainer className={styles.infoContainer} p="0">
           <H4Custom w="100%"> 🔖&emsp;Depune o reclamație</H4Custom>
-          <LabelCustom>
+          <ParaCustom>
             &emsp;Reclamația dumneavoastră va fi supusă unui control în detaliu.
             Dacă nu se găsesc nereguli, anunțul reclamat nu va fi șters sau
             modificat. Ne poti trimite detalii în formularul de mai jos, sau pe
             WhatsApp (captură de ecran sau în scris).
-          </LabelCustom>
+          </ParaCustom>
         </SmallContainer>
 
         <SmallContainer p="0">
@@ -107,18 +108,20 @@ const Reclamatii = () => {
               <ButtonWithIcon
                 type="reset"
                 border="1px solid var(--color-blue-light)"
-                bg="none"
+                bg="transparent"
                 onClick={() => dispatch(setInitialStateReclamatie())}
               >
                 Reset
               </ButtonWithIcon>
-              <ButtonWithIcon type="submit">Trimite</ButtonWithIcon>
+              <ButtonWithIcon type="submit" bg="var(--color-blue-darkish)">
+                Trimite
+              </ButtonWithIcon>
             </div>
           </form>
 
           <Wrapper className={styles.whatsapp}>
-            <p>- sau -</p>
-            <H6Custom>
+            <ParaCustom ta="center">- sau -</ParaCustom>
+            <H6Custom className={styles.h6}>
               Ne poți trimite pe &nbsp;
               <a
                 href="http://wa.me/+40748221577"
