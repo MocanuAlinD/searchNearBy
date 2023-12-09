@@ -8,6 +8,7 @@ import styled from "styled-components";
 
 props: 
 color - color
+hcolor - hover color
 fs - font size
 m - margin
 p - padding
@@ -18,12 +19,13 @@ hasIcon
 */
 
 export const ButtonWithIcon = styled.button`
-  background: ${({ bg }) => (bg ? bg : "var(--color-blue-darkish)")};
+  background-color: ${({ bg }) => (bg ? bg : "var(--color-blue-dark)")};
   border-radius: var(--border-radius);
   border: ${({ border }) => (border ? border : "none")};
   color: ${({ color }) => (color ? color : "var(--color-light)")};
-  font-size: ${({ fs }) => (fs ? fs : "var(--font-size08)")};
-  font-weight: 200;
+  /* font-size: ${({ fs }) => (fs ? fs : "var(--font-size08)")}; */
+  font-size: ${({ fs }) => (fs ? fs : "clamp(.8rem, 1.6vw, 1rem)")};
+  font-weight: 400;
   margin: ${({ m }) => (m ? m : ".5rem 0")};
   overflow: hidden;
   padding: ${({ hasIcon, p }) => (hasIcon ? ".4rem 0" : p ? p : "0.5rem 0")};
@@ -34,7 +36,7 @@ export const ButtonWithIcon = styled.button`
   width: ${({ hasIcon, w }) => (hasIcon ? (w ? w : "100%") : w ? w : "100%")};
   .iconContainer {
     align-items: center;
-    background: var(--color-blue-dark);
+    background-color: var(--color-blue-dark);
     border-radius: 0 0 0.8rem 0;
     display: flex;
     display: ${({ hasIcon }) => (hasIcon ? "flex" : "none")};
@@ -44,18 +46,18 @@ export const ButtonWithIcon = styled.button`
     position: absolute;
     padding: 0 0.35rem;
     top: 0;
-    transition: all 0.35s ease-out;
+    transition: var(--transition);
     width: fit-content;
     .icon {
       font-size: ${({ fs }) => (fs ? fs : "var(--font-size1)")};
     }
   }
   &:hover {
-    background: ${({ bgHover }) =>
-      bgHover ? bgHover : "var(--color-blue-dark)"};
+    background-color: ${({ bgHover }) => (bgHover ? bgHover : "")};
     padding-left: ${({ hasIcon, pl }) => (hasIcon ? ".5rem" : pl ? pl : "0")};
     width: ${({ hasIcon, w }) => (hasIcon ? (w ? w : "100%") : w ? w : "100%")};
     transition-delay: ${({ hasIcon }) => (hasIcon ? "0.15s" : "0")};
+    color: ${({ hcolor }) => (hcolor ? hcolor : "var(--color-blue)")};
   }
   &:hover .iconContainer {
     transform: translateX(-100%);

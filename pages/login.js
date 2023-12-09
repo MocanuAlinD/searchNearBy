@@ -32,6 +32,7 @@ import {
   setInitialStateInregistrare,
 } from "../features/signup/signupSlice";
 import { useRouter } from "next/router";
+import { ButtonWithIcon } from "../components/singleTags/ButtonWithIcon";
 
 const Login = ({ req }) => {
   const dispatch = useDispatch();
@@ -57,8 +58,8 @@ const Login = ({ req }) => {
     const el = document.getElementById("bottomContainer");
     el.style.transform = "rotateY(0deg)";
     const el1 = document.getElementById("buttonLeft");
-    el1.style.backgroundColor = "var(--color-blue-darkish)";
     const el2 = document.getElementById("buttonRight");
+    el1.style.backgroundColor = "var(--color-blue-darkish)";
     el2.style.backgroundColor = "var(--color-darkish";
   };
 
@@ -66,8 +67,8 @@ const Login = ({ req }) => {
     const el = document.getElementById("bottomContainer");
     el.style.transform = "rotateY(180deg)";
     const el1 = document.getElementById("buttonLeft");
-    el1.style.backgroundColor = "var(--color-darkish";
     const el2 = document.getElementById("buttonRight");
+    el1.style.backgroundColor = "var(--color-darkish";
     el2.style.backgroundColor = "var(--color-blue-darkish";
   };
 
@@ -160,28 +161,23 @@ const Login = ({ req }) => {
       )}
       <Container>
         <SmallContainer p="0">
-          {useSelector((state) => state.login.uid) ? (
-            <h4>User signed in</h4>
-          ) : (
-            <h4>User NOT signed in</h4>
-          )}
-          <Wrapper className="d-flex flex-column flex-grow-1 justify-content-start align-items-center m-0 p-0 mt-3">
+          <Wrapper className="d-flex flex-column flex-grow-1 justify-content-start align-items-center m-0 p-0">
             <Wrapper className={styles.main}>
               <Wrapper className={styles.topButtons}>
-                <button
+                <ButtonWithIcon
                   onClick={changeLeft}
-                  className={styles.buttonLeft}
                   id="buttonLeft"
+                  bg="var(--color-blue-darkish)"
                 >
                   Logare in cont
-                </button>
-                <button
+                </ButtonWithIcon>
+                <ButtonWithIcon
                   onClick={changeRight}
-                  className={styles.buttonRight}
                   id="buttonRight"
+                  bg="var(--color-darkish)"
                 >
                   Creeaza cont nou
-                </button>
+                </ButtonWithIcon>
               </Wrapper>
 
               <div className={styles.torotate}>
@@ -244,9 +240,7 @@ const Login = ({ req }) => {
                       </h5>
                     </Wrapper>
                     <Wrapper className={styles.wrapper}>
-                      <button className={styles.buttonLogare}>
-                        Intra in cont
-                      </button>
+                      <ButtonWithIcon>Intra in cont</ButtonWithIcon>
                     </Wrapper>
                   </form>
 
@@ -299,30 +293,33 @@ const Login = ({ req }) => {
                     <Wrapper
                       className={styles.wrapper + "  " + styles.endButtons}
                     >
-                      <button
-                        className={styles.buttonLogare}
+                      <ButtonWithIcon
+                        bg="transparent"
+                        bgHover="var(--color-blue-light)"
+                        border="1px solid var(--color-blue-dark)"
                         onClick={() => dispatch(setInitialStateInregistrare())}
                       >
                         Reset
-                      </button>
+                      </ButtonWithIcon>
 
-                      <button
-                        className={styles.buttonLogare}
+                      <ButtonWithIcon
+                        bg="var(--color-blue-dark)"
+                        bgHover="var(--color-blue-light)"
                         onClick={addNewUserToAuthDB}
                       >
                         Creeaza cont
-                      </button>
+                      </ButtonWithIcon>
                     </Wrapper>
                   </div>
                 </Wrapper>
               </div>
             </Wrapper>
           </Wrapper>
-          <div className="d-flex align-items-center justify-content-center gap-5 p-2">
-            <button onClick={checkUserSignedIn}>
-              Verifica daca userul este autentificat
-            </button>
-            <button onClick={userLogOut}>Sign out</button>
+          <div className="d-flex align-items-center justify-content-center gap-5">
+            <ButtonWithIcon onClick={checkUserSignedIn}>
+              Verifica userul
+            </ButtonWithIcon>
+            <ButtonWithIcon onClick={userLogOut}>Sign out</ButtonWithIcon>
           </div>
         </SmallContainer>
       </Container>
