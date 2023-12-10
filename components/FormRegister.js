@@ -21,6 +21,7 @@ import {
   setInitialState,
   changeState,
 } from "../features/inscriere/inscriereSlice";
+import { getDatabase, ref, push, child, onValue } from "firebase/database";
 
 const FormRegister = () => {
   const dispatch = useDispatch();
@@ -42,6 +43,7 @@ const FormRegister = () => {
   const judet = useSelector((state) => state.inscriere.judet);
   const oras = useSelector((state) => state.inscriere.oras);
   const listaOrase = useSelector((state) => state.inscriere.listaOrase);
+  const uid = useSelector((state) => state.login.uid);
 
   const MAX_CHAR_LENGTH = "255";
 
@@ -74,6 +76,7 @@ const FormRegister = () => {
 
   // Inregistrare fara plata
   const postData = async (e) => {
+    console.log("post data");
     e.preventDefault();
     const newPhone = phone.split(",");
     const newEmail = email.split(",");
@@ -107,14 +110,24 @@ const FormRegister = () => {
     const sendData = await fetch("/api/postData", {
       method: "POST",
       "Content-Type": "application/json",
-      body: JSON.stringify({ data: addData }),
+      body: JSON.stringify({ data: addData, uid }),
     });
-    const res = await sendData.json();
-    if (res.msg) {
-      toast.success(res.msg);
-    } else if (res.error) {
-      toast.error(res.error);
+    const { msg } = await sendData.json();
+    if (msg.msg) {
+      toast.success(msg.msg);
+    } else if (msg.error) {
+      toast.error(msg.error);
     }
+  };
+
+  const db = getDatabase();
+  const moc = ref(db, "searchUsers");
+
+  const getData = () => {
+    // console.log(uid);
+    onValue(moc, (s) => {
+      console.log(s.val());
+    });
   };
 
   return (
