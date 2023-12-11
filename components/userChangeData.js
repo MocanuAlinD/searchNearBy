@@ -4,21 +4,37 @@ import { ButtonWithIcon } from "../components/singleTags/ButtonWithIcon";
 import styles from "../styles/userChangeData.module.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { useRouter } from "next/router";
-import { signOutState } from "../features/login/loginSlice";
+import { getAuth, signOut } from "firebase/auth";
+import toast from "react-hot-toast";
+import { setUid } from "../features/login/loginSlice";
 
 const UserChangeData = ({ close }) => {
   const dispatch = useDispatch();
   const { push } = useRouter();
+  const auth = getAuth();
 
   const gotologin = () => {
     push("/login");
     close("-100%");
   };
 
-  const signOut = () => {
-    dispatch(signOutState());
+  // LOG OUT user
+  const userLogOut = () => {
     close("-100%");
+    if (auth.currentUser) {
+      signOut(auth)
+        .then(() => {
+          toast.success("Te-ai delogat cu succes.");
+          dispatch(setUid(""));
+        })
+        .catch((error) => {
+          toast.error("O eroare a aparul la delogare.");
+        });
+    } else {
+      toast.error("Esti deja delogat.");
+    }
   };
+
   return (
     <Container className={styles.userContainer + " w-100"} id="userIcon">
       <div className="d-flex flex-column my-2 align-items-center">
@@ -29,7 +45,7 @@ const UserChangeData = ({ close }) => {
           <ButtonWithIcon w="10rem">Modifica date profit</ButtonWithIcon>
         )}
         {useSelector((state) => state.login.uid) ? (
-          <ButtonWithIcon w="10rem" onClick={signOut}>
+          <ButtonWithIcon w="10rem" onClick={userLogOut}>
             Sign Out
           </ButtonWithIcon>
         ) : (

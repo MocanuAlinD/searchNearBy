@@ -103,7 +103,7 @@ const Login = ({ req }) => {
       .then((userCredential) => {
         const user = userCredential.user;
         dispatch(setUid(user.uid));
-        toast.success("User logged in successfuly");
+        toast.success(`Te-ai logat cu succes, \n${user.email}`);
         if (router.query.q === "inregistrare") {
           router.push("/inscriere");
         }
@@ -117,7 +117,7 @@ const Login = ({ req }) => {
       });
   };
 
-  // LOG OUT user
+  // LOG OUT user XXXX Exista deja in componenta "userChangeData"
   const userLogOut = () => {
     if (auth.currentUser) {
       signOut(auth)
