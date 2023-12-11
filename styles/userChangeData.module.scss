@@ -1,10 +1,9 @@
 .userContainer {
   position: absolute;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
   height: fit-content;
   background-color: #212529;
-  // backdrop-filter: blur(3px);
   z-index: 1;
+  transition: var(--transition);
 }

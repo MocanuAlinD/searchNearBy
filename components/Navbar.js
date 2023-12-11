@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Switch from "./Switch";
 import Title from "./Title";
 import BurgerButton from "./BurgerButton";
@@ -10,12 +10,23 @@ import Image from "next/image";
 import UserChangeData from "../components/userChangeData";
 
 const Navbar = () => {
-  const [state, setState] = useState(false);
-
   const { pathname, push } = useRouter();
   const auth = getAuth();
   const uid = useSelector((state) => state.login.uid);
   const user = auth.currentUser?.email.split("@")[0];
+
+  const clickme = () => {
+    const userIcon = document.getElementById("userIcon");
+    const rot = userIcon.style;
+    console.log(rot.transform);
+    const t100 = "translateY(-100%)";
+    const t0 = "translateY(0px)";
+    if (rot.transform === t100) {
+      rot.transform = t0;
+    } else if (rot.transform === t0) {
+      rot.transform = t100;
+    }
+  };
 
   return (
     <div
@@ -41,16 +52,18 @@ const Navbar = () => {
         <div style={{ height: "3rem", width: "3rem" }}>
           <Image
             src={uid ? "/icon48.png" : "/icon48c.png"}
-            onClick={() => setState((prev) => !state)}
+            onClick={clickme}
             alt="user"
             height={"100%"}
             width={"100%"}
           />
         </div>
       </div>
-      {state && <UserChangeData close={() => setState((prev) => !state)} />}
+      <UserChangeData close={clickme} />
     </div>
   );
 };
 
 export default Navbar;
+
+// {state && <UserChangeData close={() => setState((prev) => !state)} />}
