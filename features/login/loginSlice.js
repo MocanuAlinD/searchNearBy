@@ -27,7 +27,6 @@ export const loginSlice = createSlice({
       state.logImage = action.payload;
     },
     signOutState: (state, action) => {
-      console.log("signOut");
       signOut(auth);
     },
   },

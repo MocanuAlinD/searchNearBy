@@ -19,8 +19,8 @@ const UserChangeData = ({ close }) => {
     close();
   };
   return (
-    <Container className={styles.userContainer}>
-      <div className="d-flex flex-column my-2 vw-100 align-items-center">
+    <Container className={styles.userContainer + " w-100"}>
+      <div className="d-flex flex-column my-2 align-items-center">
         {useSelector((state) => state.login.uid) && (
           <ButtonWithIcon w="10rem">Modifica date serviciu</ButtonWithIcon>
         )}

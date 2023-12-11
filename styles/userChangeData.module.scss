@@ -4,6 +4,7 @@
   left: 50%;
   transform: translateX(-50%);
   height: fit-content;
-  background-color: #333;
+  background-color: #212529;
+  // backdrop-filter: blur(3px);
   z-index: 1;
 }
