@@ -12,19 +12,15 @@ const UserChangeData = ({ close }) => {
 
   const gotologin = () => {
     push("/login");
-    close();
+    close("-100%");
   };
 
   const signOut = () => {
     dispatch(signOutState());
-    close();
+    close("-100%");
   };
   return (
-    <Container
-      className={styles.userContainer + " w-100"}
-      id="userIcon"
-      style={{ transform: "translateY(-100%)" }}
-    >
+    <Container className={styles.userContainer + " w-100"} id="userIcon">
       <div className="d-flex flex-column my-2 align-items-center">
         {useSelector((state) => state.login.uid) && (
           <ButtonWithIcon w="10rem">Modifica date serviciu</ButtonWithIcon>
@@ -45,7 +41,7 @@ const UserChangeData = ({ close }) => {
           bg="transparent"
           border="1px solid var(--color-blue-dark)"
           w="10rem"
-          onClick={close}
+          onClick={() => close("-100%")}
         >
           Inchide
         </ButtonWithIcon>

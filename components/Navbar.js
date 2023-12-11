@@ -8,24 +8,17 @@ import { getAuth } from "firebase/auth";
 import { useSelector } from "react-redux";
 import Image from "next/image";
 import UserChangeData from "../components/userChangeData";
+import styles from "../styles/Navbar.module.scss";
 
 const Navbar = () => {
-  const { pathname, push } = useRouter();
+  const { pathname } = useRouter();
   const auth = getAuth();
   const uid = useSelector((state) => state.login.uid);
   const user = auth.currentUser?.email.split("@")[0];
 
-  const clickme = () => {
+  const toggleMenu = (percent) => {
     const userIcon = document.getElementById("userIcon");
-    const rot = userIcon.style;
-    console.log(rot.transform);
-    const t100 = "translateY(-100%)";
-    const t0 = "translateY(0px)";
-    if (rot.transform === t100) {
-      rot.transform = t0;
-    } else if (rot.transform === t0) {
-      rot.transform = t100;
-    }
+    userIcon.style.transform = `translateY(${percent})`;
   };
 
   return (
@@ -52,18 +45,17 @@ const Navbar = () => {
         <div style={{ height: "3rem", width: "3rem" }}>
           <Image
             src={uid ? "/icon48.png" : "/icon48c.png"}
-            onClick={clickme}
+            onClick={() => toggleMenu("0")}
             alt="user"
             height={"100%"}
             width={"100%"}
+            className={styles.image}
           />
         </div>
       </div>
-      <UserChangeData close={clickme} />
+      <UserChangeData close={toggleMenu} />
     </div>
   );
 };
 
 export default Navbar;
-
-// {state && <UserChangeData close={() => setState((prev) => !state)} />}
