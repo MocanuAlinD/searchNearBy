@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Switch from "./Switch";
 import Title from "./Title";
 import BurgerButton from "./BurgerButton";
@@ -6,8 +6,12 @@ import { useRouter } from "next/router";
 import { firebase } from "../firebase";
 import { getAuth } from "firebase/auth";
 import { useSelector } from "react-redux";
+import Image from "next/image";
+import UserChangeData, { userChangeData } from "../components/userChangeData";
 
 const Navbar = () => {
+  const [state, setState] = useState(false);
+
   const { pathname, push } = useRouter();
   const auth = getAuth();
   const user = auth.currentUser?.email.split("@")[0];
@@ -42,14 +46,18 @@ const Navbar = () => {
             Not signed in &ensp;
           </span>
         )}
-        <img
-          src={uid ? "icon48.png" : "iconwho48.png"}
-          onClick={() => push("/login")}
+        <Image
+          src={uid ? "/icon48.png" : "/iconwho48.png"}
+          // onClick={() => push("/login")}
+          onClick={() => setState((prev) => !state)}
           alt="userIcon"
-          height=".5rem"
+          height={"75%"}
+          width={"75%"}
           style={{ cursor: "pointer" }}
+          className="image"
         />
       </div>
+      {state && <UserChangeData close={() => setState((prev) => !state)} />}
     </div>
   );
 };

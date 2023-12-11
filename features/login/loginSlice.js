@@ -1,4 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { getAuth, signOut } from "firebase/auth";
+
+const auth = getAuth();
 
 const initialState = {
   emailLogare: "alin_ngt@yahoo.com",
@@ -23,8 +26,13 @@ export const loginSlice = createSlice({
     setImage: (state, action) => {
       state.logImage = action.payload;
     },
+    signOutState: (state, action) => {
+      console.log("signOut");
+      signOut(auth);
+    },
   },
 });
 
-export const { setEmail, setPassword, setUid, setImage } = loginSlice.actions;
+export const { setEmail, setPassword, setUid, setImage, signOutState } =
+  loginSlice.actions;
 export default loginSlice.reducer;

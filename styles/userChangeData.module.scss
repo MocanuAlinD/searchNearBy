@@ -1,0 +1,9 @@
+.userContainer {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: fit-content;
+  background-color: #333;
+  z-index: 1;
+}
