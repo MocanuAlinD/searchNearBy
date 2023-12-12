@@ -5,7 +5,7 @@ export default async function handler(req, res) {
   const { data, uid } = JSON.parse(req.body);
   const db = getDatabase();
   const items = ref(db, `Alin/${data.judet}/${uid}`);
-  const userId = ref(db, "searchUsers");
+  const userId = ref(db, `searchUsers`);
   const userId2 = ref(db, `searchUsers/${uid}`);
 
   if (req.method === "POST") {
@@ -20,14 +20,14 @@ export default async function handler(req, res) {
               if (key.includes(uid)) {
                 temp = { error: "Nu mai poti adauga alt serviciu." };
               } else {
-                // set(userId2, data);
-                // set(items, data);
+                set(userId2, data);
+                set(items, data);
                 temp = { msg: `Date salvate cu succes in ${data.judet}` };
               }
             });
           } else {
-            // set(userId2, data);
-            // set(items, data);
+            set(userId2, data);
+            set(items, data);
             temp = { msg: `Esti primul care salveaza in  ${data.judet}` };
           }
           res.json({ msg: temp });

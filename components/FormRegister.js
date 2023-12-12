@@ -76,7 +76,6 @@ const FormRegister = () => {
 
   // Inregistrare fara plata
   const postData = async (e) => {
-    console.log("post data");
     e.preventDefault();
     const newPhone = phone.split(",");
     const newEmail = email.split(",");
