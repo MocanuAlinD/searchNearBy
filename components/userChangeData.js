@@ -35,31 +35,38 @@ const UserChangeData = ({ close }) => {
     }
   };
 
+  const goToEdit = () => {
+    close("-100%");
+    push("/test");
+  };
+
   return (
     <Container className={styles.userContainer + " w-100"} id="userIcon">
-        {useSelector((state) => state.login.uid) && (
-          <ButtonWithIcon w="min(90%,20rem)">Modifica date serviciu</ButtonWithIcon>
-        )}
-        {useSelector((state) => state.login.uid) && (
-          <ButtonWithIcon w="min(90%,20rem)">Modifica date profit</ButtonWithIcon>
-        )}
-        {useSelector((state) => state.login.uid) ? (
-          <ButtonWithIcon w="min(90%,20rem)" onClick={userLogOut}>
-            Sign Out
-          </ButtonWithIcon>
-        ) : (
-          <ButtonWithIcon w="min(90%,20rem)" onClick={gotologin}>
-            Log In
-          </ButtonWithIcon>
-        )}
-        <ButtonWithIcon
-          bg="transparent"
-          border="1px solid var(--color-blue-dark)"
-          w="min(90%,20rem)"
-          onClick={() => close("-100%")}
-        >
-          Inchide
+      {useSelector((state) => state.login.uid) && (
+        <ButtonWithIcon w="min(90%,20rem)" onClick={goToEdit}>
+          Modifica date serviciu
         </ButtonWithIcon>
+      )}
+      {useSelector((state) => state.login.uid) && (
+        <ButtonWithIcon w="min(90%,20rem)">Modifica date profit</ButtonWithIcon>
+      )}
+      {useSelector((state) => state.login.uid) ? (
+        <ButtonWithIcon w="min(90%,20rem)" onClick={userLogOut}>
+          Sign Out
+        </ButtonWithIcon>
+      ) : (
+        <ButtonWithIcon w="min(90%,20rem)" onClick={gotologin}>
+          Log In
+        </ButtonWithIcon>
+      )}
+      <ButtonWithIcon
+        bg="transparent"
+        border="1px solid var(--color-blue-dark)"
+        w="min(90%,20rem)"
+        onClick={() => close("-100%")}
+      >
+        Inchide
+      </ButtonWithIcon>
     </Container>
   );
 };
