@@ -38,18 +38,17 @@ const Navbar = () => {
 
       {pathname === "/" ? <Switch /> : ""}
 
-      <div className="d-flex align-items-center justify-content-center m-0 p-0">
-        <span style={{ fontSize: ".8rem", whiteSpace: "nowrap" }}>
-          {user ? `Bine ai venit, ${user} !` : "Log in"} &ensp;
+      <div className="d-flex align-items-center justify-content-center m-0 p-0 flex-column-reverse">
+        <span className={styles.userText}>
+          {user ? `Hello, ${user} !` : "Log in"}
         </span>
-        <div style={{ height: "3rem", width: "3rem" }}>
+        <div className={styles.imageContainer}>
           <Image
             src={uid ? "/icon48.png" : "/icon48c.png"}
             onClick={() => toggleMenu("0")}
             alt="user"
-            height={"100%"}
-            width={"100%"}
             className={styles.image}
+            layout="fill"
           />
         </div>
       </div>

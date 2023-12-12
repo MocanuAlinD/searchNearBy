@@ -9,7 +9,6 @@ const initialState = {
   listaCarduri: [],
   originalList: [],
   loadSearch: false,
-  // show: true,
   showMenu: false,
   noResultsText: "",
   noResTrigger: false,
@@ -43,9 +42,6 @@ export const cautareSlice = createSlice({
     setLoadSearch: (state, action) => {
       state.loadSearch = action.payload;
     },
-    // setShow: (state, action) => {
-    //   state.show = !state.show;
-    // },
     setShowMenu: (state, action) => {
       state.showMenu = action.payload;
     },
@@ -71,7 +67,6 @@ export const {
   setInitialState,
   setOriginalList,
   setLoadSearch,
-  // setShow,
   setShowMenu,
   setNoResultText,
   setNoResTrigger,

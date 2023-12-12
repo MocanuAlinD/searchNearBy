@@ -34,6 +34,7 @@ body {
   --font-size1: 1rem;
   --font-size125: 1.25rem;
   --font-size15: 1.5rem;
+  --font-size05: clamp(.5rem, 2vw, .8rem);
 }
 
 a {

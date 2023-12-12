@@ -192,11 +192,12 @@ const Login = ({ req }) => {
                   </Wrapper>
                   <Wrapper className={styles.wrapper}>
                     <LabelCustom htmlFor="password">Parola:</LabelCustom>
-                    <div className="d-flex justify-content-center align-items-center">
+                    <Wrapper className={styles.wrapper + " flex-row"}>
                       <InputCustom
                         id="password"
                         type="password"
                         value={parolaLogare}
+                        w="100%"
                         onChange={(e) => dispatch(setPassword(e.target.value))}
                       />
                       {showHidePassword ? (
@@ -217,7 +218,7 @@ const Login = ({ req }) => {
                           )}
                         />
                       )}
-                    </div>
+                    </Wrapper>
                   </Wrapper>
                   <Wrapper
                     className={
