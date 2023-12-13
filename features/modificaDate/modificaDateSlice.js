@@ -22,20 +22,20 @@ const initialState = {
   zisfarsit: "Vineri",
 };
 
-export const inscriereSlice = createSlice({
-  name: "inscriere",
+export const modificaDateSlice = createSlice({
+  name: "modifica",
   initialState,
   reducers: {
-    setUrgente: (state, action) => {
+    modUrgente: (state, action) => {
       state.urgente = !state.urgente;
     },
-    setUrgenteNoapte: (state, action) => {
+    modUrgenteNoapte: (state, action) => {
       state.urgenteNoapte = !state.urgenteNoapte;
     },
-    setInitialState: (state, action) => {
+    modInitialState: (state, action) => {
       return initialState;
     },
-    changeState: (state, action) => {
+    modChangeState: (state, action) => {
       const actOne = action.payload[0];
       const actTwo = action.payload[1];
       state[actOne] = actTwo;
@@ -43,7 +43,7 @@ export const inscriereSlice = createSlice({
   },
 });
 
-export const { setUrgente, setUrgenteNoapte, setInitialState, changeState } =
-  inscriereSlice.actions;
+export const { modUrgente, modUrgenteNoapte, modInitialState, modChangeState } =
+  modificaDateSlice.actions;
 
-export default inscriereSlice.reducer;
+export default modificaDateSlice.reducer;

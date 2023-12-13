@@ -12,7 +12,8 @@ import {
   browserLocalPersistence,
   setPersistence,
 } from "firebase/auth";
-import { setUid, setImage } from "../features/login/loginSlice";
+import { setUid, setImage, setHasService } from "../features/login/loginSlice";
+import { modInitialState } from "../features/modificaDate/modificaDateSlice";
 
 function MyApp({ Component, pageProps }) {
   const initialLocation = {
@@ -25,15 +26,12 @@ function MyApp({ Component, pageProps }) {
   const auth = getAuth();
 
   useEffect(() => {
-    console.log("_app useEffect");
     setPersistence(auth, browserLocalPersistence);
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        store.dispatch(setUid(user.uid));
-        store.dispatch(setImage("icon48.png"));
+        handleUserDetailsOn(user);
       } else {
-        store.dispatch(setUid(""));
-        store.dispatch(setImage("iconwho48.png"));
+        handleUserDetailsOff(user);
       }
     });
     if (localStorage.getItem("location")) {
@@ -42,6 +40,25 @@ function MyApp({ Component, pageProps }) {
       localStorage.setItem("location", JSON.stringify(initialLocation));
     }
   }, []);
+
+  const handleUserDetailsOn = async (user) => {
+    store.dispatch(setUid(user.uid));
+    store.dispatch(setImage("icon48.png"));
+    const service = await fetch(`api/userData?id=${user.uid}`);
+    const res = await service.json();
+    // if user has service registered
+    if (res.length > 0) {
+      store.dispatch(setHasService(true));
+    } else if (res.length <= 0) {
+      store.dispatch(setHasService(false));
+    }
+  };
+
+  const handleUserDetailsOff = (user) => {
+    store.dispatch(setUid(""));
+    store.dispatch(setImage("iconwho48.png"));
+    store.dispatch(modInitialState());
+  };
 
   return (
     <Provider store={store}>

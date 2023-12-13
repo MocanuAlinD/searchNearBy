@@ -6,7 +6,7 @@ import {
   TextAreaCustom,
   LabelCustom,
   LabelSmallCustom,
-} from "../components/singleTags/elemetsCustom";
+} from "./singleTags/elemetsCustom";
 import { ButtonWithIcon } from "./singleTags/ButtonWithIcon";
 import { Checkbox } from "@mui/material";
 import { BiReset } from "react-icons/bi";
@@ -23,7 +23,7 @@ import {
 } from "../features/inscriere/inscriereSlice";
 import { getDatabase, ref, push, child, onValue } from "firebase/database";
 
-const FormRegister = () => {
+const ModifyData = () => {
   const dispatch = useDispatch();
 
   const fullname = useSelector((state) => state.inscriere.fullname);
@@ -51,6 +51,7 @@ const FormRegister = () => {
     const tempSorted = alin[e.target.value].sort(
       (a, b) => (a.nume > b.nume && 1) || -1
     );
+    // dispatch(setJudet(e.target.value));
     dispatch(changeState(["judet", e.target.value]));
     dispatch(
       changeState([
@@ -452,4 +453,4 @@ const FormRegister = () => {
   );
 };
 
-export default FormRegister;
+export default ModifyData;

@@ -47,6 +47,9 @@ const UserChangeData = ({ close }) => {
           Modifica date serviciu
         </ButtonWithIcon>
       )}
+      {auth.currentUser && (
+        <ButtonWithIcon w="min(90%,20rem)">Modifica date mocanu</ButtonWithIcon>
+      )}
       {useSelector((state) => state.login.uid) && (
         <ButtonWithIcon w="min(90%,20rem)">Modifica date profit</ButtonWithIcon>
       )}

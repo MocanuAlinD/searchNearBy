@@ -111,7 +111,7 @@ const Login = ({ req }) => {
       .catch((error) => {
         if (error.message.includes("invalid-login-credentials")) {
           toast.error("Ai introdus gresit emailul sau parola");
-        } else if (error.code.includes("invalid-email")) {
+        } else if (error.code?.includes("invalid-email")) {
           toast.error("Adresa de email este invalida.");
         }
       });
