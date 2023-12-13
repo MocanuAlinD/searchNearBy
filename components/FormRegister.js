@@ -48,7 +48,7 @@ const FormRegister = () => {
   const MAX_CHAR_LENGTH = "255";
 
   const changeListaOrase = (e) => {
-    const tempSorted = alin[e.target.value].sort(
+    const tempSorted = [...alin[e.target.value]].sort(
       (a, b) => (a.nume > b.nume && 1) || -1
     );
     dispatch(changeState(["judet", e.target.value]));

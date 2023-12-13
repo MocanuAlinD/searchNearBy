@@ -16,51 +16,49 @@ import InputSuggestions from "./InputSuggestions";
 import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  setUrgente,
-  setUrgenteNoapte,
-  setInitialState,
-  changeState,
-} from "../features/inscriere/inscriereSlice";
+  modUrgente,
+  modUrgenteNoapte,
+  modChangeState,
+  modInitialState,
+} from "../features/modificaDate/modificaDateSlice";
 import { getDatabase, ref, push, child, onValue } from "firebase/database";
 
 const ModifyData = () => {
   const dispatch = useDispatch();
 
-  const fullname = useSelector((state) => state.inscriere.fullname);
-  const phone = useSelector((state) => state.inscriere.phone);
-  const email = useSelector((state) => state.inscriere.email);
-  const tipjob = useSelector((state) => state.inscriere.tipjob);
-  const pretMin = useSelector((state) => state.inscriere.pretMin);
-  const pretMax = useSelector((state) => state.inscriere.pretMax);
-  const detalii = useSelector((state) => state.inscriere.detalii);
-  const website = useSelector((state) => state.inscriere.website);
-  const ziinceput = useSelector((state) => state.inscriere.ziinceput);
-  const zisfarsit = useSelector((state) => state.inscriere.zisfarsit);
-  const orainceput = useSelector((state) => state.inscriere.orainceput);
-  const orasfarsit = useSelector((state) => state.inscriere.orasfarsit);
-  const urgente = useSelector((state) => state.inscriere.urgente);
-  const urgenteNoapte = useSelector((state) => state.inscriere.urgenteNoapte);
-  const judet = useSelector((state) => state.inscriere.judet);
-  const oras = useSelector((state) => state.inscriere.oras);
-  const listaOrase = useSelector((state) => state.inscriere.listaOrase);
-  const uid = useSelector((state) => state.login.uid);
+  const fullname = useSelector((state) => state.mod.fullname);
+  const phone = useSelector((state) => state.mod.phone);
+  const email = useSelector((state) => state.mod.email);
+  const tipjob = useSelector((state) => state.mod.tipjob);
+  const pretMin = useSelector((state) => state.mod.pretMin);
+  const pretMax = useSelector((state) => state.mod.pretMax);
+  const detalii = useSelector((state) => state.mod.detalii);
+  const website = useSelector((state) => state.mod.website);
+  const ziinceput = useSelector((state) => state.mod.ziinceput);
+  const zisfarsit = useSelector((state) => state.mod.zisfarsit);
+  const orainceput = useSelector((state) => state.mod.orainceput);
+  const orasfarsit = useSelector((state) => state.mod.orasfarsit);
+  const urgente = useSelector((state) => state.mod.urgente);
+  const urgenteNoapte = useSelector((state) => state.mod.urgenteNoapte);
+  const judet = useSelector((state) => state.mod.judet);
+  const oras = useSelector((state) => state.mod.oras);
+  const listaOrase = useSelector((state) => state.mod.listaOrase);
 
   const MAX_CHAR_LENGTH = "255";
 
   const changeListaOrase = (e) => {
-    const tempSorted = alin[e.target.value].sort(
+    const tempSorted = [...alin[e]].sort(
       (a, b) => (a.nume > b.nume && 1) || -1
     );
-    // dispatch(setJudet(e.target.value));
-    dispatch(changeState(["judet", e.target.value]));
+    dispatch(modChangeState(["judet", e]));
     dispatch(
-      changeState([
+      modChangeState([
         "oras",
         tempSorted[0].nume +
           (tempSorted[0].comuna ? ", " + tempSorted[0].comuna : ""),
       ])
     );
-    dispatch(changeState(["listaOrase", tempSorted]));
+    dispatch(modChangeState(["listaOrase", tempSorted]));
   };
 
   const getDateToRegister = () => {
@@ -79,7 +77,6 @@ const ModifyData = () => {
     e.preventDefault();
     const newPhone = phone.split(",");
     const newEmail = email.split(",");
-    // La id sa fie uid de la logare
     const addData = {
       contact: {
         email: newEmail,
@@ -106,17 +103,19 @@ const ModifyData = () => {
       website: website ? "https://www." + website : "",
     };
 
-    const sendData = await fetch("/api/postData", {
-      method: "POST",
-      "Content-Type": "application/json",
-      body: JSON.stringify({ data: addData, uid }),
-    });
-    const { msg } = await sendData.json();
-    if (msg.msg) {
-      toast.success(msg.msg);
-    } else if (msg.error) {
-      toast.error(msg.error);
-    }
+    console.log(addData);
+
+    // const sendData = await fetch("/api/postData", {
+    //   method: "POST",
+    //   "Content-Type": "application/json",
+    //   body: JSON.stringify({ data: addData, uid }),
+    // });
+    // const { msg } = await sendData.json();
+    // if (msg.msg) {
+    //   toast.success(msg.msg);
+    // } else if (msg.error) {
+    //   toast.error(msg.error);
+    // }
   };
 
   const db = getDatabase();
@@ -145,7 +144,7 @@ const ModifyData = () => {
             value={fullname}
             placeholder="nume prenume"
             onChange={(e) =>
-              dispatch(changeState(["fullname", e.target.value]))
+              dispatch(modChangeState(["fullname", e.target.value]))
             }
           />
           <span>&quot;Nume Prenume / Nume Companie&quot; sunt necesare</span>
@@ -163,7 +162,9 @@ const ModifyData = () => {
             type="text"
             placeholder="telefon"
             value={phone}
-            onChange={(e) => dispatch(changeState(["phone", e.target.value]))}
+            onChange={(e) =>
+              dispatch(modChangeState(["phone", e.target.value]))
+            }
           />
           <span>Numărul de telefon este necesar</span>
         </Wrapper>
@@ -179,7 +180,9 @@ const ModifyData = () => {
             type="text"
             placeholder="Email"
             value={email}
-            onChange={(e) => dispatch(changeState(["email", e.target.value]))}
+            onChange={(e) =>
+              dispatch(modChangeState(["email", e.target.value]))
+            }
           />
           <span>Adresa de email trebuie să existe și să fie validă</span>
         </Wrapper>
@@ -195,7 +198,9 @@ const ModifyData = () => {
             id="meserie"
             value={tipjob}
             placeholder="electrician, instalator, fotograf, etc...."
-            onChange={(e) => dispatch(changeState(["tipjob", e.target.value]))}
+            onChange={(e) =>
+              dispatch(modChangeState(["tipjob", e.target.value]))
+            }
           />
           <span>Tipul de serviciu este necesar</span>
           <datalist id="inputList">
@@ -213,7 +218,9 @@ const ModifyData = () => {
             value={pretMin}
             pattern="[0-9]+"
             placeholder="pret minim"
-            onChange={(e) => dispatch(changeState(["pretMin", e.target.value]))}
+            onChange={(e) =>
+              dispatch(modChangeState(["pretMin", e.target.value]))
+            }
           />
           <span>Treceți prețul minim</span>
           <LabelCustom htmlFor="pretMaxID">Preț maxim</LabelCustom>
@@ -225,7 +232,9 @@ const ModifyData = () => {
             type="text"
             value={pretMax}
             placeholder="pret maxim"
-            onChange={(e) => dispatch(changeState(["pretMax", e.target.value]))}
+            onChange={(e) =>
+              dispatch(modChangeState(["pretMax", e.target.value]))
+            }
           />
           <span>Treceți prețul maxim</span>
         </Wrapper>
@@ -238,7 +247,9 @@ const ModifyData = () => {
             maxLength={MAX_CHAR_LENGTH}
             name="detalii"
             id="detalii"
-            onChange={(e) => dispatch(changeState(["detalii", e.target.value]))}
+            onChange={(e) =>
+              dispatch(modChangeState(["detalii", e.target.value]))
+            }
             value={detalii}
             rows="6"
             placeholder="Aici poti trece detalii despre serviciul prestat"
@@ -262,7 +273,9 @@ const ModifyData = () => {
             type="text"
             value={website}
             placeholder="denumire-website.ro"
-            onChange={(e) => dispatch(changeState(["website", e.target.value]))}
+            onChange={(e) =>
+              dispatch(modChangeState(["website", e.target.value]))
+            }
           />
         </Wrapper>
 
@@ -275,7 +288,7 @@ const ModifyData = () => {
             id="saptamanaStart"
             value={ziinceput}
             onChange={(e) =>
-              dispatch(changeState(["ziinceput", e.target.value]))
+              dispatch(modChangeState(["ziinceput", e.target.value]))
             }
           >
             <option value="Luni">Luni</option>
@@ -294,7 +307,7 @@ const ModifyData = () => {
             id="saptamanaSfarsit"
             value={zisfarsit}
             onChange={(e) =>
-              dispatch(changeState(["zisfarsit", e.target.value]))
+              dispatch(modChangeState(["zisfarsit", e.target.value]))
             }
           >
             <option value="Luni">Luni</option>
@@ -319,7 +332,7 @@ const ModifyData = () => {
             id="programInceput"
             value={orainceput}
             onChange={(e) =>
-              dispatch(changeState(["orainceput", e.target.value]))
+              dispatch(modChangeState(["orainceput", e.target.value]))
             }
           />
           <span>Selectează corect o oră</span>
@@ -333,7 +346,7 @@ const ModifyData = () => {
             id="programSfarsit"
             value={orasfarsit}
             onChange={(e) =>
-              dispatch(changeState(["orasfarsit", e.target.value]))
+              dispatch(modChangeState(["orasfarsit", e.target.value]))
             }
           />
           <span>Selectează corect o oră</span>
@@ -355,7 +368,7 @@ const ModifyData = () => {
               }}
               checked={urgente}
               value=""
-              onChange={() => dispatch(setUrgente())}
+              onChange={() => dispatch(modUrgente())}
             />
             Disponibil în afara zilelor/orelor de lucru
           </LabelCustom>
@@ -378,7 +391,7 @@ const ModifyData = () => {
               }}
               checked={urgenteNoapte}
               value=""
-              onChange={() => dispatch(setUrgenteNoapte())}
+              onChange={() => dispatch(modUrgenteNoapte())}
             />
             Urgențe pe timp de noapte
           </LabelCustom>
@@ -393,7 +406,7 @@ const ModifyData = () => {
             name="orase"
             id="labelOrase"
             value={judet}
-            onChange={(e) => changeListaOrase(e)}
+            onChange={(e) => changeListaOrase(e.target.value)}
           >
             <option value="" disabled>
               ---Alege județul---
@@ -416,7 +429,9 @@ const ModifyData = () => {
               id="labelComuna"
               name="comune"
               value={oras}
-              onChange={(e) => dispatch(changeState(["oras", e.target.value]))}
+              onChange={(e) =>
+                dispatch(modChangeState(["oras", e.target.value]))
+              }
             >
               {listaOrase.map((item, index) => (
                 <option key={index}>
@@ -436,7 +451,7 @@ const ModifyData = () => {
             w="45%"
             m=".5rem 0 .5rem"
             className="shadow"
-            onClick={() => dispatch(setInitialState())}
+            onClick={() => dispatch(modInitialState())}
           >
             <div className="iconContainer">
               <BiReset className="icon" />

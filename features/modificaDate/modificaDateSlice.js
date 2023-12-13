@@ -1,23 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  dataregister: "",
+  dataregister: "2100-10-25",
   detalii: "Introdu detalii aici",
   email: "email@yahoo.com",
-  fullname: "John Doe",
+  fullname: "Moc Dan Alin",
   judet: "",
   listaOrase: [],
   orainceput: "08:00",
   oraregister: "",
   oras: "",
   orasfarsit: "16:00",
-  phone: "0721345678",
-  pretMax: "2000",
-  pretMin: "100",
-  tipjob: "electrician",
+  phone: "0721345678,221577",
+  pretMax: "2345",
+  pretMin: "678",
+  tipjob: "programmer for life",
   urgente: false,
   urgenteNoapte: false,
-  website: "",
+  website: "mocanu",
   ziinceput: "Luni",
   zisfarsit: "Vineri",
 };
@@ -27,18 +27,18 @@ export const modificaDateSlice = createSlice({
   initialState,
   reducers: {
     modUrgente: (state, action) => {
-      state.urgente = !state.urgente;
+      state.urgente = action.payload;
     },
     modUrgenteNoapte: (state, action) => {
-      state.urgenteNoapte = !state.urgenteNoapte;
-    },
-    modInitialState: (state, action) => {
-      return initialState;
+      state.urgenteNoapte = action.payload;
     },
     modChangeState: (state, action) => {
       const actOne = action.payload[0];
       const actTwo = action.payload[1];
       state[actOne] = actTwo;
+    },
+    modInitialState: (state, action) => {
+      return initialState;
     },
   },
 });

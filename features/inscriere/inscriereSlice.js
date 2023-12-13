@@ -32,13 +32,13 @@ export const inscriereSlice = createSlice({
     setUrgenteNoapte: (state, action) => {
       state.urgenteNoapte = !state.urgenteNoapte;
     },
-    setInitialState: (state, action) => {
-      return initialState;
-    },
     changeState: (state, action) => {
       const actOne = action.payload[0];
       const actTwo = action.payload[1];
       state[actOne] = actTwo;
+    },
+    setInitialState: (state, action) => {
+      return initialState;
     },
   },
 });

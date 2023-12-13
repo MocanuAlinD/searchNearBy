@@ -5,10 +5,17 @@ import { firebase } from "../firebase";
 import { useSelector } from "react-redux";
 
 export default function Inscriere() {
-  const uid = useSelector(state => state.login.uid)
+  const uid = useSelector((state) => state.login.uid);
+  const hasService = useSelector((state) => state.login.hasService);
   return (
     <Container>
-      {uid ? <FormRegister /> : <NotSignedIn />}
+      {!hasService && uid ? (
+        <FormRegister />
+      ) : uid && hasService ? (
+        <h4>Ai deja serviciu inregistrat.</h4>
+      ) : (
+        <NotSignedIn />
+      )}
     </Container>
   );
 }
