@@ -37,7 +37,7 @@ const UserChangeData = ({ close }) => {
 
   const goToEdit = () => {
     close("-100%");
-    push("/test");
+    push("/modifica-date");
   };
 
   return (

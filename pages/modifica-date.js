@@ -8,7 +8,7 @@ import {
   SmallContainer,
 } from "../components/singleTags/elemetsCustom";
 
-const Test = () => {
+const ModificaDate = () => {
   const auth = getAuth();
   const [state, setState] = useState("");
 
@@ -91,4 +91,4 @@ const Test = () => {
   );
 };
 
-export default Test;
+export default ModificaDate;
