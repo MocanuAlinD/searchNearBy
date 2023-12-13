@@ -21,29 +21,27 @@ import {
   setInitialState,
   changeState,
 } from "../features/inscriere/inscriereSlice";
-import { getDatabase, ref, push, child, onValue } from "firebase/database";
 
 const FormRegister = () => {
   const dispatch = useDispatch();
-
-  const fullname = useSelector((state) => state.inscriere.fullname);
+  const uid = useSelector((state) => state.login.uid);
+  const oras = useSelector((state) => state.inscriere.oras);
   const phone = useSelector((state) => state.inscriere.phone);
   const email = useSelector((state) => state.inscriere.email);
+  const judet = useSelector((state) => state.inscriere.judet);
   const tipjob = useSelector((state) => state.inscriere.tipjob);
   const pretMin = useSelector((state) => state.inscriere.pretMin);
   const pretMax = useSelector((state) => state.inscriere.pretMax);
   const detalii = useSelector((state) => state.inscriere.detalii);
   const website = useSelector((state) => state.inscriere.website);
+  const urgente = useSelector((state) => state.inscriere.urgente);
+  const fullname = useSelector((state) => state.inscriere.fullname);
   const ziinceput = useSelector((state) => state.inscriere.ziinceput);
   const zisfarsit = useSelector((state) => state.inscriere.zisfarsit);
   const orainceput = useSelector((state) => state.inscriere.orainceput);
   const orasfarsit = useSelector((state) => state.inscriere.orasfarsit);
-  const urgente = useSelector((state) => state.inscriere.urgente);
-  const urgenteNoapte = useSelector((state) => state.inscriere.urgenteNoapte);
-  const judet = useSelector((state) => state.inscriere.judet);
-  const oras = useSelector((state) => state.inscriere.oras);
   const listaOrase = useSelector((state) => state.inscriere.listaOrase);
-  const uid = useSelector((state) => state.login.uid);
+  const urgenteNoapte = useSelector((state) => state.inscriere.urgenteNoapte);
 
   const MAX_CHAR_LENGTH = "255";
 
@@ -78,7 +76,6 @@ const FormRegister = () => {
     e.preventDefault();
     const newPhone = phone.split(",");
     const newEmail = email.split(",");
-    // La id sa fie uid de la logare
     const addData = {
       contact: {
         email: newEmail,
@@ -116,16 +113,6 @@ const FormRegister = () => {
     } else if (msg.error) {
       toast.error(msg.error);
     }
-  };
-
-  const db = getDatabase();
-  const moc = ref(db, "searchUsers");
-
-  const getData = () => {
-    // console.log(uid);
-    onValue(moc, (s) => {
-      console.log(s.val());
-    });
   };
 
   return (

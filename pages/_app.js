@@ -61,8 +61,8 @@ function MyApp({ Component, pageProps }) {
     const res = await service.json();
     // if user has service registered
     if (res.length > 0) {
-      store.dispatch(setHasService(true));
       const data = res[0];
+      store.dispatch(setHasService(true));
       changeListaOrase(data.judet);
       store.dispatch(modChangeState(["email", data.contact.email]));
       store.dispatch(modChangeState(["phone", data.contact.phone]));
@@ -81,7 +81,7 @@ function MyApp({ Component, pageProps }) {
       store.dispatch(modChangeState(["ziinceput", data.ziinceput]));
       store.dispatch(modChangeState(["zisfarsit", data.zisfarsit]));
       store.dispatch(modUrgente(data.urgente));
-      store.dispatch(modUrgenteNoapte(data.modUrgenteNoapte));
+      store.dispatch(modUrgenteNoapte(data.urgenteNoapte));
     } else if (res.length <= 0) {
       store.dispatch(setHasService(false));
     }

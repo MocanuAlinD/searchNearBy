@@ -9,10 +9,9 @@ const ModificaDate = () => {
   const auth = getAuth();
   const uid = useSelector((state) => state.login.uid);
   const hasService = useSelector((state) => state.login.hasService);
-  console.log(auth.currentUser);
 
   return (
-    <Container className="border border-danger flex-grow-1">
+    <Container className="flex-grow-1">
       {hasService && uid ? (
         <ModifyData />
       ) : uid && !hasService ? (

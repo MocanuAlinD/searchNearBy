@@ -43,7 +43,6 @@ const ModifyData = () => {
   const judet = useSelector((state) => state.mod.judet);
   const oras = useSelector((state) => state.mod.oras);
   const listaOrase = useSelector((state) => state.mod.listaOrase);
-
   const MAX_CHAR_LENGTH = "255";
 
   const changeListaOrase = (e) => {
@@ -75,12 +74,10 @@ const ModifyData = () => {
   // Inregistrare fara plata
   const postData = async (e) => {
     e.preventDefault();
-    const newPhone = phone.split(",");
-    const newEmail = email.split(",");
     const addData = {
       contact: {
-        email: newEmail,
-        phone: newPhone,
+        email: phone,
+        phone: email,
       },
       dataregister: getDateToRegister(),
       detalii: detalii,
@@ -116,16 +113,6 @@ const ModifyData = () => {
     // } else if (msg.error) {
     //   toast.error(msg.error);
     // }
-  };
-
-  const db = getDatabase();
-  const moc = ref(db, "searchUsers");
-
-  const getData = () => {
-    // console.log(uid);
-    onValue(moc, (s) => {
-      console.log(s.val());
-    });
   };
 
   return (
@@ -368,7 +355,7 @@ const ModifyData = () => {
               }}
               checked={urgente}
               value=""
-              onChange={() => dispatch(modUrgente())}
+              onChange={() => dispatch(modUrgente(!urgente))}
             />
             Disponibil în afara zilelor/orelor de lucru
           </LabelCustom>
@@ -391,7 +378,7 @@ const ModifyData = () => {
               }}
               checked={urgenteNoapte}
               value=""
-              onChange={() => dispatch(modUrgenteNoapte())}
+              onChange={() => dispatch(modUrgenteNoapte(!urgenteNoapte))}
             />
             Urgențe pe timp de noapte
           </LabelCustom>
