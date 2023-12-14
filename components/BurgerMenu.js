@@ -14,6 +14,7 @@ const BurgerMenu = () => {
       style={{ transform: `rotateZ(${showMenu ? "0" : "90deg"})` }}
     >
       <CustomLink link="/" text="Home" />
+      <CustomLink link="/test" text="test" />
       <CustomLink link="/servicii" text="Toate judetele" />
       <CustomLink link="/infofaq" text="Info si FAQ" />
       <CustomLink link="/reclamatii" text="Reclamatii" />

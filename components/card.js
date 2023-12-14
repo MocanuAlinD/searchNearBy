@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "../styles/card.module.scss";
-// import { Checkbox } from "@mui/material";
 import { GoLocation } from "react-icons/go";
 import { BsPersonCircle, BsArrowLeftRight } from "react-icons/bs";
 import { CgDetailsMore, CgWebsite } from "react-icons/cg";

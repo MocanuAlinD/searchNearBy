@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "../styles/cardCautare.module.scss";
 import Link from "next/link";
+import Stars from "../components/Stars";
 
 const namedMonths = {
   1: "Ianuarie",
@@ -79,6 +80,7 @@ const CardCautare = ({ data, idx }) => {
               <a target="_blank">Vezi alte detalii</a>
             </Link>
           </div>
+          <Stars />
         </div>
       </div>
     </div>
