@@ -7,6 +7,7 @@ import signupReducer from "../features/signup/signupSlice";
 import reclamatieReducer from "../features/reclamatie/reclamatieSlice";
 import showTitleReducer from "../features/showTitle/showTitleSlice";
 import modReducer from "../features/modificaDate/modificaDateSlice";
+import reviewRedurer from "../features/review/reviewSlice";
 
 const rootReducers = combineReducers({
   search: searchReducers,
@@ -17,6 +18,7 @@ const rootReducers = combineReducers({
   reclamatie: reclamatieReducer,
   showTitle: showTitleReducer,
   mod: modReducer,
+  review: reviewRedurer,
 });
 
 export const store = configureStore({
