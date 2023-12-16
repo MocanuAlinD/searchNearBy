@@ -4,6 +4,7 @@ const initialState = {
   currentStar: 1,
   sortReview: "",
   longReview: "",
+  numeReview: "",
   stars: {
     1: 0,
     2: 0,
@@ -31,6 +32,9 @@ export const reviewSlice = createSlice({
     setLongReview: (state, action) => {
       state.longReview = action.payload;
     },
+    setNumeReview: (state, action) => {
+      state.numeReview = action.payload;
+    },
     setReviewInitialState: () => {
       return initialState;
     },
@@ -43,5 +47,6 @@ export const {
   setReviewInitialState,
   setSortReview,
   setLongReview,
+  setNumeReview,
 } = reviewSlice.actions;
 export default reviewSlice.reducer;

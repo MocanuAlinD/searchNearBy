@@ -36,16 +36,19 @@ export const getStaticProps = async (context) => {
 
   const db = getDatabase();
   const dbName = ref(db, `reviews/${person}`);
+  const d = Object.values(dbName);
   let userReviews = [];
   onValue(dbName, (s) => {
-    [s.val()].map((items) =>
-      Object.values(items).map((x) => userReviews.push(x))
-    );
+    if (s.val() !== null) {
+      [s.val()].map((items) =>
+        Object.values(items).map((x) => userReviews.push(x))
+      );
+    }
   });
 
   return {
     props: { res, oras, userReviews },
-    revalidate: 2,
+    revalidate: 5,
   };
 };
 

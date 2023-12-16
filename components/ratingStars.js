@@ -12,6 +12,7 @@ import {
   setReviewInitialState,
   setSortReview,
   setLongReview,
+  setNumeReview,
 } from "../features/review/reviewSlice";
 import { getAuth } from "firebase/auth";
 
@@ -22,6 +23,7 @@ const RatingStars = ({ id }) => {
   const currentStar = useSelector((state) => state.review.currentStar);
   const sortRev = useSelector((state) => state.review.sortReview);
   const longRev = useSelector((state) => state.review.longReview);
+  const numeReview = useSelector((state) => state.review.numeReview);
   const userId = auth.currentUser?.uid;
 
   const changeSlider = (e) => {
@@ -56,6 +58,7 @@ const RatingStars = ({ id }) => {
       longRev,
       userId,
       id,
+      numeReview,
     };
     const sendData = await fetch("/api/postReview", {
       method: "POST",
@@ -142,6 +145,12 @@ const RatingStars = ({ id }) => {
       </div>
       <div className="d-flex flex-column w-100 gap-3">
         <TextAreaCustom
+          placeholder="Nume prenume"
+          rows="1"
+          value={useSelector((state) => state.review.numeReview)}
+          onChange={(e) => dispatch(setNumeReview(e.target.value))}
+        ></TextAreaCustom>
+        <TextAreaCustom
           placeholder="sort review"
           rows="1"
           value={useSelector((state) => state.review.sortReview)}
@@ -160,6 +169,7 @@ const RatingStars = ({ id }) => {
       </div>
       <p>{useSelector((state) => state.review.sortReview)}</p>
       <p>{useSelector((state) => state.review.longReview)}</p>
+      <p>{useSelector((state) => state.review.numeReview)}</p>
     </Container>
   );
 };
