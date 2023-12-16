@@ -1,18 +1,28 @@
 import React from "react";
-import { Container } from "../components/singleTags/elemetsCustom";
-import styles from "../styles/test.module.scss";
+import {
+  Container,
+  TextAreaCustom,
+} from "../components/singleTags/elemetsCustom";
+import styles from "../styles/RatingStars.module.scss";
 import { FaStar } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import {
   setReview,
   setCurrentStar,
   setReviewInitialState,
+  setSortReview,
+  setLongReview,
 } from "../features/review/reviewSlice";
+import { getAuth } from "firebase/auth";
 
-const Test = () => {
+const RatingStars = ({ id }) => {
+  const auth = getAuth();
   const dispatch = useDispatch();
   const eachStar = useSelector((state) => state.review.stars);
   const currentStar = useSelector((state) => state.review.currentStar);
+  const sortRev = useSelector((state) => state.review.sortReview);
+  const longRev = useSelector((state) => state.review.longReview);
+  const userId = auth.currentUser?.uid;
 
   const changeSlider = (e) => {
     dispatch(setCurrentStar(e));
@@ -27,13 +37,47 @@ const Test = () => {
     return added > 0 ? added : 0;
   };
 
+  const seeData = () => {
+    console.log("See Data: ", auth.currentUser.uid, id, currentStar);
+  };
+
+  const postData = async () => {
+    const date = new Date();
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+    const hour = date.getHours();
+    const minutes = date.getMinutes();
+    const postTime = `${day > 10 ? day : "0" + day}.${
+      month > 10 ? month : "0" + month
+    }.${year} - ${hour > 10 ? hour : "0" + hour}.${
+      minutes > 10 ? minutes : "0" + minutes
+    }`;
+    const alldata = {
+      currentStar,
+      postTime,
+      sortRev,
+      longRev,
+      userId,
+      id,
+    };
+    const sendData = await fetch("/api/postReview", {
+      method: "POST",
+      "Content-Type": "application/json",
+      body: JSON.stringify({ data: alldata }),
+    });
+    const { msg } = await sendData.json();
+    console.log("res: ", msg);
+  };
+
   return (
     <Container className={styles.container}>
-      <div className="d-flex justify-content-between">
+      <h6>{id}</h6>
+      <div className="d-flex justify-content-center gap-3 w-100">
         {[...Array(5)].map((_, i) => {
           const newI = i + 1;
           return (
-            <div key={newI} className="w-100 m-0 p-0 m-2">
+            <div key={newI} className="d-flex flex-column gap-1">
               <h4
                 className="text-center m-0 p-0 fs-6"
                 style={{
@@ -61,7 +105,7 @@ const Test = () => {
                     ? "var(--color-yellow)"
                     : "var(--color-light)"
                 }
-                size="30"
+                size="20"
                 className={styles.star}
               />
             </div>
@@ -101,14 +145,28 @@ const Test = () => {
           })
           .reverse()}
       </div>
-      <button
-        onClick={() => dispatch(setReviewInitialState())}
-        className="mt-5"
-      >
-        reset
-      </button>
+      <div className="d-flex flex-column w-100 gap-3">
+        <TextAreaCustom
+          placeholder="sort review"
+          rows="1"
+          value={useSelector((state) => state.review.sortReview)}
+          onChange={(e) => dispatch(setSortReview(e.target.value))}
+        ></TextAreaCustom>
+        <TextAreaCustom
+          placeholder="long review"
+          rows="10"
+          value={useSelector((state) => state.review.longReview)}
+          onChange={(e) => dispatch(setLongReview(e.target.value))}
+        ></TextAreaCustom>
+      </div>
+      <div className="d-flex gap-2 m-0 p-0 w-100 justify-content-center align-items-center">
+        <button onClick={() => dispatch(setReviewInitialState())}>reset</button>
+        <button onClick={postData}>Posteaza</button>
+      </div>
+      <p>{useSelector((state) => state.review.sortReview)}</p>
+      <p>{useSelector((state) => state.review.longReview)}</p>
     </Container>
   );
 };
 
-export default Test;
+export default RatingStars;

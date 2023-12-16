@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 import { getAuth, signOut } from "firebase/auth";
 import toast from "react-hot-toast";
 import { setUid } from "../features/login/loginSlice";
+import { setReviewInitialState } from "../features/review/reviewSlice";
 
 const UserChangeData = ({ close }) => {
   const dispatch = useDispatch();
@@ -26,6 +27,7 @@ const UserChangeData = ({ close }) => {
         .then(() => {
           toast.success("Te-ai delogat cu succes.");
           dispatch(setUid(""));
+          dispatch(setReviewInitialState());
         })
         .catch((error) => {
           toast.error("O eroare a aparul la delogare.");

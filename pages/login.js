@@ -31,6 +31,7 @@ import {
   setParolaTwo,
   setInitialStateInregistrare,
 } from "../features/signup/signupSlice";
+import { setReviewInitialState } from '../features/review/reviewSlice'
 import { useRouter } from "next/router";
 import { ButtonWithIcon } from "../components/singleTags/ButtonWithIcon";
 
@@ -103,6 +104,7 @@ const Login = ({ req }) => {
       .then((userCredential) => {
         const user = userCredential.user;
         dispatch(setUid(user.uid));
+        dispatch(setReviewInitialState());
         toast.success(`Te-ai logat cu succes, \n${user.email}`);
         if (router.query.q === "inregistrare") {
           router.push("/inscriere");

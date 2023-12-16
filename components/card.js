@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../styles/card.module.scss";
 import { GoLocation } from "react-icons/go";
 import { BsPersonCircle, BsArrowLeftRight } from "react-icons/bs";
@@ -13,8 +13,23 @@ import {
 import { CgUnavailable } from "react-icons/cg";
 import { ImCheckboxChecked } from "react-icons/im";
 import Link from "next/link";
+import RatingStars from "../components/ratingStars";
+import { getAuth } from "firebase/auth";
+import { getDatabase, ref, onValue } from "firebase/database";
 
 const Card = ({ data, setLocation }) => {
+  const auth = getAuth();
+  const [state, setState] = useState([]);
+  useEffect(() => {
+    const db = getDatabase();
+    const items = ref(db, `reviews/${data.id}`);
+    onValue(items, (s) => {
+      const temp = [];
+      [s.val()].map((item) => Object.values(item).map((x) => temp.push(x)));
+      setState(temp);
+    });
+  }, []);
+
   const saveToStorage = () => {
     localStorage.setItem(
       "location",
@@ -177,6 +192,12 @@ const Card = ({ data, setLocation }) => {
           </h5>
         </div>
       </div>
+      <div className="border">
+        {state.map((item, index) => {
+          return <p key={index}>{item.longRev}</p>;
+        })}
+      </div>
+      {auth.currentUser && <RatingStars id={data.id} />}
     </div>
   );
 };
