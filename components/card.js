@@ -15,20 +15,10 @@ import { ImCheckboxChecked } from "react-icons/im";
 import Link from "next/link";
 import RatingStars from "../components/ratingStars";
 import { getAuth } from "firebase/auth";
-import { getDatabase, ref, onValue } from "firebase/database";
+import { useSelector } from "react-redux";
 
-const Card = ({ data, setLocation }) => {
+const Card = ({ data, setLocation, userReviews }) => {
   const auth = getAuth();
-  const [state, setState] = useState([]);
-  useEffect(() => {
-    const db = getDatabase();
-    const items = ref(db, `reviews/${data.id}`);
-    onValue(items, (s) => {
-      const temp = [];
-      [s.val()].map((item) => Object.values(item).map((x) => temp.push(x)));
-      setState(temp);
-    });
-  }, []);
 
   const saveToStorage = () => {
     localStorage.setItem(
@@ -192,12 +182,32 @@ const Card = ({ data, setLocation }) => {
           </h5>
         </div>
       </div>
-      <div className="border">
-        {state.map((item, index) => {
-          return <p key={index}>{item.longRev}</p>;
-        })}
-      </div>
-      {auth.currentUser && <RatingStars id={data.id} />}
+
+      {userReviews &&
+        userReviews.map((item, index) => (
+          <div
+            key={index}
+            className="d-flex justify-content-center align-items-center gap-2 border"
+          >
+            <p className="m-0 p-0" style={{ fontSize: ".6rem" }}>
+              Stars: {item.currentStar}
+            </p>
+            <p className="m-0 p-0" style={{ fontSize: ".6rem" }}>
+              Sort: {item.sortRev}
+            </p>
+            <p className="m-0 p-0" style={{ fontSize: ".6rem" }}>
+              Long: {item.longRev}
+            </p>
+            <p className="m-0 p-0" style={{ fontSize: ".6rem" }}>
+              Data: {item.postTime}
+            </p>
+          </div>
+        ))}
+      {useSelector((state) => state.login.uid) ? (
+        <RatingStars id={data.id} />
+      ) : (
+        <h6>Trebuie sa fii logat sa lasi un review.</h6>
+      )}
     </div>
   );
 };

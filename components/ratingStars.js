@@ -37,10 +37,6 @@ const RatingStars = ({ id }) => {
     return added > 0 ? added : 0;
   };
 
-  const seeData = () => {
-    console.log("See Data: ", auth.currentUser.uid, id, currentStar);
-  };
-
   const postData = async () => {
     const date = new Date();
     const year = date.getFullYear();
@@ -72,7 +68,6 @@ const RatingStars = ({ id }) => {
 
   return (
     <Container className={styles.container}>
-      <h6>{id}</h6>
       <div className="d-flex justify-content-center gap-3 w-100">
         {[...Array(5)].map((_, i) => {
           const newI = i + 1;

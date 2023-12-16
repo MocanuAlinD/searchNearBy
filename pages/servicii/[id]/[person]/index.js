@@ -2,6 +2,7 @@ import React from "react";
 import BackButton from "../../../../components/BackButton";
 import Card from "../../../../components/card";
 import { Container } from "../../../../components/singleTags/elemetsCustom";
+import { getDatabase, onValue, ref } from "firebase/database";
 
 export const getStaticPaths = async () => {
   const unu = await fetch(`https://madapi.vercel.app/api/jobsTotal`);
@@ -33,13 +34,22 @@ export const getStaticProps = async (context) => {
   );
   const res = await unu.json();
 
+  const db = getDatabase();
+  const dbName = ref(db, `reviews/${person}`);
+  let userReviews = [];
+  onValue(dbName, (s) => {
+    [s.val()].map((items) =>
+      Object.values(items).map((x) => userReviews.push(x))
+    );
+  });
+
   return {
-    props: { res, oras },
+    props: { res, oras, userReviews },
     revalidate: 2,
   };
 };
 
-const Person = ({ res, oras, setLocation }) => {
+const Person = ({ res, oras, setLocation, userReviews }) => {
   if (!res) {
     return (
       <Container>
@@ -54,7 +64,7 @@ const Person = ({ res, oras, setLocation }) => {
     <Container>
       <BackButton url={`/servicii/${oras}`} text={`${oras}`} />
       <div className="row col-12 m-0 p-0 pb-3 d-flex justify-content-center align-items-center mt-2">
-        <Card data={item} setLocation={setLocation} />
+        <Card data={item} setLocation={setLocation} userReviews={userReviews} />
       </div>
     </Container>
   );
