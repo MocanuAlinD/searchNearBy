@@ -1,8 +1,12 @@
 import React from "react";
 import BackButton from "../../../../components/BackButton";
 import Card from "../../../../components/card";
-import { Container } from "../../../../components/singleTags/elemetsCustom";
+import {
+  Container,
+  SmallContainer,
+} from "../../../../components/singleTags/elemetsCustom";
 import { getDatabase, onValue, ref } from "firebase/database";
+import styles from "../../../../styles/userCard.module.scss";
 
 export const getStaticPaths = async () => {
   const unu = await fetch(`https://madapi.vercel.app/api/jobsTotal`);
@@ -63,14 +67,37 @@ const Person = ({ res, oras, setLocation, userReviews }) => {
   }
 
   const item = res[0];
+  console.log(item);
   return (
     <Container>
       <BackButton url={`/servicii/${oras}`} text={`${oras}`} />
-      <div className="row col-12 m-0 p-0 pb-3 d-flex justify-content-center align-items-center mt-2">
-        <Card data={item} setLocation={setLocation} userReviews={userReviews} />
-      </div>
+      <Container className="w-100">
+        <div className={styles.mainContainer}>
+          <div className={styles.titleContainer}>
+            <h4>{item.tipjob}</h4>
+          </div>
+
+          <div className={styles.topMenu}>
+            <h4>Contact</h4>
+            <h4>Preturi/Program</h4>
+            <h4>Altele</h4>
+          </div>
+          <div className={styles.rotateContainer}>
+            <div className={styles.rotateWrapper}>
+              <div className={styles.screenLeft}>1</div>
+              <div className={styles.screenMiddle}>2</div>
+              <div className={styles.screenRight}>3</div>
+            </div>
+          </div>
+        </div>
+      </Container>
     </Container>
   );
 };
 
 export default Person;
+
+// <BackButton url={`/servicii/${oras}`} text={`${oras}`} />
+//       <div className="row col-12 m-0 p-0 pb-3 d-flex justify-content-center align-items-center mt-2">
+//         <Card data={item} setLocation={setLocation} userReviews={userReviews} />
+//       </div>

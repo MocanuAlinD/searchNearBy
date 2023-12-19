@@ -12,11 +12,12 @@ body {
   color: var(--color-light);
   --transition: all 0.35s ease-in-out;
   --color-light: whitesmoke;
+  --color-light1: #dee2e6;
   --color-dark: #222;
   --color-darkish: #00000055;
   --color-green: #81c784;
   --color-green1: #2a9d8f;
-  --color-wa: #25D366;
+  --color-wa: #25d366;
   --color-blue: #219ebc;
   --color-blue-dark: #184e77;
   --color-blue-darkish: #0077b6;
@@ -29,12 +30,12 @@ body {
   --color-yellow: #ffb703;
   --border-radius: 0.3rem;
   --font-poppins: Poppins, sans-serif;
-  --font-size06: .6rem;
-  --font-size08: .8rem;
+  --font-size06: 0.6rem;
+  --font-size08: 0.8rem;
   --font-size1: 1rem;
   --font-size125: 1.25rem;
   --font-size15: 1.5rem;
-  --font-size05: clamp(.5rem, 2vw, .8rem);
+  --font-size05: clamp(0.5rem, 2vw, 0.8rem);
 }
 
 a {

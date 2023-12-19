@@ -1,0 +1,92 @@
+.mainContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: min(95%, 45rem);
+  background-color: var(--color-light1);
+  color: var(--color-dark);
+  div {
+    width: calc(100% / 3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .titleContainer {
+    width: 100%;
+    background-color: var(--color-blue-dark);
+    padding: 0.5rem;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    color: var(--color-light);
+    margin-bottom: 1rem;
+    box-shadow: 0 7px 20px 0px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    h4 {
+      font-size: 1.3rem;
+      letter-spacing: 1px;
+      font-weight: 200;
+    }
+  }
+  .topMenu {
+    gap: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0.5rem;
+    width: 100%;
+    h4 {
+      margin: 0;
+      background-color: var(--color-blue-dark);
+      color: white;
+      border-radius: 0.5rem;
+      width: calc(100% / 3);
+      text-align: center;
+      font-size: 0.9rem;
+      padding: 0.25rem 0;
+      font-weight: 200;
+    }
+  }
+  .rotateContainer {
+    perspective: 3000px;
+    .rotateWrapper {
+      transform-style: preserve-3d;
+      animation: anim1 30s linear infinite;
+      transform: rotateY(90deg);
+      // transform-origin: 50% 20rem -10rem;
+      transform-origin: 50% 0px -22.5rem;
+      // position: relative;
+      height: 20rem;
+      div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        // backface-visibility: hidden;
+      }
+      .screenLeft {
+        transform: rotateY(90deg);
+        transform-origin: left;
+        background-color: blue;
+      }
+      .screenMiddle {
+        background-color: coral;
+      }
+      .screenRight {
+        background-color: cornflowerblue;
+        transform: rotateY(-90deg);
+        transform-origin: right;
+      }
+    }
+  }
+  @keyframes anim1 {
+    from {
+      transform: rotateY(0deg);
+    }
+    to {
+      transform: rotateY(360deg);
+    }
+  }
+}
