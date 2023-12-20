@@ -67,7 +67,17 @@ const Person = ({ res, oras, setLocation, userReviews }) => {
   }
 
   const item = res[0];
-  console.log(item);
+  // console.log(item);
+
+  const rotateMenu = (x) => {
+    console.log(x);
+    const a = document.getElementById("rotateWrapper");
+    console.log(a.style.transform);
+    a.style.transform = `rotateY(${
+      x === "1" ? 90 : x === "2" ? 0 : x === "3" && -90
+    }deg)`;
+    // console.log(a.style.transform);
+  };
   return (
     <Container>
       <BackButton url={`/servicii/${oras}`} text={`${oras}`} />
@@ -78,15 +88,15 @@ const Person = ({ res, oras, setLocation, userReviews }) => {
           </div>
 
           <div className={styles.topMenu}>
-            <h4>Contact</h4>
-            <h4>Preturi/Program</h4>
-            <h4>Altele</h4>
+            <h4 onClick={() => rotateMenu("1")}>Contact</h4>
+            <h4 onClick={() => rotateMenu("2")}>Preturi/Program</h4>
+            <h4 onClick={() => rotateMenu("3")}>Altele</h4>
           </div>
           <div className={styles.rotateContainer}>
-            <div className={styles.rotateWrapper}>
-              <div className={styles.screenLeft}>1</div>
-              <div className={styles.screenMiddle}>2</div>
-              <div className={styles.screenRight}>3</div>
+            <div className={styles.rotateWrapper} id="rotateWrapper">
+              <div className={styles.screenLeft}>Left</div>
+              <div className={styles.screenMiddle}>Middle</div>
+              <div className={styles.screenRight}>Right</div>
             </div>
           </div>
         </div>

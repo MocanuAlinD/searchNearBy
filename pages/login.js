@@ -22,6 +22,7 @@ import {
   setPersistence,
   inMemoryPersistence,
   sendEmailVerification,
+  updateProfile,
 } from "firebase/auth";
 import { useDispatch, useSelector } from "react-redux";
 import { setEmail, setPassword, setUid } from "../features/login/loginSlice";
@@ -31,7 +32,7 @@ import {
   setParolaTwo,
   setInitialStateInregistrare,
 } from "../features/signup/signupSlice";
-import { setReviewInitialState } from '../features/review/reviewSlice'
+import { setReviewInitialState } from "../features/review/reviewSlice";
 import { useRouter } from "next/router";
 import { ButtonWithIcon } from "../components/singleTags/ButtonWithIcon";
 
@@ -154,6 +155,20 @@ const Login = ({ req }) => {
         );
         // ..
       });
+  };
+
+  // create displayName user to redux.
+  // Check if user displayName is null, and then ask for a displayName
+  // if user already has a displayname, ask a new displayName
+  const createDisplayName = () => {
+    if(auth.currentUser.displayName === null){
+      console.log("User doesnt have a username to display. Choose one")
+    } else {
+      console.log(auth.currentUser.displayName)
+    }
+    // updateProfile(auth.currentUser, {
+    //   displayName: "Mocanu Alin Username",
+    // });
   };
 
   return (
@@ -307,6 +322,9 @@ const Login = ({ req }) => {
               </Wrapper>
             </div>
           </Wrapper>
+          <ButtonWithIcon w="100%" onClick={createDisplayName}>
+            see user details
+          </ButtonWithIcon>
         </SmallContainer>
       </Container>
     </>
