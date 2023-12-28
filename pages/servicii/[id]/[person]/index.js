@@ -71,9 +71,9 @@ const Person = ({ res, oras, setLocation, userReviews }) => {
 
   const rotateMenu = (x) => {
     const a = document.getElementById("rotateWrapper");
-    a.style.transform = `rotateY(${
-      x === "1" ? 90 : x === "2" ? 0 : x === "3" && -90
-    }deg)`;
+    a.style.transform = `translateX(${
+      x === "1" ? 100 : x === "2" ? 0 : x === "3" && -100
+    }%)`;
   };
 
   // currentStar(number), longRev(string), postTime(string), sortRev(string)
@@ -95,13 +95,14 @@ const Person = ({ res, oras, setLocation, userReviews }) => {
           </div>
 
           <div className={styles.topMenu}>
-            <h4 onClick={() => rotateMenu("1")}>Contact</h4>
-            <h4 onClick={() => rotateMenu("2")}>Preturi/Program</h4>
+            <h4 onClick={() => rotateMenu("1")}>Preturi/Program</h4>
+            <h4 onClick={() => rotateMenu("2")}>Contact</h4>
             <h4 onClick={() => rotateMenu("3")}>Altele</h4>
           </div>
           <div className={styles.rotateContainer}>
             <div className={styles.rotateWrapper} id="rotateWrapper">
-              <div className={styles.screenLeft}>
+              <div className={styles.screenLeft}>Left</div>
+              <div className={styles.screenMiddle}>
                 <h6>Nume: {item.fullname}</h6>
                 {item.contact.email.map((item, idx) => {
                   return (
@@ -121,8 +122,11 @@ const Person = ({ res, oras, setLocation, userReviews }) => {
                   Locatie: {item.judet}, {item.oras}
                 </h6>
               </div>
-              <div className={styles.screenMiddle}>Middle</div>
-              <div className={styles.screenRight}>Right</div>
+              <div className={styles.screenRight}>
+                Right jklfd fjslk jslkf jlskafj lskjf lksjf lksjf lksjf lksj
+                lksj lksjd lksjdf lskdjf lksjflk sjflkj lkdsfajlkdsjflk sjflkjas
+                lfasj mocanu
+              </div>
             </div>
           </div>
           <Ratings userReviews={userReviews} />
