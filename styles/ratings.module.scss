@@ -1,0 +1,45 @@
+.ratingScore {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 10rem;
+  .star {
+    margin: 0;
+    padding: 0;
+  }
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h4 {
+      font-size: 0.7rem;
+      margin: 0 0.5rem;
+      width: 2rem;
+      text-align: center;
+      white-space: nowrap;
+    }
+    input {
+      -webkit-appearance: none;
+      width: min(95%, 20rem);
+      height: 0.8rem;
+      border-radius: 0.5rem;
+      margin: 0.5rem 0;
+      // background: linear-gradient(
+      //   to right,
+      //   var(--color-blue-dark) 10%,
+      //   var(--color-light) 10%
+      // );
+      &::-webkit-slider-thumb {
+        -webkit-appearance: none; /* Override default look */
+        appearance: none;
+        width: 0.8rem; /* Set a specific slider handle width */
+        height: 0.8rem; /* Slider handle height */
+        border-radius: 50%;
+        background: var(--color-blue-dark); /* Green background */
+        cursor: pointer; /* Cursor on hover */
+        display: none;
+      }
+    }
+  }
+}

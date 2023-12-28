@@ -7,7 +7,6 @@
   background-color: var(--color-light1);
   color: var(--color-dark);
   div {
-    width: calc(100% / 3);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -50,16 +49,16 @@
     }
   }
   .rotateContainer {
-    perspective: 3000px;
-    overflow: clip;
+    perspective: 2000px;
+    overflow-x: clip;
+    overflow-y: visible;
     .rotateWrapper {
       transform-style: preserve-3d;
       // animation: anim1 15s linear infinite;
       transform: rotateY(0deg);
       transition: all 0.5s ease-in-out;
-      // transform-origin: 50% 20rem -10rem;
       transform-origin: 50% 0px -22.5rem;
-      // position: relative;
+      position: relative;
       height: 20rem;
       div {
         position: absolute;
@@ -68,8 +67,14 @@
         width: 100%;
         height: 100%;
         color: white;
-        font-size: 5rem;
-        // backface-visibility: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        h6 {
+          font-size: 0.8rem;
+          font-weight: 200;
+        }
       }
       .screenLeft {
         transform: rotateY(270deg) translateZ(45rem);
@@ -87,30 +92,27 @@
       .screenLeft::before,
       .screenMiddle::before,
       .screenRight::before {
-        // content: "\25B2";
         content: "";
         position: absolute;
-        top: 0;
+        top: -1rem;
         left: 17%;
-        // color: var(--color-blue-dark);
-        background-color: var(--color-blue-dark);
         width: 0;
         height: 0;
-        transform: rotate(180deg);
         border-width: 1rem 1rem 1rem 1rem;
-        border-color: red green blue white;
+        border-color: transparent transparent var(--color-blue-dark) transparent;
         border-style: solid;
-        display: inline-block;
-        vertical-align: middle;
+        transform: translate(-50%, -50%);
       }
       .screenMiddle::before {
         left: 50%;
-        // transform: translateX(-50%);
       }
       .screenRight::before {
         left: 83%;
       }
     }
+  }
+  .reviewsContainer{
+    border: 1px solid red;
   }
   @keyframes anim1 {
     from {

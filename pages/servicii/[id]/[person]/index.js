@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import BackButton from "../../../../components/BackButton";
 import Card from "../../../../components/card";
+import Ratings from "../../../../components/ratings.js";
 import {
   Container,
   SmallContainer,
@@ -67,17 +68,23 @@ const Person = ({ res, oras, setLocation, userReviews }) => {
   }
 
   const item = res[0];
-  // console.log(item);
 
   const rotateMenu = (x) => {
-    console.log(x);
     const a = document.getElementById("rotateWrapper");
-    console.log(a.style.transform);
     a.style.transform = `rotateY(${
       x === "1" ? 90 : x === "2" ? 0 : x === "3" && -90
     }deg)`;
-    // console.log(a.style.transform);
   };
+
+  // currentStar(number), longRev(string), postTime(string), sortRev(string)
+  // contact.email - []
+  // contact.phone - []
+  // dataregister - string
+  // detalii - string
+  // fullname - string
+  // id, judet,orainceput, oraregister,oras,orasfarsit,pretMax, pretmin, tipjob,ziinceput, zisfarsit
+  // urgente, urgenteNoapte - boolean
+
   return (
     <Container>
       <BackButton url={`/servicii/${oras}`} text={`${oras}`} />
@@ -94,10 +101,32 @@ const Person = ({ res, oras, setLocation, userReviews }) => {
           </div>
           <div className={styles.rotateContainer}>
             <div className={styles.rotateWrapper} id="rotateWrapper">
-              <div className={styles.screenLeft}>Left</div>
+              <div className={styles.screenLeft}>
+                <h6>Nume: {item.fullname}</h6>
+                {item.contact.email.map((item, idx) => {
+                  return (
+                    <h6 key={idx}>
+                      Email {idx + 1}: {item}
+                    </h6>
+                  );
+                })}
+                {item.contact.phone.map((item, index) => {
+                  return (
+                    <h6 key={index}>
+                      Telefon {index + 1}: {item}
+                    </h6>
+                  );
+                })}
+                <h6>
+                  Locatie: {item.judet}, {item.oras}
+                </h6>
+              </div>
               <div className={styles.screenMiddle}>Middle</div>
               <div className={styles.screenRight}>Right</div>
             </div>
+          </div>
+          <div className={styles.reviewsContainer}>
+            <Ratings userReviews={userReviews} />
           </div>
         </div>
       </Container>
@@ -111,3 +140,4 @@ export default Person;
 //       <div className="row col-12 m-0 p-0 pb-3 d-flex justify-content-center align-items-center mt-2">
 //         <Card data={item} setLocation={setLocation} userReviews={userReviews} />
 //       </div>
+// <Card data={item}  />

@@ -13,8 +13,10 @@ const Test = () => {
   const dispatch = useDispatch();
   const eachStar = useSelector((state) => state.review.stars);
   const currentStar = useSelector((state) => state.review.currentStar);
+  console.log("each: ", eachStar);
 
   const changeSlider = (e) => {
+    console.log("e", e);
     dispatch(setCurrentStar(e));
     dispatch(setReview(e));
   };
@@ -23,6 +25,7 @@ const Test = () => {
     const total = Object.values(eachStar).reduce((total, num) => {
       return total + num;
     });
+    console.log("Total test:", total);
     const added = (eachStar[x] * 100) / total;
     return added > 0 ? added : 0;
   };
