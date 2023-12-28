@@ -41,7 +41,6 @@ export const getStaticProps = async (context) => {
 
   const db = getDatabase();
   const dbName = ref(db, `reviews/${person}`);
-  const d = Object.values(dbName);
   let userReviews = [];
   onValue(dbName, (s) => {
     if (s.val() !== null) {

@@ -36,7 +36,7 @@ export const getStaticProps = async (context) => {
 const Details = ({ res, id }) => {
   if (!res || !Object.values(res)) {
     return (
-      <>
+      <div>
         <BackButton url="/servicii" text="Judete" />
         <div
           className="d-flex justify-content-center align-items-center flex-column"
@@ -45,11 +45,12 @@ const Details = ({ res, id }) => {
           <FcDeleteDatabase className="mb-5" style={{ fontSize: "4rem" }} />
           <h4 className="text-white font-monospace">Pagina {id} nu exista</h4>
         </div>
-      </>
+      </div>
     );
   }
 
   const all = Object.values(res);
+  console.log(all);
 
   return (
     <Container className={styles.container}>

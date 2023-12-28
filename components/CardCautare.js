@@ -2,6 +2,7 @@ import React from "react";
 import styles from "../styles/cardCautare.module.scss";
 import Link from "next/link";
 import Stars from "../components/Stars";
+import { getDatabase, onValue, ref } from "firebase/database";
 
 const namedMonths = {
   1: "Ianuarie",
@@ -20,11 +21,48 @@ const namedMonths = {
 
 const CardCautare = ({ data, idx }) => {
   const gotoId = `/servicii/${data.judet}/${data.id}`;
-
   const tempDate = new Date(data.dataregister);
   const formatedDate = `${tempDate.getDate()} ${
     namedMonths[tempDate.getMonth() + 1]
   } ${tempDate.getFullYear()}`;
+
+  const db = getDatabase();
+  const dbName = ref(db, `reviews/${data.id}`);
+  let userReviews = [];
+  onValue(dbName, (s) => {
+    if (s.val() !== null) {
+      [s.val()].map((items) =>
+        Object.values(items).map((x) => userReviews.push(x))
+      );
+    }
+  });
+
+  const eachStar = {
+    1: 0,
+    2: 0,
+    3: 0,
+    4: 0,
+    5: 0,
+  };
+
+  userReviews.map(
+    (i) => (eachStar[i.currentStar] = eachStar[i.currentStar] + 1)
+  );
+
+  const media = () => {
+    const totalRev = Object.values(eachStar).reduce((total, num) => {
+      return total + num;
+    });
+    const md =
+      (eachStar[1] * 1 +
+        eachStar[2] * 2 +
+        eachStar[3] * 3 +
+        eachStar[4] * 4 +
+        eachStar[5] * 5) /
+      totalRev;
+    return md > 0 ? md : 0;
+  };
+  const md = media();
 
   return (
     <div className={styles.container + " px-1 mb-2 mx-md-1"}>
@@ -41,7 +79,13 @@ const CardCautare = ({ data, idx }) => {
           </div>
           <div className={styles.row}>
             <p>Telefon:</p>
-            <h6>{data.contact.phone}</h6>
+            {data.contact.phone.map((item, index) => {
+              return (
+                <h6 key={index}>
+                  Telefon {index + 1}: {item}
+                </h6>
+              );
+            })}
           </div>
           <div className={styles.row}>
             <p>Locație:</p>
@@ -76,11 +120,11 @@ const CardCautare = ({ data, idx }) => {
             </p>
           </div>
           <div className={styles.link}>
+            <Stars nos={md} />
             <Link href={gotoId}>
               <a target="_blank">Vezi alte detalii</a>
             </Link>
           </div>
-          <Stars />
         </div>
       </div>
     </div>

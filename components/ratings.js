@@ -40,7 +40,7 @@ const Ratings = ({ userReviews }) => {
 
   return (
     <div className={styles.ratingScore}>
-      <RatingMedia md={media()} />
+      <RatingMedia nos={media()} />
       <div className={styles.allStars}>
         {[...Array(5)]
           .map((_, index) => {

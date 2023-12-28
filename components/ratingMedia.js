@@ -1,27 +1,15 @@
 import React from "react";
-import { FaStar } from "react-icons/fa";
 import styles from "../styles/ratingMedia.module.scss";
+import Stars from "../components/Stars.js";
 
-const RagingMedia = ({ md }) => {
+const RagingMedia = ({ nos }) => {
   return (
     <div className={styles.container}>
       <div className={styles.average}>
-        <h4>{md} </h4>
+        <h4>{nos} </h4>
         <span>&nbsp;din 5</span>
       </div>
-      <div className={styles.stars}>
-        {[...Array(5)].map((_, i) => {
-          const newI = i + 1;
-          return (
-            <FaStar
-              key={i}
-              color={newI <= md ? "var(--color-yellow)" : "var(--color-light)"}
-              size="15"
-              className={styles.star}
-            />
-          );
-        })}
-      </div>
+      <Stars nos={nos} size="15" />
     </div>
   );
 };

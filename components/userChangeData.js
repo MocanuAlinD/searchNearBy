@@ -50,10 +50,10 @@ const UserChangeData = ({ close }) => {
         </ButtonWithIcon>
       )}
       {auth.currentUser && (
-        <ButtonWithIcon w="min(90%,20rem)">Modifica date mocanu</ButtonWithIcon>
+        <ButtonWithIcon w="min(90%,20rem)">Modifica date</ButtonWithIcon>
       )}
       {useSelector((state) => state.login.uid) && (
-        <ButtonWithIcon w="min(90%,20rem)">Modifica date profit</ButtonWithIcon>
+        <ButtonWithIcon w="min(90%,20rem)">Modifica date profil</ButtonWithIcon>
       )}
       {useSelector((state) => state.login.uid) ? (
         <ButtonWithIcon w="min(90%,20rem)" onClick={userLogOut}>

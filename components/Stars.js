@@ -1,23 +1,24 @@
 import React from "react";
 import styles from "../styles/Stars.module.scss";
 import { FaStar } from "react-icons/fa";
+import { getDatabase, onValue, ref } from "firebase/database";
 
-const Stars = ({ item }) => {
+const Stars = ({ nos, size }) => {
   return (
     <div className={styles.onlyStars}>
       {[...Array(5)].map((star, i) => {
         const ratingValue = i + 1;
         return (
           <label key={i}>
-            <input type="radio" name="rating" value={item} />
+            <input type="radio" name="rating" value={nos} />
             <FaStar
               className={styles.star}
               color={
-                ratingValue <= item
-                  ? "var(--color-primary-light)"
-                  : "var(--color-primary-lighten2)"
+                ratingValue <= nos
+                  ? "var(--color-yellow)"
+                  : "var(--color-darkish)"
               }
-              size="10"
+              size={size ? size : "10"}
             />
           </label>
         );
