@@ -11,6 +11,7 @@ const Ratings = ({ userReviews }) => {
     4: 0,
     5: 0,
   };
+
   userReviews.map(
     (i) => (eachStar[i.currentStar] = eachStar[i.currentStar] + 1)
   );
@@ -36,74 +37,48 @@ const Ratings = ({ userReviews }) => {
       totalRev;
     return md > 0 ? md : 0;
   };
+
   return (
     <div className={styles.ratingScore}>
       <RatingMedia md={media()} />
-      {[...Array(5)]
-        .map((_, index) => {
-          return (
-            <div key={index}>
-              <h4>{index + 1}</h4>
-              <FaStar
-                style={{
-                  color: "var(--color-yellow)",
-                  marginRight: ".5rem",
-                }}
-                size="25"
-              />
-              <input
-                type="range"
-                min="0"
-                max="100"
-                id="slider"
-                value={getPercent(index + 1)}
-                readOnly
-                style={{
-                  background: `linear-gradient(to right, var(--color-blue-dark) ${getPercent(
-                    index + 1
-                  )}%, var(--color-light) ${getPercent(index + 1)}%)`,
-                }}
-              />
-              <h4>{eachStar[index + 1]} recenzii</h4>
-            </div>
-          );
-        })
-        .reverse()}
+      <div className={styles.allStars}>
+        {[...Array(5)]
+          .map((_, index) => {
+            return (
+              <div key={index}>
+                <h4>{index + 1}</h4>
+                <FaStar
+                  style={{
+                    color: "var(--color-yellow)",
+                    marginRight: ".5rem",
+                  }}
+                  size="20"
+                />
+                <input
+                  type="range"
+                  min="0"
+                  max="100"
+                  id="slider"
+                  value={getPercent(index + 1)}
+                  readOnly
+                  style={{
+                    background: `linear-gradient(to right, var(--color-wa) ${getPercent(
+                      index + 1
+                    )}%, var(--color-light) ${getPercent(index + 1)}%)`,
+                    height: ".6rem",
+                  }}
+                />
+                <h4 className={styles.recenzii}>
+                  {eachStar[index + 1]}{" "}
+                  {eachStar[index + 1] == 1 ? "recenzie" : "recenzii"}
+                </h4>
+              </div>
+            );
+          })
+          .reverse()}
+      </div>
     </div>
   );
 };
 
 export default Ratings;
-
-// {
-//   [...Array(5)]
-//     .map((_, index) => {
-//       return (
-//         <div key={index}>
-//           <h4>{index + 1}</h4>
-//           <FaStar
-//             style={{
-//               color: "var(--color-yellow)",
-//               marginRight: ".5rem",
-//             }}
-//             size="25"
-//           />
-//           <input
-//             type="range"
-//             min="0"
-//             max="100"
-//             id="slider"
-//             value={getPercent(index + 1)}
-//             readOnly
-//             style={{
-//               background: `linear-gradient(to right, var(--color-blue-dark) ${getPercent(
-//                 index + 1
-//               )}%, var(--color-light) ${getPercent(index + 1)}%)`,
-//             }}
-//           />
-//           <h4>{eachStar[index + 1]} recenzii</h4>
-//         </div>
-//       );
-//     })
-//     .reverse();
-// }

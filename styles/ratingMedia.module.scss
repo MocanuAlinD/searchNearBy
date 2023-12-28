@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 3;
+  h4 {
+    font-size: 1.2rem;
+    margin: 0;
+  }
+  span {
+    font-size: 1.2rem;
+    color: darkgray;
+  }
+  .stars {
+    width: fit-content;
+    .star {
+      margin: 0 0.1rem;
+    }
+  }
+}

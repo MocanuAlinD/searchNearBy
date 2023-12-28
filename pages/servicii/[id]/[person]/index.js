@@ -125,9 +125,7 @@ const Person = ({ res, oras, setLocation, userReviews }) => {
               <div className={styles.screenRight}>Right</div>
             </div>
           </div>
-          <div className={styles.reviewsContainer}>
-            <Ratings userReviews={userReviews} />
-          </div>
+          <Ratings userReviews={userReviews} />
         </div>
       </Container>
     </Container>
@@ -135,9 +133,3 @@ const Person = ({ res, oras, setLocation, userReviews }) => {
 };
 
 export default Person;
-
-// <BackButton url={`/servicii/${oras}`} text={`${oras}`} />
-//       <div className="row col-12 m-0 p-0 pb-3 d-flex justify-content-center align-items-center mt-2">
-//         <Card data={item} setLocation={setLocation} userReviews={userReviews} />
-//       </div>
-// <Card data={item}  />
