@@ -19,11 +19,9 @@ export const reviewSlice = createSlice({
   initialState,
   reducers: {
     setReview: (state, action) => {
-      // console.log("setReview: ", action.payload);
       state.stars[action.payload] = state.stars[action.payload] + 1;
     },
     setCurrentStar: (state, action) => {
-      // console.log("current star: ", action.payload);
       state.currentStar = action.payload;
     },
     setSortReview: (state, action) => {

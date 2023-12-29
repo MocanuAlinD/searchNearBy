@@ -138,7 +138,6 @@ const FormRegister = () => {
     newList[index] = newVal;
     dispatch(setEmail(newList));
   };
-  console.log(uid)
 
   return (
     <form onSubmit={postData} method="GET" className="col-12">

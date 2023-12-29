@@ -100,7 +100,6 @@ const ModifyData = () => {
       website: website ? "https://www." + website : "",
     };
 
-    console.log(addData);
 
     // const sendData = await fetch("/api/postData", {
     //   method: "POST",

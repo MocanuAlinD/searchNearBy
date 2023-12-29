@@ -13,7 +13,6 @@ const Test = () => {
   const dispatch = useDispatch();
   const eachStar = useSelector((state) => state.review.stars);
   const currentStar = useSelector((state) => state.review.currentStar);
-  console.log("each: ", eachStar);
 
   const changeSlider = (e) => {
     dispatch(setCurrentStar(e));

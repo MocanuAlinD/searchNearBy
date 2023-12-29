@@ -19,7 +19,6 @@ import { useSelector } from "react-redux";
 
 const Card = ({ data, setLocation, userReviews }) => {
 
-  console.log("Card: ",userReviews)
   const auth = getAuth();
 
   const saveToStorage = () => {

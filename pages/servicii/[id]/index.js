@@ -50,7 +50,6 @@ const Details = ({ res, id }) => {
   }
 
   const all = Object.values(res);
-  console.log(all);
 
   return (
     <Container className={styles.container}>

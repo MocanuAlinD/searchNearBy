@@ -4,7 +4,6 @@ import { getDatabase, ref, set, onValue, push } from "firebase/database";
 export default async function handler(req, res) {
   const { data } = JSON.parse(req.body);
   const { currentStar, sortRev, longRev, postTime, numeReview } = data;
-  console.log(currentStar, sortRev, longRev, postTime, numeReview);
   const dataToWrite = {
     currentStar,
     sortRev,

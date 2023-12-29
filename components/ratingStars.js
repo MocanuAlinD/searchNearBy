@@ -66,7 +66,6 @@ const RatingStars = ({ id }) => {
       body: JSON.stringify({ data: alldata }),
     });
     const { msg } = await sendData.json();
-    console.log("res: ", msg);
   };
 
   return (
