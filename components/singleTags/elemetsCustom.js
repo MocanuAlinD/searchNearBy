@@ -120,8 +120,8 @@ export const InputCustom = styled.input`
   & + span {
     color: var(--color-yellow);
     display: none;
-    font-weight: 400;
-    font-size: .8rem;
+    font-weight: 200;
+    font-size: .7rem;
     letter-spacing: 0.02rem;
   }
   &:focus:placeholder-shown + span {
@@ -132,7 +132,7 @@ export const InputCustom = styled.input`
   }
   &:invalid{
     color: var(--color-yellow);
-    background: var(--color-dark);
+    background: var(--color-inputbackground);
   }
 `;
 

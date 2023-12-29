@@ -39,7 +39,7 @@ const sortItemsSlice = createSlice({
     setWebsite: (state, action) => {
       state.website = action.payload;
     },
-    setInitialState: (state, action) => {
+    setInitialStateSort: (state, action) => {
       return initialState;
     },
     setFilterSorteraza: (state, action) => {
@@ -68,7 +68,7 @@ export const {
   setProgram,
   setNight,
   setWebsite,
-  setInitialState,
+  setInitialStateSort,
   setFilterSorteraza,
   setFilterFilters,
 } = sortItemsSlice.actions;

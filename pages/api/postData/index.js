@@ -20,14 +20,14 @@ export default async function handler(req, res) {
               if (key.includes(uid)) {
                 temp = { error: "Nu mai poti adauga alt serviciu." };
               } else {
-                set(userId2, data);
-                set(items, data);
+                set(userId2, data); // insert into searchUsers DB
+                set(items, data); // Insert into Alin DB
                 temp = { msg: `Date salvate cu succes in ${data.judet}` };
               }
             });
           } else {
-            set(userId2, data);
-            set(items, data);
+            set(userId2, data); // insert into searchUsers DB
+            set(items, data); // Insert into Alin DB
             temp = { msg: `Esti primul care salveaza in  ${data.judet}` };
           }
           res.json({ msg: temp });
@@ -37,19 +37,7 @@ export default async function handler(req, res) {
         }
       );
     } catch (error) {
-      res.json({ error: `Datele nu s-au putut inregistra` });
+      res.json({ error: `Datele nu s-au putut salva.` });
     }
   }
-
-  // ==============================================
-
-  // if (req.method === "POST") {
-  //   try {
-  // set(userId2, data);
-  // set(items, data);
-  //     res.json({ msg: `Date salvate cu succes in ${data.judet}` });
-  //   } catch (error) {
-  //     res.json({ error: `Datele nu s-au putut inregistra` });
-  //   }
-  // }
 }

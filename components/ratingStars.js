@@ -9,7 +9,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   setReview,
   setCurrentStar,
-  setReviewInitialState,
+  setInitialStateReview,
   setSortReview,
   setLongReview,
   setNumeReview,
@@ -164,7 +164,7 @@ const RatingStars = ({ id }) => {
         ></TextAreaCustom>
       </div>
       <div className="d-flex gap-2 m-0 p-0 w-100 justify-content-center align-items-center">
-        <button onClick={() => dispatch(setReviewInitialState())}>reset</button>
+        <button onClick={() => dispatch(setInitialStateReview())}>reset</button>
         <button onClick={postData}>Posteaza</button>
       </div>
       <p>{useSelector((state) => state.review.sortReview)}</p>

@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   setReview,
   setCurrentStar,
-  setReviewInitialState,
+  setInitialStateReview,
 } from "../features/review/reviewSlice";
 
 const Test = () => {
@@ -103,7 +103,7 @@ const Test = () => {
           .reverse()}
       </div>
       <button
-        onClick={() => dispatch(setReviewInitialState())}
+        onClick={() => dispatch(setInitialStateReview())}
         className="mt-5"
       >
         reset

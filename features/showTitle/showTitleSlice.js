@@ -11,12 +11,12 @@ export const showTitleSlice = createSlice({
     setShowTitle: (state, action) => {
       state.showTitle = !state.showTitle;
     },
-    setShowTitleInitialState: (state, action) => {
+    setInitialStateShowTitle: (state, action) => {
       return initialState;
     },
   },
 });
 
-export const { setShowTitle, setShowTitleInitialState } =
+export const { setShowTitle, setInitialStateShowTitle } =
   showTitleSlice.actions;
 export default showTitleSlice.reducer;

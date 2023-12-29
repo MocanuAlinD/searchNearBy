@@ -3,7 +3,6 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   dataregister: "",
   detalii: "Introdu detalii aici",
-  email: "email@yahoo.com",
   fullname: "John Doe",
   judet: "",
   listaOrase: [],
@@ -11,6 +10,7 @@ const initialState = {
   oraregister: "",
   oras: "",
   orasfarsit: "16:00",
+  email: [{ email: "email@yahoo.com" }],
   phone: [{ phone: "" }],
   pretMax: "2000",
   pretMin: "100",
@@ -33,18 +33,47 @@ export const inscriereSlice = createSlice({
       state.urgenteNoapte = !state.urgenteNoapte;
     },
     setPhone: (state, action) => {
-      state.phone[action.payload[0]] = action.payload[1];
+      state.phone = action.payload;
     },
     addPhone: (state, action) => {
+      if (state.phone.length >= 4) {
+        return;
+      }
       const newPhone = { phone: "" };
       state.phone.push(newPhone);
+    },
+    removePhone: (state, action) => {
+      if (state.phone.length <= 1) {
+        return;
+      }
+      const list = [...state.phone];
+      list.splice(action.payload, 1);
+      state.phone = list;
+    },
+    setEmail: (state, action) => {
+      state.email = action.payload;
+    },
+    addEmail: (state, action) => {
+      if (state.email.length >= 4) {
+        return;
+      }
+      const newEmail = { email: "" };
+      state.email.push(newEmail);
+    },
+    removeEmail: (state, action) => {
+      if (state.email.length <= 1) {
+        return;
+      }
+      const list = [...state.email];
+      list.splice(action.payload, 1);
+      state.email = list;
     },
     changeState: (state, action) => {
       const actOne = action.payload[0];
       const actTwo = action.payload[1];
       state[actOne] = actTwo;
     },
-    setInitialState: (state, action) => {
+    setInitialStateInscriere: (state, action) => {
       return initialState;
     },
   },
@@ -53,10 +82,14 @@ export const inscriereSlice = createSlice({
 export const {
   setUrgente,
   setUrgenteNoapte,
-  setInitialState,
+  setInitialStateInscriere,
   changeState,
   setPhone,
   addPhone,
+  removePhone,
+  setEmail,
+  addEmail,
+  removeEmail,
 } = inscriereSlice.actions;
 
 export default inscriereSlice.reducer;

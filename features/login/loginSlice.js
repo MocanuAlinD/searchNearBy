@@ -27,9 +27,12 @@ export const loginSlice = createSlice({
     setHasService: (state, action) => {
       state.hasService = action.payload;
     },
+    setInitialStateLogin: (state, action) => {
+      return initialState;
+    },
   },
 });
 
-export const { setEmail, setPassword, setUid, setImage, setHasService } =
+export const { setEmail, setPassword, setUid, setImage, setHasService, setInitialStateLogin } =
   loginSlice.actions;
 export default loginSlice.reducer;

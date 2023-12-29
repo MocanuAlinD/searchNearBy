@@ -13,13 +13,25 @@ import {
   browserLocalPersistence,
   setPersistence,
 } from "firebase/auth";
-import { setUid, setImage, setHasService } from "../features/login/loginSlice";
 import {
-  modInitialState,
+  setUid,
+  setImage,
+  setHasService,
+  setInitialStateLogin,
+} from "../features/login/loginSlice";
+import {
+  setInitialStateModify,
   modUrgente,
   modUrgenteNoapte,
   modChangeState,
 } from "../features/modificaDate/modificaDateSlice";
+import { setInitialStateInscriere } from "../features/inscriere/inscriereSlice";
+import { setInitialStateInregistrare } from "../features/signup/signupSlice";
+import { setInitialStateSearch } from "../features/searchJudet/searchJudetSlice";
+import { setInitialStateSort } from "../features/sortItems/sortItemsSlice";
+import { setInitialStateReview } from "../features/review/reviewSlice";
+import { setInitialStateShowTitle } from "../features/showTitle/showTitleSlice";
+import { setInitialStateReclamatie } from "../features/reclamatie/reclamatieSlice";
 
 function MyApp({ Component, pageProps }) {
   const initialLocation = {
@@ -37,7 +49,7 @@ function MyApp({ Component, pageProps }) {
       if (user) {
         handleUserDetailsOn(user);
       } else {
-        handleUserDetailsOff(user);
+        handleUserDetailsOff(); // user not logged in or logs off
       }
     });
     if (localStorage.getItem("location")) {
@@ -87,10 +99,18 @@ function MyApp({ Component, pageProps }) {
     }
   };
 
-  const handleUserDetailsOff = (user) => {
+  const handleUserDetailsOff = () => {
+    store.dispatch(setInitialStateInscriere());
+    store.dispatch(setInitialStateLogin());
+    store.dispatch(setInitialStateModify());
+    store.dispatch(setInitialStateReclamatie());
+    store.dispatch(setInitialStateReview());
+    store.dispatch(setInitialStateSearch());
+    store.dispatch(setInitialStateShowTitle());
+    store.dispatch(setInitialStateInregistrare());
+    store.dispatch(setInitialStateSort());
     store.dispatch(setUid(""));
     store.dispatch(setImage("iconwho48.png"));
-    store.dispatch(modInitialState());
   };
 
   return (

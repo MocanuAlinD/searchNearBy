@@ -18,15 +18,18 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   setUrgente,
   setUrgenteNoapte,
-  setInitialState,
+  setInitialStateInscriere,
   changeState,
   setPhone,
+  addPhone,
+  removePhone,
+  setEmail,
+  addEmail,
+  removeEmail,
 } from "../features/inscriere/inscriereSlice";
 import styles from "../styles/FormRegister.module.scss";
-import { useState } from "react";
 
 const FormRegister = () => {
-  const [state, setState] = useState([{ phones: "" }]);
   const dispatch = useDispatch();
   const uid = useSelector((state) => state.login.uid);
   const oras = useSelector((state) => state.inscriere.oras);
@@ -78,8 +81,9 @@ const FormRegister = () => {
   // Inregistrare fara plata
   const postData = async (e) => {
     e.preventDefault();
-    const newPhone = phone.split(",");
-    const newEmail = email.split(",");
+    const newPhone = Object.values(phone).map((item) => item.phone);
+    const newEmail = Object.values(email).map((item) => item.email);
+
     const addData = {
       contact: {
         email: newEmail,
@@ -106,44 +110,35 @@ const FormRegister = () => {
       website: website ? "https://www." + website : "",
     };
 
-    console.log("add data: ", addData);
-
-    // const sendData = await fetch("/api/postData", {
-    //   method: "POST",
-    //   "Content-Type": "application/json",
-    //   body: JSON.stringify({ data: addData, uid }),
-    // });
-    // const { msg } = await sendData.json();
-    // if (msg.msg) {
-    //   toast.success(msg.msg);
-    // } else if (msg.error) {
-    //   toast.error(msg.error);
-    // }
-  };
-
-  const newPhone = () => {
-    if (state.length >= 4) {
-      return;
+    const sendData = await fetch("/api/postData", {
+      method: "POST",
+      "Content-Type": "application/json",
+      body: JSON.stringify({ data: addData, uid }),
+    });
+    const { msg } = await sendData.json();
+    if (msg.msg) {
+      toast.success(msg.msg);
+    } else if (msg.error) {
+      toast.error(msg.error);
     }
-    setState([...state, { phones: "" }]);
-    console.log(state.length);
   };
 
-  const removePhone = (index) => {
-    if (state.length <= 1) {
-      return;
-    }
-    const list = [...state];
-    list.splice(index, 1);
-    setState(list);
-  };
-
-  const changePhone = (e, index) => {
+  const changePhone = (index, e) => {
     const { name, value } = e.target;
-    const list = [...state];
-    list[index][name] = value;
-    setState(list);
+    const newList = [...phone];
+    const newVal = { [name]: value };
+    newList[index] = newVal;
+    dispatch(setPhone(newList));
   };
+
+  const changeEmail = (index, e) => {
+    const { name, value } = e.target;
+    const newList = [...email];
+    const newVal = { [name]: value };
+    newList[index] = newVal;
+    dispatch(setEmail(newList));
+  };
+  console.log(uid)
 
   return (
     <form onSubmit={postData} method="GET" className="col-12">
@@ -166,37 +161,39 @@ const FormRegister = () => {
 
         <Wrapper>
           <LabelCustom>Telefon</LabelCustom>
-          {state.map((item, index) => {
+          {phone.map((item, index) => {
             return (
               <Wrapper key={index} m="0">
                 <Wrapper fd="row" className="align-items-start">
                   <Wrapper fd="column" w="100%" m="0">
                     <InputCustom
                       required
-                      pattern="[0-9.-]+"
-                      name="phones"
+                      pattern="[.\-0-9]+"
+                      name="phone"
                       autoComplete="off"
                       type="text"
                       placeholder="telefon"
-                      value={item.phones}
-                      onChange={(e) => changePhone(e, index)}
+                      value={item.phone}
+                      onChange={(e) => changePhone(index, e)}
                     />
                     <span>Numarul de telefon este necesar.</span>
                   </Wrapper>
-                  <div
-                    onClick={() => removePhone(index)}
-                    className={styles.removeButton}
-                  >
-                    -
-                  </div>
+                  {phone.length > 1 && (
+                    <div
+                      onClick={() => dispatch(removePhone(index))}
+                      className={styles.removeButton}
+                    >
+                      x
+                    </div>
+                  )}
                 </Wrapper>
-                {state.length - 1 === index && state.length < 4 && (
+                {phone.length - 1 === index && phone.length < 4 && (
                   <span
                     type="button"
                     className={styles.span}
-                    onClick={newPhone}
+                    onClick={() => dispatch(addPhone())}
                   >
-                    Adauga alt numar
+                    Adaugă alt numar
                   </span>
                 )}
               </Wrapper>
@@ -205,19 +202,46 @@ const FormRegister = () => {
         </Wrapper>
 
         <Wrapper>
-          <LabelCustom htmlFor="emailID">
-            Email ( unul sau mai multe desparțite prin &quot;,&quot; )
-          </LabelCustom>
-          <InputCustom
-            required
-            id="emailID"
-            autoComplete="off"
-            type="text"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => dispatch(changeState(["email", e.target.value]))}
-          />
-          <span>Adresa de email trebuie să existe și să fie validă</span>
+          <LabelCustom>Email</LabelCustom>
+          {email.map((item, index) => {
+            return (
+              <Wrapper key={index} m="0">
+                <Wrapper fd="row" className="align-items-start">
+                  <Wrapper fd="column" w="100%" m="0">
+                    <InputCustom
+                      required
+                      name="email"
+                      autoComplete="off"
+                      type="email"
+                      placeholder="email"
+                      value={item.email}
+                      onChange={(e) => changeEmail(index, e)}
+                    />
+                    <span>
+                      Adresa de email trebuie să existe și să fie validă
+                    </span>
+                  </Wrapper>
+                  {email.length > 1 && (
+                    <div
+                      onClick={() => dispatch(removeEmail(index))}
+                      className={styles.removeButton}
+                    >
+                      x
+                    </div>
+                  )}
+                </Wrapper>
+                {email.length - 1 === index && email.length < 4 && (
+                  <span
+                    type="button"
+                    className={styles.span}
+                    onClick={() => dispatch(addEmail())}
+                  >
+                    Adaugă alt email
+                  </span>
+                )}
+              </Wrapper>
+            );
+          })}
         </Wrapper>
 
         <Wrapper>
@@ -425,7 +449,7 @@ const FormRegister = () => {
             Județul unde prestezi serviciile
           </LabelCustom>
           <SelectCustom
-            // required
+            required
             name="orase"
             id="labelOrase"
             value={judet}
@@ -448,7 +472,7 @@ const FormRegister = () => {
               Localitate:{" "}
             </LabelCustom>
             <SelectCustom
-              // required
+              required
               id="labelComuna"
               name="comune"
               value={oras}
@@ -472,7 +496,7 @@ const FormRegister = () => {
             w="45%"
             m=".5rem 0 .5rem"
             className="shadow"
-            onClick={() => dispatch(setInitialState())}
+            onClick={() => dispatch(setInitialStateInscriere())}
           >
             <div className="iconContainer">
               <BiReset className="icon" />
@@ -490,42 +514,3 @@ const FormRegister = () => {
 };
 
 export default FormRegister;
-
-// <div className={styles.bottom} id="bottom">
-//   <div id="smallWrapper" className={styles.smallWrapper}>
-//     <input
-//       required
-//       pattern="[0-9,]+"
-//       autoComplete="off"
-//       type="text"
-//       placeholder="telefon"
-//       value=""
-//       onInput={phones}
-//     />
-//     <span onClick={(e) => removeGroup(e)}>-</span>
-//   </div>
-//   <div id="smallWrapper1" className={styles.smallWrapper}>
-//     <input
-//       required
-//       pattern="[0-9,]+"
-//       autoComplete="off"
-//       type="text"
-//       placeholder="telefon"
-//       value=""
-//       onInput={phones}
-//     />
-//     <span onClick={(e) => removeGroup(e)}>-</span>
-//   </div>
-//   <div id="smallWrapper2" className={styles.smallWrapper}>
-//     <input
-//       required
-//       pattern="[0-9,]+"
-//       autoComplete="off"
-//       type="text"
-//       placeholder="telefon"
-//       value=""
-//       onInput={phones}
-//     />
-//     <span onClick={(e) => removeGroup(e)}>-</span>
-//   </div>
-// </div>;

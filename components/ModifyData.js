@@ -19,7 +19,7 @@ import {
   modUrgente,
   modUrgenteNoapte,
   modChangeState,
-  modInitialState,
+  setInitialStateModify,
 } from "../features/modificaDate/modificaDateSlice";
 import { getDatabase, ref, push, child, onValue } from "firebase/database";
 
@@ -438,7 +438,7 @@ const ModifyData = () => {
             w="45%"
             m=".5rem 0 .5rem"
             className="shadow"
-            onClick={() => dispatch(modInitialState())}
+            onClick={() => dispatch(setInitialStateModify())}
           >
             <div className="iconContainer">
               <BiReset className="icon" />

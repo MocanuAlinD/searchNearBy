@@ -35,7 +35,7 @@ export const reviewSlice = createSlice({
     setNumeReview: (state, action) => {
       state.numeReview = action.payload;
     },
-    setReviewInitialState: () => {
+    setInitialStateReview: () => {
       return initialState;
     },
   },
@@ -44,7 +44,7 @@ export const reviewSlice = createSlice({
 export const {
   setReview,
   setCurrentStar,
-  setReviewInitialState,
+  setInitialStateReview,
   setSortReview,
   setLongReview,
   setNumeReview,

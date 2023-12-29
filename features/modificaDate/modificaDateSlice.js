@@ -37,13 +37,13 @@ export const modificaDateSlice = createSlice({
       const actTwo = action.payload[1];
       state[actOne] = actTwo;
     },
-    modInitialState: (state, action) => {
+    setInitialStateModify: (state, action) => {
       return initialState;
     },
   },
 });
 
-export const { modUrgente, modUrgenteNoapte, modInitialState, modChangeState } =
+export const { modUrgente, modUrgenteNoapte, setInitialStateModify, modChangeState } =
   modificaDateSlice.actions;
 
 export default modificaDateSlice.reducer;

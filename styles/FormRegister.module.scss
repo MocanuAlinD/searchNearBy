@@ -1,7 +1,7 @@
 .removeButton {
-  background-color: var(--color-blue-light);
+  // background-color: var(--color-blue-light);
   border-radius: var(--border-radius);
-  border: 1px solid transparent;
+  border: 1px solid var(--color-blue-light);
   width: 1.5rem;
   height: 1.5rem;
   display: flex;
@@ -10,6 +10,7 @@
   margin-left: 0.5rem;
   cursor: pointer;
   transition: var(--transition);
+  font-weight: 200;
   &:hover {
     background-color: transparent;
     border-color: var(--color-orange);
@@ -18,12 +19,12 @@
 
 .span {
   color: var(--color-blue-dark);
-  background-color: var(--color-light);
+  color: var(--color-light);
+  border: 1px solid var(--color-placeholder);
   width: fit-content;
-  padding: 0.25rem 0.5rem;
+  padding: 0rem 0.5rem;
   border-radius: var(--border-radius);
-  align-self: center;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   margin-top: 0.25rem;
-  // font-weight: 200;
+  font-weight: 200;
 }

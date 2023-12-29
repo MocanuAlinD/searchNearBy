@@ -51,7 +51,7 @@ export const cautareSlice = createSlice({
     setNoResTrigger: (state, action) => {
       state.noResTrigger = action.payload;
     },
-    setInitialState: (state, action) => {
+    setInitialStateSearch: (state, action) => {
       return initialState;
     },
   },
@@ -64,7 +64,7 @@ export const {
   setSortedList,
   setListaOrase,
   setListaCarduri,
-  setInitialState,
+  setInitialStateSearch,
   setOriginalList,
   setLoadSearch,
   setShowMenu,

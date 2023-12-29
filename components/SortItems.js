@@ -4,7 +4,7 @@ import SingleRow from "./SingleRow";
 import { useDispatch, useSelector } from "react-redux";
 import { store } from "../fstore/store";
 import {
-  setInitialState,
+  setInitialStateSort,
   setFilterSorteraza,
   setFilterFilters,
 } from "../features/sortItems/sortItemsSlice";
@@ -35,7 +35,7 @@ const SortItems = ({ handleToate, listLen }) => {
   };
 
   const resetState = () => {
-    dispatch(setInitialState());
+    dispatch(setInitialStateSort());
     handleToate(origList);
   };
 

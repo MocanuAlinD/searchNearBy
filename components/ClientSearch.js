@@ -18,7 +18,7 @@ import {
   setNoResTrigger,
   setListaCarduri,
   setListaOrase,
-  setInitialState,
+  setInitialStateSearch,
   setCautare,
 } from "../features/searchJudet/searchJudetSlice";
 
@@ -142,7 +142,7 @@ const ClientSearch = ({ searchJudet, searchJudetOras }) => {
             size="small"
             color="error"
             variant="outlined"
-            onClick={() => dispatch(setInitialState())}
+            onClick={() => dispatch(setInitialStateSearch())}
             startIcon={<BiReset className={styles.iconReset} />}
           >
             Reset
