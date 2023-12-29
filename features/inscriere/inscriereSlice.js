@@ -11,7 +11,7 @@ const initialState = {
   oraregister: "",
   oras: "",
   orasfarsit: "16:00",
-  phone: "0721345678",
+  phone: [{ phone: "" }],
   pretMax: "2000",
   pretMin: "100",
   tipjob: "electrician",
@@ -32,6 +32,13 @@ export const inscriereSlice = createSlice({
     setUrgenteNoapte: (state, action) => {
       state.urgenteNoapte = !state.urgenteNoapte;
     },
+    setPhone: (state, action) => {
+      state.phone[action.payload[0]] = action.payload[1];
+    },
+    addPhone: (state, action) => {
+      const newPhone = { phone: "" };
+      state.phone.push(newPhone);
+    },
     changeState: (state, action) => {
       const actOne = action.payload[0];
       const actTwo = action.payload[1];
@@ -43,7 +50,13 @@ export const inscriereSlice = createSlice({
   },
 });
 
-export const { setUrgente, setUrgenteNoapte, setInitialState, changeState } =
-  inscriereSlice.actions;
+export const {
+  setUrgente,
+  setUrgenteNoapte,
+  setInitialState,
+  changeState,
+  setPhone,
+  addPhone,
+} = inscriereSlice.actions;
 
 export default inscriereSlice.reducer;

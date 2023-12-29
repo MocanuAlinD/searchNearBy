@@ -49,6 +49,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: ${({ fd }) => (fd ? fd : "column")};
   margin: ${({ m }) => (m ? m : "0.25rem 0")};
+  width: ${({ w }) => w && w};
   @media (max-width: 450px) {
     flex-wrap: ${({ qwrap }) => (qwrap ? qwrap : "nowrap")};
     justify-content: space-between;

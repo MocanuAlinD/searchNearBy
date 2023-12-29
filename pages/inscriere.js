@@ -9,7 +9,7 @@ export default function Inscriere() {
   const hasService = useSelector((state) => state.login.hasService);
   return (
     <Container>
-      {!hasService && uid ? (
+      {hasService && uid ? (
         <FormRegister />
       ) : uid && hasService ? (
         <h4>Ai deja serviciu inregistrat.</h4>

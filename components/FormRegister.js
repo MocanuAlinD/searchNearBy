@@ -20,9 +20,13 @@ import {
   setUrgenteNoapte,
   setInitialState,
   changeState,
+  setPhone,
 } from "../features/inscriere/inscriereSlice";
+import styles from "../styles/FormRegister.module.scss";
+import { useState } from "react";
 
 const FormRegister = () => {
+  const [state, setState] = useState([{ phones: "" }]);
   const dispatch = useDispatch();
   const uid = useSelector((state) => state.login.uid);
   const oras = useSelector((state) => state.inscriere.oras);
@@ -102,32 +106,55 @@ const FormRegister = () => {
       website: website ? "https://www." + website : "",
     };
 
-    const sendData = await fetch("/api/postData", {
-      method: "POST",
-      "Content-Type": "application/json",
-      body: JSON.stringify({ data: addData, uid }),
-    });
-    const { msg } = await sendData.json();
-    if (msg.msg) {
-      toast.success(msg.msg);
-    } else if (msg.error) {
-      toast.error(msg.error);
+    console.log("add data: ", addData);
+
+    // const sendData = await fetch("/api/postData", {
+    //   method: "POST",
+    //   "Content-Type": "application/json",
+    //   body: JSON.stringify({ data: addData, uid }),
+    // });
+    // const { msg } = await sendData.json();
+    // if (msg.msg) {
+    //   toast.success(msg.msg);
+    // } else if (msg.error) {
+    //   toast.error(msg.error);
+    // }
+  };
+
+  const newPhone = () => {
+    if (state.length >= 4) {
+      return;
     }
+    setState([...state, { phones: "" }]);
+    console.log(state.length);
+  };
+
+  const removePhone = (index) => {
+    if (state.length <= 1) {
+      return;
+    }
+    const list = [...state];
+    list.splice(index, 1);
+    setState(list);
+  };
+
+  const changePhone = (e, index) => {
+    const { name, value } = e.target;
+    const list = [...state];
+    list[index][name] = value;
+    setState(list);
   };
 
   return (
     <form onSubmit={postData} method="GET" className="col-12">
       <SmallContainer bg>
         <Wrapper>
-          <LabelCustom htmlFor="numeUtilizator">
-            Nume Prenume / Nume companie
-          </LabelCustom>
+          <LabelCustom>Nume Prenume / Nume companie</LabelCustom>
           <InputCustom
             required
             pattern="[A-Za-z -.0-9]{2,}"
             autoComplete="off"
             type="text"
-            id="numeUtilizator"
             value={fullname}
             placeholder="nume prenume"
             onChange={(e) =>
@@ -138,20 +165,43 @@ const FormRegister = () => {
         </Wrapper>
 
         <Wrapper>
-          <LabelCustom htmlFor="phoneID">
-            Telefon ( unul sau mai multe desparțite prin &quot;,&quot; )
-          </LabelCustom>
-          <InputCustom
-            required
-            pattern="[0-9,]+"
-            id="phoneID"
-            autoComplete="off"
-            type="text"
-            placeholder="telefon"
-            value={phone}
-            onChange={(e) => dispatch(changeState(["phone", e.target.value]))}
-          />
-          <span>Numărul de telefon este necesar</span>
+          <LabelCustom>Telefon</LabelCustom>
+          {state.map((item, index) => {
+            return (
+              <Wrapper key={index} m="0">
+                <Wrapper fd="row" className="align-items-start">
+                  <Wrapper fd="column" w="100%" m="0">
+                    <InputCustom
+                      required
+                      pattern="[0-9.-]+"
+                      name="phones"
+                      autoComplete="off"
+                      type="text"
+                      placeholder="telefon"
+                      value={item.phones}
+                      onChange={(e) => changePhone(e, index)}
+                    />
+                    <span>Numarul de telefon este necesar.</span>
+                  </Wrapper>
+                  <div
+                    onClick={() => removePhone(index)}
+                    className={styles.removeButton}
+                  >
+                    -
+                  </div>
+                </Wrapper>
+                {state.length - 1 === index && state.length < 4 && (
+                  <span
+                    type="button"
+                    className={styles.span}
+                    onClick={newPhone}
+                  >
+                    Adauga alt numar
+                  </span>
+                )}
+              </Wrapper>
+            );
+          })}
         </Wrapper>
 
         <Wrapper>
@@ -375,7 +425,7 @@ const FormRegister = () => {
             Județul unde prestezi serviciile
           </LabelCustom>
           <SelectCustom
-            required
+            // required
             name="orase"
             id="labelOrase"
             value={judet}
@@ -398,7 +448,7 @@ const FormRegister = () => {
               Localitate:{" "}
             </LabelCustom>
             <SelectCustom
-              required
+              // required
               id="labelComuna"
               name="comune"
               value={oras}
@@ -440,3 +490,42 @@ const FormRegister = () => {
 };
 
 export default FormRegister;
+
+// <div className={styles.bottom} id="bottom">
+//   <div id="smallWrapper" className={styles.smallWrapper}>
+//     <input
+//       required
+//       pattern="[0-9,]+"
+//       autoComplete="off"
+//       type="text"
+//       placeholder="telefon"
+//       value=""
+//       onInput={phones}
+//     />
+//     <span onClick={(e) => removeGroup(e)}>-</span>
+//   </div>
+//   <div id="smallWrapper1" className={styles.smallWrapper}>
+//     <input
+//       required
+//       pattern="[0-9,]+"
+//       autoComplete="off"
+//       type="text"
+//       placeholder="telefon"
+//       value=""
+//       onInput={phones}
+//     />
+//     <span onClick={(e) => removeGroup(e)}>-</span>
+//   </div>
+//   <div id="smallWrapper2" className={styles.smallWrapper}>
+//     <input
+//       required
+//       pattern="[0-9,]+"
+//       autoComplete="off"
+//       type="text"
+//       placeholder="telefon"
+//       value=""
+//       onInput={phones}
+//     />
+//     <span onClick={(e) => removeGroup(e)}>-</span>
+//   </div>
+// </div>;
