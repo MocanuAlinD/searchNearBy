@@ -30,7 +30,16 @@ export default async function handler(req, res) {
       var revs = [];
       onValue(dbName, (s) => {
         if (s.val() !== null) {
-          [s.val()].map((item) => Object.values(item).map((a) => revs.push(a)));
+          [s.val()].map((item) =>
+            Object.values(item).map((a) => {
+              for (let x in a) {
+                const jd = a[x].judet;
+                if (jd == judet) {
+                  revs.push(a[x]);
+                }
+              }
+            })
+          );
         }
       });
       res.json({ endresult, revs });

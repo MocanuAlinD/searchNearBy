@@ -19,7 +19,7 @@ const namedMonths = {
 };
 
 const CardCautare = ({ data, idx, revs }) => {
-  console.log('card cautare revs',revs)
+  console.log('card cautare revs',revs, data.id)
   const gotoId = `/servicii/${data.judet}/${data.id}`;
   const tempDate = new Date(data.dataregister);
   const formatedDate = `${tempDate.getDate()} ${
