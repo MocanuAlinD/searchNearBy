@@ -13,6 +13,7 @@ import {
   setNoResultText,
   setNoResTrigger,
 } from "../features/searchJudet/searchJudetSlice";
+import { setReviewSearchRev } from "../features/reviewSearch/reviewSearchSlice";
 import { Container } from "../components/singleTags/elemetsCustom";
 import PageTitle from "../components/pageTitle";
 
@@ -25,6 +26,7 @@ export default function Home() {
   const loadSearch = useSelector((state) => state.search.loadSearch);
   const originalList = useSelector((state) => state.search.originalList);
   const noResTrigger = useSelector((state) => state.search.noResTrigger);
+  const review = useSelector((state) => state.reviewSearch.rev);
 
   // Button search only in judet
   const searchJudet = async () => {
@@ -34,8 +36,10 @@ export default function Home() {
       const getServices = await fetch(
         `/api/jobsJudet?search=${cautare}&judet=${judet}`
       );
-      const endresult = await getServices.json();
+      const { endresult, revs } = await getServices.json();
+      console.log("from api:", endresult, "revs", revs);
 
+      dispatch(setReviewSearchRev(revs));
       dispatch(setSortedList(endresult));
       dispatch(setOriginalList(endresult));
       dispatch(setLoadSearch(false));
@@ -151,7 +155,7 @@ export default function Home() {
           {!loadSearch &&
             originalList &&
             sortedList.map((item, index) => (
-              <CardCautare data={item} key={index} idx={index} />
+              <CardCautare data={item} key={index} idx={index} revs={review} />
             ))}
         </div>
       </div>

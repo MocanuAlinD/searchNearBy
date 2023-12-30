@@ -18,7 +18,6 @@ import { getAuth } from "firebase/auth";
 import { useSelector } from "react-redux";
 
 const Card = ({ data, setLocation, userReviews }) => {
-
   const auth = getAuth();
 
   const saveToStorage = () => {
@@ -205,7 +204,7 @@ const Card = ({ data, setLocation, userReviews }) => {
           </div>
         ))}
       {useSelector((state) => state.login.uid) ? (
-        <RatingStars id={data.id} />
+        <RatingStars id={data.id} data={data} />
       ) : (
         <h6>Trebuie sa fii logat sa lasi un review.</h6>
       )}

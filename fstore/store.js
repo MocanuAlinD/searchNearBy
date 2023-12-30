@@ -8,6 +8,7 @@ import reclamatieReducer from "../features/reclamatie/reclamatieSlice";
 import showTitleReducer from "../features/showTitle/showTitleSlice";
 import modReducer from "../features/modificaDate/modificaDateSlice";
 import reviewRedurer from "../features/review/reviewSlice";
+import reviewSearchReducer from "../features/reviewSearch/reviewSearchSlice";
 
 const rootReducers = combineReducers({
   search: searchReducers,
@@ -19,6 +20,7 @@ const rootReducers = combineReducers({
   showTitle: showTitleReducer,
   mod: modReducer,
   review: reviewRedurer,
+  reviewSearch: reviewSearchReducer,
 });
 
 export const store = configureStore({

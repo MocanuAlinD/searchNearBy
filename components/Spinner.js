@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "../styles/Spinner.module.scss";
 import { useSelector, useDispatch } from "react-redux";
+import { setLoadSearch } from "../features/searchJudet/searchJudetSlice";
 
 const LoadingSpinner = () => {
   const dispatch = useDispatch();
@@ -9,7 +10,7 @@ const LoadingSpinner = () => {
     <div className={styles.spinnerContainer}>
       <div className={styles.spinner}></div>
       <button
-        onClick={() => dispatch(setLoadSearch(loadSearch))}
+        onClick={() => dispatch(setLoadSearch(!loadSearch))}
         className={styles.closeButton}
       >
         X

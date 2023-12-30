@@ -16,7 +16,7 @@ import {
 } from "../features/review/reviewSlice";
 import { getAuth } from "firebase/auth";
 
-const RatingStars = ({ id }) => {
+const RatingStars = ({ id, data }) => {
   const auth = getAuth();
   const dispatch = useDispatch();
   const eachStar = useSelector((state) => state.review.stars);
@@ -59,7 +59,10 @@ const RatingStars = ({ id }) => {
       userId,
       id,
       numeReview,
+      judet: data.judet,
+      oras: data.oras,
     };
+    console.log(alldata);
     const sendData = await fetch("/api/postReview", {
       method: "POST",
       "Content-Type": "application/json",
@@ -166,9 +169,9 @@ const RatingStars = ({ id }) => {
         <button onClick={() => dispatch(setInitialStateReview())}>reset</button>
         <button onClick={postData}>Posteaza</button>
       </div>
-      <p>{useSelector((state) => state.review.sortReview)}</p>
-      <p>{useSelector((state) => state.review.longReview)}</p>
-      <p>{useSelector((state) => state.review.numeReview)}</p>
+      <span>{useSelector((state) => state.review.sortReview)}</span>
+      <span>{useSelector((state) => state.review.longReview)}</span>
+      <span>{useSelector((state) => state.review.numeReview)}</span>
     </Container>
   );
 };

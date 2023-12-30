@@ -67,6 +67,7 @@ const Person = ({ res, oras, setLocation, userReviews }) => {
   }
 
   const item = res[0];
+  console.log("userReviews index person: ", userReviews);
 
   const rotateMenu = (x) => {
     const a = document.getElementById("rotateWrapper");
@@ -130,6 +131,7 @@ const Person = ({ res, oras, setLocation, userReviews }) => {
           </div>
           <Ratings userReviews={userReviews} />
         </div>
+        <Card data={item} userReviews={userReviews} />
       </Container>
     </Container>
   );
