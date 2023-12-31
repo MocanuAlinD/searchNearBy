@@ -19,51 +19,50 @@ const namedMonths = {
 };
 
 const CardCautare = ({ data, idx, revs }) => {
-  console.log('card cautare revs',revs, data.id)
   const gotoId = `/servicii/${data.judet}/${data.id}`;
   const tempDate = new Date(data.dataregister);
   const formatedDate = `${tempDate.getDate()} ${
     namedMonths[tempDate.getMonth() + 1]
   } ${tempDate.getFullYear()}`;
 
-  const userReviews = [];
+  const flt = revs.filter((item) => item.id === data.id);
 
-  Object.values(revs).map((item) => userReviews.push(item));
-  // const a = Object.values(revs[0])
-  // console.log("Card cautare: ",a);
+  const userReviews = revs ? flt : [];
 
-  // const eachStar = {
-  //   1: 0,
-  //   2: 0,
-  //   3: 0,
-  //   4: 0,
-  //   5: 0,
-  // };
+  const eachStar = {
+    1: 0,
+    2: 0,
+    3: 0,
+    4: 0,
+    5: 0,
+  };
 
-  // userReviews.map(
-  //   (i) => (eachStar[i.currentStar] = eachStar[i.currentStar] + 1)
-  // );
+  userReviews.map(
+    (i) => (eachStar[i.currentStar] = eachStar[i.currentStar] + 1)
+  );
 
-  // const media = () => {
-  //   const totalRev = Object.values(eachStar).reduce((total, num) => {
-  //     return total + num;
-  //   });
-  //   const md =
-  //     (eachStar[1] * 1 +
-  //       eachStar[2] * 2 +
-  //       eachStar[3] * 3 +
-  //       eachStar[4] * 4 +
-  //       eachStar[5] * 5) /
-  //     totalRev;
-  //   return md > 0 ? md : 0;
-  // };
+  const media = () => {
+    const totalRev = Object.values(eachStar).reduce((total, num) => {
+      return total + num;
+    });
+    const md =
+      (eachStar[1] * 1 +
+        eachStar[2] * 2 +
+        eachStar[3] * 3 +
+        eachStar[4] * 4 +
+        eachStar[5] * 5) /
+      totalRev;
+    return md > 0 ? md : 0;
+  };
   // const md = media();
 
   return (
     <div className={styles.container + " px-1 mb-2 mx-md-1"}>
       <div className={styles.topWrapper}>
         <h6>{idx + 1}</h6>
-        <h6>{data.tipjob}</h6>
+        <h6>
+          {data.tipjob} {data.id}
+        </h6>
       </div>
       <hr />
       <div className={styles.bottomWrapper}>
@@ -115,10 +114,10 @@ const CardCautare = ({ data, idx, revs }) => {
             </p>
           </div>
           <div className={styles.link}>
-            
             <Link href={gotoId}>
               <a target="_blank">Vezi alte detalii</a>
             </Link>
+            <Stars nos={media()} />
           </div>
         </div>
       </div>
@@ -127,5 +126,3 @@ const CardCautare = ({ data, idx, revs }) => {
 };
 
 export default CardCautare;
-
-// <Stars nos={md} />

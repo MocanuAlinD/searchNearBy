@@ -3,12 +3,13 @@ import { getDatabase, ref, onValue } from "firebase/database";
 
 export default async function handler(req, res) {
   const { search, judet } = req.query;
+  // console.log("judet api", judet)
   const db = getDatabase();
   const items = ref(db, `Alin/${judet}`);
 
   if (req.method === "GET") {
     try {
-      var endresult = [];
+      const endresult = [];
       onValue(items, (s) => {
         if (s.val() !== null) {
           [s.val()].map((item) =>
@@ -27,21 +28,27 @@ export default async function handler(req, res) {
         }
       });
       const dbName = ref(db, `reviews`);
-      var revs = [];
-      onValue(dbName, (s) => {
-        if (s.val() !== null) {
-          [s.val()].map((item) =>
-            Object.values(item).map((a) => {
-              for (let x in a) {
-                const jd = a[x].judet;
-                if (jd == judet) {
-                  revs.push(a[x]);
+      const revs = [];
+      onValue(
+        dbName,
+        (s) => {
+          if (s.val() !== null) {
+            [s.val()].map((item) =>
+              Object.values(item).map((a) => {
+                for (let x in a) {
+                  const jd = a[x].judet;
+                  if (jd == judet) {
+                    revs.push(a[x]);
+                  }
                 }
-              }
-            })
-          );
+              })
+            );
+          }
+        },
+        {
+          onlyOnce: true,
         }
-      });
+      );
       res.json({ endresult, revs });
     } catch (error) {
       res.json({ msg: "Error occured fom jobsJudet api." });

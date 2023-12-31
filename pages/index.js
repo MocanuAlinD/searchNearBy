@@ -37,7 +37,7 @@ export default function Home() {
         `/api/jobsJudet?search=${cautare}&judet=${judet}`
       );
       const { endresult, revs } = await getServices.json();
-      console.log("from api:", endresult, "revs", revs);
+      // console.log("from api:", endresult, "revs", revs);
 
       dispatch(setReviewSearchRev(revs));
       dispatch(setSortedList(endresult));
