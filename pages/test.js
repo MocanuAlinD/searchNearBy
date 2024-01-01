@@ -8,6 +8,7 @@ import {
   setCurrentStar,
   setInitialStateReview,
 } from "../features/review/reviewSlice";
+import { getDatabase, ref, onValue } from "firebase/database";
 
 const Test = () => {
   const dispatch = useDispatch();
@@ -27,8 +28,54 @@ const Test = () => {
     return added > 0 ? added : 0;
   };
 
+  const db = getDatabase();
+  const all = ref(db, "/");
+
+  // "16520824347123097" "17006014727931537" "17020697116391575" "170223731112060436"
+  // Brașov Bacău Brasov Buzău Constanța
+  const getAll = () => {
+    const perJudet = [];
+    const revs = [];
+    onValue(all, (s) => {
+      console.log("=============================");
+      if (s.val() !== null) {
+        const judeteAll = s.val().Alin;
+        if (judeteAll) {
+          const a = judeteAll["Buzău"];
+          if (a) {
+            console.log("judet exista");
+            [a].map((item) =>
+              Object.values(item).map((i) => {
+                perJudet.push(i);
+                const b = s.val().reviews;
+                const c = b[i.id];
+                if (c) {
+                  // reviews exists
+                  Object.values(c).map((item) => revs.push(item));
+                } else {
+                  // reviews NOT exists
+                  console.log("review NOT exists", c);
+                }
+                // console.log("Reviews: ",c, i.id);
+              })
+            );
+          } else {
+            console.log("judet NU exista");
+          }
+          console.log("db exists");
+        } else {
+          console.log("db nu exista");
+        }
+      }
+    });
+    console.log("Judet LIST: ", perJudet);
+    console.log("Revs LIST: ", revs);
+  };
+
   return (
     <Container className={styles.container}>
+      <button onClick={getAll}>get all</button>
+
       <div className="d-flex justify-content-between">
         {[...Array(5)].map((_, i) => {
           const newI = i + 1;
