@@ -11,11 +11,10 @@ export default async function handler(req, res) {
 
   if (req.method === "GET") {
     try {
-      const endresult = [];
-      const revs = [];
-      const msg = "";
-
       onValue(base, (s) => {
+        const endresult = [];
+        const revs = [];
+        const msg = "";
         if (s.val() !== null) {
           const judeteDB = s.val().Alin;
           if (judeteDB) {
@@ -44,9 +43,8 @@ export default async function handler(req, res) {
             }
           }
         }
+        res.json({ endresult, revs });
       });
-
-      res.json({ endresult, revs });
     } catch (error) {
       res.json({ msg: "Error occured fom jobsJudet api." });
     }
