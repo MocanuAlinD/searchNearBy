@@ -37,7 +37,6 @@ const Test = () => {
     const perJudet = [];
     const revs = [];
     onValue(all, (s) => {
-      console.log("=============================");
       if (s.val() !== null) {
         const judeteAll = s.val().Alin;
         if (judeteAll) {

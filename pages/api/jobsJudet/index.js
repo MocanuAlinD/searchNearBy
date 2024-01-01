@@ -7,42 +7,42 @@ export default async function handler(req, res) {
   const db = getDatabase();
   const items = ref(db, `Alin/${judet}`);
   const dbName = ref(db, `reviews`);
+  const base = ref(db, "/");
 
   if (req.method === "GET") {
     try {
       const endresult = [];
       const revs = [];
+      const msg = "";
 
-      onValue(dbName, (r) => {
-        if (r.val() !== null) {
-          [r.val()].map((item) =>
-            Object.values(item).map((a) => {
-              for (let x in a) {
-                const jd = a[x].judet;
-                if (jd == judet) {
-                  revs.push(a[x]);
-                }
-              }
-            })
-          );
-        }
-      });
-
-      onValue(items, (s) => {
+      onValue(base, (s) => {
         if (s.val() !== null) {
-          [s.val()].map((item) =>
-            Object.values(item).map((a) => {
-              if (!search) {
-                endresult.push(a);
-              }
-              if (
-                search &&
-                a.tipjob.toLowerCase().includes(search.toLowerCase())
-              ) {
-                endresult.push(a);
-              }
-            })
-          );
+          const judeteDB = s.val().Alin;
+          if (judeteDB) {
+            const singleJudet = judeteDB[judet];
+            if (singleJudet) {
+              console.log("judet exista");
+              [singleJudet].map((item) =>
+                Object.values(item).map((i) => {
+                  if (!search) {
+                    endresult.push(i);
+                  }
+                  if (
+                    search &&
+                    i.tipjob.toLowerCase().includes(search.toLowerCase())
+                  ) {
+                    endresult.push(i);
+                  }
+                  const b = s.val().reviews;
+                  const c = b[i.id];
+                  if (c) {
+                    // reviews exists
+                    Object.values(c).map((item) => revs.push(item));
+                  }
+                })
+              );
+            }
+          }
         }
       });
 
@@ -58,3 +58,11 @@ export const config = {
     externalResolver: true,
   },
 };
+
+// if (!search) {
+//   endresult.push(a);
+//   console.log("from api: ", a);
+// }
+// if (search && a.tipjob.toLowerCase().includes(search.toLowerCase())) {
+//   endresult.push(a);
+// }

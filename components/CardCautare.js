@@ -28,7 +28,6 @@ const CardCautare = ({ data, idx, revs }) => {
   const flt = revs.filter((item) => item.id === data.id);
 
   const userReviews = revs ? flt : [];
-  console.log("cardcautare", userReviews);
 
   const eachStar = {
     1: 0,
@@ -55,7 +54,6 @@ const CardCautare = ({ data, idx, revs }) => {
       totalRev;
     return md > 0 ? md : 0;
   };
-  // const md = media();
 
   return (
     <div className={styles.container + " px-1 mb-2 mx-md-1"}>
