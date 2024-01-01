@@ -28,6 +28,7 @@ const CardCautare = ({ data, idx, revs }) => {
   const flt = revs.filter((item) => item.id === data.id);
 
   const userReviews = revs ? flt : [];
+  console.log("cardcautare", userReviews);
 
   const eachStar = {
     1: 0,

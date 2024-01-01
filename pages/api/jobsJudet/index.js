@@ -6,10 +6,28 @@ export default async function handler(req, res) {
   // console.log("judet api", judet)
   const db = getDatabase();
   const items = ref(db, `Alin/${judet}`);
+  const dbName = ref(db, `reviews`);
 
   if (req.method === "GET") {
     try {
       const endresult = [];
+      const revs = [];
+
+      onValue(dbName, (r) => {
+        if (r.val() !== null) {
+          [r.val()].map((item) =>
+            Object.values(item).map((a) => {
+              for (let x in a) {
+                const jd = a[x].judet;
+                if (jd == judet) {
+                  revs.push(a[x]);
+                }
+              }
+            })
+          );
+        }
+      });
+
       onValue(items, (s) => {
         if (s.val() !== null) {
           [s.val()].map((item) =>
@@ -27,28 +45,7 @@ export default async function handler(req, res) {
           );
         }
       });
-      const dbName = ref(db, `reviews`);
-      const revs = [];
-      onValue(
-        dbName,
-        (s) => {
-          if (s.val() !== null) {
-            [s.val()].map((item) =>
-              Object.values(item).map((a) => {
-                for (let x in a) {
-                  const jd = a[x].judet;
-                  if (jd == judet) {
-                    revs.push(a[x]);
-                  }
-                }
-              })
-            );
-          }
-        },
-        {
-          onlyOnce: true,
-        }
-      );
+
       res.json({ endresult, revs });
     } catch (error) {
       res.json({ msg: "Error occured fom jobsJudet api." });
