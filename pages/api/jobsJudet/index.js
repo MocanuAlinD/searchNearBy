@@ -3,10 +3,7 @@ import { getDatabase, ref, onValue } from "firebase/database";
 
 export default async function handler(req, res) {
   const { search, judet } = req.query;
-  // console.log("judet api", judet)
   const db = getDatabase();
-  const items = ref(db, `Alin/${judet}`);
-  const dbName = ref(db, `reviews`);
   const base = ref(db, "/");
 
   if (req.method === "GET") {
@@ -14,13 +11,13 @@ export default async function handler(req, res) {
       onValue(base, (s) => {
         const endresult = [];
         const revs = [];
+        // ADD MESSAGES IN CASE SOMETHING DOESNT EXISTS
         const msg = "";
         if (s.val() !== null) {
           const judeteDB = s.val().Alin;
           if (judeteDB) {
             const singleJudet = judeteDB[judet];
             if (singleJudet) {
-              console.log("judet exista");
               [singleJudet].map((item) =>
                 Object.values(item).map((i) => {
                   if (!search) {
@@ -35,7 +32,6 @@ export default async function handler(req, res) {
                   const b = s.val().reviews;
                   const c = b[i.id];
                   if (c) {
-                    // reviews exists
                     Object.values(c).map((item) => revs.push(item));
                   }
                 })

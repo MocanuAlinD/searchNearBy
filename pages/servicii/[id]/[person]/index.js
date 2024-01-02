@@ -37,27 +37,16 @@ export const getStaticProps = async (context) => {
   const unu = await fetch(
     `https://madapi.vercel.app/api/getPerson?oras=${oras}&person=${person}`
   );
-  const res = await unu.json();
-
-  const db = getDatabase();
-  const dbName = ref(db, `reviews/${person}`);
-  let userReviews = [];
-  onValue(dbName, (s) => {
-    if (s.val() !== null) {
-      [s.val()].map((items) =>
-        Object.values(items).map((x) => userReviews.push(x))
-      );
-    }
-  });
+  const { data, revs } = await unu.json();
 
   return {
-    props: { res, oras, userReviews },
+    props: { revs, oras, data },
     revalidate: 5,
   };
 };
 
-const Person = ({ res, oras, setLocation, userReviews }) => {
-  if (!res) {
+const Person = ({ data, oras, setLocation, revs }) => {
+  if (!data) {
     return (
       <Container>
         <BackButton url={`/servicii/`} text="Servicii" />
@@ -66,7 +55,7 @@ const Person = ({ res, oras, setLocation, userReviews }) => {
     );
   }
 
-  const item = res[0];
+  const item = data[0];
 
   const rotateMenu = (x) => {
     const a = document.getElementById("rotateWrapper");
@@ -128,12 +117,12 @@ const Person = ({ res, oras, setLocation, userReviews }) => {
               </div>
             </div>
           </div>
-          <Ratings userReviews={userReviews} />
+          <Ratings userReviews={revs} />
         </div>
-        <Card data={item} userReviews={userReviews} />
       </Container>
     </Container>
   );
 };
 
 export default Person;
+// <Card data={item} userReviews={revs} />
