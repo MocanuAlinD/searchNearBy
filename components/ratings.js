@@ -5,7 +5,6 @@ import RatingMedia from "../components/ratingMedia.js";
 import Stars from "../components/Stars.js";
 
 const Ratings = ({ userReviews }) => {
-  console.log(userReviews);
   const eachStar = {
     1: 0,
     2: 0,
@@ -82,8 +81,10 @@ const Ratings = ({ userReviews }) => {
         </div>
       </div>
 
-      <div className="justify-content-end pe-3">
-        <button>Lasa un review</button>
+      <div className="justify-content-end pe-3 mb-3">
+        <button>
+          {userReviews.length > 0 ? "Lasa un review" : "Fii primul care lasa un review"}
+        </button>
       </div>
       <div className={styles.bottomContainer}>
         {userReviews &&

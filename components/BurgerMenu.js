@@ -22,7 +22,7 @@ const BurgerMenu = () => {
       <CustomLink link="/login" text="Log-in si sign-up" />
       <CustomLink link="/inscriere" text="Inregistrare gratuita" />
       <CustomLink link="/donatii" text="Doneaza pentru dezvoltare" />
-      <CustomLink link="/modifica-date" text="Modifica date" />
+      <CustomLink link="/landingPage" text="Landing Page" />
     </div>
   );
 };
