@@ -59,7 +59,7 @@ const LandingPage = () => {
           <p>CUM A LUAT NAȘTERE această platformă?</p>
           <p>
             În spatele fiecărei inovații se află adesea o poveste inspirată de
-            nevoi reale și experiențe personale. Astfel, "Toate pentru tine" nu
+            nevoi reale și experiențe personale. Astfel, &quot;Toate pentru tine&quot; nu
             este doar rezultatul unei viziuni, ci și al unei nevoi palpabile din
             viața cotidiană. Totul a început într-o noapte, când un prieten
             apropiat s-a confruntat cu o situație de urgență: o țeavă spartă în
@@ -71,7 +71,7 @@ const LandingPage = () => {
             disponibil, ci și să afli detaliile esențiale despre programul său,
             tarifele practicate și alte informații relevante? Impulsionați de
             această idee și de dorința de a simplifica experiența
-            utilizatorilor, am creat "Toate pentru tine". Vrem să vă oferim mai
+            utilizatorilor, am creat &quot;Toate pentru tine&quot;. Vrem să vă oferim mai
             mult decât o simplă conexiune cu specialiștii; vrem să vă punem la
             dispoziție toate informațiile necesare pentru a face alegerea
             potrivită, în orice moment și situație. Astfel, fiecare aspect al
