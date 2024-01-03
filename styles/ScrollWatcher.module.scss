@@ -1,0 +1,18 @@
+.scroll {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  scale: 0 1;
+  background-color: var(--color-orange);
+  transform-origin: left;
+  animation: scroll linear;
+  animation-timeline: scroll();
+  z-index: 9999;
+}
+@keyframes scroll {
+  to {
+    scale: 1 1;
+  }
+}
