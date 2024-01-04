@@ -28,18 +28,26 @@ const Caut = () => {
 
   const cautaid = userId();
 
-  const MAX_LENGTH = 255;
+  const MAX_LENGTH = 400;
 
   const allData = (e) => {
     e.preventDefault();
-    console.log(caut, cerinte, sumaAlocata, numePrenume, contact, dataLimita, char);
+    console.log(
+      caut,
+      cerinte,
+      sumaAlocata,
+      numePrenume,
+      contact,
+      dataLimita,
+      char
+    );
     console.log(currentDate);
   };
 
   return (
     <Container>
-      <form onSubmit={allData}>
-        <Wrapper w="min(95%, 40rem)">
+      <form onSubmit={allData} style={{ width: "min(95%, 40rem)" }}>
+        <Wrapper>
           <ParaCustom>
             Cererea va fi stearsa automat cand se atinge data limita.
           </ParaCustom>
@@ -65,7 +73,7 @@ const Caut = () => {
               dispatch(setCerereState(["char", e.target.value.length]))
             )}
             value={cerinte}
-            rows="6"
+            rows="7"
             placeholder="Spune mai detaliat ce ai nevoie sau daca ai anumite cerinte"
           ></TextAreaCustom>
           <span>Scurta descriere este obligatorie</span>
@@ -91,6 +99,7 @@ const Caut = () => {
           />
           <LabelCustom>Data limita</LabelCustom>
           <InputCustom
+            w="100%"
             required
             type="date"
             name="dataLimita"
@@ -120,7 +129,7 @@ const Caut = () => {
             >
               Reset
             </ButtonWithIcon>
-            <ButtonWithIcon>trimite</ButtonWithIcon>
+            <ButtonWithIcon>Trimite</ButtonWithIcon>
           </div>
         </Wrapper>
       </form>
