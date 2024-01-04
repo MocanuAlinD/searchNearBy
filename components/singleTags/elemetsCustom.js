@@ -25,7 +25,7 @@ color - color
 
 export const Container = styled.div`
   background: ${({ bg }) => (bg ? bg : "")};
-  margin: ${({m}) => m ? m : 0};
+  margin: ${({ m }) => (m ? m : 0)};
   padding: 0;
   display: flex;
   justify-content: start;
@@ -176,7 +176,7 @@ export const TextAreaCustom = styled.textarea`
 `;
 
 export const LabelSmallCustom = styled.label`
-  color: ${({ char, maxChar }) => (char < maxChar ? "whitesmoke" : "#888")};
+  color: ${({ char, maxChar }) => (char < maxChar ? "whitesmoke" : "var(--color-dark)")};
   font-size: 0.8rem;
   font-weight: 200;
   text-align: right;
