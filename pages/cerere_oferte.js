@@ -14,34 +14,44 @@ import {
   setCerereState,
   setInitialStateCerere,
 } from "../features/cerereOferta/cerereOfertaSlice";
+import { useRouter } from "next/router";
 
 const Caut = () => {
+  const { push } = useRouter();
   const dispatch = useDispatch();
   const caut = useSelector((state) => state.cerereOferta.caut);
   const cerinte = useSelector((state) => state.cerereOferta.cerinte);
   const sumaAlocata = useSelector((state) => state.cerereOferta.sumaAlocata);
   const numePrenume = useSelector((state) => state.cerereOferta.numePrenume);
   const contact = useSelector((state) => state.cerereOferta.contact);
-  const char = useSelector((state) => state.cerereOferta.char);
   const dataLimita = useSelector((state) => state.cerereOferta.dataLimita);
+  const char = useSelector((state) => state.cerereOferta.char);
   const currentDate = new Date().toLocaleDateString();
 
-  const cautaid = userId();
+  const cerereId = userId();
 
   const MAX_LENGTH = 400;
 
-  const allData = (e) => {
+  const allData = async (e) => {
     e.preventDefault();
-    console.log(
+    const data = {
       caut,
       cerinte,
       sumaAlocata,
       numePrenume,
       contact,
       dataLimita,
-      char
-    );
-    console.log(currentDate);
+      char,
+      currentDate,
+      cerereId,
+    };
+    const sendToApi = await fetch("/api/depuneCerereOferta", {
+      method: "POST",
+      "Content-Type": "application/json",
+      body: JSON.stringify({ data }),
+    });
+    const { msg } = await sendToApi.json();
+    push("/");
   };
 
   return (

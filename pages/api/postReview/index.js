@@ -1,5 +1,5 @@
 import { firebase } from "../../../firebase";
-import { getDatabase, ref, set, onValue, push } from "firebase/database";
+import { getDatabase, ref, set } from "firebase/database";
 
 export default async function handler(req, res) {
   const { data } = JSON.parse(req.body);
@@ -26,11 +26,11 @@ export default async function handler(req, res) {
     oras,
   };
   const db = getDatabase();
-  const addTo = ref(db, `reviews/${id}/${userId}`);
+  const dbToWrite = ref(db, `reviews/${id}/${userId}`);
 
   if (req.method === "POST") {
     try {
-      set(addTo, dataToWrite);
+      set(dbToWrite, dataToWrite);
       res.json({ msg: "Review inregistrat" });
     } catch (error) {
       res.json({ error: `Datele nu s-au putut inregistra` });

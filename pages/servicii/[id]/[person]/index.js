@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import BackButton from "../../../../components/BackButton";
 import Card from "../../../../components/card";
 import Ratings from "../../../../components/ratings.js";
@@ -6,22 +6,21 @@ import {
   Container,
   SmallContainer,
 } from "../../../../components/singleTags/elemetsCustom";
-import { getDatabase, onValue, ref } from "firebase/database";
 import styles from "../../../../styles/userCard.module.scss";
 
 export const getStaticPaths = async () => {
-  const unu = await fetch(`https://madapi.vercel.app/api/jobsTotal`);
-  const res = await unu.json();
+  const getCitys = await fetch(`https://madapi.vercel.app/api/jobsTotal`);
+  const res = await getCitys.json();
 
-  const moc = {};
+  const judeteAndId = {};
   Object.values(res).map((item) => {
     Object.values(item).map((item1) => {
-      moc[item1.id] = item1.judet;
+      judeteAndId[item1.id] = item1.judet;
     });
   });
-  const paths = Object.keys(moc).map((item) => {
+  const paths = Object.keys(judeteAndId).map((item) => {
     return {
-      params: { person: item.toString(), id: moc[item] },
+      params: { person: item.toString(), id: judeteAndId[item] },
     };
   });
 
@@ -33,11 +32,11 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (context) => {
   const oras = context.params.id;
-  const person = context.params.person;
-  const unu = await fetch(
-    `https://madapi.vercel.app/api/getPerson?oras=${oras}&person=${person}`
+  const personId = context.params.person;
+  const getUserData = await fetch(
+    `https://madapi.vercel.app/api/getPerson?oras=${oras}&person=${personId}`
   );
-  const { data, revs } = await unu.json();
+  const { data, revs } = await getUserData.json();
 
   return {
     props: { revs, oras, data },

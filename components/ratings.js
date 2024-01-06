@@ -3,6 +3,7 @@ import styles from "../styles/ratings.module.scss";
 import { FaStar } from "react-icons/fa";
 import RatingMedia from "../components/ratingMedia.js";
 import Stars from "../components/Stars.js";
+import { ButtonWithIcon } from "./singleTags/ButtonWithIcon.js";
 
 const Ratings = ({ userReviews }) => {
   const eachStar = {
@@ -81,10 +82,12 @@ const Ratings = ({ userReviews }) => {
         </div>
       </div>
 
-      <div className="justify-content-end pe-3 mb-3">
-        <button>
-          {userReviews.length > 0 ? "Lasa un review" : "Fii primul care lasa un review"}
-        </button>
+      <div className="justify-content-end mb-3">
+        <ButtonWithIcon w="fit-content" p=".3rem 1rem" pl="1rem" m=".3rem">
+          {userReviews.length > 0
+            ? "Lasa un review"
+            : "Fii primul care lasa un review"}
+        </ButtonWithIcon>
       </div>
       <div className={styles.bottomContainer}>
         {userReviews &&

@@ -5,8 +5,8 @@ import { Container } from "../../components/singleTags/elemetsCustom";
 
 export const getStaticProps = async () => {
   try {
-    const unu = await fetch(`https://madapi.vercel.app/api/jobsTotal`);
-    const res = await unu.json();
+    const getFromApi = await fetch(`https://madapi.vercel.app/api/jobsTotal`);
+    const res = await getFromApi.json();
     return {
       props: {
         citys: res,
@@ -31,13 +31,13 @@ const Servicii = ({ citys }) => {
   }
 
   let tmp = 0;
-  const all = [];
+  const citysAndNumberOfUsers = [];
 
-  const unu = Object.keys(citys);
+  const cityKeys = Object.keys(citys);
   Object.values(citys).map((item, index) => {
     tmp += Object.values(item).length;
-    const temp = { name: unu[index], value: Object.values(item).length };
-    all.push(temp);
+    const temp = { name: cityKeys[index], value: Object.values(item).length };
+    citysAndNumberOfUsers.push(temp);
   });
 
   return (
@@ -54,7 +54,7 @@ const Servicii = ({ citys }) => {
             </tr>
           </thead>
           <tbody>
-            {all.map((item, index) => (
+            {citysAndNumberOfUsers.map((item, index) => (
               <tr key={index}>
                 <td className="px-2 text-uppercase">{item.name}</td>
                 <td>{item.value}</td>
