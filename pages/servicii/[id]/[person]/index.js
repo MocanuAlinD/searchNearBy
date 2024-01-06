@@ -64,13 +64,10 @@ const Person = ({ data, oras, setLocation, revs }) => {
   };
 
   // currentStar(number), longRev(string), postTime(string), sortRev(string)
-  // contact.email - []
-  // contact.phone - []
-  // dataregister - string
-  // detalii - string
-  // fullname - string
-  // id, judet,orainceput, oraregister,oras,orasfarsit,pretMax, pretmin, tipjob,ziinceput, zisfarsit
-  // urgente, urgenteNoapte - boolean
+  // TITLE -> tipjob string
+  // PRETURI/PROGRAM -> pretMin, pretMax, ziinceput, zisfarsit, orainceput, orasfarsit
+  // CONTACT -> fullname, judet, oras, contact.phone[], contact.email[]
+  // ALTELE -> urgente boolean, urgenteNoapte boolean, detalii string, dataregister string, oraregister string
 
   return (
     <Container>
@@ -88,7 +85,18 @@ const Person = ({ data, oras, setLocation, revs }) => {
           </div>
           <div className={styles.rotateContainer}>
             <div className={styles.rotateWrapper} id="rotateWrapper">
-              <div className={styles.screenLeft}>Left</div>
+              <div className={styles.screenLeft}>
+                <p>
+                  Interval preturi: {item.pretMin} {item.pretMax}
+                </p>
+                <p>
+                  Lucreaza de: {item.ziinceput} pana {item.zisfarsit}
+                </p>
+                <p>
+                  Interval orar: {item.orainceput} - {item.orasfarsit}
+                </p>
+              </div>
+
               <div className={styles.screenMiddle}>
                 <h6>Nume: {item.fullname}</h6>
                 {item.contact.email.map((item, idx) => {
@@ -109,10 +117,18 @@ const Person = ({ data, oras, setLocation, revs }) => {
                   Locatie: {item.judet}, {item.oras}
                 </h6>
               </div>
+
               <div className={styles.screenRight}>
-                Right jklfd fjslk jslkf jlskafj lskjf lksjf lksjf lksjf lksj
-                lksj lksjd lksjdf lskdjf lksjflk sjflkj lkdsfajlkdsjflk sjflkjas
-                lfasj mocanu
+                <p>Disponibil peste program: {item.urgente ? "Da" : "Nu"}</p>
+                <p>
+                  Disponibil noaptea (urgente):{" "}
+                  {item.urgenteNoapte ? "Da" : "Nu"}
+                </p>
+                <p>Descriere: {item.detalii}</p>
+                <p>
+                  Online din {item.dataregister} ora {item.oraregister}
+                </p>
+                <button>raporteaza</button>
               </div>
             </div>
           </div>
