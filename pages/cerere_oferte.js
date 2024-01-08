@@ -28,15 +28,6 @@ const Caut = () => {
   const dataLimita = useSelector((state) => state.cerereOferta.dataLimita);
   const char = useSelector((state) => state.cerereOferta.char);
 
-  const createId = () => {
-    return userId();
-  };
-
-  const createCurrentTime = () => {
-    const currentTime = new Date();
-    return `${currentTime.getHours()}.${currentTime.getMinutes()}.${currentTime.getSeconds()}`;
-  };
-
   const MAX_LENGTH = 400;
 
   const allData = async (e) => {
