@@ -9,7 +9,7 @@ export default async function handler(req, res) {
   if (req.method === "POST") {
     try {
       set(basePost, data);
-      res.json({ msg: "Back from the future" });
+      res.json({ msg: "Cerere depusa cu succes." });
     } catch (error) {
       res.json({ error: `Datele nu s-au putut salva.` });
     }

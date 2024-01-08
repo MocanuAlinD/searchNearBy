@@ -2,36 +2,47 @@ import React from "react";
 import { Container } from "../components/singleTags/elemetsCustom";
 
 export const getStaticProps = async () => {
-  const getdata = await fetch("https://madapi.vercel.app/api/cereriCurente");
-  const { data } = await getdata.json();
-
-  return {
-    props: { data },
-    revalidate: 2,
-  };
+  try {
+    const getdata = await fetch("https://madapi.vercel.app/api/cereriCurente");
+    const { data } = await getdata.json();
+    return {
+      props: { data },
+      revalidate: 2,
+    };
+  } catch (error) {
+    return {
+      props: { data: {} },
+      revalidate: 2,
+    };
+  }
 };
 
 const CereriCurente = ({ data }) => {
-  if (!data) {
+  if (!data || data.length === 0) {
     return <Container>Nu exista cereri momentan</Container>;
   }
   const len = data.length;
   return (
     <Container className="gap-2">
+      <div className="d-flex justify-content-center my-3">
+        Cereri depuse: {len}
+      </div>
       {data.map((item, index) => {
         return (
           <div
             key={item.cerereId}
             className="border border-danger d-flex flex-column align-items-center justify-content-center w-100"
           >
-            <p>{len - index}</p>
-            <p>{item.caut}</p>
-            <p>{item.cerinte}</p>
-            <p>{item.contact}</p>
-            <p>{item.currentDate}</p>
-            <p>{item.dataLimita}</p>
-            <p>{item.numePrenume}</p>
-            <p>{item.sumaAlocata}</p>
+            <h6>{len - index}</h6>
+            <h6>{item.caut}</h6>
+            <h6>{item.cerereId}</h6>
+            <h6>{item.char}</h6>
+            <h6>{item.contact}</h6>
+            <h6>{item.currentDate}</h6>
+            <h6>{item.currentTime}</h6>
+            <h6>{item.dataLimita}</h6>
+            <h6>{item.numePrenume}</h6>
+            <h6>{item.sumaAlocata}</h6>
           </div>
         );
       })}

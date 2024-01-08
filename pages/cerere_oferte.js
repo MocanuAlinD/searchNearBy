@@ -15,6 +15,7 @@ import {
   setInitialStateCerere,
 } from "../features/cerereOferta/cerereOfertaSlice";
 import { useRouter } from "next/router";
+import toast from "react-hot-toast";
 
 const Caut = () => {
   const { push } = useRouter();
@@ -26,9 +27,15 @@ const Caut = () => {
   const contact = useSelector((state) => state.cerereOferta.contact);
   const dataLimita = useSelector((state) => state.cerereOferta.dataLimita);
   const char = useSelector((state) => state.cerereOferta.char);
-  const currentDate = new Date().toLocaleDateString();
 
-  const cerereId = userId();
+  const createId = () => {
+    return userId();
+  };
+
+  const createCurrentTime = () => {
+    const currentTime = new Date();
+    return `${currentTime.getHours()}.${currentTime.getMinutes()}.${currentTime.getSeconds()}`;
+  };
 
   const MAX_LENGTH = 400;
 
@@ -42,8 +49,9 @@ const Caut = () => {
       contact,
       dataLimita,
       char,
-      currentDate,
-      cerereId,
+      currentDate: new Date().toLocaleDateString(),
+      cerereId: createId(),
+      currentTime: createCurrentTime(),
     };
     const sendToApi = await fetch("/api/depuneCerereOferta", {
       method: "POST",
@@ -51,7 +59,9 @@ const Caut = () => {
       body: JSON.stringify({ data }),
     });
     const { msg } = await sendToApi.json();
-    push("/");
+    toast.success(msg);
+    push("/cereriCurente");
+    Object.values(data).map((item) => console.log(item));
   };
 
   return (

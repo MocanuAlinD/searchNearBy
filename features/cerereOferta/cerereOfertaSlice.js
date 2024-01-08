@@ -1,12 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  caut: "",
-  cerinte: "",
-  sumaAlocata: "",
-  numePrenume: "",
-  contact: "",
-  dataLimita: "",
+  caut: "Reparatii tv",
+  cerinte: "Sa lucreze bine",
+  sumaAlocata: "maxim 500",
+  numePrenume: "Daniel Alin",
+  contact: "alin.dann@yahoo.ro",
+  dataLimita: "30.03.2024",
   char: 0,
 };
 
