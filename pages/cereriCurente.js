@@ -1,37 +1,30 @@
 import React from "react";
 import { Container } from "../components/singleTags/elemetsCustom";
-import { getDatabase, ref, set, onValue } from "firebase/database";
 
 export const getStaticProps = async () => {
-  const db = getDatabase();
-  const base = ref(db, "/cereriOferta");
-  const allCereri = [];
+  const getdata = await fetch("https://madapi.vercel.app/api/cereriCurente");
+  const { data } = await getdata.json();
 
-  onValue(base, (s) => {
-    if (s.val() !== null) {
-      [s.val()].map((item) =>
-        Object.values(item).map((i) => allCereri.push(i))
-      );
-    }
-  });
   return {
-    props: { allCereri },
+    props: { data },
     revalidate: 2,
   };
 };
 
-const CereriCurente = ({ allCereri }) => {
-  if (!allCereri) {
+const CereriCurente = ({ data }) => {
+  if (!data) {
     return <Container>Nu exista cereri momentan</Container>;
   }
+  const len = data.length;
   return (
     <Container className="gap-2">
-      {allCereri.map((item) => {
+      {data.map((item, index) => {
         return (
           <div
             key={item.cerereId}
             className="border border-danger d-flex flex-column align-items-center justify-content-center w-100"
           >
+            <p>{len - index}</p>
             <p>{item.caut}</p>
             <p>{item.cerinte}</p>
             <p>{item.contact}</p>

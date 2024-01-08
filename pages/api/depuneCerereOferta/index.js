@@ -1,5 +1,5 @@
 import { firebase } from "../../../firebase";
-import { getDatabase, ref, set, onValue } from "firebase/database";
+import { getDatabase, ref, set } from "firebase/database";
 
 export default async function handler(req, res) {
   const { data } = JSON.parse(req.body);
