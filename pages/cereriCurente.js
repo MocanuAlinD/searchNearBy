@@ -11,14 +11,14 @@ export const getStaticProps = async () => {
     };
   } catch (error) {
     return {
-      props: { data: {} },
+      props: { data: [] },
       revalidate: 2,
     };
   }
 };
 
 const CereriCurente = ({ data }) => {
-  if (!data || data.length === 0) {
+  if (data.length <= 0 || !data) {
     return <Container>Nu exista cereri momentan</Container>;
   }
   const len = data.length;

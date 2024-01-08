@@ -41,6 +41,7 @@ const Caut = () => {
 
   const allData = async (e) => {
     e.preventDefault();
+    const currentTime = new Date();
     const data = {
       caut,
       cerinte,
@@ -50,8 +51,8 @@ const Caut = () => {
       dataLimita,
       char,
       currentDate: new Date().toLocaleDateString(),
-      cerereId: createId(),
-      currentTime: createCurrentTime(),
+      cerereId: userId(),
+      currentTime: `${currentTime.getHours()}.${currentTime.getMinutes()}.${currentTime.getSeconds()}`,
     };
     const sendToApi = await fetch("/api/depuneCerereOferta", {
       method: "POST",
@@ -60,8 +61,7 @@ const Caut = () => {
     });
     const { msg } = await sendToApi.json();
     toast.success(msg);
-    push("/cereriCurente");
-    Object.values(data).map((item) => console.log(item));
+    // push("/cereriCurente");
   };
 
   return (
