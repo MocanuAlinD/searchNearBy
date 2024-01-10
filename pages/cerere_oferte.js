@@ -8,7 +8,7 @@ import {
   LabelSmallCustom,
 } from "../components/singleTags/elemetsCustom";
 import { v4 as userId } from "uuid";
-import { ButtonWithIcon } from "../components/singleTags/ButtonWithIcon";
+import { ButtonWithIcon } from "../components/tags/ButtonWithIcon";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setCerereState,

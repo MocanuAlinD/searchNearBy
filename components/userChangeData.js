@@ -1,6 +1,6 @@
 import React from "react";
 import { Container } from "../components/singleTags/elemetsCustom";
-import { ButtonWithIcon } from "../components/singleTags/ButtonWithIcon";
+import { ButtonWithIcon } from "../components/tags/ButtonWithIcon";
 import styles from "../styles/userChangeData.module.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { useRouter } from "next/router";

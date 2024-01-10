@@ -7,7 +7,7 @@ import {
   LabelCustom,
   LabelSmallCustom,
 } from "../components/singleTags/elemetsCustom";
-import { ButtonWithIcon } from "./singleTags/ButtonWithIcon";
+import { ButtonWithIcon } from "../components/tags/ButtonWithIcon";
 import { Checkbox } from "@mui/material";
 import { BiReset } from "react-icons/bi";
 import { judete } from "../lib/judete";

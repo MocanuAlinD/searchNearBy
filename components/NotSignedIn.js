@@ -1,6 +1,6 @@
 import React from "react";
 import { useRouter } from "next/router";
-import { ButtonWithIcon } from "./singleTags/ButtonWithIcon";
+import { ButtonWithIcon } from "../components/tags/ButtonWithIcon";
 import {
   LabelCustom,
   Container,

@@ -34,7 +34,7 @@ import {
 } from "../features/signup/signupSlice";
 import { setInitialStateReview } from "../features/review/reviewSlice";
 import { useRouter } from "next/router";
-import { ButtonWithIcon } from "../components/singleTags/ButtonWithIcon";
+import { ButtonWithIcon } from "../components/tags/ButtonWithIcon";
 
 const Login = ({ req }) => {
   const dispatch = useDispatch();

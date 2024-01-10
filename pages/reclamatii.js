@@ -11,7 +11,7 @@ import {
   H6Custom,
   ParaCustom,
 } from "../components/singleTags/elemetsCustom";
-import { ButtonWithIcon } from "../components/singleTags/ButtonWithIcon";
+import { ButtonWithIcon } from "../components/tags/ButtonWithIcon";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setTelefonReclamat,

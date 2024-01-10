@@ -25,8 +25,8 @@ color - color
 
 export const Container = styled.div`
   background: ${({ bg }) => (bg ? bg : "")};
-  margin: ${({ m }) => (m ? m : 0)};
-  padding: 0;
+  margin: ${({ m }) => (m ? m : "0")};
+  padding: ${({ p }) => (p ? p : "0")};
   display: flex;
   justify-content: start;
   align-items: center;

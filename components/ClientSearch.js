@@ -10,7 +10,7 @@ import { MdClear } from "react-icons/md";
 import { BiReset } from "react-icons/bi";
 import { AiOutlineSearch } from "react-icons/ai";
 import styles from "../styles/clientsearch.module.scss";
-import { ButtonWithIcon } from "./singleTags/ButtonWithIcon";
+import { ButtonWithIcon } from "../components/tags/ButtonWithIcon";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setJudet,
@@ -115,23 +115,13 @@ const ClientSearch = ({ searchJudet, searchJudetOras }) => {
 
       {judet && (
         <div className="row m-0 p-0" id="judetButton">
-          <ButtonWithIcon
-            hasIcon
-            m=".5rem 0"
-            onClick={searchJudet}
-            className="shadow-sm"
-          >
+          <ButtonWithIcon hasIcon onClick={searchJudet}>
             <div className="iconContainer">
               <AiOutlineSearch className="icon" />
             </div>
             Caută în {judet}
           </ButtonWithIcon>
-          <ButtonWithIcon
-            hasIcon
-            m="0 0 .5rem 0"
-            onClick={searchJudetOras}
-            className="shadow-sm"
-          >
+          <ButtonWithIcon hasIcon onClick={searchJudetOras} mt="0">
             <div className="iconContainer">
               <AiOutlineSearch className="icon" />
             </div>
