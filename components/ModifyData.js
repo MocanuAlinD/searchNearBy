@@ -9,15 +9,11 @@ import {
 } from "./singleTags/elemetsCustom";
 import { ButtonWithIcon } from "./singleTags/ButtonWithIcon";
 import { Checkbox } from "@mui/material";
-import { BiReset } from "react-icons/bi";
 import { judete } from "../lib/judete";
-import { alin } from "../lib";
 import InputSuggestions from "./InputSuggestions";
 import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  setUrgenteModifica,
-  setUrgenteNoapteModifica,
   setPhoneModifica,
   addPhoneModifica,
   removePhoneModifica,
@@ -77,7 +73,7 @@ const ModifyData = () => {
       urgenteNoapte,
       ziinceput,
       zisfarsit,
-      website: website ? "https://www." + website : "",
+      website,
     };
 
     const sendData = await fetch("/api/userEditService", {
@@ -294,7 +290,7 @@ const ModifyData = () => {
         <Wrapper>
           <LabelCustom htmlFor="website">Website (Opțional)</LabelCustom>
           <InputCustom
-            pattern="(?!^[\d-])[a-zA-Z0-9-]{2,63}(?<!-)\.[a-zA-Z]{2,4}"
+            // pattern="(?!^[\d-])[a-zA-Z0-9-]{2,63}(?<!-)\.[a-zA-Z]{2,4}"
             id="website"
             autoComplete="off"
             type="text"
@@ -394,8 +390,10 @@ const ModifyData = () => {
                 padding: 0,
               }}
               checked={urgente}
-              value=""
-              onChange={() => dispatch(setUrgenteModifica())}
+              value={urgente}
+              onChange={() =>
+                dispatch(changeStateModifica(["urgente", !urgente]))
+              }
             />
             Disponibil în afara zilelor/orelor de lucru
           </LabelCustom>
@@ -417,8 +415,10 @@ const ModifyData = () => {
                 padding: 0,
               }}
               checked={urgenteNoapte}
-              value=""
-              onChange={() => dispatch(setUrgenteNoapteModifica())}
+              value={urgenteNoapte}
+              onChange={() =>
+                dispatch(changeStateModifica(["urgenteNoapte", !urgenteNoapte]))
+              }
             />
             Urgențe pe timp de noapte
           </LabelCustom>

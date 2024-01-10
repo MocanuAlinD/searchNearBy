@@ -20,8 +20,6 @@ import {
   setInitialStateLogin,
 } from "../features/login/loginSlice";
 import {
-  setUrgenteModifica,
-  setUrgenteNoapteModifica,
   setPhoneModifica,
   setEmailModifica,
   changeStateModifica,
@@ -86,6 +84,7 @@ function MyApp({ Component, pageProps }) {
       Object.values(data.contact.phone).map((item) =>
         phoneList.push({ phone: item })
       );
+      console.log(data);
       store.dispatch(setEmailModifica(emailList));
       store.dispatch(setPhoneModifica(phoneList));
       store.dispatch(changeStateModifica(["id", data.id]));
@@ -103,8 +102,10 @@ function MyApp({ Component, pageProps }) {
       store.dispatch(changeStateModifica(["website", data.website]));
       store.dispatch(changeStateModifica(["ziinceput", data.ziinceput]));
       store.dispatch(changeStateModifica(["zisfarsit", data.zisfarsit]));
-      store.dispatch(setUrgenteModifica(data.urgente));
-      store.dispatch(setUrgenteNoapteModifica(data.urgenteNoapte));
+      store.dispatch(changeStateModifica(["urgente", data.urgente]));
+      store.dispatch(
+        changeStateModifica(["urgenteNoapte", data.urgenteNoapte])
+      );
     } else if (res.length <= 0) {
       store.dispatch(setHasService(false));
     }

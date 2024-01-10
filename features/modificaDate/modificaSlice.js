@@ -27,12 +27,6 @@ export const modificaSlice = createSlice({
   name: "modifica",
   initialState,
   reducers: {
-    setUrgenteModifica: (state, action) => {
-      state.urgente = !state.urgente;
-    },
-    setUrgenteNoapteModifica: (state, action) => {
-      state.urgenteNoapte = !state.urgenteNoapte;
-    },
     setPhoneModifica: (state, action) => {
       state.phone = action.payload;
     },
@@ -81,8 +75,6 @@ export const modificaSlice = createSlice({
 });
 
 export const {
-  setUrgenteModifica,
-  setUrgenteNoapteModifica,
   setPhoneModifica,
   addPhoneModifica,
   removePhoneModifica,
