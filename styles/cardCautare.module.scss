@@ -1,7 +1,7 @@
 .container {
   background-color: var(--color-light);
   border-radius: var(--border-radius);
-  color: var(--color-dark);
+  color: var(--color-1-dark);
   font-size: var(--font-size08);
   font-weight: 200;
   height: fit-content;
@@ -79,7 +79,7 @@
         margin-top: 0.5rem;
 
         a {
-          background-color: var(--color-blue-light);
+          background-color: var(--color-3-ok);
           border-radius: var(--border-radius);
           box-shadow: -1px 1px 4px 1px rgba(0, 0, 0, 0.3);
           color: var(--color-light);

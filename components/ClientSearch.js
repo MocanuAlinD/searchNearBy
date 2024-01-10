@@ -84,7 +84,7 @@ const ClientSearch = ({ searchJudet, searchJudetOras }) => {
 
         {oras && (
           <div className="d-flex m-0 p-0 justify-content-between align-items-center">
-            <InputContainer fs=".8rem">
+            <InputContainer>
               <input
                 autoComplete="off"
                 type="text"
@@ -103,7 +103,7 @@ const ClientSearch = ({ searchJudet, searchJudetOras }) => {
               variant="contained"
               className={`${
                 cautare
-                  ? " text-warning ms-1 py-1 align-self-end"
+                  ? " text-warning ms-1 py-2 align-self-end"
                   : " text-muted ms-1 py-2 align-self-end"
               }`}
             >
@@ -139,7 +139,7 @@ const ClientSearch = ({ searchJudet, searchJudetOras }) => {
           </ButtonWithIcon>
           <Button
             className={styles.resetBtn + " shadow-sm"}
-            size="small"
+            size="medium"
             color="error"
             variant="outlined"
             onClick={() => dispatch(setInitialStateSearch())}

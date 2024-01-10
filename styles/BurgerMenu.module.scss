@@ -1,17 +1,16 @@
 .sidebar {
-    backdrop-filter: blur(10px);
-    background-color: rgba(0, 0, 0, 0.2);
-    border-top: .25rem solid var(--color-blue-dark);
-    padding-bottom: 3rem;
-    padding-top: 3rem;
-    position: absolute;
-    top: 4rem;
-    left: 0;
-    transition: var(--transition);
-    width: min(100%, 20rem);
-    z-index: 9999;
-    border-bottom-right-radius: 3rem;
-    transform: rotateZ(0deg);
-    transform-origin: top left;
-
+  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.5);
+  border-top: 0.25rem solid var(--color-1-dark);
+  padding-bottom: 3rem;
+  padding-top: 3rem;
+  position: absolute;
+  top: 4rem;
+  left: 0;
+  transition: var(--transition);
+  width: min(100%, 20rem);
+  z-index: 9999;
+  border-bottom-right-radius: 3rem;
+  transform: rotateZ(0deg);
+  transform-origin: top left;
 }

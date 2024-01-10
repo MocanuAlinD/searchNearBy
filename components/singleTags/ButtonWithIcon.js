@@ -19,11 +19,10 @@ hasIcon
 */
 
 export const ButtonWithIcon = styled.button`
-  background-color: ${({ bg }) => (bg ? bg : "var(--color-blue-dark)")};
+  background-color: ${({ bg }) => (bg ? bg : "var(--color-1-dark)")};
   border-radius: var(--border-radius);
   border: ${({ border }) => (border ? border : "none")};
-  color: ${({ color }) => (color ? color : "var(--color-light)")};
-  /* font-size: ${({ fs }) => (fs ? fs : "var(--font-size08)")}; */
+  color: ${({ color }) => (color ? color : "var(--color-2-light)")};
   font-size: ${({ fs }) => (fs ? fs : "clamp(.8rem, 1.6vw, 1rem)")};
   font-weight: 400;
   margin: ${({ m }) => (m ? m : ".5rem 0")};
@@ -36,7 +35,7 @@ export const ButtonWithIcon = styled.button`
   width: ${({ hasIcon, w }) => (hasIcon ? (w ? w : "100%") : w ? w : "100%")};
   .iconContainer {
     align-items: center;
-    background-color: var(--color-blue-dark);
+    background-color: var(--color-2-dark);
     border-radius: 0 0 0.8rem 0;
     display: flex;
     display: ${({ hasIcon }) => (hasIcon ? "flex" : "none")};
@@ -57,7 +56,7 @@ export const ButtonWithIcon = styled.button`
     padding-left: ${({ hasIcon, pl }) => (hasIcon ? ".5rem" : pl ? pl : "0")};
     width: ${({ hasIcon, w }) => (hasIcon ? (w ? w : "100%") : w ? w : "100%")};
     transition-delay: ${({ hasIcon }) => (hasIcon ? "0.15s" : "0")};
-    color: ${({ hcolor }) => (hcolor ? hcolor : "var(--color-blue)")};
+    color: ${({ hcolor }) => (hcolor ? hcolor : "var(--color-light)")};
   }
   &:hover .iconContainer {
     transform: translateX(-100%);

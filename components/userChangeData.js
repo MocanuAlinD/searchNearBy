@@ -66,7 +66,7 @@ const UserChangeData = ({ close }) => {
       )}
       <ButtonWithIcon
         bg="transparent"
-        border="1px solid var(--color-blue-dark)"
+        border="1px solid var(--color-2-dark)"
         w="min(90%,20rem)"
         onClick={() => close("-100%")}
       >

@@ -37,7 +37,7 @@
         padding: 0 1rem;
         white-space: nowrap;
         justify-content: center;
-        border: 1px solid var(--color-blue-light);
+        border: 1px solid var(--color-3-ok);
         border-radius: var(--border-radius);
         transition: var(--transition);
     }
@@ -51,7 +51,7 @@
         width: $dim;
         height: $dim;
         transform: rotate(0);
-        outline: 1px solid var(--color-blue-light);
+        outline: 1px solid var(--color-3-ok);
         outline-offset: 2px;
         margin: 0;
         padding: 0;
@@ -59,20 +59,20 @@
     }
 
     input:checked {
-        background-color: var(--color-blue-light);
-        outline-color: var(--color-blue-light);
+        background-color: var(--color-3-ok);
+        outline-color: var(--color-3-ok);
         transform: rotate(45deg);
         border-radius: 50%;
     }
 
     input:checked+label {
-        background-color: var(--color-blue-light);
+        background-color: var(--color-3-ok);
         color: var(--color-light);
         border-radius: var(--border-radius);
     }
 
     label:hover {
-        background-color: var(--color-blue-light2);
+        background-color: var(--color-3-ok2);
         color: var(--color-light);
     }
 }

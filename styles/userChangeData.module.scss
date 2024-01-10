@@ -4,7 +4,7 @@
   left: 0;
   transform: translateY(-100%);
   height: fit-content;
-  background-color: #212529;
+  background-color: var(--color-1-dark);
   z-index: 1;
   transition: var(--transition);
 }

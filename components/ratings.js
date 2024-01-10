@@ -52,7 +52,7 @@ const Ratings = ({ userReviews }) => {
                   <h4>{index + 1}</h4>
                   <FaStar
                     style={{
-                      color: "var(--color-yellow)",
+                      color: "var(--color-3-error)",
                       marginRight: ".5rem",
                     }}
                     size="20"

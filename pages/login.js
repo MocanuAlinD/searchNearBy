@@ -303,7 +303,7 @@ const Login = ({ req }) => {
                   >
                     <ButtonWithIcon
                       bg="transparent"
-                      bgHover="var(--color-blue-light)"
+                      bgHover="var(--color-3-ok)"
                       border="1px solid var(--color-blue-dark)"
                       onClick={() => dispatch(setInitialStateInregistrare())}
                     >
@@ -312,7 +312,7 @@ const Login = ({ req }) => {
 
                     <ButtonWithIcon
                       bg="var(--color-blue-dark)"
-                      bgHover="var(--color-blue-light)"
+                      bgHover="var(--color-3-ok)"
                       onClick={addNewUserToAuthDB}
                     >
                       Creeaza cont

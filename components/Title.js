@@ -5,10 +5,10 @@ import { useRouter } from "next/router";
 const Title = ({ width, height, spd }) => {
   const { pathname } = useRouter();
   useEffect(() => {
-    clickme();
-  }, []);
+    startAnimation();
+  },[]);
 
-  const clickme = () => {
+  const startAnimation = () => {
     const all = document.querySelectorAll(".svgTitle path");
     const speed = spd ? spd : 1000;
     let i = 0;
@@ -60,25 +60,19 @@ const Title = ({ width, height, spd }) => {
           >
             <stop
               stopColor={
-                pathname === "/"
-                  ? "var(--color-blue-dark)"
-                  : "var(--color-blue-light1)"
+                pathname === "/" ? "var(--color-2-dark)" : "var(--color-3-ok)"
               }
               offset="20%"
             />
             <stop
               stopColor={
-                pathname === "/"
-                  ? "var(--color-blue-dark)"
-                  : "var(--color-blue-light2)"
+                pathname === "/" ? "var(--color-2-light)" : "var(--color-3-ok)"
               }
               offset="50%"
             />
             <stop
               stopColor={
-                pathname === "/"
-                  ? "var(--color-blue-dark)"
-                  : "var(--color-blue-light1)"
+                pathname === "/" ? "var(--color-2-dark)" : "var(--color-3-ok)"
               }
               offset="100%"
             />

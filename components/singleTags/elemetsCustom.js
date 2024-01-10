@@ -58,23 +58,23 @@ export const Wrapper = styled.div`
 `;
 
 export const SelectCustom = styled.select`
-  background: ${({ bg }) => (bg ? bg : "var(--color-inputbackground)")};
+  background: ${({ bg }) => (bg ? bg : "var(--color-2-dark)")};
   color: var(--color-light);
   outline: none;
   border: none;
-  border-bottom: 2px solid var(--color-blue-light);
+  border-bottom: 2px solid var(--color-3-ok);
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
-  font-size: ${({ fs }) => (fs ? fs : "var(--font-size08)")};
+  font-size: ${({ fs }) => (fs ? fs : "var(--font-size1)")};
   font-weight: 200;
   padding: 0.3rem;
   transition: var(--transition);
   margin: .25rem 0;
   width: 100%;
   :focus {
-    background: var(--color-light);
-    border-bottom: 2px solid var(--color-yellow);
-    color: var(--color-dark);
+    background: var(--color-2-light);
+    border-bottom: 2px solid var(--color-3-error);
+    color: var(--color-light);
   }
 `;
 
@@ -87,14 +87,14 @@ export const LabelCustom = styled.label`
 `;
 
 export const InputCustom = styled.input`
-  background-color: var(--color-inputbackground);
+  background-color: var(--color-2-dark);
   border: none;
-  border-bottom: 2px solid var(--color-blue-light);
+  border-bottom: 2px solid var(--color-3-ok);
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
   color: var(--color-light);
   flex-grow: ${({ fg }) => (fg ? fg : 1)};
-  font-size: var(--font-size08);
+  font-size: var(--font-size1);
   font-weight: 200;
   min-width: ${({ minw }) => minw && minw};
   margin: ${({ m }) => (m ? m : "0")};
@@ -106,19 +106,19 @@ export const InputCustom = styled.input`
   transition: var(--transition);
   width: ${({ w }) => w && w};
   ::placeholder {
-    color: var(--color-placeholder);
+    color: var(--color-2-light);
     transition: var(--transition);
   }
   :focus {
     background: var(--color-light);
-    border-bottom: 2px solid var(--color-yellow);
-    color: var(--color-dark);
+    border-bottom: 2px solid var(--color-3-error);
+    color: var(--color-1-dark);
   }
   :focus::placeholder {
-    color: var(--color-darkish);
+    color: var(--color-2-light);
   }
   & + span {
-    color: var(--color-yellow);
+    color: var(--color-3-error);
     display: none;
     font-weight: 200;
     font-size: .7rem;
@@ -131,7 +131,7 @@ export const InputCustom = styled.input`
     display: block;
   }
   &:invalid{
-    color: var(--color-yellow);
+    color: var(--color-3-error);
     background: var(--color-inputbackground);
   }
 `;
@@ -139,18 +139,18 @@ export const InputCustom = styled.input`
 export const TextAreaCustom = styled.textarea`
   background: var(--color-inputbackground);
   border: none;
-  border-bottom: 2px solid var(--color-blue-light);
+  border-bottom: 2px solid var(--color-3-ok);
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
   text-indent: 0.3rem;
-  font-size: var(--font-size08);
+  font-size: var(--font-size1);
   font-weight: 200;
   color: var(--color-light);
   resize: none;
   transition: var(--transition);
   padding: 0.4rem .2rem;
   ::placeholder {
-    color: var(--color-placeholder);
+    color: var(--color-2-light);
     transition: var(--transition);
   }
   :focus {
@@ -163,9 +163,10 @@ export const TextAreaCustom = styled.textarea`
   & + span {
     display: none;
     font-weight: 400;
-    font-size: 0.8rem;
-    color: var(--color-yellow);
+    font-size: var(--font-size08);
+    color: var(--color-3-error);
     letter-spacing: 0.02rem;
+    margin-top: .35rem;
   }
   &:focus:placeholder-shown + span {
     display: block;
@@ -176,7 +177,8 @@ export const TextAreaCustom = styled.textarea`
 `;
 
 export const LabelSmallCustom = styled.label`
-  color: ${({ char, maxChar }) => (char < maxChar ? "whitesmoke" : "var(--color-dark)")};
+  color: ${({ char, maxChar }) =>
+    char < maxChar ? "whitesmoke" : "var(--color-dark)"};
   font-size: 0.8rem;
   font-weight: 200;
   text-align: right;
@@ -248,7 +250,7 @@ export const InputContainer = styled.div`
     left: 0;
     margin-left: ${({ ml }) => (ml ? ml : "0.5rem")};
     color: ${({ labelColor }) =>
-      labelColor ? labelColor : "var(--color-placeholder)"};
+      labelColor ? labelColor : "var(--color-2-light)"};
     transition: var(--transition);
     font-size: ${({ fs }) => (fs ? fs : "1rem")};
     display: flex;
@@ -257,15 +259,13 @@ export const InputContainer = styled.div`
     height: 100%;
   }
   input {
-    background: var(--color-inputbackground);
-    background: ${({ inputbg }) =>
-      inputbg ? inputbg : "var(--color-inputbackground)"};
+    background: ${({ inputbg }) => (inputbg ? inputbg : "var(--color-2-dark)")};
     border: none;
     border-bottom: ${({ inputbb }) =>
-      inputbb ? inputbb : "2px solid var(--color-blue-light)"};
+      inputbb ? inputbb : "2px solid var(--color-3-ok)"};
     border-radius: 0.2rem 0.2rem 0 0;
     color: ${({ inputColor }) =>
-      inputColor ? inputColor : "var(--color-dark)"};
+      inputColor ? inputColor : "var(--color-1-dark)"};
     font-weight: 200;
     font-size: ${({ fs }) => (fs ? fs : "1rem")};
     outline: none;
@@ -277,7 +277,7 @@ export const InputContainer = styled.div`
   }
   input:focus {
     background: var(--color-light);
-    border-bottom: 2px solid var(--color-yellow);
+    border-bottom: 2px solid var(--color-3-error);
   }
   input:focus + label {
     top: -75%;
@@ -286,7 +286,8 @@ export const InputContainer = styled.div`
     color: var(--color-light);
   }
   input:not(:focus, :placeholder-shown) {
-    color: var(--color-light);
+    color: ${({ labelColor }) =>
+      labelColor ? labelColor : "var(--color-light)"};
   }
   input:not(:focus, :placeholder-shown) + label {
     top: -75%;

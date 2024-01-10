@@ -457,7 +457,7 @@ const ModifyData = () => {
           <ButtonWithIcon
             w="45%"
             className="shadow"
-            bg="var(--color-blue-light)"
+            bg="var(--color-3-ok)"
           >
             Salveaza modificari
           </ButtonWithIcon>

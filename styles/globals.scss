@@ -6,12 +6,15 @@
 
 html,
 body {
-  font-family: Poppins, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  background: var(--color-dark);
-  color: var(--color-light);
-  --transition: all 0.35s ease-in-out;
+  --color-1-light: #14110f;
+  --color-1-dark: #040404;
+  --color-2-light: #7e7f83;
+  --color-2-dark: #34312d;
+  --color-3-error: #e85d04;
+  --color-3-ok: #25d366;
   --color-light: whitesmoke;
+
+  --transition: all 0.35s ease-in-out;
   --color-light1: #dee2e6;
   --color-dark: #222;
   --color-darkish: #00000055;
@@ -21,12 +24,11 @@ body {
   --color-blue: #219ebc;
   --color-blue-dark: #184e77;
   --color-blue-darkish: #0077b6;
-  --color-blue-light: #168aad;
-  --color-blue-light1: #457b9d;
-  --color-blue-light2: #8ecae6;
+  --color-3-ok: #168aad;
+  --color-3-ok1: #457b9d;
+  --color-3-ok2: #8ecae6;
   --color-placeholder: #ffffff55;
   --color-inputbackground: #cccccc33;
-  --color-orange: #e85d04;
   --color-yellow: #ffb703;
   --border-radius: 0.3rem;
   --font-poppins: Poppins, sans-serif;
@@ -36,7 +38,44 @@ body {
   --font-size125: 1.25rem;
   --font-size15: 1.5rem;
   --font-size05: clamp(0.5rem, 2vw, 0.8rem);
+  font-family: Poppins, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background: var(--color-1-light);
+  color: var(--color-3-error);
 }
+
+// body.light {
+//   font-family: Poppins, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+//     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+//   background: var(--color-dark);
+//   color: var(--color-light);
+//   --transition: all 0.35s ease-in-out;
+//   --color-light: whitesmoke;
+//   --color-light1: #dee2e6;
+//   --color-dark: #222;
+//   --color-darkish: #00000055;
+//   --color-green: #81c784;
+//   --color-green1: #2a9d8f;
+//   --color-wa: #25d366;
+//   --color-blue: #219ebc;
+//   --color-blue-dark: #184e77;
+//   --color-blue-darkish: #0077b6;
+//   --color-3-ok: #168aad;
+//   --color-3-ok1: #457b9d;
+//   --color-3-ok2: #8ecae6;
+//   --color-placeholder: #ffffff55;
+//   --color-inputbackground: #cccccc33;
+//   --color-orange: #e85d04;
+//   --color-yellow: #ffb703;
+//   --border-radius: 0.3rem;
+//   --font-poppins: Poppins, sans-serif;
+//   --font-size06: 0.6rem;
+//   --font-size08: 0.8rem;
+//   --font-size1: 1rem;
+//   --font-size125: 1.25rem;
+//   --font-size15: 1.5rem;
+//   --font-size05: clamp(0.5rem, 2vw, 0.8rem);
+// }
 
 a {
   text-decoration: none;

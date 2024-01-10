@@ -7,7 +7,7 @@
     z-index: 1;
 
     .link {
-        background-color: var(--color-blue-dark);
+        background-color: var(--color-2-dark);
         border-radius: var(--border-radius);
         color: var(--color-light);
         font-weight: 200;
@@ -19,7 +19,7 @@
         position: relative;
 
         &:hover {
-            color: var(--color-blue-dark);
+            color: var(--color-2-dark);
             background-color: var(--color-light);
         }
 
@@ -59,7 +59,7 @@
 
             100% {
                 transform: translate(-50%, 100%);
-                background-color: var(--color-blue-dark);
+                background-color: var(--color-2-light);
                 z-index: 1;
             }
         }
@@ -80,7 +80,7 @@
 
             100% {
                 transform: translate(-50%, 100%);
-                background-color: var(--color-blue-dark);
+                background-color: var(--color-2-dark);
                 z-index: 1;
             }
         }

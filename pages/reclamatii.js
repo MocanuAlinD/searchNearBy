@@ -107,7 +107,7 @@ const Reclamatii = () => {
             <div className="d-flex gap-2 m-0 p-0">
               <ButtonWithIcon
                 type="reset"
-                border="1px solid var(--color-blue-light)"
+                border="1px solid var(--color-3-ok)"
                 bg="transparent"
                 onClick={() => dispatch(setInitialStateReclamatie())}
               >
