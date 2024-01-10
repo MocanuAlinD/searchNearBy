@@ -16,161 +16,202 @@ import InputSuggestions from "./InputSuggestions";
 import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  modUrgente,
-  modUrgenteNoapte,
-  modChangeState,
-  setInitialStateModify,
-} from "../features/modificaDate/modificaDateSlice";
-import { getDatabase, ref, push, child, onValue } from "firebase/database";
+  setUrgenteModifica,
+  setUrgenteNoapteModifica,
+  setPhoneModifica,
+  addPhoneModifica,
+  removePhoneModifica,
+  setEmailModifica,
+  addEmailModifica,
+  removeEmailModifica,
+  changeStateModifica,
+} from "../features/modificaDate/modificaSlice";
+import styles from "../styles/FormRegister.module.scss";
 
 const ModifyData = () => {
   const dispatch = useDispatch();
 
-  const fullname = useSelector((state) => state.mod.fullname);
-  const phone = useSelector((state) => state.mod.phone);
-  const email = useSelector((state) => state.mod.email);
-  const tipjob = useSelector((state) => state.mod.tipjob);
-  const pretMin = useSelector((state) => state.mod.pretMin);
-  const pretMax = useSelector((state) => state.mod.pretMax);
-  const detalii = useSelector((state) => state.mod.detalii);
-  const website = useSelector((state) => state.mod.website);
-  const ziinceput = useSelector((state) => state.mod.ziinceput);
-  const zisfarsit = useSelector((state) => state.mod.zisfarsit);
-  const orainceput = useSelector((state) => state.mod.orainceput);
-  const orasfarsit = useSelector((state) => state.mod.orasfarsit);
-  const urgente = useSelector((state) => state.mod.urgente);
-  const urgenteNoapte = useSelector((state) => state.mod.urgenteNoapte);
-  const judet = useSelector((state) => state.mod.judet);
-  const oras = useSelector((state) => state.mod.oras);
-  const listaOrase = useSelector((state) => state.mod.listaOrase);
-  const MAX_CHAR_LENGTH = "255";
-
-  const changeListaOrase = (e) => {
-    const tempSorted = [...alin[e]].sort(
-      (a, b) => (a.nume > b.nume && 1) || -1
-    );
-    dispatch(modChangeState(["judet", e]));
-    dispatch(
-      modChangeState([
-        "oras",
-        tempSorted[0].nume +
-          (tempSorted[0].comuna ? ", " + tempSorted[0].comuna : ""),
-      ])
-    );
-    dispatch(modChangeState(["listaOrase", tempSorted]));
-  };
-
-  const getDateToRegister = () => {
-    const dt = new Date();
-    const yr = dt.getFullYear();
-    const mth = dt.getMonth() + 1;
-    const day = dt.getDate();
-    const finalDate = `${yr}-${mth < 10 ? "0" + mth : mth}-${
-      day < 10 ? "0" + day : day
-    }`;
-    return finalDate;
-  };
+  const id = useSelector((state) => state.modify.id);
+  const fullname = useSelector((state) => state.modify.fullname);
+  const phone = useSelector((state) => state.modify.phone);
+  const email = useSelector((state) => state.modify.email);
+  const tipjob = useSelector((state) => state.modify.tipjob);
+  const pretMin = useSelector((state) => state.modify.pretMin);
+  const pretMax = useSelector((state) => state.modify.pretMax);
+  const detalii = useSelector((state) => state.modify.detalii);
+  const website = useSelector((state) => state.modify.website);
+  const ziinceput = useSelector((state) => state.modify.ziinceput);
+  const zisfarsit = useSelector((state) => state.modify.zisfarsit);
+  const orainceput = useSelector((state) => state.modify.orainceput);
+  const orasfarsit = useSelector((state) => state.modify.orasfarsit);
+  const urgente = useSelector((state) => state.modify.urgente);
+  const urgenteNoapte = useSelector((state) => state.modify.urgenteNoapte);
+  const judet = useSelector((state) => state.modify.judet);
+  const oras = useSelector((state) => state.modify.oras);
+  const oraregister = useSelector((state) => state.modify.oraregister);
+  const dataregister = useSelector((state) => state.modify.dataregister);
+  const uid = useSelector((state) => state.login.uid);
+  const MAX_CHAR_LENGTH = 400;
 
   // Inregistrare fara plata
   const postData = async (e) => {
     e.preventDefault();
-    const addData = {
+    const data = {
       contact: {
-        email: phone,
-        phone: email,
+        email,
+        phone,
       },
-      dataregister: getDateToRegister(),
-      detalii: detalii,
-      fullname: fullname,
-      id: `${
-        new Date().getTime().toString() + Math.ceil(Math.random() * 100000)
-      }`,
-      judet: judet,
-      orainceput: orainceput,
-      oraregister: new Date().toLocaleTimeString(),
-      oras: oras,
-      orasfarsit: orasfarsit,
-      pretMin: pretMin,
-      pretMax: pretMax,
-      tipjob: tipjob,
-      urgente: urgente,
-      urgenteNoapte: urgenteNoapte,
-      ziinceput: ziinceput,
-      zisfarsit: zisfarsit,
+      dataregister,
+      detalii,
+      fullname,
+      id,
+      judet,
+      orainceput,
+      oraregister,
+      oras,
+      orasfarsit,
+      pretMin,
+      pretMax,
+      tipjob,
+      urgente,
+      urgenteNoapte,
+      ziinceput,
+      zisfarsit,
       website: website ? "https://www." + website : "",
     };
 
+    const sendData = await fetch("/api/userEditService", {
+      method: "POST",
+      "Content-Type": "application/json",
+      body: JSON.stringify({ data, uid }),
+    });
 
-    // const sendData = await fetch("/api/postData", {
-    //   method: "POST",
-    //   "Content-Type": "application/json",
-    //   body: JSON.stringify({ data: addData, uid }),
-    // });
-    // const { msg } = await sendData.json();
-    // if (msg.msg) {
-    //   toast.success(msg.msg);
-    // } else if (msg.error) {
-    //   toast.error(msg.error);
-    // }
+    const res = await sendData.json();
+    if (res.msg) {
+      toast.success(res.msg);
+    } else if (res.error) {
+      toast.error(res.error);
+    }
+  };
+
+  const changePhone = (index, e) => {
+    const { name, value } = e.target;
+    const newList = [...phone];
+    const newVal = { [name]: value };
+    newList[index] = newVal;
+    dispatch(setPhoneModifica(newList));
+  };
+
+  const changeEmail = (index, e) => {
+    const { name, value } = e.target;
+    const newList = [...email];
+    const newVal = { [name]: value };
+    newList[index] = newVal;
+    dispatch(setEmailModifica(newList));
   };
 
   return (
     <form onSubmit={postData} method="GET" className="col-12">
       <SmallContainer bg>
         <Wrapper>
-          <LabelCustom htmlFor="numeUtilizator">
-            Nume Prenume / Nume companie
-          </LabelCustom>
+          <LabelCustom>Nume Prenume / Nume companie</LabelCustom>
           <InputCustom
             required
             pattern="[A-Za-z -.0-9]{2,}"
             autoComplete="off"
             type="text"
-            id="numeUtilizator"
             value={fullname}
             placeholder="nume prenume"
             onChange={(e) =>
-              dispatch(modChangeState(["fullname", e.target.value]))
+              dispatch(changeStateModifica(["fullname", e.target.value]))
             }
           />
           <span>&quot;Nume Prenume / Nume Companie&quot; sunt necesare</span>
         </Wrapper>
 
         <Wrapper>
-          <LabelCustom htmlFor="phoneID">
-            Telefon ( unul sau mai multe desparțite prin &quot;,&quot; )
-          </LabelCustom>
-          <InputCustom
-            required
-            pattern="[0-9,]+"
-            id="phoneID"
-            autoComplete="off"
-            type="text"
-            placeholder="telefon"
-            value={phone}
-            onChange={(e) =>
-              dispatch(modChangeState(["phone", e.target.value]))
-            }
-          />
-          <span>Numărul de telefon este necesar</span>
+          <LabelCustom>Telefon</LabelCustom>
+          {phone.map((item, index) => {
+            return (
+              <Wrapper key={index} m="0">
+                <Wrapper fd="row" className="align-items-start">
+                  <Wrapper fd="column" w="100%" m="0">
+                    <InputCustom
+                      required
+                      pattern="[.\-0-9]+"
+                      name="phone"
+                      autoComplete="off"
+                      type="text"
+                      placeholder="telefon"
+                      value={item.phone}
+                      onChange={(e) => changePhone(index, e)}
+                    />
+                    <span>Numarul de telefon este necesar.</span>
+                  </Wrapper>
+                  {phone.length > 1 && (
+                    <div
+                      onClick={() => dispatch(removePhoneModifica(index))}
+                      className={styles.removeButton}
+                    >
+                      x
+                    </div>
+                  )}
+                </Wrapper>
+                {phone.length - 1 === index && phone.length < 4 && (
+                  <span
+                    type="button"
+                    className={styles.span}
+                    onClick={() => dispatch(addPhoneModifica())}
+                  >
+                    Adaugă alt numar
+                  </span>
+                )}
+              </Wrapper>
+            );
+          })}
         </Wrapper>
 
         <Wrapper>
-          <LabelCustom htmlFor="emailID">
-            Email ( unul sau mai multe desparțite prin &quot;,&quot; )
-          </LabelCustom>
-          <InputCustom
-            required
-            id="emailID"
-            autoComplete="off"
-            type="text"
-            placeholder="Email"
-            value={email}
-            onChange={(e) =>
-              dispatch(modChangeState(["email", e.target.value]))
-            }
-          />
-          <span>Adresa de email trebuie să existe și să fie validă</span>
+          <LabelCustom>Email</LabelCustom>
+          {email.map((item, index) => {
+            return (
+              <Wrapper key={index} m="0">
+                <Wrapper fd="row" className="align-items-start">
+                  <Wrapper fd="column" w="100%" m="0">
+                    <InputCustom
+                      required
+                      name="email"
+                      autoComplete="off"
+                      type="email"
+                      placeholder="email"
+                      value={item.email}
+                      onChange={(e) => changeEmail(index, e)}
+                    />
+                    <span>
+                      Adresa de email trebuie să existe și să fie validă
+                    </span>
+                  </Wrapper>
+                  {email.length > 1 && (
+                    <div
+                      onClick={() => dispatch(removeEmailModifica(index))}
+                      className={styles.removeButton}
+                    >
+                      x
+                    </div>
+                  )}
+                </Wrapper>
+                {email.length - 1 === index && email.length < 4 && (
+                  <span
+                    type="button"
+                    className={styles.span}
+                    onClick={() => dispatch(addEmailModifica())}
+                  >
+                    Adaugă alt email
+                  </span>
+                )}
+              </Wrapper>
+            );
+          })}
         </Wrapper>
 
         <Wrapper>
@@ -185,7 +226,7 @@ const ModifyData = () => {
             value={tipjob}
             placeholder="electrician, instalator, fotograf, etc...."
             onChange={(e) =>
-              dispatch(modChangeState(["tipjob", e.target.value]))
+              dispatch(changeStateModifica(["tipjob", e.target.value]))
             }
           />
           <span>Tipul de serviciu este necesar</span>
@@ -205,7 +246,7 @@ const ModifyData = () => {
             pattern="[0-9]+"
             placeholder="pret minim"
             onChange={(e) =>
-              dispatch(modChangeState(["pretMin", e.target.value]))
+              dispatch(changeStateModifica(["pretMin", e.target.value]))
             }
           />
           <span>Treceți prețul minim</span>
@@ -219,7 +260,7 @@ const ModifyData = () => {
             value={pretMax}
             placeholder="pret maxim"
             onChange={(e) =>
-              dispatch(modChangeState(["pretMax", e.target.value]))
+              dispatch(changeStateModifica(["pretMax", e.target.value]))
             }
           />
           <span>Treceți prețul maxim</span>
@@ -234,7 +275,7 @@ const ModifyData = () => {
             name="detalii"
             id="detalii"
             onChange={(e) =>
-              dispatch(modChangeState(["detalii", e.target.value]))
+              dispatch(changeStateModifica(["detalii", e.target.value]))
             }
             value={detalii}
             rows="6"
@@ -260,7 +301,7 @@ const ModifyData = () => {
             value={website}
             placeholder="denumire-website.ro"
             onChange={(e) =>
-              dispatch(modChangeState(["website", e.target.value]))
+              dispatch(changeStateModifica(["website", e.target.value]))
             }
           />
         </Wrapper>
@@ -274,7 +315,7 @@ const ModifyData = () => {
             id="saptamanaStart"
             value={ziinceput}
             onChange={(e) =>
-              dispatch(modChangeState(["ziinceput", e.target.value]))
+              dispatch(changeStateModifica(["ziinceput", e.target.value]))
             }
           >
             <option value="Luni">Luni</option>
@@ -293,7 +334,7 @@ const ModifyData = () => {
             id="saptamanaSfarsit"
             value={zisfarsit}
             onChange={(e) =>
-              dispatch(modChangeState(["zisfarsit", e.target.value]))
+              dispatch(changeStateModifica(["zisfarsit", e.target.value]))
             }
           >
             <option value="Luni">Luni</option>
@@ -318,7 +359,7 @@ const ModifyData = () => {
             id="programInceput"
             value={orainceput}
             onChange={(e) =>
-              dispatch(modChangeState(["orainceput", e.target.value]))
+              dispatch(changeStateModifica(["orainceput", e.target.value]))
             }
           />
           <span>Selectează corect o oră</span>
@@ -332,7 +373,7 @@ const ModifyData = () => {
             id="programSfarsit"
             value={orasfarsit}
             onChange={(e) =>
-              dispatch(modChangeState(["orasfarsit", e.target.value]))
+              dispatch(changeStateModifica(["orasfarsit", e.target.value]))
             }
           />
           <span>Selectează corect o oră</span>
@@ -354,7 +395,7 @@ const ModifyData = () => {
               }}
               checked={urgente}
               value=""
-              onChange={() => dispatch(modUrgente(!urgente))}
+              onChange={() => dispatch(setUrgenteModifica())}
             />
             Disponibil în afara zilelor/orelor de lucru
           </LabelCustom>
@@ -377,7 +418,7 @@ const ModifyData = () => {
               }}
               checked={urgenteNoapte}
               value=""
-              onChange={() => dispatch(modUrgenteNoapte(!urgenteNoapte))}
+              onChange={() => dispatch(setUrgenteNoapteModifica())}
             />
             Urgențe pe timp de noapte
           </LabelCustom>
@@ -387,13 +428,7 @@ const ModifyData = () => {
           <LabelCustom htmlFor="labelOrase">
             Județul unde prestezi serviciile
           </LabelCustom>
-          <SelectCustom
-            required
-            name="orase"
-            id="labelOrase"
-            value={judet}
-            onChange={(e) => changeListaOrase(e.target.value)}
-          >
+          <SelectCustom disabled name="orase" id="labelOrase" value={judet}>
             <option value="" disabled>
               ---Alege județul---
             </option>
@@ -408,45 +443,23 @@ const ModifyData = () => {
         {oras ? (
           <Wrapper m="0">
             <LabelCustom htmlFor="labelComuna" m="0">
-              Localitate:{" "}
+              Localitate:
             </LabelCustom>
-            <SelectCustom
-              required
-              id="labelComuna"
-              name="comune"
-              value={oras}
-              onChange={(e) =>
-                dispatch(modChangeState(["oras", e.target.value]))
-              }
-            >
-              {listaOrase.map((item, index) => (
-                <option key={index}>
-                  {item.nume}
-                  {item.comuna ? `, ${item.comuna}` : ""}
-                </option>
-              ))}
+            <SelectCustom disabled id="labelComuna" name="comune" value={oras}>
+              <option>{oras}</option>
             </SelectCustom>
           </Wrapper>
         ) : (
           ""
         )}
 
-        <Wrapper className="d-flex flex-row justify-content-between">
+        <Wrapper className="d-flex flex-row justify-content-end">
           <ButtonWithIcon
-            hasIcon
             w="45%"
-            m=".5rem 0 .5rem"
             className="shadow"
-            onClick={() => dispatch(setInitialStateModify())}
+            bg="var(--color-blue-light)"
           >
-            <div className="iconContainer">
-              <BiReset className="icon" />
-            </div>
-            Reset
-          </ButtonWithIcon>
-
-          <ButtonWithIcon w="45%" className="shadow">
-            Înregistrare
+            Salveaza modificari
           </ButtonWithIcon>
         </Wrapper>
       </SmallContainer>

@@ -36,37 +36,43 @@ const Test = () => {
   const getAll = () => {
     const perJudet = [];
     const revs = [];
-    onValue(all, (s) => {
-      if (s.val() !== null) {
-        const judeteAll = s.val().Alin;
-        if (judeteAll) {
-          const a = judeteAll["Buzău"];
-          if (a) {
-            console.log("judet exista");
-            [a].map((item) =>
-              Object.values(item).map((i) => {
-                perJudet.push(i);
-                const b = s.val().reviews;
-                const c = b[i.id];
-                if (c) {
-                  // reviews exists
-                  Object.values(c).map((item) => revs.push(item));
-                } else {
-                  // reviews NOT exists
-                  console.log("review NOT exists", c);
-                }
-                // console.log("Reviews: ",c, i.id);
-              })
-            );
+    onValue(
+      all,
+      (s) => {
+        if (s.val() !== null) {
+          const judeteAll = s.val().Alin;
+          if (judeteAll) {
+            const a = judeteAll["Buzău"];
+            if (a) {
+              console.log("judet exista");
+              [a].map((item) =>
+                Object.values(item).map((i) => {
+                  perJudet.push(i);
+                  const b = s.val().reviews;
+                  const c = b[i.id];
+                  if (c) {
+                    // reviews exists
+                    Object.values(c).map((item) => revs.push(item));
+                  } else {
+                    // reviews NOT exists
+                    console.log("review NOT exists", c);
+                  }
+                  // console.log("Reviews: ",c, i.id);
+                })
+              );
+            } else {
+              console.log("judet NU exista");
+            }
+            console.log("db exists");
           } else {
-            console.log("judet NU exista");
+            console.log("db nu exista");
           }
-          console.log("db exists");
-        } else {
-          console.log("db nu exista");
         }
+      },
+      {
+        onlyOnce: true,
       }
-    });
+    );
     console.log("Judet LIST: ", perJudet);
     console.log("Revs LIST: ", revs);
   };

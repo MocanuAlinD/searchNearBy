@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "../styles/Stars.module.scss";
 import { FaStar } from "react-icons/fa";
-import { getDatabase, onValue, ref } from "firebase/database";
 
 const Stars = ({ nos, size }) => {
   return (

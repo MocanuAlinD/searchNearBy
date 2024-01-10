@@ -50,7 +50,7 @@ const FormRegister = () => {
   const listaOrase = useSelector((state) => state.inscriere.listaOrase);
   const urgenteNoapte = useSelector((state) => state.inscriere.urgenteNoapte);
 
-  const MAX_CHAR_LENGTH = "255";
+  const MAX_CHAR_LENGTH = 400;
 
   const changeListaOrase = (e) => {
     const tempSorted = [...alin[e.target.value]].sort(

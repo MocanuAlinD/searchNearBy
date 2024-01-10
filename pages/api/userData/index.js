@@ -8,18 +8,24 @@ export default async function handler(req, res) {
 
   if (req.method === "GET") {
     try {
-      onValue(items, (s) => {
-        const detailsList = [];
-        if (s.val() !== null) {
-          [s.val()].map((item) =>
-            Object.values(item).map((i) => {
-              const alin = Object.keys(i);
-              alin.filter((x) => x === id && detailsList.push(i[id]));
-            })
-          );
+      onValue(
+        items,
+        (s) => {
+          const detailsList = [];
+          if (s.val() !== null) {
+            [s.val()].map((item) =>
+              Object.values(item).map((i) => {
+                const alin = Object.keys(i);
+                alin.filter((x) => x === id && detailsList.push(i[id]));
+              })
+            );
+          }
+          res.json(detailsList);
+        },
+        {
+          onlyOnce: true,
         }
-        res.json(detailsList);
-      });
+      );
     } catch (error) {
       res.json({ error: "A aparut o eroare in gasirea datelor in DB." });
     }

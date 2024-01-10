@@ -26,11 +26,11 @@ export default async function handler(req, res) {
     oras,
   };
   const db = getDatabase();
-  const dbToWrite = ref(db, `reviews/${id}/${userId}`);
+  const baseDB = ref(db, `reviews/${id}/${userId}`);
 
   if (req.method === "POST") {
     try {
-      set(dbToWrite, dataToWrite);
+      set(baseDB, dataToWrite);
       res.json({ msg: "Review inregistrat" });
     } catch (error) {
       res.json({ error: `Datele nu s-au putut inregistra` });

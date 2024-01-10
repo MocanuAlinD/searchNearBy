@@ -75,7 +75,9 @@ const Person = ({ data, oras, setLocation, revs }) => {
       <Container className="w-100">
         <div className={styles.mainContainer}>
           <div className={styles.titleContainer}>
-            <h4>{item.tipjob}</h4>
+            <h4>
+              {item.tipjob} {item.id}
+            </h4>
           </div>
 
           <div className={styles.topMenu}>
@@ -135,6 +137,7 @@ const Person = ({ data, oras, setLocation, revs }) => {
           <Ratings userReviews={revs} />
         </div>
       </Container>
+      <Card data={item} userReviews={revs} />
     </Container>
   );
 };

@@ -6,7 +6,7 @@ import loginReducer from "../features/login/loginSlice";
 import signupReducer from "../features/signup/signupSlice";
 import reclamatieReducer from "../features/reclamatie/reclamatieSlice";
 import showTitleReducer from "../features/showTitle/showTitleSlice";
-import modReducer from "../features/modificaDate/modificaDateSlice";
+import modifyReducer from "../features/modificaDate/modificaSlice";
 import reviewRedurer from "../features/review/reviewSlice";
 import reviewSearchReducer from "../features/reviewSearch/reviewSearchSlice";
 import cerereOfertaReducer from "../features/cerereOferta/cerereOfertaSlice";
@@ -19,7 +19,7 @@ const rootReducers = combineReducers({
   signup: signupReducer,
   reclamatie: reclamatieReducer,
   showTitle: showTitleReducer,
-  mod: modReducer,
+  modify: modifyReducer,
   review: reviewRedurer,
   reviewSearch: reviewSearchReducer,
   cerereOferta: cerereOfertaReducer,

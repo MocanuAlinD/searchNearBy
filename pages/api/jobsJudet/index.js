@@ -8,39 +8,45 @@ export default async function handler(req, res) {
 
   if (req.method === "GET") {
     try {
-      onValue(base, (s) => {
-        const endresult = [];
-        const revs = [];
-        // ADD MESSAGES IN CASE SOMETHING DOESNT EXISTS
-        const msg = "";
-        if (s.val() !== null) {
-          const judeteDB = s.val().Alin;
-          if (judeteDB) {
-            const singleJudet = judeteDB[judet];
-            if (singleJudet) {
-              [singleJudet].map((item) =>
-                Object.values(item).map((i) => {
-                  if (!search) {
-                    endresult.push(i);
-                  }
-                  if (
-                    search &&
-                    i.tipjob.toLowerCase().includes(search.toLowerCase())
-                  ) {
-                    endresult.push(i);
-                  }
-                  const b = s.val().reviews;
-                  const c = b[i.id];
-                  if (c) {
-                    Object.values(c).map((item) => revs.push(item));
-                  }
-                })
-              );
+      onValue(
+        base,
+        (s) => {
+          const endresult = [];
+          const revs = [];
+          // ADD MESSAGES IN CASE SOMETHING DOESNT EXISTS
+          const msg = "";
+          if (s.val() !== null) {
+            const judeteDB = s.val().Alin;
+            if (judeteDB) {
+              const singleJudet = judeteDB[judet];
+              if (singleJudet) {
+                [singleJudet].map((item) =>
+                  Object.values(item).map((i) => {
+                    if (!search) {
+                      endresult.push(i);
+                    }
+                    if (
+                      search &&
+                      i.tipjob.toLowerCase().includes(search.toLowerCase())
+                    ) {
+                      endresult.push(i);
+                    }
+                    const b = s.val().reviews;
+                    const c = b[i.id];
+                    if (c) {
+                      Object.values(c).map((item) => revs.push(item));
+                    }
+                  })
+                );
+              }
             }
           }
+          res.json({ endresult, revs });
+        },
+        {
+          onlyOnce: true,
         }
-        res.json({ endresult, revs });
-      });
+      );
     } catch (error) {
       res.json({ msg: "Error occured fom jobsJudet api." });
     }
