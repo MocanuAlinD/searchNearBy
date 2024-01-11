@@ -24,7 +24,6 @@ color - color
 */
 
 export const Container = styled.div`
-  background: ${({ bg }) => (bg ? bg : "")};
   margin: ${({ m }) => (m ? m : "0")};
   padding: ${({ p }) => (p ? p : "0")};
   display: flex;
@@ -35,12 +34,15 @@ export const Container = styled.div`
 `;
 
 export const SmallContainer = styled.div`
-  width: ${({ w }) => (w ? w : "min(95%, 35rem)")};
-  margin: 1rem auto;
-  /* padding: 1rem; */
+  width: ${({ w }) => (w ? w : "min(97%, 40rem)")};
+  margin: auto;
   padding: ${({ p }) => (p ? p : "1rem")};
-  background-color: ${({ bg }) => (bg ? "var(--color-blue-dark)" : "")};
+  background: ${({ bg }) => (bg ? "var(--bg-dark-gradient)" : "")};
   border-radius: var(--border-radius);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 `;
 
 export const Wrapper = styled.div`
@@ -49,11 +51,10 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: ${({ fd }) => (fd ? fd : "column")};
   margin: ${({ m }) => (m ? m : "0.25rem 0")};
-  width: ${({ w }) => w && w};
+  width: ${({ w }) => (w ? w : "100%")};
   @media (max-width: 450px) {
     flex-wrap: ${({ qwrap }) => (qwrap ? qwrap : "nowrap")};
     justify-content: space-between;
-    width: 100%;
   }
 `;
 

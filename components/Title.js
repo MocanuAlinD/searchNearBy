@@ -6,7 +6,7 @@ const Title = ({ width, height, spd }) => {
   const { pathname } = useRouter();
   useEffect(() => {
     startAnimation();
-  },[]);
+  });
 
   const startAnimation = () => {
     const all = document.querySelectorAll(".svgTitle path");
@@ -40,7 +40,7 @@ const Title = ({ width, height, spd }) => {
         id="svgtitle"
         className="svgTitle"
         style={{
-          height: height ? height : "100%",
+          height: height ? height : "97%",
           width: width ? width : "min(90%, 25rem)",
         }}
         viewBox="0 0 258 81"
@@ -76,9 +76,6 @@ const Title = ({ width, height, spd }) => {
               }
               offset="100%"
             />
-            {/* <stop stopColor="var(--color-blue-dark)" offset="20%" />
-            <stop stopColor="var(--color-blue-darkish)" offset="50%" />
-            <stop stopColor="var(--color-blue-dark)" offset="100%" /> */}
           </linearGradient>
         </defs>
         <animate

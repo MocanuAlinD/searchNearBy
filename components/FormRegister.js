@@ -140,7 +140,7 @@ const FormRegister = () => {
   };
 
   return (
-    <form onSubmit={postData} method="GET" className="col-12">
+    <form onSubmit={postData} method="GET" className="col-12 my-3">
       <SmallContainer bg>
         <Wrapper>
           <LabelCustom>Nume Prenume / Nume companie</LabelCustom>
@@ -163,7 +163,10 @@ const FormRegister = () => {
           {phone.map((item, index) => {
             return (
               <Wrapper key={index} m="0">
-                <Wrapper fd="row" className="align-items-start">
+                <Wrapper
+                  fd="row"
+                  className="align-items-start"
+                >
                   <Wrapper fd="column" w="100%" m="0">
                     <InputCustom
                       required

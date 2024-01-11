@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from "react-redux";
 import ClientSearch from "../components/ClientSearch";
 import CardCautare from "../components/CardCautare";
 import NoResults from "../components/NoResults";
-import styles from "../styles/Home.module.scss";
 import SortItems from "../components/SortItems";
 import Spinner from "../components/Spinner";
 import Title from "../components/Title";
@@ -37,7 +36,6 @@ export default function Home() {
         `/api/jobsJudet?search=${cautare}&judet=${judet}`
       );
       const { endresult, revs } = await getServices.json();
-      // console.log("from api:", endresult, "revs", revs);
 
       dispatch(setReviewSearchRev(revs));
       dispatch(setSortedList(endresult));
@@ -127,12 +125,7 @@ export default function Home() {
   return (
     <Container>
       <PageTitle text="SearchNearBy" />
-      <div
-        className={
-          styles.mainContainer +
-          " w-100 row d-flex flex-column justify-content-start m-0 p-0"
-        }
-      >
+      <div className="w-100 row d-flex flex-column justify-content-start m-0 p-0">
         <div className="pt-3">
           {useSelector((state) => state.showTitle.showTitle) && <Title />}
         </div>
@@ -145,7 +138,7 @@ export default function Home() {
       </div>
 
       {/* Sort menu and search cards */}
-      <div className="d-flex flex-column flex-md-row m-0 p-0 mt-2">
+      <div className="d-flex flex-column flex-md-row m-0 p-0 mt-3 w-100">
         {!loadSearch && originalList.length > 0 && sortedList.length >= 0 && (
           <SortItems handleToate={handleToate} listLen={sortedList.length} />
         )}
@@ -161,11 +154,7 @@ export default function Home() {
       </div>
 
       {/* Show only if no results found */}
-      {noResTrigger && (
-        <div className={styles.resultsContainer}>
-          <NoResults />
-        </div>
-      )}
+      {noResTrigger && <NoResults />}
 
       {loadSearch && <Spinner />}
     </Container>

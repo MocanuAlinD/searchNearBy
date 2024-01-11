@@ -19,13 +19,13 @@ hasIcon
 */
 
 export const ButtonWithIcon = styled.button`
-  background-color: ${({ bg }) => (bg ? bg : "var(--color-1-dark)")};
+  background: ${({ bg }) => (bg ? bg : "var(--color-2-dark)")};
   border-radius: var(--border-radius);
-  box-shadow: -2px 2px 2px #ffffff55;
+  /* box-shadow: -2px 2px 2px #ffffff55; */
   border: ${({ border }) => (border ? border : "none")};
-  color: ${({ color }) => (color ? color : "var(--color-2-light)")};
+  color: ${({ color }) => (color ? color : "var(--color-light)")};
   font-size: ${({ fs }) => (fs ? fs : "clamp(.8rem, 1.6vw, 1rem)")};
-  font-weight: 400;
+  font-weight: 200;
   margin: ${({ m }) => (m ? m : "0")};
   margin-top: ${({ mt }) => (mt ? mt : "1rem")};
   margin-bottom: ${({ mb }) => (mb ? mb : "1rem")};

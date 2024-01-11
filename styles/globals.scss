@@ -13,6 +13,22 @@ body {
   --color-3-error: #e85d04;
   --color-3-ok: #25d366;
   --color-light: whitesmoke;
+  --container-width: min(100%, 40rem);
+  --card-container-width: min(97%, 40rem);
+  --button-width: min(90%, 20rem);
+  --bg-dark-gradient: linear-gradient(
+    to bottom right,
+    var(--color-1-dark) 10%,
+    var(--color-2-light) 80%,
+    var(--color-1-dark)
+  );
+  --bg-navbar: linear-gradient(
+    to right,
+    var(--color-1-dark) 40%,
+    var(--color-2-dark) 65%,
+    var(--color-1-dark)
+  );
+  // --bg: radial-gradient(circle at 0%, #212529 20%, #343a40 100%);
 
   --transition: all 0.35s ease-in-out;
   --color-light1: #dee2e6;
@@ -37,7 +53,7 @@ body {
   --font-size1: 1rem;
   --font-size125: 1.25rem;
   --font-size15: 1.5rem;
-  --font-size05: clamp(0.5rem, 2vw, 0.8rem);
+  --font-size05: clamp(0.6rem, 2vw, 1rem);
   font-family: Poppins, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   background: var(--color-1-light);

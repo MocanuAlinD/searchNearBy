@@ -1,5 +1,9 @@
 import React from "react";
-import { Container } from "../components/singleTags/elemetsCustom";
+import {
+  Container,
+  Wrapper,
+  SmallContainer,
+} from "../components/singleTags/elemetsCustom";
 import { ButtonWithIcon } from "../components/tags/ButtonWithIcon";
 import styles from "../styles/userChangeData.module.scss";
 import { useSelector, useDispatch } from "react-redux";
@@ -43,7 +47,7 @@ const UserChangeData = ({ close }) => {
   };
 
   return (
-    <Container className={styles.userContainer + " w-100"} id="userIcon">
+    <SmallContainer className={styles.userContainer + " w-100"} id="userIcon">
       {useSelector((state) => state.login.uid) && (
         <ButtonWithIcon w="min(90%,20rem)" onClick={goToEdit}>
           Modifica date serviciu
@@ -72,7 +76,7 @@ const UserChangeData = ({ close }) => {
       >
         Inchide
       </ButtonWithIcon>
-    </Container>
+    </SmallContainer>
   );
 };
 

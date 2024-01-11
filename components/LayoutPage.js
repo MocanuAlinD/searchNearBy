@@ -7,10 +7,17 @@ const LayoutPage = ({ children }) => {
   return (
     <div
       className="d-flex flex-column min-vh-100"
-      style={{ backgroundColor: "var(--color-1-light)" }}
+      style={{
+        background: "url('hex.svg')",
+        backgroundAttachment: "fixed",
+        backgroundSize: "cover",
+        opacity: "1",
+        // backgroundRepeat: "no-repeat",
+        backgroundPosition: "top center, 50%, 50%",
+      }}
     >
-      <ScrollWatcher />
       <Navbar />
+      <ScrollWatcher />
       {children}
       <BurgerMenu />
     </div>

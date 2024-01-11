@@ -107,7 +107,7 @@ const ModifyData = () => {
   };
 
   return (
-    <form onSubmit={postData} method="GET" className="col-12">
+    <form onSubmit={postData} method="GET" className="col-12 my-3">
       <SmallContainer bg>
         <Wrapper>
           <LabelCustom>Nume Prenume / Nume companie</LabelCustom>
@@ -454,11 +454,7 @@ const ModifyData = () => {
         )}
 
         <Wrapper className="d-flex flex-row justify-content-end">
-          <ButtonWithIcon
-            w="45%"
-            className="shadow"
-            bg="var(--color-3-ok)"
-          >
+          <ButtonWithIcon w="45%" className="shadow" bg="var(--color-3-ok)">
             Salveaza modificari
           </ButtonWithIcon>
         </Wrapper>

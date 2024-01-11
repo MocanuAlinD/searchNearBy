@@ -5,14 +5,16 @@ import BurgerButton from "./BurgerButton";
 import { useRouter } from "next/router";
 import { firebase } from "../firebase";
 import { getAuth } from "firebase/auth";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { setShowUserMenu } from "../features/searchJudet/searchJudetSlice";
 import Image from "next/image";
 import UserChangeData from "../components/userChangeData";
 import styles from "../styles/Navbar.module.scss";
 
 const Navbar = () => {
-  const { pathname } = useRouter();
+  const { pathname, push } = useRouter();
   const auth = getAuth();
+  const dispatch = useDispatch();
   const uid = useSelector((state) => state.login.uid);
   const user = auth.currentUser?.email.split("@")[0];
 
@@ -23,29 +25,31 @@ const Navbar = () => {
 
   return (
     <div
-      className="m-0 p-0 px-3 pt-0 d-flex py-0 align-items-center justify-content-between"
-      style={{ height: "3rem", backgroundColor: "var(--color-1-dark)" }}
+      className={
+        styles.navbar +
+        " m-0 p-0 px-3 d-flex py-0 align-items-center justify-content-between my-3 gap-0 gap-md-3"
+      }
     >
-      <BurgerButton />
       {pathname !== "/" && (
         <div
-          className="d-flex w-100 justify-content-center"
+          className={styles.logoContainer}
           style={{ height: "100%" }}
+          onClick={() => push("/")}
         >
-          <Title spd={2000} />
+          <p className={styles.pageName}>logo here</p>
         </div>
       )}
 
-      {pathname === "/" ? <Switch /> : ""}
+      {pathname === "/" && <Switch />}
 
-      <div className="d-flex align-items-center justify-content-center m-0 p-0 flex-column-reverse">
+      <div className="m-0 p-0 d-flex align-items-center justify-content-center flex-row gap-1">
         <span className={styles.userText}>
           {user ? `Hello, ${user} !` : "Log in"}
         </span>
         <div className={styles.imageContainer}>
           <Image
             src={uid ? "/icon48.png" : "/icon48c.png"}
-            onClick={() => toggleMenu("0")}
+            onClick={() => (toggleMenu("0"), dispatch(setShowUserMenu(false)))}
             alt="user"
             className={styles.image}
             layout="fill"
@@ -53,6 +57,7 @@ const Navbar = () => {
         </div>
       </div>
       <UserChangeData close={toggleMenu} />
+      <BurgerButton />
     </div>
   );
 };

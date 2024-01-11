@@ -6,7 +6,7 @@ const NoResults = () => {
   return (
     <div className={styles.container}>
       <h3>
-        Nu există înregistrări în{" "}
+        Nu există înregistrări în
         <strong>{`"${useSelector((state) => state.search.noResultsText)}"`}</strong>
       </h3>
     </div>

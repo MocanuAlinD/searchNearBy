@@ -2,17 +2,21 @@ import React from "react";
 import styles from "../styles/BurgerMenu.module.scss";
 import { useSelector } from "react-redux";
 import CustomLink from "./CustomLink";
+import { ButtonWithIcon } from "./tags/ButtonWithIcon";
 
 const BurgerMenu = () => {
-  const showMenu = useSelector((state) => state.search.showMenu);
-
   return (
     <div
       className={
         styles.sidebar + " d-flex flex-column align-items-center gap-3"
       }
-      style={{ transform: `rotateZ(${showMenu ? "0" : "90deg"})` }}
+      style={{
+        transform: `rotateZ(${
+          useSelector((state) => state.search.showMenu) ? "0" : "90deg"
+        })`,
+      }}
     >
+      <ButtonWithIcon>Inchide</ButtonWithIcon>
       <CustomLink link="/" text="Home" />
       <CustomLink link="/test" text="test" />
       <CustomLink link="/servicii" text="Toate judetele" />
