@@ -84,7 +84,6 @@ function MyApp({ Component, pageProps }) {
       Object.values(data.contact.phone).map((item) =>
         phoneList.push({ phone: item })
       );
-      console.log(data);
       store.dispatch(setEmailModifica(emailList));
       store.dispatch(setPhoneModifica(phoneList));
       store.dispatch(changeStateModifica(["id", data.id]));

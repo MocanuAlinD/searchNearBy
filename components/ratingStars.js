@@ -1,7 +1,7 @@
 import React from "react";
 import {
-  Container,
   TextAreaCustom,
+  Wrapper,
 } from "../components/singleTags/elemetsCustom";
 import styles from "../styles/RatingStars.module.scss";
 import { FaStar } from "react-icons/fa";
@@ -62,7 +62,6 @@ const RatingStars = ({ id, data }) => {
       judet: data.judet,
       oras: data.oras,
     };
-    console.log(alldata);
     const sendData = await fetch("/api/postReview", {
       method: "POST",
       "Content-Type": "application/json",
@@ -72,7 +71,7 @@ const RatingStars = ({ id, data }) => {
   };
 
   return (
-    <Container className={styles.container}>
+    <Wrapper className={styles.container}>
       <div className="d-flex justify-content-center gap-3 w-100">
         {[...Array(5)].map((_, i) => {
           const newI = i + 1;
@@ -172,7 +171,7 @@ const RatingStars = ({ id, data }) => {
       <span>{useSelector((state) => state.review.sortReview)}</span>
       <span>{useSelector((state) => state.review.longReview)}</span>
       <span>{useSelector((state) => state.review.numeReview)}</span>
-    </Container>
+    </Wrapper>
   );
 };
 

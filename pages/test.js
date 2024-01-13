@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container } from "../components/singleTags/elemetsCustom";
 import styles from "../styles/test.module.scss";
 import { FaStar } from "react-icons/fa";
@@ -11,6 +11,7 @@ import {
 import { getDatabase, ref, onValue } from "firebase/database";
 
 const Test = () => {
+  const [state, setState] = useState(0);
   const dispatch = useDispatch();
   const eachStar = useSelector((state) => state.review.stars);
   const currentStar = useSelector((state) => state.review.currentStar);
@@ -158,6 +159,10 @@ const Test = () => {
         className="mt-5"
       >
         reset
+      </button>
+      <button>
+        <span></span>
+        Print state
       </button>
     </Container>
   );

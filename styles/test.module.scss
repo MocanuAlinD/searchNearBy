@@ -6,8 +6,20 @@
   padding: 0.25rem 2rem;
   border-radius: 1rem;
   outline: none;
-  width: min(90%, 10rem);
+  width: min(90%, 20rem);
   margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2rem;
+  span {
+    height: 100%;
+    width: 2rem;
+    background: url("../public/test1.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
 }
 
 .input {

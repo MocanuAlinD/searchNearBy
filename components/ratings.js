@@ -52,7 +52,7 @@ const Ratings = ({ userReviews }) => {
                   <h4>{index + 1}</h4>
                   <FaStar
                     style={{
-                      color: "var(--color-3-error)",
+                      color: "var(--color-yellow)",
                       marginRight: ".5rem",
                     }}
                     size="20"
@@ -72,7 +72,7 @@ const Ratings = ({ userReviews }) => {
                     }}
                   />
                   <h4 className={styles.recenzii}>
-                    {eachStar[index + 1]}{" "}
+                    {eachStar[index + 1]}
                     {eachStar[index + 1] == 1 ? "recenzie" : "recenzii"}
                   </h4>
                 </div>
