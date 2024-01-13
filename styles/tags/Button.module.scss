@@ -1,0 +1,21 @@
+.button {
+  background-color: var(--color-2-dark);
+  border-radius: var(--border-radius);
+  color: var(--color-light);
+  font-size: clamp(0.8rem, 1.6vw, 1rem);
+  font-weight: 200;
+  margin-top: 0.5rem;
+  padding: 0.2rem 0;
+  transition: var(--transition);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    border: none;
+    &:hover {
+      box-shadow: -1px 1px 2px 1px rgba(255,255,255,0.1);
+    }
+  span {
+    flex-grow: 1;
+  }
+}

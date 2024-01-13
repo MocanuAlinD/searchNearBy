@@ -38,25 +38,10 @@ export const ButtonWithIcon = styled.button`
   transition: var(--transition);
   text-align: ${({ hasIcon, ta }) => (hasIcon ? "start" : ta ? ta : "center")};
   width: ${({ hasIcon, w }) => (hasIcon ? (w ? w : "100%") : w ? w : "100%")};
-  .iconContainer {
-    align-items: center;
-    background-color: var(--color-2-dark);
-    border-radius: 0 0 0.8rem 0;
-    display: flex;
-    display: ${({ hasIcon }) => (hasIcon ? "flex" : "none")};
-    height: 100%;
-    justify-content: flex-start;
-    left: 0;
-    position: absolute;
-    padding: 0 0.35rem;
-    top: 0;
-    transition: var(--transition);
-    width: fit-content;
-    .icon {
-      font-size: ${({ fs }) => (fs ? fs : "var(--font-size1)")};
-    }
-  }
-  &:hover {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* &:hover {
     background-color: ${({ bgHover }) => (bgHover ? bgHover : "")};
     padding-left: ${({ hasIcon, pl }) =>
       hasIcon ? ".5rem" : pl ? pl : "1rem"};
@@ -64,12 +49,7 @@ export const ButtonWithIcon = styled.button`
     transition-delay: ${({ hasIcon }) => (hasIcon ? "0.15s" : "0")};
     box-shadow: 0px 0px 3px 1px var(--color-2-light);
     color: ${({ hcolor }) => (hcolor ? hcolor : "var(--color-light)")};
-  }
-  &:hover .iconContainer {
-    transform: translateX(-100%);
-    transform-origin: left;
-    padding: 0;
-  }
+  } */
   &:active{
     box-shadow: inset 0px 0px 2px 2px #ffffff33;
     color: var(--color-2-light);

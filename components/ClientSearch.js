@@ -5,12 +5,12 @@ import {
 } from "../components/singleTags/elemetsCustom";
 import { judete } from "../lib/judete";
 import { alin } from "../lib";
-import { Button, IconButton } from "@mui/material";
+import { IconButton } from "@mui/material";
 import { MdClear } from "react-icons/md";
 import { BiReset } from "react-icons/bi";
 import { AiOutlineSearch } from "react-icons/ai";
 import styles from "../styles/clientsearch.module.scss";
-import { ButtonWithIcon } from "../components/tags/ButtonWithIcon";
+import { Button } from "./tags/Button";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setJudet,
@@ -21,6 +21,7 @@ import {
   setInitialStateSearch,
   setCautare,
 } from "../features/searchJudet/searchJudetSlice";
+import { IconSearch } from "./tags/Icon";
 
 const ClientSearch = ({ searchJudet, searchJudetOras }) => {
   const dispatch = useDispatch();
@@ -114,33 +115,12 @@ const ClientSearch = ({ searchJudet, searchJudetOras }) => {
       </div>
 
       {judet && (
-        <div className="row m-0 p-0" id="judetButton">
-          <ButtonWithIcon hasIcon onClick={searchJudet}>
-            <div className="iconContainer">
-              <AiOutlineSearch className="icon" />
-            </div>
+        <div className="row m-0 p-0">
+          <Button onClick={searchJudet} icon={<IconSearch />}>
             Caută în {judet}
-          </ButtonWithIcon>
-          <ButtonWithIcon hasIcon onClick={searchJudetOras} mt="0">
-            <div className="iconContainer">
-              <AiOutlineSearch className="icon" />
-            </div>
-            Caută în {judet + ", " + oras}
-          </ButtonWithIcon>
-          <Button
-            className={styles.resetBtn + " shadow-sm"}
-            size="medium"
-            variant="text"
-            style={{
-              color: "var(--color-3-error)",
-              background:
-                "linear-gradient(to right, var(--color-1-dark),var(--color-2-dark), var(--color-1-dark))",
-              borderRadius: "var(--border-radius)",
-            }}
-            onClick={() => dispatch(setInitialStateSearch())}
-            startIcon={<BiReset className={styles.iconReset} />}
-          >
-            Reset
+          </Button>
+          <Button onClick={searchJudetOras} icon={<IconSearch />}>
+            Caută în {judet}, {oras}
           </Button>
         </div>
       )}
@@ -149,3 +129,19 @@ const ClientSearch = ({ searchJudet, searchJudetOras }) => {
 };
 
 export default ClientSearch;
+
+// <Button
+//   className={styles.resetBtn + " shadow-sm"}
+//   size="medium"
+//   variant="text"
+//   style={{
+//     color: "var(--color-3-error)",
+//     background:
+//       "linear-gradient(to right, var(--color-1-dark),var(--color-2-dark), var(--color-1-dark))",
+//     borderRadius: "var(--border-radius)",
+//   }}
+//   onClick={() => dispatch(setInitialStateSearch())}
+//   startIcon={<BiReset className={styles.iconReset} />}
+// >
+//   Reset
+// </Button>;

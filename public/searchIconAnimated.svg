@@ -1,0 +1,7 @@
+<svg width="1000" height="1000" viewBox="0 0 1000 1000" fill="none">
+  <g id="magnifier" transform="scale(1)" transform-origin="center">
+    <circle cx="659" cy="330" r="207" stroke="white" stroke-width="30" />
+    <line x1="517.678" y1="503.678" x2="230.678" y2="852.678" stroke="white" stroke-width="30" stroke-linecap="round" />
+    <animateTransform attributeName="transform" type="scale" from="1" to="0.5" dur="1.5s" values="1;0.9;1" keytimes="0;0.5;1" repeatCount="indefinite" />
+  </g>
+</svg>
