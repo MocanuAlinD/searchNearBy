@@ -1,10 +1,13 @@
 import React from "react";
 import styles from "../styles/BurgerMenu.module.scss";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import CustomLink from "./CustomLink";
-import { ButtonWithIcon } from "./tags/ButtonWithIcon";
+import { Button } from "./tags/Button";
+import { setShowMenu } from "../features/searchJudet/searchJudetSlice";
 
 const BurgerMenu = () => {
+  const dispatch = useDispatch();
+
   return (
     <div
       className={
@@ -16,7 +19,9 @@ const BurgerMenu = () => {
         })`,
       }}
     >
-      <ButtonWithIcon>Inchide</ButtonWithIcon>
+      <Button w="15rem" onClick={() => dispatch(setShowMenu(false))}>
+        Inchide
+      </Button>
       <CustomLink link="/" text="Home" />
       <CustomLink link="/test" text="test" />
       <CustomLink link="/servicii" text="Toate judetele" />
