@@ -8,6 +8,7 @@ import { alin } from "../lib";
 import { IconButton } from "@mui/material";
 import { MdClear } from "react-icons/md";
 import { BiReset } from "react-icons/bi";
+import { RiDeleteBack2Line } from "react-icons/ri";
 import { AiOutlineSearch } from "react-icons/ai";
 import styles from "../styles/clientsearch.module.scss";
 import { Button } from "./tags/Button";
@@ -121,6 +122,12 @@ const ClientSearch = ({ searchJudet, searchJudetOras }) => {
           </Button>
           <Button onClick={searchJudetOras} icon={<IconSearch />}>
             Caută în {judet}, {oras}
+          </Button>
+          <Button
+            onClick={() => dispatch(setInitialStateSearch())}
+            icon={<RiDeleteBack2Line className={styles.iconReset} />}
+          >
+            Sterge
           </Button>
         </div>
       )}

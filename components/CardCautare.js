@@ -59,9 +59,7 @@ const CardCautare = ({ data, idx, revs }) => {
     <div className={styles.container + " px-1 mb-2 mx-md-1"}>
       <div className={styles.topWrapper}>
         <h6>{idx + 1}</h6>
-        <h6>
-          {data.tipjob} {data.id}
-        </h6>
+        <h6>{data.tipjob}</h6>
       </div>
       <hr />
       <div className={styles.bottomWrapper}>

@@ -10,11 +10,13 @@
   align-self: center;
   height: var(--height);
   background: url("../public/navbarBG.svg");
+  transition: var(--transition);
   .logoContainer {
     cursor: pointer;
     display: flex;
     justify-content: center;
     width: 100%;
+    cursor: pointer;
   }
   .pageName {
     color: var(--color-light);
@@ -39,5 +41,8 @@
     white-space: nowrap;
     color: var(--color-light);
     font-style: italic;
+  }
+  &:hover{
+    outline: 2px solid rgba(255,255,255,0.3);
   }
 }
