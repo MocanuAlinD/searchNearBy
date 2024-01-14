@@ -7,14 +7,19 @@
   margin-top: 0.5rem;
   padding: 0.2rem 0;
   transition: var(--transition);
-  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-    border: none;
-    &:hover {
-      box-shadow: -1px 1px 2px 1px rgba(255,255,255,0.1);
-    }
+  outline: none;
+  // background: url("../../public/gradient.svg");
+  // background-size: 100% 100%;
+  // background-position: bottom;
+  // background-repeat: no-repeat;
+
+  &:hover {
+    background: url("../../public/gradient.svg");
+    background-color: var(--color-1-light);
+  }
   span {
     flex-grow: 1;
   }

@@ -8,11 +8,11 @@ const LayoutPage = ({ children }) => {
     <div
       className="d-flex flex-column min-vh-100"
       style={{
-        background: "url('hex.svg')",
+        background: "url('anim2.svg')",
         backgroundAttachment: "fixed",
         backgroundSize: "cover",
         opacity: "1",
-        // backgroundRepeat: "no-repeat",
+        backgroundRepeat: "no-repeat",
         backgroundPosition: "top center, 50%, 50%",
       }}
     >
