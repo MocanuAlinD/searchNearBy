@@ -1,5 +1,4 @@
 .button {
-  background-color: var(--color-2-dark);
   border-radius: var(--border-radius);
   color: var(--color-light);
   font-size: clamp(0.8rem, 1.6vw, 1rem);
@@ -12,10 +11,6 @@
   align-items: center;
   outline: none;
   padding: 0.35rem 1rem;
-  // background: url("../../public/gradient.svg");
-  // background-size: 100% 100%;
-  // background-position: bottom;
-  // background-repeat: no-repeat;
 
   &:hover {
     background: url("../../public/gradient.svg");
@@ -24,4 +19,7 @@
   span {
     flex-grow: 1;
   }
+}
+.button[noBg]:hover {
+  background-color: red;
 }

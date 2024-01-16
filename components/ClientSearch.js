@@ -22,7 +22,7 @@ import {
   setInitialStateSearch,
   setCautare,
 } from "../features/searchJudet/searchJudetSlice";
-import { IconSearch } from "./tags/Icon";
+import { IconSearch, IconDelete } from "./tags/Icon";
 
 const ClientSearch = ({ searchJudet, searchJudetOras }) => {
   const dispatch = useDispatch();
@@ -124,8 +124,10 @@ const ClientSearch = ({ searchJudet, searchJudetOras }) => {
             Caută în {judet}, {oras}
           </Button>
           <Button
+            color="var(--color-3-error)"
+            reset
             onClick={() => dispatch(setInitialStateSearch())}
-            icon={<RiDeleteBack2Line className={styles.iconReset} />}
+            icon={<IconDelete className={styles.iconReset} />}
           >
             Sterge
           </Button>
