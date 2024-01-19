@@ -1,10 +1,10 @@
 .container {
-  background-color: var(--color-light);
+  background-color: var(--color-1-light);
   border-radius: var(--border-radius);
   color: var(--color-1-dark);
   font-size: var(--font-size08);
   font-weight: 200;
-  height: fit-content;
+  min-height: 20rem;
   width: 25rem;
   animation: fade linear both;
   animation-timeline: view();
@@ -27,7 +27,7 @@
       padding: 0;
       font-size: var(--font-size08);
       font-weight: 200;
-      color: var(--color-blue-dark);
+      color: var(--color-light);
     }
 
     h6:first-child {
@@ -47,13 +47,13 @@
     align-items: flex-start;
 
     .card {
-      // background-color: var(--color-light);
+      background-color: var(--color-1-dark);
       border-radius: 0.3rem;
-      color: var(--color-blue-dark);
+      color: var(--color-light);
       margin: 0.5rem;
       padding: 0.5rem;
-      transform: scale(1, 1);
-      transition: transform 0.5s, rotate 0.5s;
+      // transform: scale(1, 1);
+      // transition: transform 0.5s, rotate 0.5s;
       width: 100%;
 
       p {
