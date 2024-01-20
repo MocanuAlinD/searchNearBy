@@ -1,7 +1,7 @@
 .button {
   background: linear-gradient(to bottom right, #434343, #000000);
   width: fit-content;
-  min-width: 4rem;
+  min-width: 7rem;
   padding: 0.35rem 0.5rem;
   border-radius: var(--border-radius);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -41,8 +41,8 @@
   }
 }
 .button[active="true"] svg circle {
-  r: 10%;
-  cx: 100%;
+  r: 5%;
+  cx: 50%;
   cy: 100%;
 }
 .button[active="true"]:hover svg circle {
