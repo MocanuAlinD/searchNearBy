@@ -80,13 +80,30 @@ const Test = () => {
     console.log("Revs LIST: ", revs);
   };
 
-  const path = "M0 10 h100 v20 h-100z";
+  const alin = (e) => {
+    const btn = e.target.parentElement.parentElement;
+    const btns = document.getElementsByName("button");
+    btns.forEach((item) => {
+      item.setAttribute("active", false);
+    });
+    btn.setAttribute("active", true);
+  };
 
   return (
     // <Container className={styles.container}>
     <div className={styles.svgcontainer}>
-      <SvgButton>Mocanu Alin Daniel</SvgButton>
-      <SvgButton>Inregistrare</SvgButton>
+      <SvgButton onClick={(e) => alin(e)} name="button">
+        Mocanu Alin Daniel
+      </SvgButton>
+      <SvgButton onClick={(e) => alin(e)} name="button">
+        Inregistrare 1
+      </SvgButton>
+      <SvgButton onClick={(e) => alin(e)} name="button">
+        Inregistrare 2
+      </SvgButton>
+      <SvgButton onClick={(e) => alin(e)} name="button">
+        Inregistrare 3
+      </SvgButton>
     </div>
     // </Container>
   );

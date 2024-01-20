@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "../../styles/tags/svgButton.module.scss";
 
-const SvgButton = ({ children }) => {
+const SvgButton = ({ onClick, children, name }) => {
   return (
-    <button className={styles.container}>
+    <button className={styles.button} onClick={onClick} name={name}>
       <svg
         viewBox="0 0 100% 100%"
         // xmlns="http://www.w3.org/2000/svg"
@@ -20,8 +20,8 @@ const SvgButton = ({ children }) => {
             gradientUnits="userSpaceOnUse"
             id="grad"
           >
-            <stop stopColor="#84fab0" offset="30%"></stop>
-            <stop stopColor="#8fd3f4" offset="70%"></stop>
+            <stop id={styles.stop1} offset="30%"></stop>
+            <stop id={styles.stop2} offset="70%"></stop>
           </linearGradient>
         </defs>
         <circle id="circle" cx="50%" cy="100%" r="0" fill="url(#grad)" />
@@ -36,5 +36,3 @@ const SvgButton = ({ children }) => {
 };
 
 export default SvgButton;
-
-// <text x="50%" y="50%" textAnchor="middle" dominantBaseline="middle"></text>;
