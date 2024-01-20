@@ -10,6 +10,7 @@ import {
 } from "../features/review/reviewSlice";
 import { getDatabase, ref, onValue } from "firebase/database";
 import { IconDelete, IconPercent, IconTest } from "../components/tags/Icon";
+import SvgButton from "../components/tags/svgButton";
 
 const Test = () => {
   const [state, setState] = useState(0);
@@ -79,24 +80,12 @@ const Test = () => {
     console.log("Revs LIST: ", revs);
   };
 
-  const path = "M0 0 h1 v0.1 h-1z";
+  const path = "M0 10 h100 v20 h-100z";
 
   return (
     // <Container className={styles.container}>
     <div className={styles.svgcontainer}>
-      <svg
-        viewBox="0 0 1 1"
-        stroke="red"
-        fill="none"
-        preserveAspectRatio="none"
-      >
-        <defs>
-          <clipPath id="clip" clipPathUnits="objectBoundingBox">
-            <path id={styles.path} />
-          </clipPath>
-        </defs>
-      </svg>
-      <div className={styles.div}>ALIN</div>
+      <SvgButton>Mocanu</SvgButton>
     </div>
     // </Container>
   );

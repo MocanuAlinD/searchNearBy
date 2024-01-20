@@ -1,127 +1,95 @@
 .container button {
-  // border: none;
-  // appearance: none;
-  // background-color: var(--color-blue-dark);
-  // color: white;
-  // padding: 0.25rem 2rem;
-  // border-radius: 1rem;
-  // outline: none;
-  // width: min(90%, 20rem);
-  // margin: 1rem 0;
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
-  // height: 2rem;
+  border: none;
+  appearance: none;
+  background-color: var(--color-blue-dark);
+  color: white;
+  padding: 0.25rem 2rem;
+  border-radius: 1rem;
+  outline: none;
+  width: min(90%, 20rem);
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2rem;
   span {
-    // height: 100%;
-    // width: 2rem;
-    // background: url("../public/deleteIcon.svg");
-    // background-size: contain;
-    // background-repeat: no-repeat;
-    // background-position: center;
+    height: 100%;
+    width: 2rem;
+    background: url("../public/deleteIcon.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
   }
 }
 
 .input {
-  // appearance: none;
-  // width: 2rem;
-  // height: 2rem;
-  // margin: 1rem 0;
-  // border-radius: 50%;
-  // cursor: pointer;
-  // display: none;
+  appearance: none;
+  width: 2rem;
+  height: 2rem;
+  margin: 1rem 0;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none;
 }
 .star {
-  // cursor: pointer;
+  cursor: pointer;
 }
 .input:checked {
-  // background-color: black;
+  background-color: black;
 }
 
 .slidecontainer {
-  // width: 100%;
-  // border: 1px solid red;
-  // display: flex;
-  // justify-content: center;
-  // .slider {
-  //   -webkit-appearance: none;
-  //   width: min(95%, 20rem);
-  //   height: 0.8rem;
-  //   border-radius: 0.5rem;
-  //   margin: 0.5rem 0;
-  //   background: linear-gradient(to right, black 10%, coral 10%);
-  //   &::-webkit-slider-thumb {
-  //     -webkit-appearance: none; /* Override default look */
-  //     appearance: none;
-  //     width: 1.2rem; /* Set a specific slider handle width */
-  //     height: 1.2rem; /* Slider handle height */
-  //     border-radius: 50%;
-  //     background: blue; /* Green background */
-  //     cursor: pointer; /* Cursor on hover */
-  //   }
-  // }
+  width: 100%;
+  border: 1px solid red;
+  display: flex;
+  justify-content: center;
+  .slider {
+    -webkit-appearance: none;
+    width: min(95%, 20rem);
+    height: 0.8rem;
+    border-radius: 0.5rem;
+    margin: 0.5rem 0;
+    background: linear-gradient(to right, black 10%, coral 10%);
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none; /* Override default look */
+      appearance: none;
+      width: 1.2rem; /* Set a specific slider handle width */
+      height: 1.2rem; /* Slider handle height */
+      border-radius: 50%;
+      background: blue; /* Green background */
+      cursor: pointer; /* Cursor on hover */
+    }
+  }
 }
 
 .ratingScore {
-  // div {
-  //   display: flex;
-  //   justify-content: center;
-  //   align-items: center;
-  //   h4 {
-  //     font-size: 0.7rem;
-  //     margin: 0 0.5rem;
-  //     width: 2rem;
-  //     text-align: center;
-  //     white-space: nowrap;
-  //   }
-  //   input {
-  //     -webkit-appearance: none;
-  //     width: min(95%, 20rem);
-  //     height: 0.8rem;
-  //     border-radius: 0.5rem;
-  //     margin: 0.5rem 0;
-  //     &::-webkit-slider-thumb {
-  //       -webkit-appearance: none; /* Override default look */
-  //       appearance: none;
-  //       width: 0.8rem; /* Set a specific slider handle width */
-  //       height: 0.8rem; /* Slider handle height */
-  //       border-radius: 50%;
-  //       background: var(--color-blue-dark); /* Green background */
-  //       cursor: pointer; /* Cursor on hover */
-  //       display: none;
-  //     }
-  //   }
-  // }
-}
-
-.svgcontainer {
-  width: 70%;
-  margin: 0 auto;
-  position: relative;
-  cursor: pointer;
-  .div {
-    background: linear-gradient(to bottom, black, blue);
+  div {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    clip-path: url(#clip);
-  }
-  svg {
-    border: 0.1px solid green;
-    position: absolute;
-    top: 0;
-    left: 0;
-    stroke-width: 0.005;
-    height: 100%;
-    width: 100%;
-
-    #path {
-      transition: all 0.3s ease;
-      d: path("M0 0.45 h1 v0.1 h-1z");
+    h4 {
+      font-size: 0.7rem;
+      margin: 0 0.5rem;
+      width: 2rem;
+      text-align: center;
+      white-space: nowrap;
     }
-  }
-  &:hover svg #path {
-    d: path("M0 0.1 h1 v0.8 h-1z");
+    input {
+      -webkit-appearance: none;
+      width: min(95%, 20rem);
+      height: 0.8rem;
+      border-radius: 0.5rem;
+      margin: 0.5rem 0;
+      &::-webkit-slider-thumb {
+        -webkit-appearance: none; /* Override default look */
+        appearance: none;
+        width: 0.8rem; /* Set a specific slider handle width */
+        height: 0.8rem; /* Slider handle height */
+        border-radius: 50%;
+        background: var(--color-blue-dark); /* Green background */
+        cursor: pointer; /* Cursor on hover */
+        display: none;
+      }
+    }
   }
 }
