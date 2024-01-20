@@ -24,11 +24,10 @@ const SvgButton = ({ onClick, children, name }) => {
             <stop id={styles.stop2} offset="70%"></stop>
           </linearGradient>
         </defs>
-        <circle id="circle" cx="50%" cy="100%" r="0" fill="url(#grad)" />
+        <circle id="ccircle" cx="50%" cy="100%" r="0" fill="url(#grad)" />
         <text x="50%" y="50%" textAnchor="middle" dominantBaseline="middle">
           {children}
         </text>
-        ;
       </svg>
       {children}
     </button>

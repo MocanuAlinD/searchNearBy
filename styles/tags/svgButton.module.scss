@@ -1,10 +1,10 @@
 .button {
   background: linear-gradient(to bottom right, #434343, #000000);
   width: fit-content;
-  min-width: 9rem;
+  min-width: 4rem;
   padding: 0.35rem 0.5rem;
   border-radius: var(--border-radius);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   color: transparent;
   font-size: clamp(0.6rem, 1vw, 0.8rem);
   font-weight: 400;
@@ -41,8 +41,18 @@
   }
 }
 .button[active="true"] svg circle {
-  r: 100%;
+  r: 10%;
+  cx: 100%;
+  cy: 100%;
+}
+.button[active="true"]:hover svg circle {
+  r: 90%;
+  cx: 50%;
+  cy: 100%;
+}
+.button[active="true"]:hover svg text {
+  fill: var(--color-1-dark);
 }
 .button[active="true"] svg text {
-  fill: var(--color-1-dark);
+  fill: var(--color-light);
 }
