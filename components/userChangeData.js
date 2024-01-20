@@ -5,13 +5,14 @@ import {
   SmallContainer,
 } from "../components/singleTags/elemetsCustom";
 import { ButtonWithIcon } from "../components/tags/ButtonWithIcon";
-import styles from "../styles/userChangeData.module.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { useRouter } from "next/router";
 import { getAuth, signOut } from "firebase/auth";
 import toast from "react-hot-toast";
 import { setUid } from "../features/login/loginSlice";
 import { setInitialStateReview } from "../features/review/reviewSlice";
+import SvgButton from "./tags/svgButton";
+import styles from "../styles/userChangeData.module.scss";
 
 const UserChangeData = ({ close }) => {
   const dispatch = useDispatch();
@@ -47,35 +48,28 @@ const UserChangeData = ({ close }) => {
   };
 
   return (
-    <SmallContainer className={styles.userContainer + " w-100"} id="userIcon">
+    <SmallContainer
+      className={styles.userContainer + " w-100 gap-3"}
+      id="userIcon"
+    >
       {useSelector((state) => state.login.uid) && (
-        <ButtonWithIcon w="min(90%,20rem)" onClick={goToEdit}>
-          Modifica date serviciu
-        </ButtonWithIcon>
+        <SvgButton onClick={goToEdit}>Modifica date serviciu</SvgButton>
       )}
-      {auth.currentUser && (
-        <ButtonWithIcon w="min(90%,20rem)">Modifica date</ButtonWithIcon>
-      )}
+      {auth.currentUser && <SvgButton>Modifica date</SvgButton>}
       {useSelector((state) => state.login.uid) && (
-        <ButtonWithIcon w="min(90%,20rem)">Modifica date profil</ButtonWithIcon>
+        <SvgButton>Modifica date profil</SvgButton>
       )}
       {useSelector((state) => state.login.uid) ? (
-        <ButtonWithIcon w="min(90%,20rem)" onClick={userLogOut}>
-          Sign Out
-        </ButtonWithIcon>
+        <SvgButton onClick={userLogOut}>Sign Out</SvgButton>
       ) : (
-        <ButtonWithIcon w="min(90%,20rem)" onClick={gotologin}>
-          Log In
-        </ButtonWithIcon>
+        <SvgButton onClick={gotologin}>Log In</SvgButton>
       )}
-      <ButtonWithIcon
-        bg="transparent"
-        border="1px solid var(--color-2-dark)"
-        w="min(90%,20rem)"
+      <SvgButton
+        reset
         onClick={() => close("-100%")}
       >
         Inchide
-      </ButtonWithIcon>
+      </SvgButton>
     </SmallContainer>
   );
 };

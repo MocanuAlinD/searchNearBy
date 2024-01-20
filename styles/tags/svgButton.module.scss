@@ -1,10 +1,8 @@
 .button {
-  background: linear-gradient(to bottom right, #434343, #000000);
   width: fit-content;
   min-width: 7rem;
   padding: 0.35rem 0.5rem;
   border-radius: var(--border-radius);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   color: transparent;
   font-size: clamp(0.6rem, 1vw, 0.8rem);
   font-weight: 400;
@@ -17,19 +15,13 @@
     height: 100%;
     border-radius: var(--border-radius);
     z-index: 0;
-    #stop1 {
-      stop-color: #84fab0;
-    }
-    #stop2 {
-      stop-color: #8fd3f4;
-    }
     circle {
       transition: all 0.35s ease-in-out;
       stroke: none;
     }
     text {
       stroke: none;
-      fill: white;
+      fill: var(--color-light);
       transition: all 0.5s ease-in-out;
     }
   }
@@ -37,7 +29,7 @@
     r: 90%;
   }
   &:hover svg text {
-    fill: var(--color-1-dark);
+    fill: var(--reset);
   }
 }
 .button[active="true"] svg circle {
@@ -51,7 +43,7 @@
   cy: 100%;
 }
 .button[active="true"]:hover svg text {
-  fill: var(--color-1-dark);
+  fill: var(--reset);
 }
 .button[active="true"] svg text {
   fill: var(--color-light);
