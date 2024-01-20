@@ -6,12 +6,10 @@ const SvgButton = ({ children }) => {
     <button className={styles.container}>
       <svg
         viewBox="0 0 100% 100%"
-        xmlns="http://www.w3.org/2000/svg"
+        // xmlns="http://www.w3.org/2000/svg"
         preserveAspectRatio="none"
-        stroke="blue"
-        strokeWidth="1"
-        // width="100%"
-        // height="100%"
+        // stroke="white"
+        // strokeWidth="1"
       >
         <defs>
           <linearGradient
@@ -26,13 +24,17 @@ const SvgButton = ({ children }) => {
             <stop stopColor="#8fd3f4" offset="70%"></stop>
           </linearGradient>
         </defs>
-        <circle id="circle" cx="50%" cy="50%" r="0" fill="url(#grad)" />
+        <circle id="circle" cx="50%" cy="100%" r="0" fill="url(#grad)" />
         <text x="50%" y="50%" textAnchor="middle" dominantBaseline="middle">
           {children}
         </text>
+        ;
       </svg>
+      {children}
     </button>
   );
 };
 
 export default SvgButton;
+
+// <text x="50%" y="50%" textAnchor="middle" dominantBaseline="middle"></text>;

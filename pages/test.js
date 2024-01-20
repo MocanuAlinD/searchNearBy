@@ -85,7 +85,8 @@ const Test = () => {
   return (
     // <Container className={styles.container}>
     <div className={styles.svgcontainer}>
-      <SvgButton>Mocanu</SvgButton>
+      <SvgButton>Mocanu Alin Daniel</SvgButton>
+      <SvgButton>Inregistrare</SvgButton>
     </div>
     // </Container>
   );
