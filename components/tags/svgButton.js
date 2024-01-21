@@ -33,22 +33,30 @@ const SvgButton = ({ onClick, children, name, bg, reset }) => {
             x2="100%"
             y2="100%"
             gradientUnits="userSpaceOnUse"
-            id="grad"
+            id="normalGradient"
           >
-            <stop stopColor={reset ? "#fa709a" : "#84fab0"} offset="30%"></stop>
-            <stop stopColor={reset ? "#fee140" : "#8fd3f4"} offset="70%"></stop>
+            <stop stopColor="#84fab0" offset="30%"></stop>
+            <stop stopColor="#8fd3f4" offset="70%"></stop>
+          </linearGradient>
+          <linearGradient
+            x1="0%"
+            y1="0%"
+            x2="100%"
+            y2="100%"
+            gradientUnits="userSpaceOnUse"
+            id="resetGradient"
+          >
+            <stop stopColor="#fa709a" offset="30%"></stop>
+            <stop stopColor="#fee140" offset="70%"></stop>
           </linearGradient>
         </defs>
-        <circle cx="50%" cy="100%" r="0" fill="url(#grad)" />
-        <text
-          x="50%"
-          y="50%"
-          textAnchor="middle"
-          dominantBaseline="middle"
-          style={{
-            "--reset": reset ? "var(--color-3-error" : "var(--color-1-dark)",
-          }}
-        >
+        <circle
+          cx="50%"
+          cy="100%"
+          r="0"
+          fill={reset ? "url(#resetGradient)" : "url(#normalGradient)"}
+        />
+        <text x="50%" y="50%" textAnchor="middle" dominantBaseline="middle">
           {children}
         </text>
       </svg>
@@ -58,6 +66,3 @@ const SvgButton = ({ onClick, children, name, bg, reset }) => {
 };
 
 export default SvgButton;
-
-// <stop id={styles.stop1} stopColor="#84fab0" offset="30%"></stop>
-// <stop id={styles.stop2} stopColor="#8fd3f4" offset="70%"></stop>
