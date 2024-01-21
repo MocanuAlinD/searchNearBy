@@ -8,7 +8,7 @@ export const Button = ({ children, icon, onClick, w, color, reset }) => {
       style={{
         width: w ? w : "100%",
         color: color ? color : "var(--color-light)",
-        backgroundColor: reset ? "transparent" : "var(--color-2-dark)",
+        backgroundColor: reset ? "transparent" : "var(--color-1-light)",
         border: reset ? "1px solid var(--color-3-error)" : "none",
       }}
       onClick={onClick}
