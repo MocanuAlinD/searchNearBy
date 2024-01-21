@@ -13,8 +13,8 @@
   padding: 0.35rem 1rem;
 
   &:hover {
-    background: url("../../public/gradient.svg");
     background-color: var(--color-1-light);
+    background: url("../../public/gradient.svg");
   }
   span {
     flex-grow: 1;
