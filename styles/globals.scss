@@ -6,10 +6,10 @@
 
 html,
 body {
-  --color-1-light: #14110f;
   --color-1-dark: #040404;
-  --color-2-light: #7e7f83;
+  --color-1-light: #14110f;
   --color-2-dark: #34312d;
+  --color-2-light: #7e7f83;
   --color-3-error: #e85d04;
   --color-3-ok: #25d366;
   --color-light: whitesmoke;
@@ -96,7 +96,7 @@ body {
 a {
   text-decoration: none;
 }
-button{
+button {
   border: none;
   outline: none;
 }

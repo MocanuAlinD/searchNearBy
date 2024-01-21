@@ -3,13 +3,8 @@
   top: 0;
   left: 0;
   transform: translateY(-100%);
-  height: fit-content;
-  background: linear-gradient(
-    to bottom right,
-    var(--color-1-dark) 10%,
-    var(--color-1-light) 50%,
-    var(--color-1-dark) 80%
-  );
+  background: url("../public/backgrounds/gradientBg.svg");
   z-index: 1;
   transition: var(--transition);
+  gap: 1rem;
 }

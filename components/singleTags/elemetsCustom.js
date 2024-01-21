@@ -35,14 +35,15 @@ export const Container = styled.div`
 
 export const SmallContainer = styled.div`
   width: ${({ w }) => (w ? w : "min(97%, 40rem)")};
-  margin: auto;
+  margin: ${({ m }) => (m ? m : "auto")};
   padding: ${({ p }) => (p ? p : "1rem")};
   background: ${({ bg }) => (bg ? "var(--bg-dark-gradient)" : "")};
   border-radius: var(--border-radius);
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  justify-content: ${({ jc }) => (jc ? jc : "center")};
+  align-items: ${({ ai }) => (ai ? ai : "center")};
+  flex-direction: ${({ fd }) => (fd ? fd : "column")};
+  height: ${({ h }) => h && h}
 `;
 
 export const Wrapper = styled.div`

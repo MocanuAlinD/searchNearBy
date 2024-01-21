@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../../styles/tags/svgButton.module.scss";
 
-const SvgButton = ({ onClick, children, name, bg, bb, reset }) => {
+const SvgButton = ({ onClick, children, name, bg, reset }) => {
   return (
     <button
       className={styles.button}
@@ -13,17 +13,17 @@ const SvgButton = ({ onClick, children, name, bg, bb, reset }) => {
     >
       <svg
         viewBox="0 0 100% 100%"
-        // xmlns="http://www.w3.org/2000/svg"
         preserveAspectRatio="none"
         style={{
           background: reset
             ? "none"
             : bg
             ? bg
-            : "linear-gradient(to bottom right, #434343, #000000)",
-          // backgroundColor: reset && "transparent",
-          border: reset && "1px solid var(--color-3-error)",
-          borderBottom: reset ? "none" : "1px solid rgba(255,255,255,0.1)",
+            : "linear-gradient(to bottom right, #434343, #000)",
+          border: reset ? "none" : "none",
+          borderBottom: reset
+            ? "1px solid var(--color-3-error)"
+            : "1px solid rgba(255,255,255,0.1)",
         }}
       >
         <defs>
@@ -35,11 +35,11 @@ const SvgButton = ({ onClick, children, name, bg, bb, reset }) => {
             gradientUnits="userSpaceOnUse"
             id="grad"
           >
-            <stop id={styles.stop1} stopColor="#84fab0" offset="30%"></stop>
-            <stop id={styles.stop2} stopColor="#8fd3f4" offset="70%"></stop>
+            <stop stopColor={reset ? "#fa709a" : "#84fab0"} offset="30%"></stop>
+            <stop stopColor={reset ? "#fee140" : "#8fd3f4"} offset="70%"></stop>
           </linearGradient>
         </defs>
-        <circle id="ccircle" cx="50%" cy="100%" r="0" fill="url(#grad)" />
+        <circle cx="50%" cy="100%" r="0" fill="url(#grad)" />
         <text
           x="50%"
           y="50%"
@@ -58,3 +58,6 @@ const SvgButton = ({ onClick, children, name, bg, bb, reset }) => {
 };
 
 export default SvgButton;
+
+// <stop id={styles.stop1} stopColor="#84fab0" offset="30%"></stop>
+// <stop id={styles.stop2} stopColor="#8fd3f4" offset="70%"></stop>

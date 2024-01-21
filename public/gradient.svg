@@ -4,8 +4,8 @@
   xmlns:svgjs="http://svgjs.dev/svgjs" preserveAspectRatio="none">
   <defs>
     <linearGradient id="myGradient" gradientTransform="rotate(0)">
-      <stop offset="0%" stop-color="lightblue" />
-      <stop offset="100%" stop-color="gold" />
+      <stop offset="0%" stopColor="lightblue" />
+      <stop offset="100%" stopColor="gold" />
     </linearGradient>
     <animateTransform xlink:href="#myGradient" attributeName="gradientTransform" type="rotate" from="90" to="180" dur="3s" values="0;360" keytimes="0;1" repeatCount="indefinite" />
   </defs>

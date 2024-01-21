@@ -1,17 +1,12 @@
 import React from "react";
-import {
-  Container,
-  Wrapper,
-  SmallContainer,
-} from "../components/singleTags/elemetsCustom";
-import { ButtonWithIcon } from "../components/tags/ButtonWithIcon";
+import toast from "react-hot-toast";
+import SvgButton from "./tags/svgButton";
+import { SmallContainer } from "../components/singleTags/elemetsCustom";
 import { useSelector, useDispatch } from "react-redux";
 import { useRouter } from "next/router";
 import { getAuth, signOut } from "firebase/auth";
-import toast from "react-hot-toast";
 import { setUid } from "../features/login/loginSlice";
 import { setInitialStateReview } from "../features/review/reviewSlice";
-import SvgButton from "./tags/svgButton";
 import styles from "../styles/userChangeData.module.scss";
 
 const UserChangeData = ({ close }) => {
@@ -19,14 +14,14 @@ const UserChangeData = ({ close }) => {
   const { push } = useRouter();
   const auth = getAuth();
 
-  const gotologin = () => {
+  const gotologin = (e) => {
+    activeButton(e);
     push("/login");
-    close("-100%");
   };
 
   // LOG OUT user
-  const userLogOut = () => {
-    close("-100%");
+  const userLogOut = (e) => {
+    activeButton(e);
     if (auth.currentUser) {
       signOut(auth)
         .then(() => {
@@ -42,32 +37,53 @@ const UserChangeData = ({ close }) => {
     }
   };
 
-  const goToEdit = () => {
-    close("-100%");
+  const goToEdit = (e) => {
+    activeButton(e);
     push("/modifica-date");
+  };
+
+  const activeButton = (e) => {
+    close("-100%");
+    const btn = e.target.parentElement.parentElement;
+    const btns = document.getElementsByName("button");
+    btns.forEach((item) => {
+      item.setAttribute("active", false);
+    });
+    btn.setAttribute("active", true);
   };
 
   return (
     <SmallContainer
-      className={styles.userContainer + " w-100 gap-3"}
+      w="100%"
+      h="100%"
+      className={styles.userContainer}
       id="userIcon"
     >
       {useSelector((state) => state.login.uid) && (
-        <SvgButton onClick={goToEdit}>Modifica date serviciu</SvgButton>
+        <SvgButton onClick={(e) => goToEdit(e)} name="button">
+          Modifica date serviciu
+        </SvgButton>
       )}
-      {auth.currentUser && <SvgButton>Modifica date</SvgButton>}
+      {auth.currentUser && (
+        <SvgButton onClick={(e) => activeButton(e)} name="button">
+          Modifica date
+        </SvgButton>
+      )}
       {useSelector((state) => state.login.uid) && (
-        <SvgButton>Modifica date profil</SvgButton>
+        <SvgButton onClick={(e) => activeButton(e)} name="button">
+          Modifica date profil
+        </SvgButton>
       )}
       {useSelector((state) => state.login.uid) ? (
-        <SvgButton onClick={userLogOut}>Sign Out</SvgButton>
+        <SvgButton onClick={(e) => userLogOut(e)} name="button">
+          Sign Out
+        </SvgButton>
       ) : (
-        <SvgButton onClick={gotologin}>Log In</SvgButton>
+        <SvgButton onClick={(e) => gotologin(e)} name="button">
+          Log In
+        </SvgButton>
       )}
-      <SvgButton
-        reset
-        onClick={() => close("-100%")}
-      >
+      <SvgButton onClick={(e) => activeButton(e)} reset name="button">
         Inchide
       </SvgButton>
     </SmallContainer>

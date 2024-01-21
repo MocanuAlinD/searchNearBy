@@ -7,16 +7,16 @@ export const IconSearch = ({ size, color, sw }) => {
   const sz = size ? size : "1.5rem";
   return (
     <svg width={sz} viewBox="0 0 1000 1000" fill="none">
-      <g transform-origin="center">
-        <circle cx="659" cy="330" r="207" stroke={clr} stroke-width={strokeW} />
+      <g transformOrigin="center">
+        <circle cx="659" cy="330" r="207" stroke={clr} strokeWidth={strokeW} />
         <line
           x1="517.678"
           y1="503.678"
           x2="230.678"
           y2="852.678"
           stroke={clr}
-          stroke-width={strokeW}
-          stroke-linecap="round"
+          strokeWidth={strokeW}
+          strokeLinecap="round"
         />
         <animateTransform
           attributeName="transform"
@@ -41,23 +41,23 @@ export const IconDelete = ({ size, color, sw }) => {
         <path
           id="contur"
           d="M95 15 h-55 l-25 35 l25 35 h55 v-70"
-          stroke-linecap="round"
-          stroke-width={strokeW}
+          strokeLinecap="round"
+          strokeWidth={strokeW}
           stroke={clr}
         />
         <path
           id="line1"
           d="M45 30 l40 40"
           stroke={clr}
-          stroke-linecap="round"
-          stroke-width={strokeW}
+          strokeLinecap="round"
+          strokeWidth={strokeW}
         ></path>
         <path
           id="line2"
           d="M45 70 l40 -40"
           stroke={clr}
-          stroke-linecap="round"
-          stroke-width={strokeW}
+          strokeLinecap="round"
+          strokeWidth={strokeW}
         ></path>
       </g>
       <style>
@@ -115,7 +115,7 @@ export const IconPercent = ({ size, color, sw }) => {
           cy="0"
           r="10"
           stroke="url(#lg)"
-          stroke-width={strokeW}
+          strokeWidth={strokeW}
         />
         <text>{percent}%</text>
       </g>
