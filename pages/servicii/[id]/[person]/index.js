@@ -6,6 +6,7 @@ import {
   Container,
   SmallContainer,
 } from "../../../../components/singleTags/elemetsCustom";
+import { IconPercent, IconTest } from "../../../../components/tags/Icon.js";
 import styles from "../../../../styles/userCard.module.scss";
 
 export const getStaticPaths = async () => {
@@ -88,6 +89,7 @@ const Person = ({ data, oras, setLocation, revs }) => {
           <div className={styles.rotateWrapper} id="rotateWrapper">
             <div className={styles.screenLeft}>
               <p>
+                <IconPercent size="4rem" />
                 Interval preturi: {item.pretMin} {item.pretMax}
               </p>
               <p>

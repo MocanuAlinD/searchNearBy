@@ -1,6 +1,5 @@
 import React from "react";
 import Switch from "./Switch";
-import Title from "./Title";
 import BurgerButton from "./BurgerButton";
 import { useRouter } from "next/router";
 import { firebase } from "../firebase";

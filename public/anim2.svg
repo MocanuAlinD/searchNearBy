@@ -12,7 +12,7 @@
     </g>
     <defs>
         <mask id="SvgjsMask1189">
-            <rect width="1440" height="560" fill="#fff"></rect>
+            <rect width="1440" height="560" fill="#111"></rect>
         </mask>
         <linearGradient x1="84.72%" y1="-39.29%" x2="15.28%" y2="139.29%" gradientUnits="userSpaceOnUse" id="SvgjsLinearGradient1190">
             <!-- <stop stop-color="#0e2a47" offset="0"></stop> -->
@@ -28,7 +28,7 @@
                 }
 
                 .triangle-float1 {
-                    animation: float1 30s infinite ease-out;
+                    animation: float1 180s infinite ease-out;
                 }
 
                 @keyframes float2 {
@@ -38,7 +38,7 @@
                 }
 
                 .triangle-float2 {
-                    animation: float2 60s infinite;
+                    animation: float2 180s infinite;
                 }
 
                 @keyframes float3 {
@@ -48,7 +48,7 @@
                 }
 
                 .triangle-float3 {
-                    animation: float3 30s infinite;
+                    animation: float3 180s infinite;
                 }
         </style>
     </defs>

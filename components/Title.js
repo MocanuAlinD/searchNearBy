@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import styles from "../styles/title.module.scss";
 import { useRouter } from "next/router";
+import styles from "../styles/title.module.scss";
 
 const Title = ({ width, height, spd }) => {
   const { pathname } = useRouter();
@@ -20,7 +20,7 @@ const Title = ({ width, height, spd }) => {
       if (index === 0) {
         item.innerHTML = `<animate id="a${i}" attributeName='stroke-dashoffset' begin=".35s" dur="${
           pathLength / speed
-        }" to="0" fill="freeze"/>`;
+        }" to="0" fill="freeze" />`;
         return;
       } else {
         item.innerHTML = `<animate id="a${i}" attributeName='stroke-dashoffset' begin="a${

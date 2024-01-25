@@ -84,28 +84,25 @@ export const IconDelete = ({ size, color, sw }) => {
   );
 };
 
-export const IconPercent = ({ size, color, sw }) => {
-  const clr = color ? color : "white";
-  const strokeW = sw ? sw : 4;
+export const IconPercent = ({ size, color, wh, speed }) => {
+  const fill = color ? color : "var(--color-3-ok)";
+  const strokeW = wh ? wh : 15;
   const sz = size ? size : "1.5rem";
-  const circleLen = 62;
-  const percent = 63;
-  const speed = 200;
-  const duration = speed / circleLen;
+  const radius = 39;
+  const circleLen = 2 * 3.14 * radius + 1;
+  const percent = 69;
+  const spd = speed ? speed : 500;
+  const duration = spd / circleLen;
   return (
     <svg width={sz} viewBox="-50 -50 100 100" fill="none">
       <defs>
         <linearGradient
-          x1="-30%"
-          y1="0%"
-          x2="100%"
-          y2="0%"
           gradientUnits="userSpaceOnUse"
-          gradientTransform="rotate(45)"
+          gradientTransform="rotate(90)"
           id="lg"
         >
-          <stop stopColor="white" offset="0%"></stop>
-          <stop stopColor="darkblue" offset="50%"></stop>
+          <stop stopColor="orange" offset="0%"></stop>
+          <stop stopColor="green" offset="0%"></stop>
         </linearGradient>
       </defs>
       <g>
@@ -113,7 +110,7 @@ export const IconPercent = ({ size, color, sw }) => {
           id="circle"
           cx="0"
           cy="0"
-          r="10"
+          r={radius}
           stroke="url(#lg)"
           strokeWidth={strokeW}
         />
@@ -135,11 +132,9 @@ export const IconPercent = ({ size, color, sw }) => {
           }
         }
         text{
-          stroke: white;
-          font-size: .4rem;
+          font-size: 1.4rem;
           font-weight: 800;
-          stroke-width: 0;
-          fill: var(--color-3-error);
+          fill: ${fill};
           text-anchor: middle;
           dominant-baseline: middle;
           animation: text ${duration}s ease-out infinite;
