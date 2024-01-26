@@ -73,7 +73,7 @@ const Ratings = ({ userReviews }) => {
                   />
                   <h4 className={styles.recenzii}>
                     {eachStar[index + 1]}
-                    {eachStar[index + 1] == 1 ? "recenzie" : "recenzii"}
+                    {eachStar[index + 1] == 1 ? " recenzie" : " recenzii"}
                   </h4>
                 </div>
               );

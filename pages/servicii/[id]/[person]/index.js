@@ -6,7 +6,11 @@ import {
   Container,
   SmallContainer,
 } from "../../../../components/singleTags/elemetsCustom";
-import { IconPercent, IconTest } from "../../../../components/tags/Icon.js";
+import {
+  IconPercent,
+  IconMinMax,
+  IconDays,
+} from "../../../../components/tags/Icon.js";
 import styles from "../../../../styles/userCard.module.scss";
 
 export const getStaticPaths = async () => {
@@ -88,13 +92,17 @@ const Person = ({ data, oras, setLocation, revs }) => {
         <div className={styles.rotateContainer}>
           <div className={styles.rotateWrapper} id="rotateWrapper">
             <div className={styles.screenLeft}>
-              <p>
-                <IconPercent size="4rem" />
-                Interval preturi: {item.pretMin} {item.pretMax}
-              </p>
-              <p>
-                Lucreaza de: {item.ziinceput} pana {item.zisfarsit}
-              </p>
+              <IconMinMax
+                w="10rem"
+                min={item.pretMin}
+                max={item.pretMax}
+                text="Preturi"
+              />
+              <IconDays
+                w="10rem"
+                zi_start={item.ziinceput}
+                zi_end={item.zisfarsit}
+              />
               <p>
                 Interval orar: {item.orainceput} - {item.orasfarsit}
               </p>
