@@ -10,6 +10,7 @@ import {
   IconPercent,
   IconMinMax,
   IconDays,
+  IconOrar,
 } from "../../../../components/tags/Icon.js";
 import styles from "../../../../styles/userCard.module.scss";
 
@@ -99,10 +100,11 @@ const Person = ({ data, oras, setLocation, revs }) => {
                 text="Preturi"
               />
               <IconDays
-                w="10rem"
+                w="12rem"
                 zi_start={item.ziinceput}
                 zi_end={item.zisfarsit}
               />
+              <IconOrar w="10rem" />
               <p>
                 Interval orar: {item.orainceput} - {item.orasfarsit}
               </p>

@@ -242,14 +242,21 @@ export const IconDays = ({ w, zi_start, zi_end }) => {
   };
   const dz = Object.values(days);
   const size = w ? w : "7rem";
-  const rotate = "35";
   const fillActive = "url(#dayGradActive)";
   const fillInactive = "url(#dayGradInactive)";
   const final = dz.slice(days[zi_start], days[zi_end] + 1);
   return (
-    <svg className={styles.days} viewBox="0 0 100 46" width={size} id="days">
+    <svg className={styles.days} viewBox="3 0 115 50" width={size} id="days">
       <defs>
-        <rect id="rectzero" x="2" y="1" width="12" height="44" rx="2" />
+        <rect
+          id="rectzero"
+          x="23.9455"
+          y="5"
+          width="11.1324"
+          height="39.891"
+          rx="2"
+          transform="rotate(30 23.9455 5)"
+        />
         <linearGradient id="dayGradInactive" gradientTransform="rotate(45)">
           <stop offset="0%" stopColor="var(--color-3-error)"></stop>
           <stop offset="100%" stopColor="var(--color-1-light)"></stop>
@@ -299,88 +306,42 @@ export const IconDays = ({ w, zi_start, zi_end }) => {
         transform="translate(84)"
         fill={final.includes(6) ? fillActive : fillInactive}
       />
-      <text
-        x="13"
-        y="44"
-        textAnchor="start"
-        transform="rotate(-90 10 46)"
-        rotate={rotate}
-        dominantBaseline="middle"
-      >
-        Luni
-      </text>
-      <text
-        x="13"
-        y="58"
-        textAnchor="start"
-        transform="rotate(-90 10 46)"
-        rotate={rotate}
-        dominantBaseline="middle"
-      >
-        Marti
-      </text>
-      <text
-        x="13"
-        y="72"
-        textAnchor="start"
-        transform="rotate(-90 10 46)"
-        rotate={rotate}
-        dominantBaseline="middle"
-      >
-        Miercuri
-      </text>
-      <text
-        x="13"
-        y="86"
-        textAnchor="start"
-        transform="rotate(-90 10 46)"
-        rotate={rotate}
-        dominantBaseline="middle"
-      >
-        Joi
-      </text>
-      <text
-        x="13"
-        y="100"
-        textAnchor="start"
-        transform="rotate(-90 10 46)"
-        rotate={rotate}
-        dominantBaseline="middle"
-      >
-        Vineri
-      </text>
-      <text
-        x="13"
-        y="114"
-        textAnchor="start"
-        transform="rotate(-90 10 46)"
-        rotate={rotate}
-        dominantBaseline="middle"
-      >
-        Sambata
-      </text>
-      <text
-        x="13"
-        y="128"
-        textAnchor="start"
-        transform="rotate(-90 10 46)"
-        rotate={rotate}
-        dominantBaseline="middle"
-      >
-        Duminica
-      </text>
+      <g id="days">
+        <text x="97" y="40" transform="rotate(-60 97 40)">
+          Duminica
+        </text>
+        <text x="83" y="40" transform="rotate(-60 83 40)">
+          Sambata
+        </text>
+        <text x="69" y="40" transform="rotate(-60 69 40)">
+          Vineri
+        </text>
+        <text x="55" y="40" transform="rotate(-60 55 40)">
+          Joi
+        </text>
+        <text x="41" y="40" transform="rotate(-60 41 40)">
+          Miercuri
+        </text>
+        <text x="27" y="40" transform="rotate(-60 27 40)">
+          Marti
+        </text>
+        <text x="13" y="40" transform="rotate(-60 13 40)">
+          Luni
+        </text>
+      </g>
     </svg>
   );
 };
 
-// <svg viewBox="0 0 100 100">
-//   <clipPath id="myClip">
-//     <circle cx="40" cy="35" r="35" />
-//   </clipPath>
-
-//   <path
-//     id="heart"
-//     d="M10,30 A20,20,0,0,1,50,30 A20,20,0,0,1,90,30 Q90,60,50,90 Q10,60,10,30 Z"
-//   />
-//   <use clip-path="url(#myClip)" href="#heart" fill="red" />
-// </svg>;
+export const IconOrar = ({ w }) => {
+  const size = w ? w : "10rem";
+  return (
+    <svg className={styles.orar} viewBox="0 -1 100 50" width={size} id="days">
+      <path
+        d="M83.4125,42.5332c1.583,-4.878,1.99,-10.062,1.186,-15.128c-0.804,-5.065,-2.796,-9.868,-5.812,-14.017c-3.016,-4.148,-6.971,-7.524,-11.541,-9.851c-4.571,-2.327,-9.627,-3.539,-14.756,-3.537c-5.129,0.001,-10.184,1.217,-14.754,3.547c-4.569,2.33,-8.521,5.708,-11.535,9.858c-3.013,4.151,-5.001,8.955,-5.802,14.021c-0.801,5.066,-0.391,10.249,1.195,15.127l3.091,-1.006c-1.428,-4.389,-1.796,-9.054,-1.076,-13.614c0.721,-4.559,2.51,-8.883,5.222,-12.618c2.712,-3.736,6.27,-6.776,10.382,-8.873c4.112,-2.097,8.662,-3.191,13.278,-3.192c4.616,-0.002,9.167,1.089,13.28,3.184c4.114,2.094,7.673,5.132,10.388,8.865c2.714,3.734,4.506,8.057,5.23,12.616c0.723,4.559,0.358,9.224,-1.067,13.615l3.091,1.003z"
+        stroke="#fff"
+        stroke-width="0.25"
+      />
+    </svg>
+  );
+};
