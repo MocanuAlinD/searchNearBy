@@ -2,12 +2,8 @@ import React from "react";
 import BackButton from "../../../../components/BackButton";
 import Card from "../../../../components/card";
 import Ratings from "../../../../components/ratings.js";
+import { Container } from "../../../../components/singleTags/elemetsCustom";
 import {
-  Container,
-  SmallContainer,
-} from "../../../../components/singleTags/elemetsCustom";
-import {
-  IconPercent,
   IconMinMax,
   IconDays,
   IconOrar,
@@ -93,14 +89,18 @@ const Person = ({ data, oras, setLocation, revs }) => {
         <div className={styles.rotateContainer}>
           <div className={styles.rotateWrapper} id="rotateWrapper">
             <div className={styles.screenLeft}>
-              <IconPercent percent="69" />
-              <IconMinMax
-                min={item.pretMin}
-                max={item.pretMax}
-                // text="Preturi"
-              />
-              <IconDays zi_start={item.ziinceput} zi_end={item.zisfarsit} />
-              <IconOrar inceput={item.orainceput} sfarsit={item.orasfarsit} />
+              <span>
+                <IconMinMax min={item.pretMin} max={item.pretMax} text=" " />
+                <p>Tarife</p>
+              </span>
+              <span>
+                <IconDays zi_start={item.ziinceput} zi_end={item.zisfarsit} />
+                <p>Zile lucru</p>
+              </span>
+              <span>
+                <IconOrar inceput={item.orainceput} sfarsit={item.orasfarsit} />
+                <p>Ore program</p>
+              </span>
             </div>
 
             <div className={styles.screenMiddle}>

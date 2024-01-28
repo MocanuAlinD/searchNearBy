@@ -36,3 +36,12 @@
     font-size: 0.4rem;
   }
 }
+
+.test {
+  border-radius: var(--border-radius);
+  background: var(--bg-svg);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  path {
+    // clip-path: url(#clip);
+  }
+}

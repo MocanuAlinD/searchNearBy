@@ -356,9 +356,6 @@ export const IconOrar = ({ w, inceput, sfarsit }) => {
   const start = +((a * 212) / 2400).toFixed(2);
   const end = +((b * 212) / 2400).toFixed(2);
   const size = w ? w : "10rem";
-
-  const c = ((a * 212) / 2400).toFixed(2);
-  const d = ((b * 212) / 2400).toFixed(2);
   return (
     <svg className={styles.orar} viewBox="0 0 100 50" width={size} id="days">
       <defs>
@@ -383,7 +380,7 @@ export const IconOrar = ({ w, inceput, sfarsit }) => {
           className={styles.testpath}
           cx="50"
           cy="36.5"
-          fill="#ff000000"
+          fill="none"
           r="31.3"
           strokeLinecap="round"
           pathLength="1"
@@ -400,8 +397,14 @@ export const IconOrar = ({ w, inceput, sfarsit }) => {
       <text x="84" y="47" fill="white">
         24
       </text>
-      <text x="50" y="47" fill="white" textAnchor="middle" className={styles.entireTime}>
-        {inceput}-{sfarsit}
+      <text
+        x="50"
+        y="47"
+        fill="white"
+        textAnchor="middle"
+        className={styles.entireTime}
+      >
+        {inceput} - {sfarsit}
       </text>
 
       <g transform="scale(0.94) translate(3 3)">
@@ -414,12 +417,16 @@ export const IconOrar = ({ w, inceput, sfarsit }) => {
   );
 };
 
-// d="M21.8 44.5 c-0.054,0.097,-0.019,0.218,0.078,0.272l1.573,0.874c0.097,0.054,0.219,0.019,0.272,-0.078c0.054,-0.096,0.019,-0.218,-0.078,-0.272l-1.398,-0.777l0.777,-1.398c0.053,-0.097,0.019,-0.219,-0.078,-0.272c-0.096,-0.054,-0.218,-0.019,-0.272,0.078l-0.874,1.573z m28.12,-8.095l-28,8l0.11,0.384l28,-8l-0.11,-0.384z"
+export const IconTest = ({ w }) => {
+  const size = w ? w : "10rem";
+  return (
+    <svg
+      className={styles.test}
+      viewBox="0 0 100 50"
+      width={size}
+      id="test"
+    ></svg>
+  );
+};
 
-// <path
-//   id="arrow1"
-//   d="M52.5,24.5 c-0.405,-1.416,-1.881,-2.236,-3.297,-1.831 c-1.416,0.404,-2.236,1.88,-1.831,3.296c0.404,1.416,1.88,2.236,3.297,1.832c1.416,-0.405,2.236,-1.881,1.831,-3.297zm-31.001,8.49c-0.134,0.241,-0.047,0.546,0.194,0.68l3.934,2.185c0.241,0.134,0.546,0.047,0.68,-0.194c0.134,-0.242,0.047,-0.546,-0.195,-0.68l-3.496,-1.943l1.942,-3.496c0.134,-0.242,0.048,-0.546,-0.194,-0.68c-0.241,-0.134,-0.546,-0.047,-0.68,0.194l-2.185,3.934zm28.3,-8.238l-28,8l0.274,0.962l28,-8l-0.274,-0.962z"
-//   // fill="#D20000"
-//   stroke="coral"
-//   strokeWidth="0.2"
-// />;
+// <use clip-path="url(#myClip)" href="#heart" fill="red" />

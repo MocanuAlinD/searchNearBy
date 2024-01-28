@@ -80,6 +80,25 @@
         flex-direction: row;
         flex-wrap: wrap;
         gap: 1rem;
+        span {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          gap: 1rem;
+          @media screen and (width < 543px) {
+            & {
+              flex-direction: row;
+              justify-content: space-around;
+              width: 100%;
+              p {
+                margin-inline: auto;
+                width: 50%;
+                text-align: center;
+              }
+            }
+          }
+        }
       }
       .screenMiddle {
         background-color: coral;
