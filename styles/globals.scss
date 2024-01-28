@@ -28,6 +28,12 @@ body {
     var(--color-2-dark) 65%,
     var(--color-1-dark)
   );
+  --bg-svg: linear-gradient(
+    to bottom right,
+    var(--color-1-light) 0%,
+    var(--color-1-dark) 60%,
+    var(--color-1-light) 100%
+  );
   --color1: #f4cd3a;
   // --bg: radial-gradient(circle at 0%, #212529 20%, #343a40 100%);
 

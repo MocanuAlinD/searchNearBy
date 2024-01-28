@@ -1,34 +1,21 @@
 .minmax {
-  padding: 0.5rem 0.2rem;
-  border-radius: 0.5rem;
-  background: linear-gradient(
-    to bottom right,
-    var(--color-1-light) 0%,
-    var(--color-1-dark) 60%,
-    var(--color-1-light) 100%
-  );
+  border-radius: var(--border-radius);
+  background: var(--bg-svg);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: inset 0px 0px 1px 1px rgba(255, 255, 255, 0.2),
-    0px -5px 25px 1px rgba(150, 150, 0, 0.3);
   text {
-    font-size: 0.5rem;
+    font-size: 0.35rem;
     fill: var(--color-light);
     font-family: monospace;
   }
   .title {
-    font-size: 0.7rem;
-  }
-  .minmax {
-    font-size: 0.35rem;
+    font-size: 0.5rem;
   }
 }
 
 .days {
-  padding: 0.5rem 0.2rem;
-  border-radius: 0.5rem;
+  border-radius: var(--border-radius);
+  background: var(--bg-svg);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: inset 0px 0px 1px 1px rgba(255, 255, 255, 0.2),
-    0px -5px 25px 1px rgba(150, 150, 0, 0.3);
   text {
     fill: white;
     stroke: none;
@@ -37,16 +24,9 @@
     letter-spacing: 1px;
   }
 }
+
 .orar {
-  padding: 0.5rem 0.2rem;
-  border-radius: 0.5rem;
-  background: linear-gradient(
-    to bottom right,
-    var(--color-1-light) 0%,
-    var(--color-1-dark) 60%,
-    var(--color-1-light) 100%
-  );
+  border-radius: var(--border-radius);
+  background: var(--bg-svg);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: inset 0px 0px 1px 1px rgba(255, 255, 255, 0.2),
-    0px -5px 25px 1px rgba(150, 150, 0, 0.3);
 }

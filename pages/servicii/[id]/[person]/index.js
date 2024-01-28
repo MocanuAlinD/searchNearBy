@@ -93,18 +93,14 @@ const Person = ({ data, oras, setLocation, revs }) => {
         <div className={styles.rotateContainer}>
           <div className={styles.rotateWrapper} id="rotateWrapper">
             <div className={styles.screenLeft}>
+              <IconPercent percent="69" />
               <IconMinMax
-                w="10rem"
                 min={item.pretMin}
                 max={item.pretMax}
-                text="Preturi"
+                // text="Preturi"
               />
-              <IconDays
-                w="12rem"
-                zi_start={item.ziinceput}
-                zi_end={item.zisfarsit}
-              />
-              <IconOrar w="10rem" />
+              <IconDays zi_start={item.ziinceput} zi_end={item.zisfarsit} />
+              <IconOrar />
               <p>
                 Interval orar: {item.orainceput} - {item.orasfarsit}
               </p>
