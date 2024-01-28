@@ -29,4 +29,10 @@
   border-radius: var(--border-radius);
   background: var(--bg-svg);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  text {
+    font-size: 0.5rem;
+  }
+  .entireTime {
+    font-size: 0.4rem;
+  }
 }

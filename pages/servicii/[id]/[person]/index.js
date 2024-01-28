@@ -100,10 +100,7 @@ const Person = ({ data, oras, setLocation, revs }) => {
                 // text="Preturi"
               />
               <IconDays zi_start={item.ziinceput} zi_end={item.zisfarsit} />
-              <IconOrar />
-              <p>
-                Interval orar: {item.orainceput} - {item.orasfarsit}
-              </p>
+              <IconOrar inceput={item.orainceput} sfarsit={item.orasfarsit} />
             </div>
 
             <div className={styles.screenMiddle}>
