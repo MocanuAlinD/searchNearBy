@@ -37,13 +37,16 @@ export const SmallContainer = styled.div`
   width: ${({ w }) => (w ? w : "min(97%, 40rem)")};
   margin: ${({ m }) => (m ? m : "auto")};
   padding: ${({ p }) => (p ? p : "1rem")};
-  background: ${({ bg }) => (bg ? "var(--bg-dark-gradient)" : "")};
+  /* background: ${({ bg }) => (bg ? "var(--bg-dark-gradient)" : "")}; */
+  background: ${({ bg }) => (bg ? "url(backgrounds/constellation.svg)" : "")};
+  background: ${({ bg }) => (bg ? "black" : "")};
   border-radius: var(--border-radius);
   display: flex;
   justify-content: ${({ jc }) => (jc ? jc : "center")};
   align-items: ${({ ai }) => (ai ? ai : "center")};
   flex-direction: ${({ fd }) => (fd ? fd : "column")};
-  height: ${({ h }) => h && h}
+  align-self: center;
+  height: ${({ h }) => (h ? h : "fit-content")};
 `;
 
 export const Wrapper = styled.div`
@@ -244,7 +247,7 @@ export const InputContainer = styled.div`
   position: relative;
   font-family: Poppins, sans-serif;
   font-weight: ${({ fw }) => (fw ? fw : "200")};
-  margin-top: ${({ mt }) => (mt ? mt : "1rem")};
+  margin-top: ${({ mt }) => (mt ? mt : "0.7rem")};
   flex-grow: 1;
   label {
     position: absolute;

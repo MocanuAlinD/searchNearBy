@@ -9,12 +9,11 @@ const LayoutPage = ({ children }) => {
       className="d-flex flex-column min-vh-100"
       style={{
         backgroundColor: "black",
-        // background: "url('anim2.svg')",
-        // backgroundAttachment: "fixed",
-        // backgroundSize: "cover",
-        opacity: "1",
-        // backgroundRepeat: "no-repeat",
-        // backgroundPosition: "top center, 50%, 50%",
+        background: "url('backgrounds/cheese.svg')",
+        backgroundAttachment: "fixed",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "top center, 50%, 50%",
       }}
     >
       <Navbar />

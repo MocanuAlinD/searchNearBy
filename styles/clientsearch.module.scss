@@ -1,10 +1,7 @@
-.container {
-  width: min(100%, 40rem);
-}
-
 .iconReset {
   transition: var(--transition);
 }
+
 .resetBtn:hover .iconReset {
   animation: anim 1s linear infinite;
 }

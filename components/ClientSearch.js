@@ -2,6 +2,8 @@ import React from "react";
 import {
   SelectCustom,
   InputContainer,
+  SmallContainer,
+  Wrapper,
 } from "../components/singleTags/elemetsCustom";
 import { judete } from "../lib/judete";
 import { alin } from "../lib";
@@ -10,7 +12,6 @@ import { MdClear } from "react-icons/md";
 import { BiReset } from "react-icons/bi";
 import { RiDeleteBack2Line } from "react-icons/ri";
 import { AiOutlineSearch } from "react-icons/ai";
-import styles from "../styles/clientsearch.module.scss";
 import { Button } from "./tags/Button";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -23,6 +24,7 @@ import {
   setCautare,
 } from "../features/searchJudet/searchJudetSlice";
 import { IconSearch, IconDelete } from "./tags/Icon";
+import styles from "../styles/clientsearch.module.scss";
 
 const ClientSearch = ({ searchJudet, searchJudetOras }) => {
   const dispatch = useDispatch();
@@ -32,14 +34,9 @@ const ClientSearch = ({ searchJudet, searchJudetOras }) => {
   const cautare = useSelector((state) => state.search.cautare);
 
   return (
-    <div
-      className={
-        styles.container +
-        "  m-0 p-0 align-self-center justify-content-center px-2 px-md-0 pt-3"
-      }
-    >
-      <div className="p-0">
-        <div>
+    <SmallContainer bg>
+      <Wrapper>
+        <Wrapper>
           <SelectCustom
             name="judet"
             value={judet}
@@ -60,10 +57,10 @@ const ClientSearch = ({ searchJudet, searchJudetOras }) => {
               </option>
             ))}
           </SelectCustom>
-        </div>
+        </Wrapper>
 
         {oras ? (
-          <div>
+          <Wrapper>
             <SelectCustom
               name="oras"
               value={oras}
@@ -79,18 +76,18 @@ const ClientSearch = ({ searchJudet, searchJudetOras }) => {
                 </option>
               ))}
             </SelectCustom>
-          </div>
+          </Wrapper>
         ) : (
           []
         )}
 
         {oras && (
-          <div className="d-flex m-0 p-0 justify-content-between align-items-center">
+          <Wrapper fd="row">
             <InputContainer>
               <input
                 autoComplete="off"
                 type="text"
-                placeholder=" "
+                placeholder=""
                 id="idForLabel"
                 value={cautare}
                 onChange={(e) => dispatch(setCautare(e.target.value))}
@@ -111,12 +108,12 @@ const ClientSearch = ({ searchJudet, searchJudetOras }) => {
             >
               <MdClear fontSize="1.3rem" />
             </IconButton>
-          </div>
+          </Wrapper>
         )}
-      </div>
+      </Wrapper>
 
       {judet && (
-        <div className="row m-0 p-0">
+        <Wrapper>
           <Button onClick={searchJudet} icon={<IconSearch />}>
             Caută în {judet}
           </Button>
@@ -131,9 +128,9 @@ const ClientSearch = ({ searchJudet, searchJudetOras }) => {
           >
             Sterge
           </Button>
-        </div>
+        </Wrapper>
       )}
-    </div>
+    </SmallContainer>
   );
 };
 
