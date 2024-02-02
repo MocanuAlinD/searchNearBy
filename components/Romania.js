@@ -27,28 +27,6 @@ const Romania = () => {
         />
       </path>
 
-      <path
-        pathLength="1"
-        id="box1"
-        className="path"
-        d="M50 500 h300 v-100 h200 v-100 h-400z"
-      >
-        <animate
-          id="anim3"
-          attributeName="stroke-dashoffset"
-          values="1;0"
-          dur="1"
-          begin="anim2.end"
-          fill="freeze"
-        />
-        <animate
-          attributeName="fill"
-          values="transparent;coral"
-          dur="1"
-          begin="anim3.end"
-          fill="freeze"
-        />
-      </path>
       <style>
         {`
     #romania{
@@ -62,10 +40,6 @@ const Romania = () => {
         stroke-dashoffset: 1;
         transition: all .35s linear;
     }
-    .path:hover{
-        stroke: red;
-        fill: red;
-      }
       `}
       </style>
     </svg>
