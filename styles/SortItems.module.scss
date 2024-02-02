@@ -1,55 +1,52 @@
 .container {
+  display: flex;
+  height: fit-content;
+  justify-content: space-around;
+  top: 0.5rem;
+
+  .desktop {
+    align-items: flex-start;
+    background: #ffffff33;
+    backdrop-filter: blur(55px);
+    border-radius: var(--border-radius);
     display: flex;
-    height: fit-content;
-    justify-content: space-around;
-    top: .5rem;
+    flex-direction: column;
+    margin-left: 0.5rem;
+    padding: 0.5rem;
 
-
-    .desktop {
-        align-items: flex-start;
-        background-color: var(--color-1-light);
-        border-radius: var(--border-radius);
-        display: flex;
-        flex-direction: column;
-        margin-left: .5rem;
-        padding: .5rem;
-
-        .smallContainer {
-            width: 100%;
-            margin: .2rem 0;
-
-        }
+    .smallContainer {
+      width: 100%;
+      margin: 0.2rem 0;
     }
-
+  }
 }
 
 @media (width < 768px) {
-    .container {
-        margin-bottom: .35rem;
-        margin-top: 1rem;
+  .container {
+    margin-bottom: 0.35rem;
+    margin-top: 1rem;
 
-        .desktop {
-            margin: 0;
-            width: 97%;
-            padding: 0;
-            box-shadow: 0px 3px 3px 1px rgba(0, 0, 0, 0.4);
+    .desktop {
+      margin: 0;
+      width: 97%;
+      padding: 0;
+      box-shadow: 0px 3px 20px 1px rgba(0, 0, 0, 0.4);
 
-            .smallContainer {
-                display: flex;
-                justify-content: flex-start;
-                flex-wrap: wrap;
+      .smallContainer {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
 
-                &:not(:last-child) {
-                    box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
-
-                }
-            }
+        &:not(:last-child) {
+          box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
         }
-
-        .desktop> :first-child {
-            flex-direction: row-reverse;
-            justify-content: space-evenly;
-            padding-inline: 2rem;
-        }
+      }
     }
+
+    .desktop > :first-child {
+      flex-direction: row-reverse;
+      justify-content: space-evenly;
+      //   padding-inline: 2rem;
+    }
+  }
 }

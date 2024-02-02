@@ -37,9 +37,8 @@ export const SmallContainer = styled.div`
   width: ${({ w }) => (w ? w : "min(97%, 40rem)")};
   margin: ${({ m }) => (m ? m : "auto")};
   padding: ${({ p }) => (p ? p : "1rem")};
-  /* background: ${({ bg }) => (bg ? "var(--bg-dark-gradient)" : "")}; */
-  background: ${({ bg }) => (bg ? "url(backgrounds/constellation.svg)" : "")};
-  background: ${({ bg }) => (bg ? "black" : "")};
+  background: ${({ bg }) => (bg ? "#ffffff33" : "")};
+  backdrop-filter: ${({ bg }) => bg && "blur(55px)"};
   border-radius: var(--border-radius);
   display: flex;
   justify-content: ${({ jc }) => (jc ? jc : "center")};
@@ -50,12 +49,16 @@ export const SmallContainer = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  background: ${({ bg }) => bg && bg};
+  background: ${({ bg }) => bg && "#ffffff33"};
+  backdrop-filter: ${({ bg }) => bg && "blur(55px)"};
+  border-radius: var(--border-radius);
   border: ${({ border }) => border && border};
   display: flex;
+  color: var(--color-1-dark);
   flex-direction: ${({ fd }) => (fd ? fd : "column")};
   margin: ${({ m }) => (m ? m : "0.25rem 0")};
   width: ${({ w }) => (w ? w : "100%")};
+  min-height: ${({ mh }) => mh && "20rem"};
   @media (max-width: 450px) {
     flex-wrap: ${({ qwrap }) => (qwrap ? qwrap : "nowrap")};
     justify-content: space-between;

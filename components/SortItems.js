@@ -1,4 +1,3 @@
-import styles from "../styles/SortItems.module.scss";
 import { ImSortNumbericDesc, ImSortNumericAsc } from "react-icons/im";
 import SingleRow from "./SingleRow";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,6 +7,7 @@ import {
   setFilterSorteraza,
   setFilterFilters,
 } from "../features/sortItems/sortItemsSlice";
+import styles from "../styles/SortItems.module.scss";
 
 const SortItems = ({ handleToate, listLen }) => {
   const dispatch = useDispatch();

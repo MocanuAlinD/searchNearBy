@@ -1,11 +1,4 @@
 .container {
-  background-color: var(--color-1-light);
-  border-radius: var(--border-radius);
-  color: var(--color-1-dark);
-  font-size: var(--font-size08);
-  font-weight: 200;
-  min-height: 20rem;
-  width: 25rem;
   animation: fade linear both;
   animation-timeline: view();
   animation-range: entry 0% cover 15%;
@@ -21,6 +14,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 
     h6 {
       margin: 0;
@@ -45,20 +39,18 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    flex-direction: column;
+    flex-grow: 1;
 
     .card {
-      background-color: var(--color-1-dark);
-      border-radius: 0.3rem;
       color: var(--color-light);
-      margin: 0.5rem;
-      padding: 0.5rem;
-      // transform: scale(1, 1);
-      // transition: transform 0.5s, rotate 0.5s;
+      margin: 0rem;
+      padding: 0 0.5rem;
+      height: 100%;
       width: 100%;
-
       p {
         font-size: var(--font-size08);
-        font-weight: 400;
+        font-weight: 200;
         margin: 0;
         padding: 0;
       }
@@ -67,37 +59,34 @@
         margin: 0;
         padding: 0;
         font-size: var(--font-size08);
-        font-weight: 600;
+        font-weight: 400;
         margin-bottom: 0.2rem;
       }
+    }
+    .link {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      // margin-bottom: 0.5rem;
+      padding: 0.5rem;
+      // border: 1px solid yellow;
 
-      .link {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        margin-top: 0.5rem;
+      a {
+        background-color: var(--color-3-ok);
+        border-radius: var(--border-radius);
+        box-shadow: -1px 1px 4px 1px rgba(0, 0, 0, 0.3);
+        color: var(--color-light);
+        padding: 0.2rem 0.5rem;
+        transition: box-shadow 0.15s, background-color 0.15s;
+        font-weight: 400;
+        font-size: var(--font-size06);
+      }
 
-        a {
-          background-color: var(--color-3-ok);
-          border-radius: var(--border-radius);
-          box-shadow: -1px 1px 4px 1px rgba(0, 0, 0, 0.3);
-          color: var(--color-light);
-          padding: 0.2rem 0.5rem;
-          transition: box-shadow 0.15s, background-color 0.15s;
-          font-weight: 400;
-          font-size: var(--font-size06);
-        }
-
-        a:hover {
-          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.3);
-          background-color: var(--color-blue-dark);
-        }
+      a:hover {
+        box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.3);
+        background-color: var(--color-blue-dark);
       }
     }
-
-    // .card:hover {
-    //     transform: scale(1.025, 1.025);
-    // }
   }
 }
 
@@ -110,17 +99,5 @@
   to {
     opacity: 1;
     transform: scale(1);
-  }
-}
-
-@media screen and (max-width: 767px) {
-  .container {
-    width: 97%;
-
-    .bottomWrapper {
-      .card:hover {
-        transform: scale(1, 1) rotateZ(0deg);
-      }
-    }
   }
 }

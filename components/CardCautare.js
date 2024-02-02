@@ -1,7 +1,8 @@
 import React from "react";
-import styles from "../styles/cardCautare.module.scss";
 import Link from "next/link";
 import Stars from "../components/Stars";
+import { Wrapper } from "../components/singleTags/elemetsCustom";
+import styles from "../styles/cardCautare.module.scss";
 
 const namedMonths = {
   1: "Ianuarie",
@@ -56,7 +57,7 @@ const CardCautare = ({ data, idx, revs }) => {
   };
 
   return (
-    <div className={styles.container + " px-1 mb-2 mx-md-1"}>
+    <Wrapper mh w="25rem" bg m="0.25rem" className={styles.container}>
       <div className={styles.topWrapper}>
         <h6>{idx + 1}</h6>
         <h6>{data.tipjob}</h6>
@@ -110,15 +111,15 @@ const CardCautare = ({ data, idx, revs }) => {
               </b>
             </p>
           </div>
-          <div className={styles.link}>
-            <Link href={gotoId}>
-              <a target="_blank">Vezi alte detalii</a>
-            </Link>
-            <Stars nos={media()} />
-          </div>
+        </div>
+        <div className={styles.link}>
+          <Stars nos={media()} />
+          <Link href={gotoId}>
+            <a target="_blank">Vezi alte detalii</a>
+          </Link>
         </div>
       </div>
-    </div>
+    </Wrapper>
   );
 };
 
