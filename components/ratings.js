@@ -1,9 +1,9 @@
 import React from "react";
-import styles from "../styles/ratings.module.scss";
 import { FaStar } from "react-icons/fa";
 import RatingMedia from "../components/ratingMedia.js";
 import Stars from "../components/Stars.js";
 import { ButtonWithIcon } from "../components/tags/ButtonWithIcon";
+import styles from "../styles/ratings.module.scss";
 
 const Ratings = ({ userReviews }) => {
   const eachStar = {
@@ -67,7 +67,7 @@ const Ratings = ({ userReviews }) => {
                     style={{
                       background: `linear-gradient(to right, var(--color-blue-darkish) ${getPercent(
                         index + 1
-                      )}%, var(--color-light) ${getPercent(index + 1)}%)`,
+                      )}%, whitesmoke ${getPercent(index + 1)}%)`,
                       height: ".6rem",
                     }}
                   />

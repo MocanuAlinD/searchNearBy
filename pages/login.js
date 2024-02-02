@@ -6,7 +6,6 @@ import {
   InputCustom,
   SmallContainer,
 } from "../components/singleTags/elemetsCustom";
-import styles from "../styles/login.module.scss";
 import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 import toast from "react-hot-toast";
 import LoadingCheckUser from "../components/LoadingCheckUser";
@@ -35,6 +34,8 @@ import {
 import { setInitialStateReview } from "../features/review/reviewSlice";
 import { useRouter } from "next/router";
 import { ButtonWithIcon } from "../components/tags/ButtonWithIcon";
+import { ButtonRotateCard } from "../components/tags/ButtonRotateCard";
+import styles from "../styles/login.module.scss";
 
 const Login = ({ req }) => {
   const dispatch = useDispatch();
@@ -61,8 +62,8 @@ const Login = ({ req }) => {
     el.style.transform = "rotateY(0deg)";
     const el1 = document.getElementById("buttonLeft");
     const el2 = document.getElementById("buttonRight");
-    el1.style.backgroundColor = "var(--color-blue-darkish)";
-    el2.style.backgroundColor = "var(--color-darkish";
+    el1.style.backgroundColor = "#ffffff22";
+    el2.style.backgroundColor = "var(--color-darkish)";
   };
 
   const changeRight = () => {
@@ -70,8 +71,8 @@ const Login = ({ req }) => {
     el.style.transform = "rotateY(180deg)";
     const el1 = document.getElementById("buttonLeft");
     const el2 = document.getElementById("buttonRight");
-    el1.style.backgroundColor = "var(--color-darkish";
-    el2.style.backgroundColor = "var(--color-blue-darkish";
+    el1.style.backgroundColor = "var(--color-darkish)";
+    el2.style.backgroundColor = "#ffffff22";
   };
 
   // add new user to database
@@ -161,10 +162,10 @@ const Login = ({ req }) => {
   // Check if user displayName is null, and then ask for a displayName
   // if user already has a displayname, ask a new displayName
   const createDisplayName = () => {
-    if(auth.currentUser.displayName === null){
-      console.log("User doesnt have a username to display. Choose one")
+    if (auth.currentUser.displayName === null) {
+      console.log("User doesnt have a username to display. Choose one");
     } else {
-      console.log(auth.currentUser.displayName)
+      console.log(auth.currentUser.displayName);
     }
     // updateProfile(auth.currentUser, {
     //   displayName: "Mocanu Alin Username",
@@ -177,23 +178,25 @@ const Login = ({ req }) => {
         <LoadingCheckUser changeLoadState={() => setLoading((prev) => false)} />
       )}
       <Container>
-        <SmallContainer p="0">
-          <Wrapper className={styles.main} m="0">
+        <SmallContainer bg>
+          <Wrapper className={styles.main}>
             <Wrapper className={styles.topButtons}>
-              <ButtonWithIcon
+              <ButtonRotateCard
                 onClick={changeLeft}
                 id="buttonLeft"
-                bg="var(--color-blue-darkish)"
+                bg="#ffffff22"
+                br="var(--border-radius) var(--border-radius) 0 0"
               >
                 Logare in cont
-              </ButtonWithIcon>
-              <ButtonWithIcon
+              </ButtonRotateCard>
+              <ButtonRotateCard
                 onClick={changeRight}
                 id="buttonRight"
                 bg="var(--color-darkish)"
+                br="var(--border-radius) var(--border-radius) 0 0"
               >
                 Creeaza cont nou
-              </ButtonWithIcon>
+              </ButtonRotateCard>
             </Wrapper>
 
             <div className={styles.torotate}>
@@ -237,21 +240,14 @@ const Login = ({ req }) => {
                       )}
                     </Wrapper>
                   </Wrapper>
-                  <Wrapper
-                    className={
-                      styles.wrapper + " m-0 p-0 d-flex  align-items-end"
-                    }
-                  >
-                    <h5
-                      role="button"
-                      className="m-0 p-0 py-2"
-                      onClick={forgotPassword}
-                    >
-                      Ai uitat parola?
-                    </h5>
-                  </Wrapper>
+
                   <Wrapper className={styles.wrapper}>
                     <ButtonWithIcon>Intra in cont</ButtonWithIcon>
+                  </Wrapper>
+                  <Wrapper className={styles.wrapper}>
+                    <h5 role="button" onClick={forgotPassword}>
+                      Am uitat parola
+                    </h5>
                   </Wrapper>
                 </form>
 
@@ -268,6 +264,20 @@ const Login = ({ req }) => {
                       onChange={(e) =>
                         dispatch(setEmailInregistrare(e.target.value))
                       }
+                    />
+                  </Wrapper>
+                  <Wrapper className={styles.wrapper}>
+                    <LabelCustom htmlFor="numeUtilizator">
+                      Nume utilizator:
+                    </LabelCustom>
+                    <InputCustom
+                      id="numeUtilizator"
+                      // pattern="^\w+([\.\-]?\w+)*@\w+([\.\-]?\w+)*(\.[a-zA-Z]{2,3})+$"
+                      // value={emailInregistrare}
+                      placeholder="nume utilizator"
+                      // onChange={(e) =>
+                      //   dispatch(setEmailInregistrare(e.target.value))
+                      // }
                     />
                   </Wrapper>
                   <Wrapper className={styles.wrapper}>
@@ -303,7 +313,6 @@ const Login = ({ req }) => {
                   >
                     <ButtonWithIcon
                       bg="transparent"
-                      bgHover="var(--color-3-ok)"
                       border="1px solid var(--color-blue-dark)"
                       onClick={() => dispatch(setInitialStateInregistrare())}
                     >
@@ -311,8 +320,7 @@ const Login = ({ req }) => {
                     </ButtonWithIcon>
 
                     <ButtonWithIcon
-                      bg="var(--color-blue-dark)"
-                      bgHover="var(--color-3-ok)"
+                      // bg="var(--color-blue-dark)"
                       onClick={addNewUserToAuthDB}
                     >
                       Creeaza cont
@@ -322,9 +330,6 @@ const Login = ({ req }) => {
               </Wrapper>
             </div>
           </Wrapper>
-          <ButtonWithIcon w="100%" onClick={createDisplayName}>
-            see user details
-          </ButtonWithIcon>
         </SmallContainer>
       </Container>
     </>

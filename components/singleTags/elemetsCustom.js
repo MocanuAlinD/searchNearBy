@@ -57,6 +57,7 @@ export const Wrapper = styled.div`
   color: var(--color-1-dark);
   flex-direction: ${({ fd }) => (fd ? fd : "column")};
   margin: ${({ m }) => (m ? m : "0.25rem 0")};
+  padding: ${({ p }) => (p ? p : "0")};
   width: ${({ w }) => (w ? w : "100%")};
   min-height: ${({ mh }) => mh && "20rem"};
   @media (max-width: 450px) {
@@ -89,7 +90,9 @@ export const SelectCustom = styled.select`
 export const LabelCustom = styled.label`
   color: var(--color-light);
   width: fit-content;
-  margin: ${({ m }) => (m ? m : ".5rem 0 0 0")};
+  margin: ${({ m }) => (m ? m : "0")};
+  margin-top: ${({ mt }) => (mt ? mt : "0")};
+  margin-bottom: ${({ mb }) => (mb ? mb : "0")};
   font-size: var(--font-size08);
   font-weight: ${({ fw }) => (fw ? fw : "200")};
 `;
@@ -104,7 +107,6 @@ export const InputCustom = styled.input`
   flex-grow: ${({ fg }) => (fg ? fg : 1)};
   font-size: var(--font-size1);
   font-weight: 200;
-  min-width: ${({ minw }) => minw && minw};
   margin: ${({ m }) => (m ? m : "0")};
   margin-bottom: ${({ mb }) => (mb ? mb : "0")};
   outline: none;
@@ -113,6 +115,7 @@ export const InputCustom = styled.input`
   text-indent: 0.3rem;
   transition: var(--transition);
   width: ${({ w }) => w && w};
+  min-width: ${({ minw }) => minw && minw};
   ::placeholder {
     color: var(--color-2-light);
     transition: var(--transition);

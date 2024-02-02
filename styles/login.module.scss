@@ -1,41 +1,4 @@
-.pop {
-  background-color: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(3px);
-  width: 100%;
-  height: 100%;
-  flex-grow: 1;
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-
-  button {
-    outline: none;
-    border: none;
-    padding: 0.5rem;
-    color: var(--color-blue-dark);
-    background-color: var(--color-light);
-    transition: all 0.35s linear;
-    border-radius: var(--border-radius);
-    border: 2px solid var(--color-blue-dark);
-
-    &:hover {
-      color: var(--color-light);
-      background-color: var(--color-blue-dark);
-    }
-  }
-}
-
 .main {
-  background-color: var(--color-blue-dark);
-  border-radius: var(--border-radius);
-  padding: 1rem;
-  width: 100%;
-  margin: 0;
-
   .topButtons {
     display: flex;
     justify-content: space-around;
@@ -43,9 +6,6 @@
     flex-direction: row;
     gap: 0.5rem;
     margin: 0;
-    button:hover {
-      color: var(--color-blue);
-    }
   }
 
   .torotate {
@@ -63,13 +23,13 @@
       transform-style: preserve-3d;
       transform: rotateY(0deg);
       transition: all 0.5s ease-in-out;
-      box-shadow: -5px 5px 10px 5px rgba(0, 0, 0, 0.15);
+      box-shadow: 0px 10px 10px 1px rgba(0, 0, 0, 0.2);
 
       .cardLeft,
       .cardRight {
         position: absolute;
         transform: rotateY(0deg);
-        background-color: var(--color-blue-darkish);
+        background: #ffffff22;
         top: 0;
         left: 0;
         backface-visibility: hidden;
@@ -79,15 +39,20 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        border-radius: var(--border-radius);
 
         .wrapper {
-          width: min(95%, 20rem);
+          width: min(97%, 20rem);
 
           h5 {
-            text-align: end;
-            font-size: 0.5rem;
-            margin-right: 0.5rem;
+            font-size: 0.6rem;
+            color: var(--color-light);
+            align-self: flex-end;
+            margin: 0;
+            padding: 0.25rem 1rem;
+            transition: var(--transition);
+            &:hover {
+              color: var(--color-1-light);
+            }
           }
 
           &.endButtons {
@@ -101,11 +66,13 @@
           }
 
           .showHidePassword {
-            font-size: 1.25rem;
+            font-size: 1.5rem;
             margin: 0;
             padding: 0;
             margin-left: 0.5rem;
             cursor: pointer;
+            color: white;
+            align-self: center;
           }
         }
       }

@@ -1,6 +1,6 @@
 import React from "react";
-import styles from "../styles/Stars.module.scss";
 import { FaStar } from "react-icons/fa";
+import styles from "../styles/Stars.module.scss";
 
 const Stars = ({ nos, size }) => {
   return (
