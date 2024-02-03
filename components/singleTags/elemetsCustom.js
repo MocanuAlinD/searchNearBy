@@ -67,11 +67,12 @@ export const Wrapper = styled.div`
 `;
 
 export const SelectCustom = styled.select`
-  background: ${({ bg }) => (bg ? bg : "var(--color-2-dark)")};
+  background: ${({ bg }) => (bg ? bg : "var(--bg-input)")};
+  /* background: transparent; */
   color: var(--color-light);
   outline: none;
   border: none;
-  border-bottom: 2px solid var(--color-3-ok);
+  border-bottom: var(--border-blue);
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
   font-size: ${({ fs }) => (fs ? fs : "var(--font-size1)")};
@@ -98,9 +99,9 @@ export const LabelCustom = styled.label`
 `;
 
 export const InputCustom = styled.input`
-  background-color: var(--color-2-dark);
+  background-color: var(--bg-input);
   border: none;
-  border-bottom: 2px solid var(--color-3-ok);
+  border-bottom: var(--border-blue);
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
   color: var(--color-light);
@@ -109,6 +110,7 @@ export const InputCustom = styled.input`
   font-weight: 200;
   margin: ${({ m }) => (m ? m : "0")};
   margin-bottom: ${({ mb }) => (mb ? mb : "0")};
+  margin-top: ${({ mt }) => (mt ? mt : "0")};
   outline: none;
   padding: ${({ p }) => (p ? p : ".1rem .25rem")};
   position: relative;
@@ -117,13 +119,13 @@ export const InputCustom = styled.input`
   width: ${({ w }) => w && w};
   min-width: ${({ minw }) => minw && minw};
   ::placeholder {
-    color: var(--color-2-light);
+    color: var(--color-placeholder);
     transition: var(--transition);
   }
   :focus {
-    background: var(--color-light);
+    background-color: var(--bg-input);
     border-bottom: 2px solid var(--color-3-error);
-    color: var(--color-1-dark);
+    color: var(--color-light);
   }
   :focus::placeholder {
     color: var(--color-2-light);
@@ -148,9 +150,9 @@ export const InputCustom = styled.input`
 `;
 
 export const TextAreaCustom = styled.textarea`
-  background: var(--color-inputbackground);
+  background-color: var(--bg-input);
   border: none;
-  border-bottom: 2px solid var(--color-3-ok);
+  border-bottom: var(--border-blue);
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
   text-indent: 0.3rem;
@@ -161,15 +163,15 @@ export const TextAreaCustom = styled.textarea`
   transition: var(--transition);
   padding: 0.4rem .2rem;
   ::placeholder {
-    color: var(--color-2-light);
+    color: var(--color-placeholder);
     transition: var(--transition);
   }
   :focus {
-    background: var(--color-light);
-    color: var(--color-dark);
+    background-color: var(--bg-input);
+    color: var(--color-light);
   }
   :focus::placeholder {
-    color: var(--color-darkish);
+    color: var(--color-2-light);
   }
   & + span {
     display: none;
@@ -261,7 +263,7 @@ export const InputContainer = styled.div`
     left: 0;
     margin-left: ${({ ml }) => (ml ? ml : "0.5rem")};
     color: ${({ labelColor }) =>
-      labelColor ? labelColor : "var(--color-2-light)"};
+      labelColor ? labelColor : "var(--color-placeholder)"};
     transition: var(--transition);
     font-size: ${({ fs }) => (fs ? fs : "1rem")};
     display: flex;
@@ -270,10 +272,11 @@ export const InputContainer = styled.div`
     height: 100%;
   }
   input {
-    background: ${({ inputbg }) => (inputbg ? inputbg : "var(--color-2-dark)")};
+    background-color: ${({ inputbg }) =>
+      inputbg ? inputbg : "var(--bg-input)"};
     border: none;
     border-bottom: ${({ inputbb }) =>
-      inputbb ? inputbb : "2px solid var(--color-3-ok)"};
+      inputbb ? inputbb : "var(--border-blue)"};
     border-radius: 0.2rem 0.2rem 0 0;
     color: ${({ inputColor }) =>
       inputColor ? inputColor : "var(--color-1-dark)"};
@@ -285,6 +288,7 @@ export const InputContainer = styled.div`
       inputTextIndent ? inputTextIndent : ".5rem"};
     transition: var(--transition);
     width: ${({ inputw }) => (inputw ? inputw : "100%")};
+    
   }
   input:focus {
     background: var(--color-light);

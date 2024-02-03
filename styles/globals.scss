@@ -15,6 +15,8 @@ body {
   --color-light: #dee2e6;
   --color-yellow: #f4cd3a;
   --glass: #ffffff33;
+  --bg-input: #ffffff15;
+  --border-blue: 2px solid var(--color-3-ok);
   --container-width: min(100%, 40rem);
   --card-container-width: min(97%, 40rem);
   --button-width: min(90%, 20rem);
@@ -30,8 +32,8 @@ body {
     var(--color-1-dark) 60%,
     var(--color-1-light) 100%
   );
-
   --transition: all 0.35s ease-in-out;
+
   --color-dark: #222;
   --color-darkish: #00000055;
   --color-green: #81c784;
@@ -43,9 +45,9 @@ body {
   --color-3-ok: #168aad;
   --color-3-ok1: #457b9d;
   --color-3-ok2: #8ecae6;
-  --color-placeholder: #ffffff55;
+  --color-placeholder: #ffffff99;
   --color-inputbackground: #cccccc33;
-  --color-yellow: #ffb703;
+  // --color-yellow: #ffb703;
   --border-radius: 0.3rem;
   --font-poppins: Poppins, sans-serif;
   --font-size06: 0.6rem;
@@ -80,7 +82,6 @@ body {
 //   --color-3-ok1: #457b9d;
 //   --color-3-ok2: #8ecae6;
 //   --color-placeholder: #ffffff55;
-//   --color-inputbackground: #cccccc33;
 //   --color-orange: #e85d04;
 //   --color-yellow: #ffb703;
 //   --border-radius: 0.3rem;
