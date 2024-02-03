@@ -26,7 +26,7 @@
   }
   .imageContainer {
     position: relative;
-    outline: 2px solid var(--color-3-error);
+    outline: var(--border-bottom-error);
     border-radius: 50%;
     width: calc(var(--height) / var(--divide));
     height: calc(var(--height) / var(--divide));

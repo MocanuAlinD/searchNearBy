@@ -103,7 +103,7 @@ const ClientSearch = ({ searchJudet, searchJudetOras }) => {
               className={`${
                 cautare
                   ? " text-warning ms-1 py-2 align-self-end"
-                  : " text-muted ms-1 py-2 align-self-end"
+                  : " text-black-50 ms-1 py-2 align-self-end"
               }`}
             >
               <MdClear fontSize="1.3rem" />

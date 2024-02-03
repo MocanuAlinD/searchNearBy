@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import styles from "../styles/card.module.scss";
+import React from "react";
 import { GoLocation } from "react-icons/go";
 import { BsPersonCircle, BsArrowLeftRight } from "react-icons/bs";
 import { CgDetailsMore, CgWebsite } from "react-icons/cg";
 import { BsCashCoin } from "react-icons/bs";
-import { FcPhone, FcGlobe } from "react-icons/fc";
+import { FcGlobe } from "react-icons/fc";
+import { BsTelephoneOutbound } from "react-icons/bs";
 import {
   AiOutlinePhone,
   AiOutlineMail,
@@ -16,6 +16,7 @@ import Link from "next/link";
 import RatingStars from "../components/ratingStars";
 import { getAuth } from "firebase/auth";
 import { useSelector } from "react-redux";
+import styles from "../styles/card.module.scss";
 
 const Card = ({ data, setLocation, userReviews }) => {
   const auth = getAuth();
@@ -70,7 +71,10 @@ const Card = ({ data, setLocation, userReviews }) => {
           <h5>
             <span>{element}</span>
             <a href={`tel:${element}`}>
-              <FcPhone className="fs-4" />
+              <BsTelephoneOutbound
+                className="fs-5"
+                color="var(--color-green)"
+              />
             </a>
           </h5>
         </div>
@@ -88,7 +92,7 @@ const Card = ({ data, setLocation, userReviews }) => {
             <a href={`mailto:${element}`}>
               <AiOutlineMail
                 className="fs-4"
-                style={{ color: "var(--color-green1)" }}
+                style={{ color: "var(--color-green)" }}
               />
             </a>
           </h5>

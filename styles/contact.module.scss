@@ -8,12 +8,16 @@
     }
 
     a {
-      color: var(--color-wa);
+      color: var(--color-green);
+      background-color: var(--color-2-light);
+      border-radius: var(--border-radius);
+
       display: flex;
       align-items: center;
       width: fit-content;
-      padding: 0 1rem;
+      padding: 0.1rem 0.5rem;
       font-weight: 400;
+      margin-top: 0.25rem;
     }
   }
 }

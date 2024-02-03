@@ -9,8 +9,8 @@
     width: min(97%, 60rem);
     background: linear-gradient(
       to right,
-      var(--color-dark),
-      var(--color-darkish)
+      var(--color-1-dark),
+      var(--color-2-dark)
     );
     border-radius: var(--border-radius);
     padding: 1rem;
@@ -28,8 +28,8 @@
     &:nth-child(odd) {
       background: linear-gradient(
         to right,
-        var(--color-darkish),
-        var(--color-dark)
+        var(--color-2-dark),
+        var(--color-1-dark)
       );
     }
     &:last-child {

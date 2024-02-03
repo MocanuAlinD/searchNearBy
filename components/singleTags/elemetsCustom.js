@@ -68,7 +68,6 @@ export const Wrapper = styled.div`
 
 export const SelectCustom = styled.select`
   background: ${({ bg }) => (bg ? bg : "var(--bg-input)")};
-  /* background: transparent; */
   color: var(--color-light);
   outline: none;
   border: none;
@@ -82,8 +81,8 @@ export const SelectCustom = styled.select`
   margin: .25rem 0;
   width: 100%;
   :focus {
-    background: var(--color-2-light);
-    border-bottom: 2px solid var(--color-3-error);
+    background-color: var(--bg-input);
+    border-bottom: var(--border-bottom-error);
     color: var(--color-light);
   }
 `;
@@ -124,14 +123,14 @@ export const InputCustom = styled.input`
   }
   :focus {
     background-color: var(--bg-input);
-    border-bottom: 2px solid var(--color-3-error);
+    border-bottom: var(--border-bottom-error);
     color: var(--color-light);
   }
   :focus::placeholder {
-    color: var(--color-2-light);
+    color: var(--color-focus-placeholder);
   }
   & + span {
-    color: var(--color-3-error);
+    color: var(--color-yellow);
     display: none;
     font-weight: 200;
     font-size: .7rem;
@@ -144,8 +143,8 @@ export const InputCustom = styled.input`
     display: block;
   }
   &:invalid{
-    color: var(--color-3-error);
-    background: var(--color-inputbackground);
+    color: var(--color-yellow);
+    background: var(--bg-input);
   }
 `;
 
@@ -162,6 +161,7 @@ export const TextAreaCustom = styled.textarea`
   resize: none;
   transition: var(--transition);
   padding: 0.4rem .2rem;
+  outline: none;
   ::placeholder {
     color: var(--color-placeholder);
     transition: var(--transition);
@@ -169,15 +169,16 @@ export const TextAreaCustom = styled.textarea`
   :focus {
     background-color: var(--bg-input);
     color: var(--color-light);
+    border-bottom: var(--border-bottom-error);
   }
   :focus::placeholder {
-    color: var(--color-2-light);
+    color: var(--color-focus-placeholder);
   }
   & + span {
     display: none;
     font-weight: 400;
     font-size: var(--font-size08);
-    color: var(--color-3-error);
+    color: var(--color-yellow);
     letter-spacing: 0.02rem;
     margin-top: .35rem;
   }
@@ -187,11 +188,13 @@ export const TextAreaCustom = styled.textarea`
   &:not(:placeholder-shown):invalid + span {
     display: block;
   }
+  &:invalid{
+  }
 `;
 
 export const LabelSmallCustom = styled.label`
   color: ${({ char, maxChar }) =>
-    char < maxChar ? "whitesmoke" : "var(--color-dark)"};
+    char < maxChar ? "whitesmoke" : "var(--color-1-dark)"};
   font-size: 0.8rem;
   font-weight: 200;
   text-align: right;
@@ -291,8 +294,9 @@ export const InputContainer = styled.div`
     
   }
   input:focus {
-    background: var(--color-light);
-    border-bottom: 2px solid var(--color-3-error);
+    background-color: var(--bg-input);
+    border-bottom: var(--border-bottom-error);
+    color: var(--color-light);
   }
   input:focus + label {
     top: -75%;

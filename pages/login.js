@@ -63,7 +63,7 @@ const Login = ({ req }) => {
     const el1 = document.getElementById("buttonLeft");
     const el2 = document.getElementById("buttonRight");
     el1.style.backgroundColor = "var(--glass)";
-    el2.style.backgroundColor = "var(--color-darkish)";
+    el2.style.backgroundColor = "var(--color-2-dark)";
   };
 
   const changeRight = () => {
@@ -71,7 +71,7 @@ const Login = ({ req }) => {
     el.style.transform = "rotateY(180deg)";
     const el1 = document.getElementById("buttonLeft");
     const el2 = document.getElementById("buttonRight");
-    el1.style.backgroundColor = "var(--color-darkish)";
+    el1.style.backgroundColor = "var(--color-2-dark)";
     el2.style.backgroundColor = "var(--glass)";
   };
 
@@ -192,7 +192,7 @@ const Login = ({ req }) => {
               <ButtonRotateCard
                 onClick={changeRight}
                 id="buttonRight"
-                bg="var(--color-darkish)"
+                bg="var(--color-2-dark)"
                 br="var(--border-radius) var(--border-radius) 0 0"
               >
                 Creeaza cont nou

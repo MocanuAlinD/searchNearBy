@@ -1,10 +1,10 @@
 import React from "react";
-import styles from "../../../styles/dinamic.module.scss";
 import BackButton from "../../../components/BackButton";
 import { FiDatabase } from "react-icons/fi";
 import { FcDeleteDatabase } from "react-icons/fc";
 import LinkButton from "../../../components/LinkButton";
 import { Container } from "../../../components/singleTags/elemetsCustom";
+import styles from "../../../styles/dinamic.module.scss";
 
 export const getStaticPaths = async () => {
   const unu = await fetch(`https://madapi.vercel.app/api/jobsTotal`);

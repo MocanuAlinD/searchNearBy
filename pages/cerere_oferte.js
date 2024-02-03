@@ -58,7 +58,11 @@ const Caut = () => {
   return (
     <Container>
       <form onSubmit={allData} style={{ width: "min(95%, 40rem)" }}>
-        <Wrapper bg="var(--color-1-dark)" className="p-4">
+        <Wrapper
+          bg="var(--color-1-dark)"
+          className="p-4"
+          border="var(--card-border)"
+        >
           <ParaCustom>
             Cererea va fi stearsa automat cand se atinge data limita.
           </ParaCustom>
@@ -131,7 +135,7 @@ const Caut = () => {
               dispatch(setCerereState([e.target.name, e.target.value]))
             }
           />
-          <div className="d-flex gap-5">
+          <div className="d-flex gap-5 mt-3">
             <ButtonWithIcon
               type="reset"
               bg="transparent"

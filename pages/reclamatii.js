@@ -113,7 +113,7 @@ const Reclamatii = () => {
               >
                 Reset
               </ButtonWithIcon>
-              <ButtonWithIcon type="submit" bg="var(--color-blue-darkish)">
+              <ButtonWithIcon type="submit" bg="var(--color-blue)">
                 Trimite
               </ButtonWithIcon>
             </div>

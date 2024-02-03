@@ -65,7 +65,7 @@ const Ratings = ({ userReviews }) => {
                     value={getPercent(index + 1)}
                     readOnly
                     style={{
-                      background: `linear-gradient(to right, var(--color-blue-darkish) ${getPercent(
+                      background: `linear-gradient(to right, var(--color-blue) ${getPercent(
                         index + 1
                       )}%, whitesmoke ${getPercent(index + 1)}%)`,
                       height: ".6rem",

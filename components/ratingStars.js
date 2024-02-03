@@ -133,7 +133,7 @@ const RatingStars = ({ id, data }) => {
                   value={getPercent(index + 1)}
                   readOnly
                   style={{
-                    background: `linear-gradient(to right, var(--color-blue-dark) ${getPercent(
+                    background: `linear-gradient(to right, var(--color-yellow) ${getPercent(
                       index + 1
                     )}%, var(--color-light) ${getPercent(index + 1)}%)`,
                   }}
