@@ -62,7 +62,7 @@ const Login = ({ req }) => {
     el.style.transform = "rotateY(0deg)";
     const el1 = document.getElementById("buttonLeft");
     const el2 = document.getElementById("buttonRight");
-    el1.style.backgroundColor = "#ffffff22";
+    el1.style.backgroundColor = "var(--glass)";
     el2.style.backgroundColor = "var(--color-darkish)";
   };
 
@@ -72,7 +72,7 @@ const Login = ({ req }) => {
     const el1 = document.getElementById("buttonLeft");
     const el2 = document.getElementById("buttonRight");
     el1.style.backgroundColor = "var(--color-darkish)";
-    el2.style.backgroundColor = "#ffffff22";
+    el2.style.backgroundColor = "var(--glass)";
   };
 
   // add new user to database
@@ -184,7 +184,7 @@ const Login = ({ req }) => {
               <ButtonRotateCard
                 onClick={changeLeft}
                 id="buttonLeft"
-                bg="#ffffff22"
+                bg="var(--glass)"
                 br="var(--border-radius) var(--border-radius) 0 0"
               >
                 Logare in cont

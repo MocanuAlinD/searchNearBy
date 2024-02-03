@@ -9,7 +9,7 @@ export const Button = ({ children, icon, onClick, w, color, reset }) => {
         width: w ? w : "100%",
         color: color ? color : "var(--color-light)",
         backgroundColor: reset ? "transparent" : "var(--color-1-light)",
-        border: reset ? "1px solid var(--color-3-error)" : "none",
+        border: reset ? "1px solid var(--color-yellow)" : "none",
       }}
       onClick={onClick}
     >

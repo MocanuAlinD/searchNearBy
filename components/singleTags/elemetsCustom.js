@@ -37,7 +37,7 @@ export const SmallContainer = styled.div`
   width: ${({ w }) => (w ? w : "min(97%, 40rem)")};
   margin: ${({ m }) => (m ? m : "auto")};
   padding: ${({ p }) => (p ? p : "1rem")};
-  background: ${({ bg }) => (bg ? "#ffffff33" : "")};
+  background: ${({ bg }) => (bg ? "var(--glass)" : "")};
   backdrop-filter: ${({ bg }) => bg && "blur(55px)"};
   border-radius: var(--border-radius);
   display: flex;
@@ -49,7 +49,7 @@ export const SmallContainer = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  background: ${({ bg }) => bg && "#ffffff33"};
+  background: ${({ bg }) => bg && "var(---glass)"};
   backdrop-filter: ${({ bg }) => bg && "blur(55px)"};
   border-radius: var(--border-radius);
   border: ${({ border }) => border && border};

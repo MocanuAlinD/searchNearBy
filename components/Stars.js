@@ -15,7 +15,7 @@ const Stars = ({ nos, size }) => {
               color={
                 ratingValue <= nos
                   ? "var(--color-yellow)"
-                  : "var(--color-darkish)"
+                  : "var(--color-2-light)"
               }
               size={size ? size : "10"}
             />

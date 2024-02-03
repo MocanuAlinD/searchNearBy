@@ -13,15 +13,11 @@ body {
   --color-3-error: #e85d04;
   --color-3-ok: #25d366;
   --color-light: #dee2e6;
+  --color-yellow: #f4cd3a;
+  --glass: #ffffff33;
   --container-width: min(100%, 40rem);
   --card-container-width: min(97%, 40rem);
   --button-width: min(90%, 20rem);
-  --bg-dark-gradient: linear-gradient(
-    to bottom right,
-    var(--color-1-dark) 10%,
-    var(--color-2-light) 80%,
-    var(--color-1-dark)
-  );
   --bg-navbar: linear-gradient(
     to right,
     var(--color-1-dark) 40%,
@@ -34,8 +30,6 @@ body {
     var(--color-1-dark) 60%,
     var(--color-1-light) 100%
   );
-  --color1: #f4cd3a;
-  // --bg: radial-gradient(circle at 0%, #212529 20%, #343a40 100%);
 
   --transition: all 0.35s ease-in-out;
   --color-dark: #222;

@@ -29,7 +29,7 @@
       .cardRight {
         position: absolute;
         transform: rotateY(0deg);
-        background: #ffffff22;
+        background: var(--glass);
         top: 0;
         left: 0;
         backface-visibility: hidden;

@@ -21,7 +21,6 @@ hasIcon
 export const ButtonWithIcon = styled.button`
   background: ${({ bg }) => (bg ? bg : "var(--color-blue-darkish)")};
   border-radius: ${({ br }) => (br ? br : "var(--border-radius)")};
-  /* box-shadow: -2px 2px 2px #ffffff55; */
   border: ${({ border }) => (border ? border : "none")};
   color: ${({ color }) => (color ? color : "var(--color-light)")};
   font-size: ${({ fs }) => (fs ? fs : "clamp(.8rem, 1.6vw, 1rem)")};
@@ -42,7 +41,7 @@ export const ButtonWithIcon = styled.button`
   justify-content: center;
   align-items: center;
   &:active{
-    box-shadow: inset 0px 0px 2px 2px #ffffff33;
+    box-shadow: inset 0px 0px 2px 2px var(--glass);
     color: var(--color-2-light);
   }
   &:hover{

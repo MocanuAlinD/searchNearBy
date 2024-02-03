@@ -121,7 +121,7 @@ const ClientSearch = ({ searchJudet, searchJudetOras }) => {
             Caută în {judet}, {oras}
           </Button>
           <Button
-            color="var(--color-3-error)"
+            color="var(--color-yellow)"
             reset
             onClick={() => dispatch(setInitialStateSearch())}
             icon={<IconDelete className={styles.iconReset} />}
