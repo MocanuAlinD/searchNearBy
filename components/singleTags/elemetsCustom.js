@@ -27,16 +27,15 @@ export const Container = styled.div`
   margin: ${({ m }) => (m ? m : "0")};
   padding: ${({ p }) => (p ? p : "0")};
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   flex-grow: 1;
 `;
 
 export const SmallContainer = styled.div`
-  width: ${({ w }) => (w ? w : "min(97%, 40rem)")};
   margin: ${({ m }) => (m ? m : "auto")};
-  padding: ${({ p }) => (p ? p : "1rem")};
+  padding: ${({ p }) => (p ? p : "var(--padding)")};
   background: ${({ bg }) => (bg ? "var(--glass)" : "")};
   backdrop-filter: ${({ bg }) => bg && "blur(55px)"};
   border-radius: var(--border-radius);
@@ -46,6 +45,8 @@ export const SmallContainer = styled.div`
   flex-direction: ${({ fd }) => (fd ? fd : "column")};
   align-self: center;
   height: ${({ h }) => (h ? h : "fit-content")};
+  min-height: ${({ mh }) => (mh ? "21rem" : "fit-content")};
+  width: ${({ w }) => (w ? w : "min(97%, 40rem)")};
 `;
 
 export const Wrapper = styled.div`
@@ -55,11 +56,14 @@ export const Wrapper = styled.div`
   border: ${({ border }) => border && border};
   display: flex;
   color: var(--color-1-dark);
+  justify-content: ${({ jc }) => jc && jc};
+  align-items: ${({ ai }) => ai && ai};
   flex-direction: ${({ fd }) => (fd ? fd : "column")};
   margin: ${({ m }) => (m ? m : "0.25rem 0")};
   padding: ${({ p }) => (p ? p : "0")};
   width: ${({ w }) => (w ? w : "100%")};
   min-height: ${({ mh }) => mh && "20rem"};
+  gap: ${({ gap }) => (gap ? gap : "0")};
   @media (max-width: 450px) {
     flex-wrap: ${({ qwrap }) => (qwrap ? qwrap : "nowrap")};
     justify-content: space-between;
@@ -239,6 +243,8 @@ font-weight: ${({ fw }) => (fw ? fw : "200")};
 font-size: ${({ fs }) => (fs ? fs : ".9rem")};
 width: ${({ w }) => (w ? w : "100%")};
 text-align: ${({ ta }) => (ta ? ta : "justify")};
+letter-spacing: 1px;
+line-height: 1.25;
 /* line-height: 135%; */
 /* border: 1px solid red; */
 `;

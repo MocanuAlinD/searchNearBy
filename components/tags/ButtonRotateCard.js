@@ -20,12 +20,15 @@ hasIcon
 
 export const ButtonRotateCard = styled.button`
   background: ${({ bg }) => (bg ? bg : "transparent")};
-  border-radius: ${({ br }) => (br ? br : "var(--border-radius)")};
+  backdrop-filter: blur(55px);
+  border-radius: ${({ br }) =>
+    br ? br : "var(--border-radius) var(--border-radius) 0 0"};
   color: var(--color-light);
   font-size: ${({ fs }) => (fs ? fs : "clamp(.7rem, 1.6vw, 1rem)")};
   font-weight: ${({ fw }) => (fw ? fw : "400")};
   overflow: hidden;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0rem;
   transition: var(--transition);
   width: 100%;
+  transition-delay: .17s;
 `;

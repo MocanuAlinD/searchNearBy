@@ -1,24 +1,13 @@
 .cardsContainer {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   gap: 1rem;
 
   .cardContainer {
-    width: min(97%, 60rem);
-    background: linear-gradient(
-      to right,
-      var(--color-1-dark),
-      var(--color-2-dark)
-    );
-    border-radius: var(--border-radius);
-    padding: 1rem;
     p {
       margin: 1rem 0;
       line-height: 1.25;
       letter-spacing: 1px;
       text-align: justify;
+      width: 100%;
     }
     :nth-child(2) {
       font-weight: 200;
@@ -26,11 +15,6 @@
     }
 
     &:nth-child(odd) {
-      background: linear-gradient(
-        to right,
-        var(--color-2-dark),
-        var(--color-1-dark)
-      );
     }
     &:last-child {
       margin-bottom: 1rem;

@@ -1,18 +1,21 @@
 import React from "react";
-import styles from "../styles/BurgerMenu.module.scss";
 import { useSelector, useDispatch } from "react-redux";
 import CustomLink from "./CustomLink";
 import { Button } from "./tags/Button";
 import { setShowMenu } from "../features/searchJudet/searchJudetSlice";
+import { Wrapper } from "./singleTags/elemetsCustom";
+import styles from "../styles/BurgerMenu.module.scss";
 
 const BurgerMenu = () => {
   const dispatch = useDispatch();
 
   return (
-    <div
-      className={
-        styles.sidebar + " d-flex flex-column align-items-center gap-3"
-      }
+    <Wrapper
+      p="1rem 0"
+      gap="1rem"
+      ai="center"
+      w="min(100%, 20rem)"
+      className={styles.sidebar}
       style={{
         transform: `rotateZ(${
           useSelector((state) => state.search.showMenu) ? "0" : "90deg"
@@ -34,7 +37,7 @@ const BurgerMenu = () => {
       <CustomLink link="/landingPage" text="Landing Page" />
       <CustomLink link="/cerere_oferte" text="Depune oferta" />
       <CustomLink link="/cereriCurente" text="Vezi cereri active" />
-    </div>
+    </Wrapper>
   );
 };
 

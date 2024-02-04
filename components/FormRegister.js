@@ -140,8 +140,8 @@ const FormRegister = () => {
   };
 
   return (
-    <form onSubmit={postData} method="GET" className="col-12 my-3">
-      <SmallContainer bg>
+    <SmallContainer bg>
+      <form onSubmit={postData} method="GET" className="w-100">
         <Wrapper>
           <LabelCustom>Nume Prenume / Nume companie</LabelCustom>
           <InputCustom
@@ -163,10 +163,7 @@ const FormRegister = () => {
           {phone.map((item, index) => {
             return (
               <Wrapper key={index} m="0">
-                <Wrapper
-                  fd="row"
-                  className="align-items-start"
-                >
+                <Wrapper fd="row" className="align-items-start">
                   <Wrapper fd="column" w="100%" m="0">
                     <InputCustom
                       required
@@ -492,26 +489,19 @@ const FormRegister = () => {
           ""
         )}
 
-        <Wrapper className="d-flex flex-row justify-content-between">
+        <Wrapper jc="space-between" fd="row" gap="1rem">
           <ButtonWithIcon
-            hasIcon
-            w="45%"
-            m=".5rem 0 .5rem"
-            className="shadow"
+            reset
             onClick={() => dispatch(setInitialStateInscriere())}
           >
-            <div className="iconContainer">
-              <BiReset className="icon" />
-            </div>
+            <BiReset className="icon" />
             Reset
           </ButtonWithIcon>
 
-          <ButtonWithIcon w="45%" className="shadow">
-            Înregistrare
-          </ButtonWithIcon>
+          <ButtonWithIcon className="shadow">Înregistrare</ButtonWithIcon>
         </Wrapper>
-      </SmallContainer>
-    </form>
+      </form>
+    </SmallContainer>
   );
 };
 

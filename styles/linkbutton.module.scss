@@ -1,45 +1,46 @@
 .linkContainer {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  text-align: end;
+  .alink {
+    background-color: var(--color-2-dark);
+    border-radius: var(--border-radius);
+    color: var(--color-light);
+    cursor: pointer;
+    font-weight: 200;
+    padding: 0.25rem 1rem;
     position: relative;
-    overflow: hidden;
-    height: 100%;
-    .alink {
-        background-color: var(--color-placeholder);
-        border-radius: var(--border-radius);
-        color: var(--color-light);
-        cursor: pointer;
-        font-weight: 200;
-        padding: .15rem .8rem;
-        position: relative;
-        text-decoration: none;
-        transition: var(--transition);
-        &:hover{
-            color: transparent;
-            background-color: transparent;
-        }
-
-        &::before {
-            content: 'Detalii';
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 0%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            transition: var(--transition);
-            border-radius: var(--border-radius);
-            display: flex;
-            align-items: center;
-            perspective: 2rem;
-            color: transparent;
-        }
-        
-        &:hover::before {
-            color: var(--color-blue-dark);
-            background-color: var(--color-light);
-            border-radius: var(--border-radius);
-            top: 0;
-            width: 100%;
-        }
+    text-decoration: none;
+    transition: var(--transition);
+    &:hover {
+      color: transparent;
+      background-color: transparent;
     }
+
+    &::before {
+      content: "Detalii";
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 0%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      transition: var(--transition);
+      border-radius: var(--border-radius);
+      display: flex;
+      align-items: center;
+      perspective: 2rem;
+      color: transparent;
+    }
+
+    &:hover::before {
+      color: var(--color-1-dark);
+      background-color: var(--color-light);
+      border-radius: var(--border-radius);
+      top: 0;
+      width: 100%;
+    }
+  }
 }

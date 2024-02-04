@@ -34,7 +34,7 @@ const ClientSearch = ({ searchJudet, searchJudetOras }) => {
   const cautare = useSelector((state) => state.search.cautare);
 
   return (
-    <SmallContainer bg>
+    <SmallContainer bg mh jc="flex-start">
       <Wrapper>
         <Wrapper>
           <SelectCustom

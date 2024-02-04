@@ -1,5 +1,9 @@
 import React from "react";
-import { Container, ParaCustom } from "../components/singleTags/elemetsCustom";
+import {
+  Container,
+  ParaCustom,
+  SmallContainer,
+} from "../components/singleTags/elemetsCustom";
 import {
   Wrapper,
   InputCustom,
@@ -57,97 +61,102 @@ const Caut = () => {
 
   return (
     <Container>
-      <form onSubmit={allData} style={{ width: "min(95%, 40rem)" }}>
-        <Wrapper
-          bg="var(--color-1-dark)"
-          className="p-4"
-          border="var(--card-border)"
-        >
+      <SmallContainer bg>
+        <form onSubmit={allData} className="w-100">
           <ParaCustom>
             Cererea va fi stearsa automat cand se atinge data limita.
           </ParaCustom>
-          <LabelCustom>Caut . . .</LabelCustom>
-          <InputCustom
-            required
-            name="caut"
-            placeholder="instalator, electrician, zugrav, etc"
-            value={caut}
-            onChange={(e) =>
-              dispatch(setCerereState([e.target.name, e.target.value]))
-            }
-          />
-          <span>Acest camp este obligatoriu</span>
-          <LabelCustom>Cerintele tale</LabelCustom>
-          <TextAreaCustom
-            required
-            maxLength={MAX_LENGTH}
-            name="cerinte"
-            id="detalii"
-            onChange={(e) => (
-              dispatch(setCerereState([e.target.name, e.target.value])),
-              dispatch(setCerereState(["char", e.target.value.length]))
-            )}
-            value={cerinte}
-            rows="7"
-            placeholder="Spune mai detaliat ce ai nevoie sau daca ai anumite cerinte"
-          ></TextAreaCustom>
-          <span>Scurta descriere este obligatorie</span>
-          <LabelSmallCustom htmlFor="detalii" char={char} maxChar={MAX_LENGTH}>
-            {char}/{MAX_LENGTH}
-          </LabelSmallCustom>
-          <LabelCustom>Suma alocata (optional)</LabelCustom>
-          <InputCustom
-            name="sumaAlocata"
-            placeholder="pret minim - pret maxim"
-            value={sumaAlocata}
-            onChange={(e) =>
-              dispatch(setCerereState([e.target.name, e.target.value]))
-            }
-          />
-          <LabelCustom>Nume prenume (optional)</LabelCustom>
-          <InputCustom
-            name="numePrenume"
-            value={numePrenume}
-            onChange={(e) =>
-              dispatch(setCerereState([e.target.name, e.target.value]))
-            }
-          />
-          <LabelCustom>Data limita</LabelCustom>
-          <InputCustom
-            w="100%"
-            required
-            type="date"
-            name="dataLimita"
-            value={dataLimita}
-            onChange={(e) =>
-              dispatch(setCerereState([e.target.name, e.target.value]))
-            }
-          />
-          <LabelCustom>
-            Introdu numarul de telefon, adresa de email sau cum vrei sa fi
-            contactat.
-          </LabelCustom>
-          <InputCustom
-            required
-            name="contact"
-            value={contact}
-            onChange={(e) =>
-              dispatch(setCerereState([e.target.name, e.target.value]))
-            }
-          />
-          <div className="d-flex gap-5 mt-3">
-            <ButtonWithIcon
-              type="reset"
-              bg="transparent"
-              border="1px solid var(--color-blue-dark)"
-              onClick={() => dispatch(setInitialStateCerere())}
+          <Wrapper>
+            <LabelCustom>Caut . . .</LabelCustom>
+            <InputCustom
+              required
+              name="caut"
+              placeholder="instalator, electrician, zugrav, etc"
+              value={caut}
+              onChange={(e) =>
+                dispatch(setCerereState([e.target.name, e.target.value]))
+              }
+            />
+            <span>Acest camp este obligatoriu</span>
+          </Wrapper>
+          <Wrapper>
+            <LabelCustom>Cerintele tale</LabelCustom>
+            <TextAreaCustom
+              required
+              maxLength={MAX_LENGTH}
+              name="cerinte"
+              id="detalii"
+              onChange={(e) => (
+                dispatch(setCerereState([e.target.name, e.target.value])),
+                dispatch(setCerereState(["char", e.target.value.length]))
+              )}
+              value={cerinte}
+              rows="7"
+              placeholder="Spune mai detaliat ce ai nevoie sau daca ai anumite cerinte"
+            ></TextAreaCustom>
+            <span>Scurta descriere este obligatorie</span>
+          </Wrapper>
+          <Wrapper>
+            <LabelSmallCustom
+              htmlFor="detalii"
+              char={char}
+              maxChar={MAX_LENGTH}
             >
-              Reset
-            </ButtonWithIcon>
-            <ButtonWithIcon>Trimite</ButtonWithIcon>
-          </div>
-        </Wrapper>
-      </form>
+              {char}/{MAX_LENGTH}
+            </LabelSmallCustom>
+            <LabelCustom>Suma alocata (optional)</LabelCustom>
+            <InputCustom
+              name="sumaAlocata"
+              placeholder="pret minim - pret maxim"
+              value={sumaAlocata}
+              onChange={(e) =>
+                dispatch(setCerereState([e.target.name, e.target.value]))
+              }
+            />
+            <LabelCustom>Nume prenume (optional)</LabelCustom>
+            <InputCustom
+              name="numePrenume"
+              value={numePrenume}
+              onChange={(e) =>
+                dispatch(setCerereState([e.target.name, e.target.value]))
+              }
+            />
+            <LabelCustom>Data limita</LabelCustom>
+            <InputCustom
+              w="100%"
+              required
+              type="date"
+              name="dataLimita"
+              value={dataLimita}
+              onChange={(e) =>
+                dispatch(setCerereState([e.target.name, e.target.value]))
+              }
+            />
+            <LabelCustom>
+              Introdu numarul de telefon, adresa de email sau cum vrei sa fi
+              contactat.
+            </LabelCustom>
+            <InputCustom
+              required
+              name="contact"
+              value={contact}
+              onChange={(e) =>
+                dispatch(setCerereState([e.target.name, e.target.value]))
+              }
+            />
+            <Wrapper fd="row" gap="1rem">
+              <ButtonWithIcon
+                type="reset"
+                reset
+                onClick={() => dispatch(setInitialStateCerere())}
+              >
+                Reset
+              </ButtonWithIcon>
+              <ButtonWithIcon>Trimite</ButtonWithIcon>
+            </Wrapper>
+          </Wrapper>
+        </form>
+      </SmallContainer>
     </Container>
   );
 };

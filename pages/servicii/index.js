@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "../../styles/servicii.module.scss";
 import LinkButton from "../../components/LinkButton";
 import { Container } from "../../components/singleTags/elemetsCustom";
+import styles from "../../styles/servicii.module.scss";
 
 export const getStaticProps = async () => {
   try {
@@ -41,9 +41,7 @@ const Servicii = ({ citys }) => {
   });
 
   return (
-    <Container
-      className={styles.joburi + " w-100 d-flex justify-content-center"}
-    >
+    <Container className={styles.joburi}>
       {citys ? (
         <table className="table m-0 p-0 mt-4">
           <thead>
@@ -73,7 +71,7 @@ const Servicii = ({ citys }) => {
         </table>
       ) : (
         <div className="d-flex justify-content-center align-items center py-5 mt-5">
-          Baza de date este goala.
+          Nu exista inregistrari in baza de date.
         </div>
       )}
     </Container>

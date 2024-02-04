@@ -6,9 +6,9 @@ import {
   ParaCustom,
   SmallContainer,
 } from "../components/singleTags/elemetsCustom";
-import styles from "../styles/contact.module.scss";
 import { FaWhatsapp } from "react-icons/fa";
 import PageTitle from "../components/pageTitle";
+import styles from "../styles/contact.module.scss";
 
 const Contact = () => {
   return (

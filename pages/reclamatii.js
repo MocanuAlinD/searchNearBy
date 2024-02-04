@@ -35,8 +35,8 @@ const Reclamatii = () => {
 
   return (
     <Container>
-      <SmallContainer bg p="0">
-        <SmallContainer className={styles.infoContainer} p="0">
+      <SmallContainer bg>
+        <Wrapper>
           <H4Custom w="100%"> 🔖&emsp;Depune o reclamație</H4Custom>
           <ParaCustom>
             &emsp;Reclamația dumneavoastră va fi supusă unui control în detaliu.
@@ -44,9 +44,9 @@ const Reclamatii = () => {
             modificat. Ne poti trimite detalii în formularul de mai jos, sau pe
             WhatsApp (captură de ecran sau în scris).
           </ParaCustom>
-        </SmallContainer>
+        </Wrapper>
 
-        <SmallContainer p="0">
+        <Wrapper>
           <form
             action="https://formsubmit.co/81b98d1d934c3b7f0e32bc02eb386532"
             method="POST"
@@ -133,7 +133,7 @@ const Reclamatii = () => {
               </a>
             </H6Custom>
           </Wrapper>
-        </SmallContainer>
+        </Wrapper>
       </SmallContainer>
     </Container>
   );

@@ -1,10 +1,10 @@
 import React from "react";
-import styles from "../styles/linkbutton.module.scss";
 import Link from "next/link";
+import styles from "../styles/linkbutton.module.scss";
 
-const LinkButton = ({name}) => {
+const LinkButton = ({ name }) => {
   return (
-    <div className={styles.linkContainer + " m-0 p-0 text-end"}>
+    <div className={styles.linkContainer}>
       <Link href={`${name}`}>
         <a className={styles.alink}>Detalii</a>
       </Link>

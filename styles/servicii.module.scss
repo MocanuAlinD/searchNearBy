@@ -1,24 +1,28 @@
 .joburi {
-    table {
-        width: min(97%, 40rem);
-        background-color: var(--color-blue-dark);
-        border-radius: var(--border-radius);
-        color: var(--color-light);
-        border-color: var(--color-placeholder);
-    }
+  table {
+    width: min(97%, 40rem);
+    border-radius: var(--border-radius);
+    color: var(--color-light);
+    border-color: var(--border-card);
+    backdrop-filter: blur(55px);
+  }
+  table thead {
+    background-color: var(--glass);
+  }
 
-    table tbody tr:nth-child(odd) {
-        background-color: var(--color-3-ok1);
-    }
+  table tbody tr:nth-child(odd) {
+    background-color: var(--glass);
+  }
+  table tbody tr:nth-child(even) {
+    background-color: var(--glass-dark);
+  }
 
-    table thead tr th {
-        font-size: 1rem;
-        font-weight: 400;
-    }
+  table thead tr th {
+    font-size: 1rem;
+    font-weight: 400;
+  }
 
-    table tbody td {
-        font-size: .75rem;
-    }
-
-
+  table tbody td {
+    font-size: 0.75rem;
+  }
 }

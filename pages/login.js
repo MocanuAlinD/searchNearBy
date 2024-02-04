@@ -178,14 +178,13 @@ const Login = ({ req }) => {
         <LoadingCheckUser changeLoadState={() => setLoading((prev) => false)} />
       )}
       <Container>
-        <SmallContainer bg>
+        <SmallContainer>
           <Wrapper className={styles.main}>
             <Wrapper className={styles.topButtons}>
               <ButtonRotateCard
                 onClick={changeLeft}
                 id="buttonLeft"
                 bg="var(--glass)"
-                br="var(--border-radius) var(--border-radius) 0 0"
               >
                 Logare in cont
               </ButtonRotateCard>
@@ -193,7 +192,6 @@ const Login = ({ req }) => {
                 onClick={changeRight}
                 id="buttonRight"
                 bg="var(--color-2-dark)"
-                br="var(--border-radius) var(--border-radius) 0 0"
               >
                 Creeaza cont nou
               </ButtonRotateCard>

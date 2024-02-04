@@ -1,15 +1,12 @@
 import React from "react";
 import { useRouter } from "next/router";
 import { ButtonWithIcon } from "../components/tags/ButtonWithIcon";
-import {
-  LabelCustom,
-  SmallContainer,
-} from "./singleTags/elemetsCustom";
+import { LabelCustom, SmallContainer } from "./singleTags/elemetsCustom";
 
 const NotSignedIn = () => {
   const { push } = useRouter();
   return (
-    <SmallContainer>
+    <SmallContainer bg>
       <LabelCustom className="w-100 text-center">
         Te rugam sa te autentifici pentru a inscrie un serviciu
       </LabelCustom>
