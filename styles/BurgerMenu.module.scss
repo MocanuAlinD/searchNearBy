@@ -1,13 +1,13 @@
 .sidebar {
   backdrop-filter: blur(55px);
   background-color: rgba(0, 0, 0, 0.5);
-  border-top: 1px solid var(--color-3-error);
+  border-top: 1px solid var(--error);
   position: absolute;
   top: 4rem;
   left: 0;
   transition: var(--transition);
   z-index: 9999;
-  border-bottom: 3px solid var(--color-3-error);
+  border-bottom: 3px solid var(--error);
   transform: rotateZ(0deg);
   transform-origin: top left;
 }

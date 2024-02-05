@@ -11,7 +11,7 @@
   transition: var(--transition);
   font-weight: 200;
   &:hover {
-    background: var(--color-3-error);
+    background: var(--error);
     color: var(--color-light);
   }
 }

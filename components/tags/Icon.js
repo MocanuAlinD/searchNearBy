@@ -189,7 +189,7 @@ export const IconMinMax = ({ w, min, max, text }) => {
         <linearGradient id="pathgrad" gradientUnits="userSpaceOnUse">
           <stop stopColor="var(--color-green)" offset="0%"></stop>
           <stop stopColor="var(--color-yellow)" offset="50%"></stop>
-          <stop stopColor="var(--color-3-error)" offset="100%"></stop>
+          <stop stopColor="var(--error)" offset="100%"></stop>
         </linearGradient>
       </defs>
       <g>
@@ -274,7 +274,7 @@ export const IconDays = ({ w, zi_start, zi_end }) => {
           strokeWidth="0.2"
         />
         <linearGradient id="dayGradInactive" gradientTransform="rotate(45)">
-          <stop offset="0%" stopColor="var(--color-3-error)"></stop>
+          <stop offset="0%" stopColor="var(--error)"></stop>
           <stop offset="100%" stopColor="var(--color-1-light)"></stop>
         </linearGradient>
         <radialGradient

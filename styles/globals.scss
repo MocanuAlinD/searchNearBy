@@ -6,33 +6,7 @@
 
 html,
 body {
-  --color-1-dark: #040404;
-  --color-1-light: #14110f;
-  --color-2-dark: #34312d;
-  --color-2-light: #7e7f83;
-  --color-3-error: #e85d04;
-  // --color-3-green: #25d366;
-  // change 3-ok into 3-green and 3-blue
-  --color-3-ok: #219ebc;
-  --color-3-ok1: #457b9d;
-  --color-3-ok2: #8ecae6;
-  --color-light: #dee2e6;
-  --color-green: #81c784;
-  --color-yellow: #f4cd3a;
-  --color-blue: #219ebc;
-  --color-blue-dark: #184e77;
-  --color-placeholder: #ffffff99;
-  --glass: #ffffff33;
-  --glass-dark: #ffffff06;
   --bg-input: #ffffff15;
-  --border-blue: 2px solid var(--color-3-ok);
-  --border-bottom-error: 2px solid var(--color-yellow);
-  --border-card: 1px solid #ffffff44;
-  --color-focus-placeholder: var(--color-1-light);
-  --container-width: min(100%, 40rem);
-  --card-container-width: min(97%, 40rem);
-  --button-width: min(90%, 20rem);
-  --border-radius: 0.5rem;
   --bg-navbar: linear-gradient(
     to right,
     var(--color-1-dark) 40%,
@@ -45,18 +19,43 @@ body {
     var(--color-1-dark) 60%,
     var(--color-1-light) 100%
   );
-  --transition: all 0.35s ease-in-out;
+  --border-blue: 2px solid var(--color-3-ok);
+  --border-bottom-error: 2px solid var(--color-yellow);
+  --border-card: 1px solid #ffffff44;
+  --border-radius: 0.5rem;
+  --button-width: min(90%, 20rem); // not used
+  --card-container-width: min(97%, 40rem); // not used
+  --color-1-dark: #212529;
+  --color-1-light: #343a40;
+  --color-2-dark: #495057;
+  --color-2-light: #6c757d;
+  --error: #e85d04;
+  --color-3-ok: #219ebc;
+  --color-3-ok1: #457b9d;
+  --color-3-ok2: #8ecae6;
+  --color-blue-dark: #184e77;
+  --color-blue: #219ebc;
+  --color-focus-placeholder: var(--color-1-light);
+  --color-green: #81c784;
+  --color-light: #dee2e6;
+  --color-placeholder: #ffffff99;
+  --color-yellow: #f4cd3a;
+  --container-width: min(100%, 40rem);
+  --font-size05: clamp(0.6rem, 2vw, 1rem);
   --font-size06: 0.6rem;
   --font-size08: 0.8rem;
   --font-size1: 1rem;
   --font-size125: 1.25rem;
-  --font-size05: clamp(0.6rem, 2vw, 1rem);
-
+  --glass-dark: #ffffff06;
+  --glass: #ffffff33;
   --padding: 0.5rem;
+  --transition: all 0.35s ease-in-out;
+  // --color-3-green: #25d366;
+  // change 3-ok into 3-green and 3-blue
 
   font-family: Poppins, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  background: var(--color-1-light);
+  background-color: var(--color-1-dark);
   color: var(--color-light);
 }
 a {

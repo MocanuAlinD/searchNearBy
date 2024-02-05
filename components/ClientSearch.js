@@ -141,7 +141,7 @@ export default ClientSearch;
 //   size="medium"
 //   variant="text"
 //   style={{
-//     color: "var(--color-3-error)",
+//     color: "var(--error)",
 //     background:
 //       "linear-gradient(to right, var(--color-1-dark),var(--color-2-dark), var(--color-1-dark))",
 //     borderRadius: "var(--border-radius)",

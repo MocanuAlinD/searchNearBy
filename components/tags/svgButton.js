@@ -22,7 +22,7 @@ const SvgButton = ({ onClick, children, name, bg, reset }) => {
             : "linear-gradient(to bottom right, #434343, #000)",
           border: reset ? "none" : "none",
           borderBottom: reset
-            ? "1px solid var(--color-3-error)"
+            ? "1px solid var(--error)"
             : "1px solid rgba(255,255,255,0.1)",
         }}
       >

@@ -13,7 +13,7 @@ import {
   setNoResTrigger,
 } from "../features/searchJudet/searchJudetSlice";
 import { setReviewSearchRev } from "../features/reviewSearch/reviewSearchSlice";
-import { Container } from "../components/singleTags/elemetsCustom";
+import { Container, Wrapper } from "../components/singleTags/elemetsCustom";
 import PageTitle from "../components/pageTitle";
 
 export default function Home() {
@@ -126,9 +126,9 @@ export default function Home() {
     <Container>
       <PageTitle text="SearchNearBy" />
       <div className="w-100 row d-flex flex-column justify-content-start m-0 p-0">
-        <div className="pt-3">
+        <Wrapper>
           {useSelector((state) => state.showTitle.showTitle) && <Title />}
-        </div>
+        </Wrapper>
 
         {/* Search window with inputs */}
         <ClientSearch

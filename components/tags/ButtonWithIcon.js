@@ -22,9 +22,9 @@ export const ButtonWithIcon = styled.button`
   background-color: ${({ reset, bg }) =>
     reset ? "transparent" : bg ? bg : "var(--color-blue)"};
   border-radius: ${({ br }) => (br ? br : "var(--border-radius)")};
-  border: ${({ reset }) => (reset ? "1px solid var(--color-3-error)" : "none")};
+  border: ${({ reset }) => (reset ? "1px solid var(--error)" : "none")};
   color: ${({ color, reset }) =>
-    reset ? "var(--color-3-error)" : color ? color : "var(--color-light)"};
+    reset ? "var(--error)" : color ? color : "var(--color-light)"};
   font-size: ${({ fs }) => (fs ? fs : "clamp(.8rem, 1.6vw, 1rem)")};
   font-weight: ${({ fw }) => (fw ? fw : "200")};
   margin: ${({ m }) => (m ? m : "0")};
@@ -47,7 +47,7 @@ export const ButtonWithIcon = styled.button`
   &:hover{
     color: var(--color-light);
     background-color: ${({ reset }) =>
-      reset ? "var(--color-3-error)" : "var(--color-blue-dark)"};
+      reset ? "var(--error)" : "var(--color-blue-dark)"};
     border-color: transparent;
   }
 `;
