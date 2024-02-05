@@ -9,9 +9,6 @@ import { judete } from "../lib/judete";
 import { alin } from "../lib";
 import { IconButton } from "@mui/material";
 import { MdClear } from "react-icons/md";
-import { BiReset } from "react-icons/bi";
-import { RiDeleteBack2Line } from "react-icons/ri";
-import { AiOutlineSearch } from "react-icons/ai";
 import { Button } from "./tags/Button";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -120,12 +117,7 @@ const ClientSearch = ({ searchJudet, searchJudetOras }) => {
           <Button onClick={searchJudetOras} icon={<IconSearch />}>
             Caută în {judet}, {oras}
           </Button>
-          <Button
-            color="var(--color-yellow)"
-            reset
-            onClick={() => dispatch(setInitialStateSearch())}
-            icon={<IconDelete className={styles.iconReset} />}
-          >
+          <Button reset onClick={() => dispatch(setInitialStateSearch())}>
             Sterge
           </Button>
         </Wrapper>
