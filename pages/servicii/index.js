@@ -48,17 +48,13 @@ const Servicii = ({ citys }) => {
             <tr>
               <th>Judet</th>
               <th className="">Total</th>
-              <th className="text-end">Detalii</th>
             </tr>
           </thead>
           <tbody>
             {citysAndNumberOfUsers.map((item, index) => (
               <tr key={index}>
-                <td className="px-2 text-uppercase">{item.name}</td>
+                <LinkButton href={`/servicii/${item.name}`} text={item.name} />
                 <td>{item.value}</td>
-                <td>
-                  <LinkButton name={`/servicii/${item.name}`} />
-                </td>
               </tr>
             ))}
             <tr>

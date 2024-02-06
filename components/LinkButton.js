@@ -2,13 +2,11 @@ import React from "react";
 import Link from "next/link";
 import styles from "../styles/linkbutton.module.scss";
 
-const LinkButton = ({ name }) => {
+const LinkButton = ({ href, text }) => {
   return (
-    <div className={styles.linkContainer}>
-      <Link href={`${name}`}>
-        <a className={styles.alink}>Detalii</a>
-      </Link>
-    </div>
+    <Link href={`${href}`}>
+      <a className={styles.alink}>{text}</a>
+    </Link>
   );
 };
 

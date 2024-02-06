@@ -54,51 +54,50 @@ const Details = ({ res, id }) => {
   return (
     <Container className={styles.container}>
       <BackButton url="/servicii" text="Judete" />
-      <div className="row m-0 p-0 col-12 px-2 mb-5 d-flex justify-content-center">
-        <table className={"table m-0 mt-4 rounded-3"}>
-          <thead>
-            <tr>
-              <th className={"text-center"} colSpan="5">
-                {id ? (
-                  id
-                ) : (
-                  <>
-                    <FiDatabase className="fs-1 mt-3" /> &nbsp;&nbsp;
-                    <pre>Baza de date indisponibila.</pre>
-                  </>
-                )}
-              </th>
-            </tr>
-            <tr>
-              <th>Oras</th>
-              <th>Tip serviciu</th>
-              <th className="text-end">Detalii utilizator</th>
-            </tr>
-          </thead>
-          <tbody>
-            {res ? (
-              all.map((item, index) => {
-                return (
-                  <tr key={index}>
-                    <td>{item.oras}</td>
-                    <td>{item.tipjob}</td>
-                    <td>
-                      <LinkButton name={`/servicii/${id}/${item.id}`} />
-                    </td>
-                  </tr>
-                );
-              })
-            ) : (
-              <tr className={styles.loading}>
-                <td colSpan="3" className={styles.tdLoading + " text-center"}>
+      <table className={styles.table}>
+        <thead>
+          <tr>
+            <th colSpan="2">
+              {id ? (
+                id
+              ) : (
+                <>
                   <FiDatabase className="fs-1 mt-3" /> &nbsp;&nbsp;
-                  <pre>Incarcare date....</pre>
-                </td>
-              </tr>
-            )}
-          </tbody>
-        </table>
-      </div>
+                  <pre>Baza de date indisponibila.</pre>
+                </>
+              )}
+            </th>
+          </tr>
+          <tr>
+            <th>Oras</th>
+            <th>Tip serviciu</th>
+          </tr>
+        </thead>
+        <tbody>
+          {res ? (
+            all.map((item, index) => {
+              return (
+                <tr key={index}>
+                  <td>
+                    <LinkButton
+                      href={`/servicii/${id}/${item.id}`}
+                      text={item.oras}
+                    />
+                  </td>
+                  <td>{item.tipjob}</td>
+                </tr>
+              );
+            })
+          ) : (
+            <tr>
+              <td colSpan="2">
+                <FiDatabase className="fs-1 mt-3" /> &nbsp;&nbsp;
+                <pre>Incarcare date....</pre>
+              </td>
+            </tr>
+          )}
+        </tbody>
+      </table>
     </Container>
   );
 };

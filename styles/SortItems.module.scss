@@ -1,4 +1,4 @@
-@import "../styles/mixin";
+@use "./styling/mixin" as *;
 
 //in pages/index.js
 .container {
@@ -7,9 +7,9 @@
   top: 0.5rem;
 
   .desktop {
-    background: var(--glass);
+    background: glass;
     backdrop-filter: blur(55px);
-    border-radius: var(--border-radius);
+    border-radius: border-radius;
     @include display($ai: flex-start);
     margin-left: 0.5rem;
     padding: 0.5rem;

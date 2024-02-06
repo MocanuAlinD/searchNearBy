@@ -18,6 +18,8 @@ import { getAuth } from "firebase/auth";
 import { useSelector } from "react-redux";
 import styles from "../styles/card.module.scss";
 
+
+// Blue card / old one
 const Card = ({ data, setLocation, userReviews }) => {
   const auth = getAuth();
 

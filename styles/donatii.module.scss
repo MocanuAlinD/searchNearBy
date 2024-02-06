@@ -1,6 +1,6 @@
 .donatii {
-  $color-blue-light: var(--color-3-ok2);
-  $color-light: var(--color-light);
+  var(--color-blue)-light: var(--color-3-ok2);
+  var(--color-light): var(--color-light);
   text-align: justify;
   user-select: none;
 
@@ -14,7 +14,7 @@
   }
 
   .para:first-letter {
-    color: $color-blue-light;
+    color: var(--color-blue)-light;
     font-weight: 400;
     font-size: clamp(1.1rem, 2.5vw, 1.4rem);
     padding-right: 0.1rem;
@@ -22,7 +22,7 @@
   }
 
   ol {
-    color: $color-light;
+    color: var(--color-light);
 
     li {
       font-weight: 200;
@@ -32,7 +32,7 @@
       span {
         font-weight: 400;
         font-size: clamp(0.8rem, 2.5vw, 1rem);
-        color: $color-blue-light;
+        color: var(--color-blue)-light;
         text-transform: uppercase;
       }
     }
@@ -45,11 +45,11 @@
 
     p {
       .copyIcon {
-        color: $color-light;
+        color: var(--color-light);
         margin-left: 1rem;
 
         &:hover {
-          color: $color-blue-light;
+          color: var(--color-blue)-light;
           cursor: pointer;
         }
 
@@ -62,7 +62,7 @@
 
   .separator {
     height: 2px;
-    background-color: $color-light;
+    background-color: var(--color-light);
     width: 100%;
   }
 

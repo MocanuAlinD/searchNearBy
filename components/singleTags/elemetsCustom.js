@@ -75,7 +75,7 @@ export const SelectCustom = styled.select`
   color: var(--color-light);
   outline: none;
   border: none;
-  border-bottom: var(--border-blue);
+  border-bottom: var(--color-border-blue);
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
   font-size: ${({ fs }) => (fs ? fs : "var(--font-size1)")};
@@ -86,7 +86,7 @@ export const SelectCustom = styled.select`
   width: 100%;
   :focus {
     background-color: var(--bg-input);
-    border-bottom: var(--border-bottom-error);
+    border-bottom: var(--color-border-bottom-error);
     color: var(--color-light);
   }
 `;
@@ -104,7 +104,7 @@ export const LabelCustom = styled.label`
 export const InputCustom = styled.input`
   background-color: var(--bg-input);
   border: none;
-  border-bottom: var(--border-blue);
+  border-bottom: var(--color-border-blue);
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
   color: var(--color-light);
@@ -127,7 +127,7 @@ export const InputCustom = styled.input`
   }
   :focus {
     background-color: var(--bg-input);
-    border-bottom: var(--border-bottom-error);
+    border-bottom: var(--color-border-bottom-error);
     color: var(--color-light);
   }
   :focus::placeholder {
@@ -155,7 +155,7 @@ export const InputCustom = styled.input`
 export const TextAreaCustom = styled.textarea`
   background-color: var(--bg-input);
   border: none;
-  border-bottom: var(--border-blue);
+  border-bottom: var(--color-border-blue);
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
   text-indent: 0.3rem;
@@ -173,7 +173,7 @@ export const TextAreaCustom = styled.textarea`
   :focus {
     background-color: var(--bg-input);
     color: var(--color-light);
-    border-bottom: var(--border-bottom-error);
+    border-bottom: var(--color-border-bottom-error);
   }
   :focus::placeholder {
     color: var(--color-focus-placeholder);
@@ -285,7 +285,7 @@ export const InputContainer = styled.div`
       inputbg ? inputbg : "var(--bg-input)"};
     border: none;
     border-bottom: ${({ inputbb }) =>
-      inputbb ? inputbb : "var(--border-blue)"};
+      inputbb ? inputbb : "var(--color-border-blue)"};
     border-radius: 0.2rem 0.2rem 0 0;
     color: ${({ inputColor }) =>
       inputColor ? inputColor : "var(--color-1-dark)"};
@@ -301,7 +301,7 @@ export const InputContainer = styled.div`
   }
   input:focus {
     background-color: var(--bg-input);
-    border-bottom: var(--border-bottom-error);
+    border-bottom: var(--color-border-bottom-error);
     color: var(--color-light);
   }
   input:focus + label {
