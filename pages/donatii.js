@@ -1,5 +1,4 @@
 import React from "react";
-import styles from "../styles/donatii.module.scss";
 import { ImCopy } from "react-icons/im";
 import toast from "react-hot-toast";
 import {
@@ -9,6 +8,7 @@ import {
   SmallContainer,
   ParaCustom,
 } from "../components/singleTags/elemetsCustom";
+import styles from "../styles/pages/donatii.module.scss";
 
 const Donatii = () => {
   const copyToClipboard = (bank) => {

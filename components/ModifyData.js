@@ -22,7 +22,7 @@ import {
   removeEmailModifica,
   changeStateModifica,
 } from "../features/modificaDate/modificaSlice";
-import styles from "../styles/FormRegister.module.scss";
+import styles from "../styles/comps/FormRegister.module.scss";
 
 const ModifyData = () => {
   const dispatch = useDispatch();

@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Stars from "../components/Stars";
 import { Wrapper } from "../components/singleTags/elemetsCustom";
-import styles from "../styles/cardCautare.module.scss";
+import styles from "../styles/comps/cardCautare.module.scss";
 
 const namedMonths = {
   1: "Ianuarie",

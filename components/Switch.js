@@ -2,7 +2,7 @@ import React from "react";
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { setShowTitle } from "../features/showTitle/showTitleSlice";
-import styles from "../styles/Switch.module.scss";
+import styles from "../styles/comps/Switch.module.scss";
 
 const Switch = () => {
   const dispatch = useDispatch();

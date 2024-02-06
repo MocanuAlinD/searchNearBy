@@ -1,5 +1,4 @@
 import React from "react";
-import styles from "../styles/infofaq.module.scss";
 import {
   Container,
   SmallContainer,
@@ -7,6 +6,7 @@ import {
   LabelCustom,
   ParaCustom,
 } from "../components/singleTags/elemetsCustom";
+import styles from "../styles/pages/infofaq.module.scss";
 
 const Info = () => {
   return (

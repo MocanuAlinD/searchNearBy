@@ -8,7 +8,7 @@ import {
 } from "../components/singleTags/elemetsCustom";
 import { FaWhatsapp } from "react-icons/fa";
 import PageTitle from "../components/pageTitle";
-import styles from "../styles/contact.module.scss";
+import styles from "../styles/pages/contact.module.scss";
 
 const Contact = () => {
   return (

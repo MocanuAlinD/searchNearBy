@@ -8,7 +8,7 @@ import {
   IconDays,
   IconOrar,
 } from "../../../../components/tags/Icon.js";
-import styles from "../../../../styles/userCard.module.scss";
+import styles from "../../../../styles/pages/userCard.module.scss";
 
 export const getStaticPaths = async () => {
   const getCitys = await fetch(`https://madapi.vercel.app/api/jobsTotal`);

@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../styles/loadingCheckUsers.module.scss";
+import styles from "../styles/comps/loadingCheckUsers.module.scss";
 
 const LoadingCheckUser = ({ changeLoadState }) => {
   return (

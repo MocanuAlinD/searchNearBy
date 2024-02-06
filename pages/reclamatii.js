@@ -1,5 +1,4 @@
 import React from "react";
-import styles from "../styles/reclamatii.module.scss";
 import {
   LabelCustom,
   InputCustom,
@@ -19,6 +18,7 @@ import {
   setEmailReclamant,
   setInitialStateReclamatie,
 } from "../features/reclamatie/reclamatieSlice";
+import styles from "../styles/pages/reclamatii.module.scss";
 
 const Reclamatii = () => {
   const dispatch = useDispatch();

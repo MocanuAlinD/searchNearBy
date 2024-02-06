@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { IconButton } from "@mui/material";
 import { AiOutlineDoubleLeft } from "react-icons/ai";
-import styles from "../styles/backbutton.module.scss";
+import styles from "../styles/comps/backbutton.module.scss";
 
 const BackButton = ({ url, text }) => {
   return (

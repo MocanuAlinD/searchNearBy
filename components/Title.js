@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useRouter } from "next/router";
-import styles from "../styles/title.module.scss";
+import styles from "../styles/comps/title.module.scss";
 
 const Title = ({ width, height, spd }) => {
   const { pathname } = useRouter();

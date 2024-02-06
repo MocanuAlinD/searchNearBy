@@ -27,7 +27,7 @@ import {
   addEmail,
   removeEmail,
 } from "../features/inscriere/inscriereSlice";
-import styles from "../styles/FormRegister.module.scss";
+import styles from "../styles/comps/FormRegister.module.scss";
 
 const FormRegister = () => {
   const dispatch = useDispatch();

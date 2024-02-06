@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "../styles/Spinner.module.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { setLoadSearch } from "../features/searchJudet/searchJudetSlice";
+import styles from "../styles/comps/Spinner.module.scss";
 
 const LoadingSpinner = () => {
   const dispatch = useDispatch();

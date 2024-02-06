@@ -7,7 +7,7 @@ import {
   setFilterSorteraza,
   setFilterFilters,
 } from "../features/sortItems/sortItemsSlice";
-import styles from "../styles/SortItems.module.scss";
+import styles from "../styles/comps/SortItems.module.scss";
 
 const SortItems = ({ handleToate, listLen }) => {
   const dispatch = useDispatch();

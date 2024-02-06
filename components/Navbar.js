@@ -8,7 +8,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { setShowUserMenu } from "../features/searchJudet/searchJudetSlice";
 import Image from "next/image";
 import UserChangeData from "../components/userChangeData";
-import styles from "../styles/Navbar.module.scss";
+import styles from "../styles/comps/Navbar.module.scss";
 
 const Navbar = () => {
   const { pathname, push } = useRouter();

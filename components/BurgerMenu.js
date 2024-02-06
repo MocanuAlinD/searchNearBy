@@ -4,7 +4,7 @@ import CustomLink from "./CustomLink";
 import { Button } from "./tags/Button";
 import { setShowMenu } from "../features/searchJudet/searchJudetSlice";
 import { Wrapper } from "./singleTags/elemetsCustom";
-import styles from "../styles/BurgerMenu.module.scss";
+import styles from "../styles/comps/BurgerMenu.module.scss";
 
 const BurgerMenu = () => {
   const dispatch = useDispatch();

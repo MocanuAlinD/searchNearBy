@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import SvgButton from "../components/tags/svgButton";
 import Romania from "../components/Romania";
-import styles from "../styles/test.module.scss";
+import styles from "../styles/pages/test.module.scss";
 
 const Test = () => {
   const txt = () => {

@@ -3,7 +3,7 @@ import { FaStar } from "react-icons/fa";
 import RatingMedia from "../components/ratingMedia.js";
 import Stars from "../components/Stars.js";
 import { ButtonWithIcon } from "../components/tags/ButtonWithIcon";
-import styles from "../styles/ratings.module.scss";
+import styles from "../styles/comps/ratings.module.scss";
 
 const Ratings = ({ userReviews }) => {
   const eachStar = {

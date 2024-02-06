@@ -16,7 +16,7 @@ import Link from "next/link";
 import RatingStars from "../components/ratingStars";
 import { getAuth } from "firebase/auth";
 import { useSelector } from "react-redux";
-import styles from "../styles/card.module.scss";
+import styles from "../styles/comps/card.module.scss";
 
 
 // Blue card / old one

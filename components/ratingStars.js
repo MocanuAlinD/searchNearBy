@@ -14,7 +14,7 @@ import {
   setNumeReview,
 } from "../features/review/reviewSlice";
 import { getAuth } from "firebase/auth";
-import styles from "../styles/RatingStars.module.scss";
+import styles from "../styles/comps/RatingStars.module.scss";
 
 // in components/card.js
 const RatingStars = ({ id, data }) => {

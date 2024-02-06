@@ -1,6 +1,6 @@
 import React from "react";
 import Stars from "../components/Stars.js";
-import styles from "../styles/ratingMedia.module.scss";
+import styles from "../styles/comps/ratingMedia.module.scss";
 
 const RagingMedia = ({ nos }) => {
   return (

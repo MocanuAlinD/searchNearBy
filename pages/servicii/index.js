@@ -1,7 +1,7 @@
 import React from "react";
 import LinkButton from "../../components/LinkButton";
 import { Container } from "../../components/singleTags/elemetsCustom";
-import styles from "../../styles/servicii.module.scss";
+import styles from "../../styles/pages/servicii.module.scss";
 
 export const getStaticProps = async () => {
   try {

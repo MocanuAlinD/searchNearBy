@@ -1,8 +1,8 @@
 import React from "react";
 import Link from "next/link";
-import styles from "../styles/CustomLink.module.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { setShowMenu } from "../features/searchJudet/searchJudetSlice";
+import styles from "../styles/comps/CustomLink.module.scss";
 
 const CustomLink = ({ link, text }) => {
   const dispatch = useDispatch();

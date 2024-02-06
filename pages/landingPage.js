@@ -3,7 +3,7 @@ import {
   Container,
   SmallContainer,
 } from "../components/singleTags/elemetsCustom";
-import styles from "../styles/landingPage.module.scss";
+import styles from "../styles/pages/landingPage.module.scss";
 
 const LandingPage = () => {
   return (

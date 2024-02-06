@@ -7,7 +7,7 @@ import { useRouter } from "next/router";
 import { getAuth, signOut } from "firebase/auth";
 import { setUid } from "../features/login/loginSlice";
 import { setInitialStateReview } from "../features/review/reviewSlice";
-import styles from "../styles/userChangeData.module.scss";
+import styles from "../styles/comps/userChangeData.module.scss";
 
 const UserChangeData = ({ close }) => {
   const dispatch = useDispatch();

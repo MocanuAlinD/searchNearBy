@@ -35,7 +35,7 @@ import { setInitialStateReview } from "../features/review/reviewSlice";
 import { useRouter } from "next/router";
 import { ButtonWithIcon } from "../components/tags/ButtonWithIcon";
 import { ButtonRotateCard } from "../components/tags/ButtonRotateCard";
-import styles from "../styles/login.module.scss";
+import styles from "../styles/pages/login.module.scss";
 
 const Login = ({ req }) => {
   const dispatch = useDispatch();

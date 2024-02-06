@@ -21,7 +21,6 @@ import {
   setCautare,
 } from "../features/searchJudet/searchJudetSlice";
 import { IconSearch, IconDelete } from "./tags/Icon";
-import styles from "../styles/clientsearch.module.scss";
 
 const ClientSearch = ({ searchJudet, searchJudetOras }) => {
   const dispatch = useDispatch();

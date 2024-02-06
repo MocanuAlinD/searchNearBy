@@ -1,6 +1,6 @@
 import React from "react";
-import styles from "../styles/noResult.module.scss";
 import { useSelector } from "react-redux";
+import styles from "../styles/comps/noResult.module.scss";
 
 const NoResults = () => {
   return (
