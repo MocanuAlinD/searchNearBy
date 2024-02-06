@@ -2,9 +2,9 @@ import React from "react";
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { setShowTitle } from "../features/showTitle/showTitleSlice";
-import styles from "../styles/comps/Switch.module.scss";
+import styles from "../styles/comps/navbarSwitch.module.scss";
 
-const Switch = () => {
+const NavbarSwitch = () => {
   const dispatch = useDispatch();
   return (
     <div className="w-100 d-flex justify-content-start gap-2 mx-2">
@@ -25,4 +25,4 @@ const Switch = () => {
   );
 };
 
-export default Switch;
+export default NavbarSwitch;

@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useRouter } from "next/router";
-import styles from "../styles/comps/title.module.scss";
+import styles from "../styles/comps/svgTitle.module.scss";
 
-const Title = ({ width, height, spd }) => {
+const SvgTitle = ({ width, height, spd }) => {
   const { pathname } = useRouter();
   useEffect(() => {
     startAnimation();
@@ -114,4 +114,4 @@ const Title = ({ width, height, spd }) => {
   );
 };
 
-export default Title;
+export default SvgTitle;

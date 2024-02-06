@@ -5,7 +5,7 @@
     align-items: center;
 
     .backButton {
-        background-color: var(--color-blue-dark);
+        background-color: var(--color-1-dark);
         transition: var(--transition);
         border-radius: var(--border-radius);
         white-space: nowrap;
@@ -28,7 +28,7 @@
 
     .backButton:hover p,
     .backButton:hover .icon {
-        color: var(--color-blue-dark);
+        color: var(--color-1-dark);
     }
 
     .backButton:hover {

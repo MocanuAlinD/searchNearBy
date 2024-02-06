@@ -3,8 +3,7 @@ import ClientSearch from "../components/ClientSearch";
 import CardCautare from "../components/CardCautare";
 import NoResults from "../components/NoResults";
 import SortItems from "../components/SortItems";
-import Spinner from "../components/Spinner";
-import Title from "../components/Title";
+import LoadingSpinner from "../components/LoadingSpinner";
 import {
   setSortedList,
   setLoadSearch,
@@ -14,7 +13,8 @@ import {
 } from "../features/searchJudet/searchJudetSlice";
 import { setReviewSearchRev } from "../features/reviewSearch/reviewSearchSlice";
 import { Container, Wrapper } from "../components/singleTags/elemetsCustom";
-import PageTitle from "../components/pageTitle";
+import SvgTitle from "../components/svgTitle";
+import PageTitle from "../components/pageTitle"
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -127,7 +127,7 @@ export default function Home() {
       <PageTitle text="SearchNearBy" />
       <div className="w-100 row d-flex flex-column justify-content-start m-0 p-0">
         <Wrapper>
-          {useSelector((state) => state.showTitle.showTitle) && <Title />}
+          {useSelector((state) => state.showTitle.showTitle) && <SvgTitle />}
         </Wrapper>
 
         {/* Search window with inputs */}
@@ -156,7 +156,7 @@ export default function Home() {
       {/* Show only if no results found */}
       {noResTrigger && <NoResults />}
 
-      {loadSearch && <Spinner />}
+      {loadSearch && <LoadingSpinner />}
     </Container>
   );
 }

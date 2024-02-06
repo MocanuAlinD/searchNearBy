@@ -5,9 +5,11 @@ import styles from "../styles/comps/Stars.module.scss";
 
 // in CardCautare.js
 const Stars = ({ nos, size }) => {
+  // nos => number integer:number of stars
+  // size => number integer: size of the star
   return (
     <div className={styles.onlyStars}>
-      {[...Array(5)].map((star, i) => {
+      {[...Array(5)].map((_, i) => {
         const ratingValue = i + 1;
         return (
           <label key={i}>

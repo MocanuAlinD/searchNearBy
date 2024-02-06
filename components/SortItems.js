@@ -1,5 +1,5 @@
 import { ImSortNumbericDesc, ImSortNumericAsc } from "react-icons/im";
-import SingleRow from "./SingleRow";
+import InputWithLabel from "./InputWithLabel";
 import { useDispatch, useSelector } from "react-redux";
 import { store } from "../fstore/store";
 import {
@@ -43,7 +43,7 @@ const SortItems = ({ handleToate, listLen }) => {
     <div className={styles.container + " sticky-top"}>
       <div className={styles.desktop}>
         <div className={styles.smallContainer}>
-          <SingleRow
+          <InputWithLabel
             cls="w-100 text-center fs-bold"
             justTitle
             text={
@@ -54,7 +54,7 @@ const SortItems = ({ handleToate, listLen }) => {
                 : listLen > 1 && listLen + " rezultate"
             }
           />
-          <SingleRow
+          <InputWithLabel
             id="toate"
             text="Fără filtre"
             state={toate}
@@ -64,9 +64,9 @@ const SortItems = ({ handleToate, listLen }) => {
           />
         </div>
         <div className={styles.smallContainer}>
-          <SingleRow justTitle text="Ordoneaza" />
+          <InputWithLabel justTitle text="Ordoneaza" />
 
-          <SingleRow
+          <InputWithLabel
             id="tarifAsc"
             text="Tarif &nbsp;"
             icon={<ImSortNumericAsc />}
@@ -75,7 +75,7 @@ const SortItems = ({ handleToate, listLen }) => {
             state={tarifAsc}
             func={() => handleSorteaza("tarifAsc")}
           />
-          <SingleRow
+          <InputWithLabel
             id="tarifDesc"
             text="Tarif &nbsp;"
             icon={<ImSortNumbericDesc />}
@@ -85,7 +85,7 @@ const SortItems = ({ handleToate, listLen }) => {
             func={() => handleSorteaza("tarifDesc")}
           />
 
-          <SingleRow
+          <InputWithLabel
             id="dataAsc"
             text="Dată recentă"
             type="radio"
@@ -94,7 +94,7 @@ const SortItems = ({ handleToate, listLen }) => {
             func={() => handleSorteaza("dataAsc")}
           />
 
-          <SingleRow
+          <InputWithLabel
             id="dataDesc"
             text="Dată veche"
             type="radio"
@@ -105,9 +105,9 @@ const SortItems = ({ handleToate, listLen }) => {
         </div>
 
         <div className={styles.smallContainer}>
-          <SingleRow justTitle text="Filtrează" />
+          <InputWithLabel justTitle text="Filtrează" />
 
-          <SingleRow
+          <InputWithLabel
             id="program"
             text="După 16:00"
             type="checkbox"
@@ -115,7 +115,7 @@ const SortItems = ({ handleToate, listLen }) => {
             func={() => handleFilter("program")}
           />
 
-          <SingleRow
+          <InputWithLabel
             id="night"
             text="Urgențe 24/7"
             type="checkbox"
@@ -123,7 +123,7 @@ const SortItems = ({ handleToate, listLen }) => {
             func={() => handleFilter("night")}
           />
 
-          <SingleRow
+          <InputWithLabel
             id="website"
             text="Website"
             type="checkbox"

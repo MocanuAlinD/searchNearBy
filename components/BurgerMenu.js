@@ -22,7 +22,7 @@ const BurgerMenu = () => {
         })`,
       }}
     >
-      <Button w="15rem" onClick={() => dispatch(setShowMenu(false))}>
+      <Button reset w="15rem" onClick={() => dispatch(setShowMenu(false))}>
         Inchide
       </Button>
       <CustomLink link="/" text="Home" />

@@ -9,7 +9,7 @@ export const IconSearch = ({ size, color, sw }) => {
   const sz = size ? size : "1.5rem";
   return (
     <svg width={sz} viewBox="0 0 1000 1000" fill="none">
-      <g transformOrigin="center">
+      <g transformorigin="center">
         <circle cx="659" cy="330" r="207" stroke={clr} strokeWidth={strokeW} />
         <line
           x1="517.678"

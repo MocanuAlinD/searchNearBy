@@ -3,6 +3,7 @@ import Stars from "../components/Stars.js";
 import styles from "../styles/comps/ratingMedia.module.scss";
 
 const RagingMedia = ({ nos }) => {
+  // nos => number integer
   return (
     <div className={styles.container}>
       <div className={styles.average}>

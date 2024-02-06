@@ -121,7 +121,7 @@ const Login = ({ req }) => {
       });
   };
 
-  // LOG OUT user XXXX Exista deja in componenta "userChangeData"
+  // LOG OUT user XXXX Exista deja in componenta "UserMenu"
   const userLogOut = () => {
     if (auth.currentUser) {
       signOut(auth)

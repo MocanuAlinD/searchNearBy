@@ -17,6 +17,8 @@ import { getAuth } from "firebase/auth";
 import styles from "../styles/comps/RatingStars.module.scss";
 
 // in components/card.js
+
+// REMOVE THIS COMPONENT AFTER INTEGRATING IT IN NEW CARD
 const RatingStars = ({ id, data }) => {
   const auth = getAuth();
   const dispatch = useDispatch();

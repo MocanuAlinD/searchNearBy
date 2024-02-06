@@ -1,15 +1,16 @@
 import React from "react";
 import toast from "react-hot-toast";
 import SvgButton from "./tags/svgButton";
-import { SmallContainer } from "../components/singleTags/elemetsCustom";
+import { SmallContainer } from "./singleTags/elemetsCustom";
 import { useSelector, useDispatch } from "react-redux";
 import { useRouter } from "next/router";
 import { getAuth, signOut } from "firebase/auth";
 import { setUid } from "../features/login/loginSlice";
 import { setInitialStateReview } from "../features/review/reviewSlice";
-import styles from "../styles/comps/userChangeData.module.scss";
+import styles from "../styles/comps/userMenu.module.scss";
 
-const UserChangeData = ({ close }) => {
+// in components/Navbar
+const UserMenu = ({ close }) => {
   const dispatch = useDispatch();
   const { push } = useRouter();
   const auth = getAuth();
@@ -90,4 +91,4 @@ const UserChangeData = ({ close }) => {
   );
 };
 
-export default UserChangeData;
+export default UserMenu;

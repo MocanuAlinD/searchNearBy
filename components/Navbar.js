@@ -1,5 +1,5 @@
 import React from "react";
-import Switch from "./Switch";
+import Switch from "./NavbarSwitch";
 import BurgerButton from "./BurgerButton";
 import { useRouter } from "next/router";
 import { firebase } from "../firebase";
@@ -7,7 +7,7 @@ import { getAuth } from "firebase/auth";
 import { useSelector, useDispatch } from "react-redux";
 import { setShowUserMenu } from "../features/searchJudet/searchJudetSlice";
 import Image from "next/image";
-import UserChangeData from "../components/userChangeData";
+import UserMenu from "../components/userMenu";
 import styles from "../styles/comps/Navbar.module.scss";
 
 const Navbar = () => {
@@ -55,7 +55,7 @@ const Navbar = () => {
           />
         </div>
       </div>
-      <UserChangeData close={toggleMenu} />
+      <UserMenu close={toggleMenu} />
       <BurgerButton />
     </div>
   );

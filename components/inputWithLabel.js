@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "../styles/comps/SingleRow.module.scss";
+import styles from "../styles/comps/inputWithLabel.module.scss";
 
-const SingleRow = ({
+const InputWithLabel = ({
   justTitle,
   id,
   state,
@@ -40,4 +40,4 @@ const SingleRow = ({
   );
 };
 
-export default SingleRow;
+export default InputWithLabel;
