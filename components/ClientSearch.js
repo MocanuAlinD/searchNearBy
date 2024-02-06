@@ -127,19 +127,3 @@ const ClientSearch = ({ searchJudet, searchJudetOras }) => {
 };
 
 export default ClientSearch;
-
-// <Button
-//   className={styles.resetBtn + " shadow-sm"}
-//   size="medium"
-//   variant="text"
-//   style={{
-//     color: "var(--error)",
-//     background:
-//       "linear-gradient(to right, var(--color-1-dark),var(--color-2-dark), var(--color-1-dark))",
-//     borderRadius: "var(--border-radius)",
-//   }}
-//   onClick={() => dispatch(setInitialStateSearch())}
-//   startIcon={<BiReset className={styles.iconReset} />}
-// >
-//   Reset
-// </Button>;

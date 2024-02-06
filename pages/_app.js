@@ -1,4 +1,7 @@
 import "../styles/globals.scss";
+import "../styles/_colors.scss";
+import "../styles/_fonts.scss";
+import "../styles/_size.scss";
 import { useState, useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import Layout from "../components/LayoutPage";

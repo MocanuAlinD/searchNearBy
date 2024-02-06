@@ -1,23 +1,19 @@
+@import "../styles/mixin";
+
 .main {
   .topButtons {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: row;
+    @include display($jc: space-around, $fd: row);
     gap: 0.5rem;
     margin: 0;
   }
 
   .torotate {
     perspective: 3000px;
-    height: 25rem;
+    @include height(25rem);
 
     .bottomContainer {
       position: relative;
       height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       margin: 0;
       padding: 0;
       transform-style: preserve-3d;
@@ -35,10 +31,7 @@
         backface-visibility: hidden;
         width: 100%;
         height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
+        @include display();
 
         .wrapper {
           width: min(97%, 20rem);
@@ -58,10 +51,7 @@
           &.endButtons {
             margin-top: 1.5rem;
             padding: 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-direction: row;
+            @include display(space-between, center, row);
             gap: 1rem;
           }
 

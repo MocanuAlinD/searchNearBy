@@ -16,11 +16,11 @@
     font-weight: 400;
   }
   .wrapper {
-    align-items: flex-start;
     display: flex;
+    justify-content: center;
+    align-items: flex-start;
     flex-direction: column;
     flex-wrap: wrap;
-    justify-content: center;
     margin-bottom: .4rem;
     position: relative;
     h4,

@@ -1,7 +1,15 @@
 .container {
   display: flex;
   flex-direction: column;
+  width: 100%;
   flex-shrink: 3;
+  .average {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
   h4 {
     font-size: 1rem;
     margin: 0;
@@ -9,10 +17,11 @@
   span {
     color: darkgray;
   }
-  .stars {
-    width: fit-content;
-    .star {
-      margin: 0 0.1rem;
-    }
-  }
+  // .stars {
+  //   width: fit-content;
+  //   border: 1px solid red;
+  //   .star {
+  //     margin: 0 0.1rem;
+  //   }
+  // }
 }

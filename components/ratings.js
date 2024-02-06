@@ -82,7 +82,7 @@ const Ratings = ({ userReviews }) => {
         </div>
       </div>
 
-      <div className="justify-content-end mb-3">
+      <div className="justify-content-end mb-3 align-self-end">
         <ButtonWithIcon w="fit-content" p=".3rem 1rem" pl="1rem" m=".3rem">
           {userReviews.length > 0
             ? "Lasa un review"

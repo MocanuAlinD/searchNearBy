@@ -21,11 +21,10 @@ const CereriCurente = ({ data }) => {
   if (data.length <= 0 || !data) {
     return <Container>Nu exista cereri momentan</Container>;
   }
-  const len = data.length;
   return (
     <Container className="gap-2">
       <div className="d-flex justify-content-center my-3">
-        Cereri depuse: {len}
+        Cereri depuse: {data.length}
       </div>
       {data.map((item, index) => {
         return (
@@ -33,7 +32,7 @@ const CereriCurente = ({ data }) => {
             key={item.cerereId}
             className="border border-danger d-flex flex-column align-items-center justify-content-center w-100"
           >
-            <h6>{len - index}</h6>
+            <h6>{data.length - index}</h6>
             <h6>{item.caut}</h6>
             <h6>{item.cerereId}</h6>
             <h6>{item.char}</h6>

@@ -2,6 +2,8 @@ import React from "react";
 import { FaStar } from "react-icons/fa";
 import styles from "../styles/Stars.module.scss";
 
+
+// in CardCautare.js
 const Stars = ({ nos, size }) => {
   return (
     <div className={styles.onlyStars}>

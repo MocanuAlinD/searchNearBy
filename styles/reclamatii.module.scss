@@ -1,7 +1,6 @@
+@import "../styles/mixin";
 .whatsapp {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include display();
   .h6 {
     font-size: 1rem;
     margin-top: 1rem;

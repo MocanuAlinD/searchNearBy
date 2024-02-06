@@ -1,19 +1,13 @@
+@import "../styles/mixin";
+
+// in pages/servicii/id/person/index.js
 .mainContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
   width: min(97%, 40rem);
   background-color: var(--color-light);
   color: var(--color-1-dark);
   border-radius: var(--border-radius);
-  div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-  }
   .titleContainer {
+    @include display();
     background-color: var(--color-blue-dark);
     padding: 0.5rem;
     color: var(--color-light);
@@ -28,11 +22,9 @@
   }
   .topMenu {
     gap: 0.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     padding: 1rem 0.5rem;
     width: 100%;
+    @include display($fd: row);
     h4 {
       margin: 0;
       background-color: var(--color-blue-dark);
@@ -42,7 +34,6 @@
       text-align: center;
       font-size: 0.7rem;
       padding: 0.3rem 0;
-      // font-weight: 200;
       cursor: pointer;
     }
   }
@@ -61,10 +52,7 @@
         width: 100%;
         height: 100%;
         color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
+        @include display();
         h6 {
           font-size: 0.8rem;
           font-weight: 200;
@@ -74,22 +62,15 @@
         transform: translateX(-100%);
         transform-origin: right;
         background-color: var(--color-1-dark);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: row;
+        @include display($fd: row);
         flex-wrap: wrap;
         gap: 1rem;
         span {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          flex-direction: column;
+          @include display();
           gap: 1rem;
           @media screen and (width < 543px) {
             & {
-              flex-direction: row;
-              justify-content: space-around;
+              @include display($fd: row, $jc: space-around);
               width: 100%;
               p {
                 margin-inline: auto;

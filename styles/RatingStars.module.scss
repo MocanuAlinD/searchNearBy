@@ -1,3 +1,4 @@
+@import "../styles/mixin";
 .container {
   button {
     border: none;
@@ -26,34 +27,9 @@
   .input:checked {
     background-color: black;
   }
-  .slidecontainer {
-    width: 100%;
-    border: 1px solid red;
-    display: flex;
-    justify-content: center;
-    .slider {
-      -webkit-appearance: none;
-      width: min(95%, 20rem);
-      height: 0.8rem;
-      border-radius: 0.5rem;
-      margin: 0.5rem 0;
-      background: linear-gradient(to right, black 10%, coral 10%);
-      &::-webkit-slider-thumb {
-        -webkit-appearance: none; /* Override default look */
-        appearance: none;
-        width: 1.2rem; /* Set a specific slider handle width */
-        height: 1.2rem; /* Slider handle height */
-        border-radius: 50%;
-        background: blue; /* Green background */
-        cursor: pointer; /* Cursor on hover */
-      }
-    }
-  }
   .ratingScore {
     div {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      @include display($fd: row);
       h4 {
         font-size: 0.7rem;
         margin: 0 0.5rem;
@@ -67,11 +43,7 @@
         height: 0.8rem;
         border-radius: 0.5rem;
         margin: 0.5rem 0;
-        // background: linear-gradient(
-        //   to right,
-        //   var(--color-blue-dark) 10%,
-        //   var(--color-light) 10%
-        // );
+        background: linear-gradient(to right, red 10%, blue 10%);
         &::-webkit-slider-thumb {
           -webkit-appearance: none; /* Override default look */
           appearance: none;

@@ -1,0 +1,14 @@
+@mixin height($height: false) {
+  @if $height {
+    height: $height;
+  } @else {
+    height: 5rem;
+  }
+}
+
+@mixin display($jc: center, $ai: center, $fd: column) {
+  display: flex;
+  justify-content: $jc;
+  align-items: $ai;
+  flex-direction: $fd;
+}

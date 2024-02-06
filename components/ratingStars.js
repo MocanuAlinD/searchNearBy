@@ -3,7 +3,6 @@ import {
   TextAreaCustom,
   Wrapper,
 } from "../components/singleTags/elemetsCustom";
-import styles from "../styles/RatingStars.module.scss";
 import { FaStar } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -15,7 +14,9 @@ import {
   setNumeReview,
 } from "../features/review/reviewSlice";
 import { getAuth } from "firebase/auth";
+import styles from "../styles/RatingStars.module.scss";
 
+// in components/card.js
 const RatingStars = ({ id, data }) => {
   const auth = getAuth();
   const dispatch = useDispatch();

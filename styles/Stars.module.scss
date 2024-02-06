@@ -1,7 +1,12 @@
+@import "../styles/mixin";
+
+// in CardCautare.js
 .onlyStars {
-  display: flex;
   padding: 0.3rem 0;
-  width: fit-content;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  width: 100%;
 }
 
 .onlyStars input[type="radio"] {
