@@ -1,21 +1,117 @@
-@use "../styling/mixin" as *;
-
-.svgcontainer {
-  gap: 1rem;
-  @include display();
-  border: 1px solid yellow;
-  // height: 20rem;
+.main {
+  background-color: #000000bb;
+  // border: 1px solid red;
+  height: 100%;
   flex-grow: 1;
-  // background: url("../public/backgrounds/ro01.svg");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  .romania {
-    flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .container {
+    --color1: #ffffff55;
+    --color2: #ff000055;
+    --color3: #00ff0055;
+    --color4: #0000ff55;
+    --color5: #ffb70355;
+    --color6: #bc6c2555;
     width: 100%;
-    background: url("../public/backgrounds/ro01.svg");
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    background-size: contain;
+    height: 30rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: visible;
+    transform-style: preserve-3d;
+    perspective: 400px;
+    .wrapper {
+      perspective: 3000px;
+      transform-style: preserve-3d;
+      width: 20rem;
+      height: 20rem;
+      position: relative;
+      overflow: visible;
+      transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+      transform-origin: center;
+      animation: anim 10s linear infinite;
+
+      div {
+        width: 10rem;
+        height: 10rem;
+        // outline: 3px solid orange;
+        // outline-offset: 20rem;
+        // border-radius: 1rem;
+        position: absolute;
+        top: 25%;
+        left: 25%;
+        translate: 0 0 5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        flex-wrap: wrap;
+        background-color: transparent;
+        span {
+          margin: auto;
+          width: 3.2rem;
+          height: 3.2rem;
+          border-radius: 0.5rem;
+        }
+      }
+      .one {
+        span {
+          background-color: whitesmoke;
+        }
+      }
+      .two {
+        transform: rotateY(-90deg) translateZ(10rem);
+        transform-origin: right;
+        span {
+          background-color: #d62828;
+        }
+      }
+      .three {
+        transform: rotateY(90deg) translateX(100%);
+        transform-origin: right;
+        span {
+          background-color: #e85d04;
+        }
+      }
+      .four {
+        transform: translateZ(-10rem) rotateY(180deg);
+        span {
+          background-color: #ffbe0b;
+        }
+      }
+      .five {
+        transform: rotateX(90deg) translateY(-100%);
+        transform-origin: top;
+        span {
+          background-color: green;
+        }
+      }
+      .six {
+        transform: rotateX(-90deg) translateY(100%);
+        transform-origin: bottom;
+        span {
+          background-color: #3a86ff;
+        }
+      }
+    }
+    @keyframes anim {
+      0% {
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+      }
+      25% {
+        transform: rotateX(120deg) rotateY(120deg) rotateZ(0deg);
+      }
+      50% {
+        transform: rotateX(200deg) rotateY(240deg) rotateZ(0deg);
+      }
+      75% {
+        transform: rotateX(300deg) rotateY(270deg) rotateZ(270deg);
+      }
+      100% {
+        transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+      }
+    }
   }
 }
