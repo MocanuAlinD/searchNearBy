@@ -34,10 +34,12 @@ export const Container = styled.div`
 `;
 
 export const SmallContainer = styled.div`
-  margin: ${({ m }) => (m ? m : "auto")};
-  padding: ${({ p }) => (p ? p : "var(--padding)")};
   background: ${({ bg }) => (bg ? "var(--glass)" : "")};
   backdrop-filter: ${({ bg }) => bg && "blur(55px)"};
+  border: ${({ border }) =>
+    border ? "1px solid var(--color-2-light)" : "none"};
+  margin: ${({ m }) => (m ? m : "auto")};
+  padding: ${({ p }) => (p ? p : "var(--padding)")};
   border-radius: var(--border-radius);
   display: flex;
   justify-content: ${({ jc }) => (jc ? jc : "center")};
@@ -50,10 +52,9 @@ export const SmallContainer = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  background: ${({ bg }) => bg && "var(---glass)"};
+  background: ${({ bg }) => bg && "var(--glass)"};
   backdrop-filter: ${({ bg }) => bg && "blur(55px)"};
   border-radius: var(--border-radius);
-  border: ${({ border }) => border && border};
   display: flex;
   color: var(--color-1-dark);
   justify-content: ${({ jc }) => jc && jc};
@@ -64,6 +65,7 @@ export const Wrapper = styled.div`
   width: ${({ w }) => (w ? w : "100%")};
   min-height: ${({ mh }) => mh && "20rem"};
   gap: ${({ gap }) => (gap ? gap : "0")};
+  border: ${({ border }) => (border && "var(--color-border-card)")};
   @media (max-width: 450px) {
     flex-wrap: ${({ qwrap }) => (qwrap ? qwrap : "nowrap")};
     justify-content: space-between;

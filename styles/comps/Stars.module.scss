@@ -1,11 +1,14 @@
-
 // in CardCautare.js
 .onlyStars {
   padding: 0.3rem 0;
   display: flex;
   justify-content: center;
   flex-direction: row;
-  width: 100%;
+  // width: fit-content;
+  justify-content: start;
+  background-color: var(--color-2-light);
+  border-radius: var(--border-radius);
+  padding-inline: 0.25rem;
 }
 
 .onlyStars input[type="radio"] {

@@ -57,7 +57,7 @@ const CardCautare = ({ data, idx, revs }) => {
   };
 
   return (
-    <Wrapper mh w="25rem" bg m="0.25rem" className={styles.container}>
+    <Wrapper mh w="25rem" bg border m="0.25rem" className={styles.container}>
       <div className={styles.topWrapper}>
         <h6>{idx + 1}</h6>
         <h6>{data.tipjob}</h6>

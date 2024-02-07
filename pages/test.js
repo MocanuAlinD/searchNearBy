@@ -6,72 +6,12 @@ const Test = () => {
     <div className={styles.main}>
       <div className={styles.container}>
         <div className={styles.wrapper}>
-          <div className={styles.one}>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-          <div className={styles.two}>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-          <div className={styles.three}>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-          <div className={styles.four}>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-          <div className={styles.five}>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-          <div className={styles.six}>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
+          <span className={styles.span + " " + styles.one}>1</span>
+          <span className={styles.span + " " + styles.two}>2</span>
+          <span className={styles.span + " " + styles.three}>3</span>
+          <span className={styles.span + " " + styles.four}>4</span>
+          <span className={styles.span + " " + styles.five}>5</span>
+          <span className={styles.span + " " + styles.six}>6</span>
         </div>
       </div>
     </div>

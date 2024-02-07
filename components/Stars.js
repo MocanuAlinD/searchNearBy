@@ -2,7 +2,6 @@ import React from "react";
 import { FaStar } from "react-icons/fa";
 import styles from "../styles/comps/Stars.module.scss";
 
-
 // in CardCautare.js
 const Stars = ({ nos, size }) => {
   // nos => number integer:number of stars
@@ -19,7 +18,7 @@ const Stars = ({ nos, size }) => {
               color={
                 ratingValue <= nos
                   ? "var(--color-yellow)"
-                  : "var(--color-2-light)"
+                  : "var(--color-1-dark)"
               }
               size={size ? size : "10"}
             />

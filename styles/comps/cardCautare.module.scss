@@ -2,7 +2,7 @@
   animation: fade linear both;
   animation-timeline: view();
   animation-range: entry 0% cover 15%;
-  border: var(--color-border-card);
+  // border: var(--color-border-card);
 
   hr {
     padding: 0;
@@ -42,7 +42,6 @@
     align-items: flex-start;
     flex-direction: column;
     flex-grow: 1;
-
     .card {
       color: var(--color-light);
       margin: 0rem;
@@ -70,7 +69,6 @@
       justify-content: space-between;
       // margin-bottom: 0.5rem;
       padding: 0.5rem;
-      // border: 1px solid yellow;
 
       a {
         background-color: var(--color-3-ok);
