@@ -5,4 +5,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 1px solid red;
+  svg * {
+    stroke: whitesmoke;
+    stroke-width: 1;
+    transition: all 1s ease-in-out;
+  }
+  svg {
+    .alin {
+      fill: white;
+    }
+    .mocanu {
+      fill: green;
+    }
+  }
 }
