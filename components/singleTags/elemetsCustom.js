@@ -35,9 +35,8 @@ export const Container = styled.div`
 
 export const SmallContainer = styled.div`
   background: ${({ bg }) => (bg ? "var(--glass)" : "")};
-  backdrop-filter: ${({ bg }) => bg && "blur(55px)"};
-  border: ${({ border }) =>
-    border ? "1px solid var(--color-2-light)" : "none"};
+  backdrop-filter: ${({ bg }) => bg && "var(--blur)"};
+  border: ${({ border }) => (border ? "var(--color-border-card)" : "none")};
   margin: ${({ m }) => (m ? m : "auto")};
   padding: ${({ p }) => (p ? p : "var(--padding)")};
   border-radius: var(--border-radius);
@@ -53,7 +52,7 @@ export const SmallContainer = styled.div`
 
 export const Wrapper = styled.div`
   background: ${({ bg }) => bg && "var(--glass)"};
-  backdrop-filter: ${({ bg }) => bg && "blur(55px)"};
+  backdrop-filter: ${({ bg }) => bg && "var(--blur)"};
   border-radius: var(--border-radius);
   display: flex;
   color: var(--color-1-dark);
@@ -65,7 +64,7 @@ export const Wrapper = styled.div`
   width: ${({ w }) => (w ? w : "100%")};
   min-height: ${({ mh }) => mh && "20rem"};
   gap: ${({ gap }) => (gap ? gap : "0")};
-  border: ${({ border }) => (border && "var(--color-border-card)")};
+  border: ${({ border }) => border && "var(--color-border-card)"};
   @media (max-width: 450px) {
     flex-wrap: ${({ qwrap }) => (qwrap ? qwrap : "nowrap")};
     justify-content: space-between;
@@ -73,13 +72,13 @@ export const Wrapper = styled.div`
 `;
 
 export const SelectCustom = styled.select`
-  background: ${({ bg }) => (bg ? bg : "var(--bg-input)")};
-  color: var(--color-light);
   outline: none;
   border: none;
-  border-bottom: var(--color-border-blue);
+  background: ${({ bg }) => (bg ? bg : "var(--bg-input)")};
+  border-bottom: ${({ bb }) => (bb ? bb : "2px solid var(--color-1-dark)")};
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
+  color: var(--color-light);
   font-size: ${({ fs }) => (fs ? fs : "var(--font-size1)")};
   font-weight: 200;
   padding: 0.3rem;
@@ -106,7 +105,7 @@ export const LabelCustom = styled.label`
 export const InputCustom = styled.input`
   background-color: var(--bg-input);
   border: none;
-  border-bottom: var(--color-border-blue);
+  border-bottom: 2px solid var(--color-1-dark);
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
   color: var(--color-light);
@@ -123,6 +122,7 @@ export const InputCustom = styled.input`
   transition: var(--transition);
   width: ${({ w }) => w && w};
   min-width: ${({ minw }) => minw && minw};
+  
   ::placeholder {
     color: var(--color-placeholder);
     transition: var(--transition);
@@ -152,12 +152,16 @@ export const InputCustom = styled.input`
     color: var(--color-yellow);
     background: var(--bg-input);
   }
+  &[type="date"]{
+    color: var(--color-light);
+    color-scheme: dark;
+  }
 `;
 
 export const TextAreaCustom = styled.textarea`
   background-color: var(--bg-input);
   border: none;
-  border-bottom: var(--color-border-blue);
+  border-bottom:2px solid var(--color-1-dark);
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
   text-indent: 0.3rem;
@@ -246,9 +250,7 @@ font-size: ${({ fs }) => (fs ? fs : ".9rem")};
 width: ${({ w }) => (w ? w : "100%")};
 text-align: ${({ ta }) => (ta ? ta : "justify")};
 letter-spacing: 1px;
-line-height: 1.25;
-/* line-height: 135%; */
-/* border: 1px solid red; */
+line-height: var(--line-height);
 `;
 
 /* 
@@ -287,7 +289,7 @@ export const InputContainer = styled.div`
       inputbg ? inputbg : "var(--bg-input)"};
     border: none;
     border-bottom: ${({ inputbb }) =>
-      inputbb ? inputbb : "var(--color-border-blue)"};
+      inputbb ? inputbb : "2px solid var(--color-1-dark)"};
     border-radius: 0.2rem 0.2rem 0 0;
     color: ${({ inputColor }) =>
       inputColor ? inputColor : "var(--color-1-dark)"};

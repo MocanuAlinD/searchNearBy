@@ -3,15 +3,28 @@ import { FaStar } from "react-icons/fa";
 import styles from "../styles/comps/Stars.module.scss";
 
 // in CardCautare.js
-const Stars = ({ nos, size }) => {
+const Stars = ({ nos, size, full, bg, start, center, end }) => {
   // nos => number integer:number of stars
   // size => number integer: size of the star
   return (
-    <div className={styles.onlyStars}>
+    <div
+      className={styles.onlyStars}
+      style={{
+        width: full ? "100%" : "fit-content",
+        backgroundColor: bg ? "var(--color-2-light)" : "transparent",
+        justifyContent: start
+          ? "flex-start"
+          : center
+          ? "center"
+          : end
+          ? "flex-end"
+          : "center",
+      }}
+    >
       {[...Array(5)].map((_, i) => {
         const ratingValue = i + 1;
         return (
-          <label key={i}>
+          <div key={i}>
             <input type="radio" name="rating" value={nos} />
             <FaStar
               className={styles.star}
@@ -22,7 +35,7 @@ const Stars = ({ nos, size }) => {
               }
               size={size ? size : "10"}
             />
-          </label>
+          </div>
         );
       })}
     </div>

@@ -4,7 +4,7 @@
     border-radius: var(--border-radius);
     color: var(--color-light);
     border-color: var(--color-border-card);
-    backdrop-filter: blur(55px);
+    backdrop-filter: var(--blur);
   }
   table thead {
     background-color: var(--glass);

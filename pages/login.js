@@ -310,17 +310,13 @@ const Login = ({ req }) => {
                     className={styles.wrapper + "  " + styles.endButtons}
                   >
                     <ButtonWithIcon
-                      bg="transparent"
-                      border="1px solid var(--color-blue-dark)"
+                      reset
                       onClick={() => dispatch(setInitialStateInregistrare())}
                     >
                       Reset
                     </ButtonWithIcon>
 
-                    <ButtonWithIcon
-                      // bg="var(--color-blue-dark)"
-                      onClick={addNewUserToAuthDB}
-                    >
+                    <ButtonWithIcon onClick={addNewUserToAuthDB}>
                       Creeaza cont
                     </ButtonWithIcon>
                   </Wrapper>

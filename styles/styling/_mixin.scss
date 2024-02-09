@@ -13,10 +13,10 @@
   flex-direction: $fd;
 }
 
-@mixin table{
-  
+@mixin border($name: border, $size: 1px, $color: #ffffff33) {
+  #{$name}: $size solid $color;
 }
 
-@mixin bg{
-  background-color: rgba(255,255,255, 0.1);
+@mixin bg {
+  background-color: rgba(255, 255, 255, 0.1);
 }

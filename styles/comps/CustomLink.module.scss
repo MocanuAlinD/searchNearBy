@@ -1,88 +1,90 @@
 .span {
-    width: min(90%, 15rem);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    z-index: 1;
+  width: min(90%, 15rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1;
 
-    .link {
-        background-color: var(--color-2-dark);
-        border-radius: var(--border-radius);
-        color: var(--color-light);
-        font-weight: 200;
-        font-size: .8rem;
-        padding: .2rem .7rem;
-        text-align: center;
-        transition: var(--transition);
-        width: 100%;
-        position: relative;
+  .link {
+    background-color: var(--color-2-dark);
+    border-radius: var(--border-radius);
+    color: var(--color-light);
+    font-weight: 200;
+    font-size: 0.8rem;
+    padding: 0.2rem 0.7rem;
+    text-align: center;
+    transition: var(--transition);
+    width: 100%;
+    position: relative;
+    border: var(--color-border-card);
 
-        &:hover {
-            color: var(--color-2-dark);
-            background-color: var(--color-light);
-        }
-
-        &::before,
-        &::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: .5rem;
-            height: .5rem;
-            border-radius: 50%;
-            transform: translate(-25%, 100%);
-            background-color: var(--color-light);
-            z-index: -1;
-        }
-
-        &::after {
-            top: 0;
-            left: 100%;
-            transform: translate(-75%, 100%);
-        }
-
-        &:hover::before {
-            transition: var(--transition);
-            animation: buttonLeft .35s ease-in-out forwards;
-        }
-
-        @keyframes buttonLeft {
-            0% {
-                transform: translate(0%, 100%);
-            }
-
-            50% {
-                transform: translate(-100%, 100%);
-            }
-
-            100% {
-                transform: translate(-50%, 100%);
-                background-color: var(--color-2-light);
-                z-index: 1;
-            }
-        }
-
-        &:hover::after {
-            transition: var(--transition);
-            animation: buttonRight .35s ease-in-out forwards;
-        }
-
-        @keyframes buttonRight {
-            0% {
-                transform: translate(-75%, 100%);
-            }
-
-            50% {
-                transform: translate(0%, 100%);
-            }
-
-            100% {
-                transform: translate(-50%, 100%);
-                background-color: var(--color-2-dark);
-                z-index: 1;
-            }
-        }
+    &:hover {
+      color: var(--color-2-dark);
+      background-color: var(--color-light);
+      border: 1px solid transparent;
     }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 50%;
+      transform: translate(-25%, 100%);
+      background-color: var(--color-light);
+      z-index: -1;
+    }
+
+    &::after {
+      top: 0;
+      left: 100%;
+      transform: translate(-75%, 100%);
+    }
+
+    &:hover::before {
+      transition: var(--transition);
+      animation: buttonLeft 0.35s ease-in-out forwards;
+    }
+
+    @keyframes buttonLeft {
+      0% {
+        transform: translate(0%, 100%);
+      }
+
+      50% {
+        transform: translate(-100%, 100%);
+      }
+
+      100% {
+        transform: translate(-50%, 100%);
+        background-color: var(--color-2-light);
+        z-index: 1;
+      }
+    }
+
+    &:hover::after {
+      transition: var(--transition);
+      animation: buttonRight 0.35s ease-in-out forwards;
+    }
+
+    @keyframes buttonRight {
+      0% {
+        transform: translate(-75%, 100%);
+      }
+
+      50% {
+        transform: translate(0%, 100%);
+      }
+
+      100% {
+        transform: translate(-50%, 100%);
+        background-color: var(--color-2-dark);
+        z-index: 1;
+      }
+    }
+  }
 }

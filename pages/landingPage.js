@@ -8,7 +8,7 @@ import styles from "../styles/pages/landingPage.module.scss";
 const LandingPage = () => {
   return (
     <Container className={styles.cardsContainer}>
-      <SmallContainer bg className={styles.cardContainer}>
+      <SmallContainer bg border className={styles.cardContainer}>
         <p>CE ESTE aceasta platforma?</p>
         <p>
           &emsp;&quot;Toate pentru tine&quot; nu este doar o platformă, este
@@ -28,7 +28,7 @@ const LandingPage = () => {
         </p>
       </SmallContainer>
 
-      <SmallContainer bg className={styles.cardContainer}>
+      <SmallContainer bg border className={styles.cardContainer}>
         <p>PENTRU CINE este aceasta platforma?</p>
         <p>
           &emsp;&quot;Toate pentru tine&quot; este concepută cu o viziune largă,
@@ -40,7 +40,7 @@ const LandingPage = () => {
         </p>
       </SmallContainer>
 
-      <SmallContainer bg className={styles.cardContainer}>
+      <SmallContainer bg border className={styles.cardContainer}>
         <p>CUM folosesti aceasta platforma?</p>
         <p>
           &emsp;Căutarea serviciilor potrivite nu a fost niciodată atât de
@@ -57,11 +57,11 @@ const LandingPage = () => {
         </p>
       </SmallContainer>
 
-      <SmallContainer bg className={styles.cardContainer}>
+      <SmallContainer bg border className={styles.cardContainer}>
         <p>CUM A LUAT NAȘTERE această platformă?</p>
         <p>
-        &emsp;În spatele fiecărei inovații se află adesea o poveste inspirată de
-          nevoi reale și experiențe personale. Astfel, &quot;Toate pentru
+          &emsp;În spatele fiecărei inovații se află adesea o poveste inspirată
+          de nevoi reale și experiențe personale. Astfel, &quot;Toate pentru
           tine&quot; nu este doar rezultatul unei viziuni, ci și al unei nevoi
           palpabile din viața cotidiană. Totul a început într-o noapte, când un
           prieten apropiat s-a confruntat cu o situație de urgență: o țeavă
@@ -82,10 +82,10 @@ const LandingPage = () => {
         </p>
       </SmallContainer>
 
-      <SmallContainer bg className={styles.cardContainer}>
+      <SmallContainer bg border className={styles.cardContainer}>
         <p>DE CE sa folosesti aceasta platforma?</p>
         <p>
-        &emsp;Alegerea corectă într-o lume plină de opțiuni poate fi adesea
+          &emsp;Alegerea corectă într-o lume plină de opțiuni poate fi adesea
           copleșitoare, dar &quot;Toate pentru tine&quot; își propune să îți
           facă viața mai ușoară, simplă și eficientă. Crezând cu tărie în
           valoarea timpului tău, am creat o platformă intuitivă și prietenoasă,
@@ -105,13 +105,13 @@ const LandingPage = () => {
         </p>
       </SmallContainer>
 
-      <SmallContainer bg className={styles.cardContainer}>
+      <SmallContainer bg border className={styles.cardContainer}>
         <p>CUM poti fi alaturi de noi?</p>
         <p>
-        &emsp;Fără tine, &quot;Toate pentru tine&quot; ar fi doar o idee. Fie că
-          utilizezi platforma pentru a găsi serviciile de care ai nevoie, fie că
-          vrei să oferi un serviciu, tu ești inima acestei comunități. Știm că
-          suntem la început de drum și, ca orice început, poate avea mici
+          &emsp;Fără tine, &quot;Toate pentru tine&quot; ar fi doar o idee. Fie
+          că utilizezi platforma pentru a găsi serviciile de care ai nevoie, fie
+          că vrei să oferi un serviciu, tu ești inima acestei comunități. Știm
+          că suntem la început de drum și, ca orice început, poate avea mici
           greșeli sau omisiuni. Dacă observi lucruri care pot fi îmbunătățite
           sau simți că lipsește ceva esențial, te rugăm să ne informezi. Suntem
           deschiși la feedback și vom căuta soluții rapid. Un alt mod prin care

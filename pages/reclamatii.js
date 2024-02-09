@@ -35,7 +35,7 @@ const Reclamatii = () => {
 
   return (
     <Container>
-      <SmallContainer bg>
+      <SmallContainer bg border>
         <Wrapper>
           <H4Custom w="100%"> 🔖&emsp;Depune o reclamație</H4Custom>
           <ParaCustom>
@@ -107,8 +107,7 @@ const Reclamatii = () => {
             <div className="d-flex gap-2 m-0 p-0">
               <ButtonWithIcon
                 type="reset"
-                border="1px solid var(--color-3-ok)"
-                bg="transparent"
+                reset
                 onClick={() => dispatch(setInitialStateReclamatie())}
               >
                 Reset

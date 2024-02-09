@@ -5,10 +5,14 @@
   @include display($jc: space-around);
   height: fit-content;
   top: 0.5rem;
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  @include border(border-right);
+  @include border(border-top);
+  @include border(border-bottom);
 
   .desktop {
     background: glass;
-    backdrop-filter: blur(55px);
+    backdrop-filter: var(--blur);
     border-radius: border-radius;
     @include display($ai: flex-start);
     margin-left: 0.5rem;

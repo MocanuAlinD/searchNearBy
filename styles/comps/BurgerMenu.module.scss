@@ -1,12 +1,15 @@
+@use "../styling/mixin" as *;
+
 .sidebar {
-  backdrop-filter: blur(55px);
-  border-top: 1px solid var(--error);
+  backdrop-filter: var(--blur);
+  @include border(border-right);
+  @include border(border-top, $color: var(--error));
+  @include border(border-bottom, $color: var(--error), $size: 3px);
   position: absolute;
   top: 4rem;
   left: 0;
   transition: var(--transition);
   z-index: 9999;
-  border-bottom: 3px solid var(--error);
   transform: rotateZ(0deg);
   transform-origin: top left;
 }

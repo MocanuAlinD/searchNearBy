@@ -6,12 +6,12 @@ import {
   LabelCustom,
   ParaCustom,
 } from "../components/singleTags/elemetsCustom";
-import styles from "../styles/pages/infofaq.module.scss";
+// import styles from "../styles/pages/infofaq.module.scss";
 
 const Info = () => {
   return (
     <Container>
-      <SmallContainer bg>
+      <SmallContainer bg border>
         <H4Custom w="100%" className="mb-3">
           ℹ️&emsp;Info & FAQ
         </H4Custom>

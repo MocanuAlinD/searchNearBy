@@ -61,7 +61,7 @@ const Caut = () => {
 
   return (
     <Container>
-      <SmallContainer bg>
+      <SmallContainer bg border>
         <form onSubmit={allData} className="w-100">
           <ParaCustom>
             Cererea va fi stearsa automat cand se atinge data limita.

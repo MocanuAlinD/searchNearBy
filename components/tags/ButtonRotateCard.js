@@ -20,7 +20,7 @@ hasIcon
 
 export const ButtonRotateCard = styled.button`
   background: ${({ bg }) => (bg ? bg : "transparent")};
-  backdrop-filter: blur(55px);
+  backdrop-filter: var(--blur);
   border-radius: ${({ br }) =>
     br ? br : "var(--border-radius) var(--border-radius) 0 0"};
   color: var(--color-light);

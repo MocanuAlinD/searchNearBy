@@ -4,14 +4,17 @@
   .cardContainer {
     p {
       margin: 1rem 0;
-      line-height: 1.25;
+      line-height: var(--line-height);
       letter-spacing: 1px;
       text-align: justify;
       width: 100%;
+      font-size: 1.25rem;
+      font-weight: 600;
     }
     :nth-child(2) {
       font-weight: 200;
-      font-size: 0.8rem;
+      font-size: 0.9rem;
+      color: var(--color-light);
     }
 
     &:nth-child(odd) {

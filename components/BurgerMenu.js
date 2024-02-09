@@ -22,9 +22,6 @@ const BurgerMenu = () => {
         })`,
       }}
     >
-      <Button reset w="15rem" onClick={() => dispatch(setShowMenu(false))}>
-        Inchide
-      </Button>
       <CustomLink link="/" text="Home" />
       <CustomLink link="/test" text="test" />
       <CustomLink link="/servicii" text="Toate judetele" />
@@ -37,6 +34,9 @@ const BurgerMenu = () => {
       <CustomLink link="/landingPage" text="Landing Page" />
       <CustomLink link="/cerere_oferte" text="Depune oferta" />
       <CustomLink link="/cereriCurente" text="Vezi cereri active" />
+      <Button reset w="15rem" onClick={() => dispatch(setShowMenu(false))}>
+        Inchide
+      </Button>
     </Wrapper>
   );
 };

@@ -25,7 +25,7 @@
         position: absolute;
         transform: rotateY(0deg);
         background: var(--glass);
-        backdrop-filter: blur(55px);
+        backdrop-filter: var(--blur);
         top: 0;
         left: 0;
         backface-visibility: hidden;

@@ -10,7 +10,7 @@ const RagingMedia = ({ nos }) => {
         <h4>{nos} </h4>
         <span>&nbsp;din 5</span>
       </div>
-      <Stars nos={nos} size="15" />
+      <Stars nos={nos} size="15" full center />
     </div>
   );
 };

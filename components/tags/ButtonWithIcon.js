@@ -22,9 +22,9 @@ export const ButtonWithIcon = styled.button`
   background-color: ${({ reset, bg }) =>
     reset ? "transparent" : bg ? bg : "var(--color-blue)"};
   border-radius: ${({ br }) => (br ? br : "var(--border-radius)")};
-  border: ${({ reset }) => (reset ? "1px solid var(--error)" : "none")};
+  border: ${({ reset }) => (reset ? "1px solid var(--color-yellow)" : "none")};
   color: ${({ color, reset }) =>
-    reset ? "var(--error)" : color ? color : "var(--color-light)"};
+    reset ? "var(--color-yellow)" : color ? color : "var(--color-light)"};
   font-size: ${({ fs }) => (fs ? fs : "clamp(.8rem, 1.6vw, 1rem)")};
   font-weight: ${({ fw }) => (fw ? fw : "200")};
   margin: ${({ m }) => (m ? m : "0")};
@@ -40,14 +40,14 @@ export const ButtonWithIcon = styled.button`
   justify-content: ${({ jc }) => (jc ? jc : "center")};
   align-items: ${({ ai }) => (ai ? ai : "center")};
   gap: ${({ gap }) => (gap ? gap : ".5rem")};
-  &:active{
+  /* &:active{
     box-shadow: inset 0px 0px 2px 2px var(--glass);
     color: var(--color-2-light);
-  }
+  } */
   &:hover{
-    color: var(--color-light);
+    color: ${({reset, color}) => reset ? "var(--color-1-dark)" : color ? color : "var(--color-light)"};
     background-color: ${({ reset }) =>
-      reset ? "var(--error)" : "var(--color-blue-dark)"};
+      reset ? "var(--color-yellow)" : "var(--color-blue-dark)"};
     border-color: transparent;
   }
 `;

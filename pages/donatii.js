@@ -21,7 +21,7 @@ const Donatii = () => {
 
   return (
     <Container className={styles.donatii}>
-      <SmallContainer bg>
+      <SmallContainer bg border>
         <H4Custom p="1rem 0" m="0 auto">
           Dragi prieteni,
         </H4Custom>

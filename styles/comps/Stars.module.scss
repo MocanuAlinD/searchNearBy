@@ -1,12 +1,9 @@
-// in CardCautare.js
+// in components/CardCautare.js, components/ratingMedia.js, components/ratings.js
 .onlyStars {
   padding: 0.3rem 0;
   display: flex;
   justify-content: center;
   flex-direction: row;
-  // width: fit-content;
-  justify-content: flex-start;
-  background-color: var(--color-2-light);
   border-radius: var(--border-radius);
   padding-inline: 0.25rem;
 }
@@ -19,7 +16,7 @@
   transition: var(--transition);
   margin: 0 0.1rem;
 }
-.onlyStars label {
+.onlyStars div {
   display: flex;
   flex-direction: column;
 }
