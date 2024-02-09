@@ -1,5 +1,5 @@
 import { ImSortNumbericDesc, ImSortNumericAsc } from "react-icons/im";
-import InputWithLabel from "./InputWithLabel";
+import InputWithLabel from "./inputWithLabel";
 import { useDispatch, useSelector } from "react-redux";
 import { store } from "../fstore/store";
 import {
