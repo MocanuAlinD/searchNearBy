@@ -5,18 +5,77 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid red;
-  svg * {
-    stroke: whitesmoke;
-    stroke-width: 1;
-    transition: all 1s ease-in-out;
-  }
-  svg {
-    .alin {
-      fill: white;
+  flex-direction: column;
+  .container {
+    width: 25rem;
+    height: 25rem;
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 3000px;
+    .wrapper {
+      transition: all 0.25s ease-in-out;
+      position: absolute;
+      width: 100%;
+      height: 50%;
+      top: 25%;
+      transform: rotateX(00deg) rotateZ(0deg);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      overflow: visible;
+      transform-style: preserve-3d;
+      perspective: 3000px;
+      div {
+        transition: all 0.25s ease-out;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 1rem;
+      }
+      .bottom {
+        background-color: white;
+        box-shadow: 0 0 10px 10px transparent;
+        transform: translateZ(0rem) rotateX(0deg);
+        transition-delay: .3s;
+      }
+      .top {
+        background-color: gray;
+      }
+      .card1,
+      .card2 {
+        background-color: brown;
+        width: 10rem;
+        height: 80%;
+        top: 10%;
+        left: 1.5rem;
+        transform: rotateX(00deg);
+        transform-origin: bottom;
+        transition-delay: .55s;
+        border-radius: 1rem 1rem 0 0;
+      }
+      .card2 {
+        left: 13.5rem;
+        transition-delay: .65s;
+      }
     }
-    .mocanu {
-      fill: green;
+
+    &:hover .wrapper {
+      transform: rotateX(80deg) rotateZ(15deg);
+    }
+    &:hover .bottom {
+      transform: translateZ(-1rem);
+      box-shadow: 0 0 10px 10px white;
+    }
+    &:hover :is(.card1, .card2) {
+      transform: rotateX(-90deg);
+      background-color: coral;
     }
   }
 }
