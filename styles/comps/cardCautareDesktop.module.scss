@@ -50,7 +50,8 @@
       }
       .top {
         border: var(--color-border-card);
-        border-radius: 1rem;
+        border-radius: 0 0 1rem 1rem;
+        border-top: none;
 
         // background-color: var(--color); // DELETE FROM THIS LINE BELOW
         // border-radius: 0;
@@ -126,6 +127,45 @@
         top: 100%;
         transform: rotateX(-90deg) translateZ(calc(var(--height) / 2 * -1))
           translateY(50%);
+        font-size: 0.8rem;
+
+
+        // background-color: #24304a; // delete
+
+        .link {
+          width: 100%;
+          display: flex;
+          justify-content: space-around;
+          span {
+            margin-inline: auto;
+            overflow: hidden;
+            white-space: nowrap;
+            max-width: 75%;
+            padding: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+
+          a {
+            background-color: var(--color-3-ok);
+            border-radius: var(--border-radius);
+            box-shadow: -1px 1px 4px 1px rgba(0, 0, 0, 0.3);
+            color: var(--color-light);
+            padding: 0.3rem 0.7rem;
+            transition: var(--transition);
+            font-weight: 400;
+            font-size: var(--font-size06);
+            margin-right: 0.5rem;
+            font-size: 0.8rem;
+          }
+
+          a:hover {
+            box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.3);
+            background-color: var(--color-blue-dark);
+          }
+        }
       }
       .bottomRight {
         width: 10rem;
@@ -134,32 +174,31 @@
         top: 100%;
         transform: rotateZ(-90deg) rotateX(-90deg);
         transform-origin: 0 0;
+
+        
+        // background-color: #131a29; // delete
+
       }
-      .link {
+      .tipjob {
+        background-color: var(--glass);
+        backdrop-filter: var(--blur);
+        padding: 0.3rem 1rem;
+        transform: translateY(-100%) translateX(0%);
+        position: absolute;
+        top: 0;
+        left: 0%;
         width: 100%;
         display: flex;
-        justify-content: space-around;
-        span {
-          margin-inline: auto;
-        }
-
-        a {
-          background-color: var(--color-3-ok);
-          border-radius: var(--border-radius);
-          box-shadow: -1px 1px 4px 1px rgba(0, 0, 0, 0.3);
-          color: var(--color-light);
-          padding: 0.3rem 0.7rem;
-          transition: var(--transition);
-          font-weight: 400;
-          font-size: var(--font-size06);
-          margin-right: 0.5rem;
-          font-size: 0.7rem;
-        }
-
-        a:hover {
-          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.3);
-          background-color: var(--color-blue-dark);
-        }
+        align-items: flex-start;
+        flex-direction: column;
+        border-radius: 1rem 1rem 0 0;
+        border: var(--color-border-card);
+        border-bottom: none;
+        white-space: nowrap;
+        overflow: hidden;
+        transition: var(--transition);
+        color: var(--color-3-ok2);
+        font-weight: 200;
       }
     }
 
@@ -182,11 +221,14 @@
       }
       .bottomRight {
         // background-color: var(--color);
-        background-color: #1b263b;
+        background-color: #131a29;
       }
       .bottomFront {
         // background-color: var(--color);
-        background-color: #1b263b;
+        background-color: #24304a;
+      }
+      .tipjob {
+        opacity: 0;
       }
     }
 

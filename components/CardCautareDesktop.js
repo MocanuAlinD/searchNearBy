@@ -4,6 +4,13 @@ import Link from "next/link";
 
 const CardCautareDesktop = ({ data, key, idx, revs }) => {
   const gotoId = `/servicii/${data.judet}/${data.id}`;
+  const textLength = 60;
+
+  const sliceText =
+    data.tipjob.length > textLength
+      ? data.tipjob.slice(0, textLength) + "..."
+      : data.tipjob;
+
   return (
     <div className={styles.main}>
       <div className={styles.container}>
@@ -18,7 +25,6 @@ const CardCautareDesktop = ({ data, key, idx, revs }) => {
               <p>
                 {data.pretMin} lei - {data.pretMax} lei
               </p>
-              <h6>{data.tipjob}</h6>
             </div>
           </div>
           <div className={styles.card2}>
@@ -34,13 +40,16 @@ const CardCautareDesktop = ({ data, key, idx, revs }) => {
           </div>
           <div className={styles.bottomFront}>
             <div className={styles.link}>
-              <span>{data.tipjob}</span>
+              <span>{sliceText}</span>
               <Link href={gotoId}>
                 <a target="_blank">Vezi alte detalii</a>
               </Link>
             </div>
           </div>
           <div className={styles.bottomRight}></div>
+          <div className={styles.tipjob}>
+            {idx + 1} - {sliceText}
+          </div>
         </div>
       </div>
     </div>
