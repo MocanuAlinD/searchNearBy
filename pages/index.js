@@ -145,7 +145,7 @@ export default function Home() {
         )}
 
         {/* Show Cards container if results find  MOBILE*/}
-        <div className="w-100 d-none d-md-none flex-wrap m-0 p-0 justify-content-center">
+        <div className="w-100 d-flex d-md-none flex-wrap m-0 p-0 justify-content-center">
           {!loadSearch &&
             originalList &&
             sortedList.map((item, index) => (
@@ -154,7 +154,7 @@ export default function Home() {
         </div>
 
         {/* Show Cards container if results find  DESKTOP*/}
-        <div className="w-100 d-flex d-md-flex flex-wrap m-0 p-0 justify-content-center">
+        <div className="w-100 d-none d-md-flex flex-wrap m-0 p-0 justify-content-center">
           {!loadSearch &&
             originalList &&
             sortedList.map((item, index) => (

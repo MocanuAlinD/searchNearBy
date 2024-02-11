@@ -29,6 +29,8 @@
       overflow: visible;
       transform-style: preserve-3d;
 
+      transform: rotateX(80deg) rotateZ(20deg); // DELETE
+
       div {
         transition: all 0.25s ease-out;
         position: absolute;
@@ -47,14 +49,19 @@
       .top {
         border: var(--color-border-card);
         border-radius: 1rem;
+
+        background-color: var(--color); // DELETE FROM THIS LINE BELOW
+        border-radius: 0;
       }
       .bottom {
         height: 100%;
         left: 0;
         top: 0%;
         background-color: transparent;
-        transform: translateZ(calc(var(--height) * -1));
-        transition-delay: .35s;
+
+        transform: translateZ(calc(var(--height) * -2)); // DELETE
+        box-shadow: 0 0 20px 20px #00000066;
+        background-color: #00000066;
       }
       .card1,
       .card2 {
@@ -66,6 +73,11 @@
         transition-delay: 0.3s;
         border-radius: 1rem 1rem 0 0;
         background-color: transparent;
+
+        border: var(--color-border-card); // DELETE FROM THIS LINE BELOW
+        background-color: var(--glass);
+        transform: rotateX(-90deg);
+        backdrop-filter: var(--blur);
       }
       .card1 {
         left: 5%;
@@ -80,6 +92,9 @@
         backdrop-filter: var(--blur);
         transition: var(--transition);
         opacity: 0;
+
+        opacity: 1; // DELETE FROM THIS LINE BELOW
+        background-color: var(--color);
       }
       .bottomFront {
         width: 100%;
@@ -98,6 +113,7 @@
       }
     }
 
+    // HOVER
     &:hover .wrapper {
       transform: rotateX(80deg) rotateZ(20deg);
       .top {
@@ -105,9 +121,9 @@
         background-color: var(--color);
       }
       .bottom {
-        transform: translateZ(calc(var(--height) * -1.5));
-        box-shadow: 0 0 10px 10px #00000033;
-        background-color: #00000033;
+        transform: translateZ(calc(var(--height) * -2));
+        box-shadow: 0 0 20px 20px #00000066;
+        background-color: #00000066;
       }
       span {
         opacity: 1;
