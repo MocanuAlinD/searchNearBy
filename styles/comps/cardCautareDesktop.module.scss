@@ -1,5 +1,5 @@
 .main {
-  --height: 3rem;
+  --height: 2rem;
   --color: var(--color-bottom);
   width: min(100%, 35rem);
   height: 19rem;
@@ -159,11 +159,11 @@
           }
 
           a {
-            background-color: var(--color-3-ok);
+            background-color: var(--color-3-ok1);
             border-radius: var(--border-radius);
             box-shadow: -1px 1px 4px 1px rgba(0, 0, 0, 0.3);
             color: var(--color-light);
-            padding: 0.3rem 0.7rem;
+            padding: 0.2rem 0.7rem;
             transition: var(--transition);
             font-weight: 400;
             font-size: var(--font-size06);
@@ -217,8 +217,8 @@
       // border: 1px solid red;
     }
     &:hover .wrapper {
-      transform: rotateX(80deg) rotateZ(20deg) translateX(1.7rem)
-        translateY(5rem) translateZ(1rem);
+      transform: rotateX(70deg) rotateZ(17deg) translateX(1.7rem)
+        translateY(4rem) translateZ(1rem);
       .top {
         border-radius: 0;
         background-color: var(--color);
@@ -246,7 +246,7 @@
     &:hover :is(.card1, .card2) {
       border: var(--color-border-card);
       background-color: var(--glass);
-      transform: rotateX(-90deg);
+      transform: rotateX(-65deg);
       backdrop-filter: var(--blur);
     }
   }

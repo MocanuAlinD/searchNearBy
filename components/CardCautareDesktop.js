@@ -42,7 +42,7 @@ const CardCautareDesktop = ({ data, key, idx, revs }) => {
             <div className={styles.link}>
               <span>{sliceText}</span>
               <Link href={gotoId}>
-                <a target="_blank">Vezi alte detalii</a>
+                <a target="_blank">Detalii</a>
               </Link>
             </div>
           </div>
