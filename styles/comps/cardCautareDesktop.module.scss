@@ -184,6 +184,7 @@
         top: 100%;
         transform: rotateZ(-90deg) rotateX(-90deg);
         transform-origin: 0 0;
+        align-items: center;
 
         // background-color: #131a29; // delete
       }
@@ -217,7 +218,7 @@
       // border: 1px solid red;
     }
     &:hover .wrapper {
-      transform: rotateX(70deg) rotateZ(17deg) translateX(1.7rem)
+      transform: rotateX(70deg) rotateZ(23deg) translateX(1.7rem)
         translateY(4rem) translateZ(1rem);
       .top {
         border-radius: 0;

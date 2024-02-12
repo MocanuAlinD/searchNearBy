@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "../styles/comps/cardCautareDesktop.module.scss";
 import Link from "next/link";
+import Stars from "../components/Stars";
 
 const CardCautareDesktop = ({ data, key, idx, revs }) => {
   const gotoId = `/servicii/${data.judet}/${data.id}`;
@@ -10,6 +11,36 @@ const CardCautareDesktop = ({ data, key, idx, revs }) => {
     data.tipjob.length > textLength
       ? data.tipjob.slice(0, textLength) + "..."
       : data.tipjob;
+
+  const flt = revs.filter((item) => item.id === data.id);
+
+  const userReviews = revs ? flt : [];
+
+  const eachStar = {
+    1: 0,
+    2: 0,
+    3: 0,
+    4: 0,
+    5: 0,
+  };
+
+  userReviews.map(
+    (i) => (eachStar[i.currentStar] = eachStar[i.currentStar] + 1)
+  );
+
+  const media = () => {
+    const totalRev = Object.values(eachStar).reduce((total, num) => {
+      return total + num;
+    });
+    const md =
+      (eachStar[1] * 1 +
+        eachStar[2] * 2 +
+        eachStar[3] * 3 +
+        eachStar[4] * 4 +
+        eachStar[5] * 5) /
+      totalRev;
+    return md > 0 ? md : 0;
+  };
 
   return (
     <div className={styles.main}>
@@ -46,7 +77,9 @@ const CardCautareDesktop = ({ data, key, idx, revs }) => {
               </Link>
             </div>
           </div>
-          <div className={styles.bottomRight}></div>
+          <div className={styles.bottomRight}>
+            <Stars nos={media()} size="20" inactiveColor="#fff3" />
+          </div>
           <div className={styles.tipjob}>
             {idx + 1} - {sliceText}
           </div>

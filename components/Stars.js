@@ -3,7 +3,7 @@ import { FaStar } from "react-icons/fa";
 import styles from "../styles/comps/Stars.module.scss";
 
 // in CardCautare.js
-const Stars = ({ nos, size, full, bg, start, center, end }) => {
+const Stars = ({ nos, size, full, bg, start, center, end, inactiveColor }) => {
   // nos => number integer:number of stars
   // size => number integer: size of the star
   return (
@@ -31,6 +31,8 @@ const Stars = ({ nos, size, full, bg, start, center, end }) => {
               color={
                 ratingValue <= nos
                   ? "var(--color-yellow)"
+                  : inactiveColor
+                  ? inactiveColor
                   : "var(--color-1-dark)"
               }
               size={size ? size : "10"}
