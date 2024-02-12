@@ -3,7 +3,7 @@
   --color: var(--color-bottom);
   width: min(100%, 35rem);
   height: 15rem;
-  margin: 0.5rem 2rem;
+  margin: 0.5rem 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,7 +17,7 @@
     position: relative;
     transform-style: preserve-3d;
     perspective-origin: top center;
-    perspective: 2000px;
+    perspective: 3000px;
     .wrapper {
       transition: all 0.25s ease-in-out;
       position: absolute;
@@ -51,6 +51,8 @@
       .top {
         border: var(--color-border-card);
         border-radius: 0 0 1rem 1rem;
+        border-left: 2px solid var(--color-3-ok);
+        border-bottom: 1px solid var(--color-3-ok);
         border-top: none;
 
         // background-color: var(--color); // DELETE FROM THIS LINE BELOW
@@ -71,7 +73,6 @@
         width: 42.5%;
         height: 80%;
         top: 10%;
-        transform: rotateX(00deg);
         transform-origin: bottom;
         transition-delay: 0.15s;
         border-radius: 1rem 1rem 0 0;
@@ -129,7 +130,6 @@
           translateY(50%);
         font-size: 0.8rem;
 
-
         // background-color: #24304a; // delete
 
         .link {
@@ -175,9 +175,7 @@
         transform: rotateZ(-90deg) rotateX(-90deg);
         transform-origin: 0 0;
 
-        
         // background-color: #131a29; // delete
-
       }
       .tipjob {
         background-color: var(--glass);
@@ -203,28 +201,31 @@
     }
 
     // HOVER
+    &:hover {
+      // filter: drop-shadow(0px 30px 15px #0006);
+      // border: 1px solid red;
+    }
     &:hover .wrapper {
       // transform: rotateX(80deg) rotateZ(25deg) scale(1.1) translateZ(5rem);
-      transform: rotateX(80deg) rotateZ(25deg) scale(1.1) translateX(1.5rem)
-        translateY(5rem) translateZ(2rem);
+      transform: rotateX(80deg) rotateZ(20deg) scale(0.97) translateX(1rem)
+        translateY(5rem) translateZ(1.5rem);
       .top {
         border-radius: 0;
         background-color: var(--color);
+        border: none;
       }
-      .bottom {
-        transform: translateZ(calc(var(--height) * -1.5));
-        box-shadow: 0 0 20px 20px #00000044;
-        background-color: #00000044;
-      }
+      // .bottom {
+      // transform: translateZ(calc(var(--height) * -1.2));
+      // box-shadow: 0 0 20px 20px #00000033;
+      // background-color: #00000033;
+      // }
       div {
         opacity: 1;
       }
       .bottomRight {
-        // background-color: var(--color);
         background-color: #131a29;
       }
       .bottomFront {
-        // background-color: var(--color);
         background-color: #24304a;
       }
       .tipjob {
