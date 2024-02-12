@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const CardCautareDesktop = ({ data, key, idx, revs }) => {
   const gotoId = `/servicii/${data.judet}/${data.id}`;
-  const textLength = 60;
+  const textLength = 50;
 
   const sliceText =
     data.tipjob.length > textLength

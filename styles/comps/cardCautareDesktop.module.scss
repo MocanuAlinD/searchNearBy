@@ -2,15 +2,15 @@
   --height: 3rem;
   --color: var(--color-bottom);
   width: min(100%, 35rem);
-  height: 15rem;
-  margin: 0.5rem 1rem;
+  height: 19rem;
+  margin: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  transition: var(--transition);
-  background-color: transparent;
-  border-radius: 1rem;
+  // transition: var(--transition);
+  // border: 1px solid red;
+  padding-inline: 1.5rem;
   .container {
     width: 100%;
     height: 100%;
@@ -18,19 +18,20 @@
     transform-style: preserve-3d;
     perspective-origin: top center;
     perspective: 3000px;
+    // border: 1px solid green;
+
     .wrapper {
       transition: all 0.25s ease-in-out;
       position: absolute;
       width: 100%;
       height: 10rem;
-      top: 25%;
+      top: 20%;
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
       overflow: visible;
       transform-style: preserve-3d;
-
       // transform: rotateX(80deg) rotateZ(20deg); // DELETE
 
       :is(.card1, .card2, .top, .bottom) {
@@ -105,6 +106,15 @@
         p {
           margin: 0;
           padding: 0;
+          width: 100%;
+        }
+        h6 {
+          font-size: 0.8rem;
+        }
+        p {
+          font-size: 1rem;
+          font-weight: 200;
+          padding-left: 0.5rem;
         }
       }
       .bottomFront,
@@ -116,7 +126,7 @@
         opacity: 0;
         display: flex;
         justify-content: center;
-        align-items: center;
+        // align-items: flex-start;
         flex-direction: column;
 
         // opacity: 1; // DELETE FROM THIS LINE BELOW
@@ -196,7 +206,8 @@
         overflow: hidden;
         transition: var(--transition);
         color: var(--color-3-ok2);
-        font-weight: 200;
+        font-weight: 400;
+        letter-spacing: 1px;
       }
     }
 
@@ -206,19 +217,18 @@
       // border: 1px solid red;
     }
     &:hover .wrapper {
-      // transform: rotateX(80deg) rotateZ(25deg) scale(1.1) translateZ(5rem);
-      transform: rotateX(80deg) rotateZ(20deg) scale(0.97) translateX(1rem)
-        translateY(5rem) translateZ(1.5rem);
+      transform: rotateX(80deg) rotateZ(20deg) translateX(1.7rem)
+        translateY(5rem) translateZ(1rem);
       .top {
         border-radius: 0;
         background-color: var(--color);
         border: none;
       }
-      // .bottom {
-      // transform: translateZ(calc(var(--height) * -1.2));
-      // box-shadow: 0 0 20px 20px #00000033;
-      // background-color: #00000033;
-      // }
+      .bottom {
+        transform: translateZ(calc(var(--height) * -1.2));
+        box-shadow: 0 0 20px 20px #00000033;
+        background-color: #00000033;
+      }
       div {
         opacity: 1;
       }
