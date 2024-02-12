@@ -23,7 +23,7 @@ const CardCautareDesktop = ({ data, key, idx, revs }) => {
               <p>{data.fullname}</p>
               <h6>Preturi</h6>
               <p>
-                {data.pretMin} lei - {data.pretMax} lei
+                Lei: {data.pretMin} - {data.pretMax}
               </p>
             </div>
           </div>
