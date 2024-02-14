@@ -1,43 +1,8 @@
 import React from "react";
 import styles from "../styles/comps/inputWithLabel.module.scss";
 
-const InputWithLabel = ({
-  justTitle,
-  id,
-  state,
-  func,
-  list,
-  text,
-  type,
-  name,
-  icon,
-  cls,
-  style,
-}) => {
-  return (
-    <div className={styles.row}>
-      {!justTitle && (
-        <>
-          <input
-            type={type}
-            id={id}
-            name={name ? name : "defaultName"}
-            checked={state}
-            onChange={() => func(list && list)}
-          />
-          <label htmlFor={id}>
-            {text}
-            {icon && icon}
-          </label>
-        </>
-      )}
-      {justTitle && (
-        <h4 className={cls} style={style}>
-          {text}
-        </h4>
-      )}
-    </div>
-  );
+const InputWithLabel = ({ text }) => {
+  return <h4 className={styles.h4}>{text}</h4>;
 };
 
 export default InputWithLabel;

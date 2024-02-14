@@ -1,80 +1,22 @@
 @use "../styling/mixin" as *;
 // in components/SortItems.js
-.row {
-  $onerem: 1rem;
+.h4 {
+  user-select: none;
+  font-size: 0.9rem;
+  color: var(--color-light);
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+  @include display();
   width: 100%;
-  transition: background-color 0.25s ease-in-out;
-  padding-inline: 0.25rem;
-  margin: 0.1rem 0;
-  h4 {
-    user-select: none;
-    font-size: 0.9rem;
-    color: var(--color-light);
-    margin: 0;
-    padding: 0;
-    white-space: nowrap;
-    @include display();
-    width: 100%;
-  }
-  label {
-    color: var(--color-light);
-    background-color: var(--color-2-dark);
-    cursor: pointer;
-    font-weight: 200;
-    font-size: 0.8rem;
-    height: 1.25rem;
-    @include display($fd: row);
-    padding: 0 1rem;
-    flex: 1;
-    white-space: nowrap;
-    border-radius: var(--border-radius);
-    transition: var(--transition);
-  }
-  input {
-    $dim: 0.6rem;
-    appearance: none;
-    background-color: var(--color-light);
-    border-radius: 1px;
-    cursor: pointer;
-    width: $dim;
-    height: $dim;
-    transform: rotate(0);
-    outline: 1px solid var(--color-3-ok);
-    outline-offset: 2px;
-    margin: 0;
-    padding: 0;
-    display: none;
-  }
-  input:checked {
-    background-color: var(--color-3-ok);
-    outline-color: var(--color-3-ok);
-    transform: rotate(45deg);
-    border-radius: 50%;
-  }
-  input:checked + label {
-    background-color: var(--color-3-ok);
-    color: var(--color-light);
-    border-radius: var(--border-radius);
-  }
-  label:hover {
-    background-color: var(--color-3-ok2);
-    color: var(--color-1-dark);
-  }
+  font-weight: 400;
 }
 
-@media (width < 768px) {
-  .row {
-    width: fit-content;
-    label,
-    h4 {
-      padding: 0 0.25rem;
-      margin: 0;
-      font-size: 0.6rem;
-      font-weight: 400;
-    }
-
-    h4 {
-      padding: 0;
-    }
+@media screen and (width < 768px) {
+  .h4 {
+    padding: 0 0.25rem;
+    margin: 0;
+    font-size: 0.6rem;
+    font-weight: 200;
   }
 }

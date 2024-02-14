@@ -7,8 +7,9 @@ import {
   setFilterSorteraza,
   setFilterFilters,
 } from "../features/sortItems/sortItemsSlice";
-import styles from "../styles/comps/SortItems.module.scss";
 import OnOff from "./tags/OnOff";
+import styles from "../styles/comps/SortItems.module.scss";
+import { H4Custom } from "./singleTags/elemetsCustom";
 
 const SortItems = ({ handleToate, listLen }) => {
   const dispatch = useDispatch();
@@ -45,8 +46,6 @@ const SortItems = ({ handleToate, listLen }) => {
       <div className={styles.desktop}>
         <div className={styles.smallContainer}>
           <InputWithLabel
-            cls="w-100 text-center fs-bold"
-            justTitle
             text={
               listLen >= 0 && listLen === 0
                 ? "-"
@@ -65,12 +64,12 @@ const SortItems = ({ handleToate, listLen }) => {
           />
         </div>
         <div className={styles.smallContainer}>
-          <InputWithLabel justTitle text="Ordoneaza" />
+          <InputWithLabel text="Ordoneaza" />
 
           <OnOff
             id="tarifAsc"
             text="Tarif &nbsp;"
-            icon={<ImSortNumericAsc />}
+            // icon={<ImSortNumericAsc />}
             type="radio"
             name="sortBy"
             state={tarifAsc}
@@ -79,7 +78,7 @@ const SortItems = ({ handleToate, listLen }) => {
           <OnOff
             id="tarifDesc"
             text="Tarif &nbsp;"
-            icon={<ImSortNumbericDesc />}
+            // icon={<ImSortNumbericDesc />}
             type="radio"
             name="sortBy"
             state={tarifDesc}
@@ -106,7 +105,7 @@ const SortItems = ({ handleToate, listLen }) => {
         </div>
 
         <div className={styles.smallContainer}>
-          <InputWithLabel justTitle text="Filtrează" />
+          <InputWithLabel text="Filtrează" />
 
           <OnOff
             id="program"

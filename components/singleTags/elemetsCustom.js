@@ -225,6 +225,8 @@ export const H4Custom = styled.h4`
   padding: ${({ p }) => (p ? p : "0")};
   width: ${({ w }) => (w ? w : "fit-content")};
   white-space: ${({ ws }) => (ws ? ws : "nowrap")};
+  text-align: ${({ta}) => ta ? ta : "center"};
+  border: 1px solid red;
 `;
 
 export const H6Custom = styled(H4Custom)`

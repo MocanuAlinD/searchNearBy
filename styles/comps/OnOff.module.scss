@@ -2,65 +2,62 @@
   --halfMinus: calc(var(--size) / 2 * -1);
   --halfPlus: calc(var(--size) / 2);
   --tran: all 0.5s cubic-bezier(0.49, -0.68, 0.36, 1.49);
-  --checked: darkcyan;
-  --checkedDark: rgb(0, 117, 117);
-  --unchecked: whitesmoke;
+  --checked: rgb(0, 132, 132);
+  --checkedDark: rgb(0, 101, 101);
+  --unchecked: rgb(230, 230, 230);
   --uncheckedDark: rgb(173, 173, 173);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row;
-  width: 100%;
-  height: calc(var(--size) * 1.5);
-  padding: calc(var(--size) / 4) calc(var(--size) / 2);
-  gap: calc(var(--size) / 2);
-  margin-block: 0.1rem;
-  span {
-    color: var(--color-light);
-    font-size: calc(var(--size) / 1.25);
-    white-space: nowrap;
+  position: relative;
+  z-index: 0;
+  border-radius: var(--border-radius);
+  input {
+    display: none;
+  }
+  label {
+    height: fit-content;
+    min-height: var(--size);
+    display: flex;
+    align-items: center;
+    z-index: 0;
+    padding-right: calc(var(--size) * 1.2);
+    cursor: pointer;
+    font-weight: 200;
   }
 
-  .container {
-    width: var(--size);
-    height: var(--size);
-    perspective: calc(var(--size) * 4);
+  .wrapper {
+    width: calc(var(--size) * 1.5);
+    height: 100%;
+    perspective: calc(var(--size) / 0.5);
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    input {
-      display: none;
-    }
-    label {
+    .iconContainer {
       transform-style: preserve-3d;
       position: relative;
-      width: 100%;
-      height: 100%;
-      background-color: transparent;
-      overflow: visible;
-      transform: rotateY(-25deg);
-      transition: var(--tran);
-      cursor: pointer;
-
+      width: var(--size);
+      height: var(--size);
+      background-color: rgba(255, 0, 0, 0.161);
+      transition: all 0.5s ease-in-out;
+      transform: translateZ(calc(var(--size) / 1.25 * -1)) rotateY(-25deg);
       .face {
         width: 100%;
         height: 100%;
-        position: absolute;
         top: 0;
         left: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        font-size: calc(var(--size) / 5);
-        transition: var(--tran);
-      }
-      .icon {
-        width: 100%;
-        height: 100%;
-        color: black;
-        &.iconChecked {
-          width: 80%;
-          height: 80%;
-          color: var(--color-light);
+        position: absolute;
+        background-color: #fff3;
+        display: grid;
+        place-content: center;
+        .icon {
+          font-size: calc(var(--size) / 1.5);
+          &.iconUnchecked {
+            color: rgb(90, 90, 90);
+            font-size: calc(var(--size) / 1.25);
+          }
         }
       }
       .front {
@@ -88,17 +85,14 @@
         background-color: var(--unchecked);
       }
     }
-    input:checked + label {
-      transform: rotateY(-205deg);
-      .bottom {
-        transform: rotateX(-90deg) translateZ(var(--halfPlus)) scale(1);
-      }
-    }
-    &:hover label {
-      transform: rotateY(0deg);
-    }
-    &:hover input:checked + label {
-      transform: rotateY(-180deg);
-    }
+  }
+  input:checked ~ .wrapper > .iconContainer {
+    transform: translateZ(calc(var(--size) / 1.25 * -1)) rotateY(-205deg);
+  }
+}
+
+@media screen and (width < 768px) {
+  .main label {
+    width: fit-content;
   }
 }
