@@ -1,5 +1,4 @@
 import { ImSortNumbericDesc, ImSortNumericAsc } from "react-icons/im";
-import InputWithLabel from "./InputWithLabel";
 import { useDispatch, useSelector } from "react-redux";
 import { store } from "../fstore/store";
 import {
@@ -8,12 +7,11 @@ import {
   setFilterFilters,
 } from "../features/sortItems/sortItemsSlice";
 import OnOff from "./tags/OnOff";
-import styles from "../styles/comps/SortItems.module.scss";
 import { H4Custom } from "./singleTags/elemetsCustom";
+import styles from "../styles/comps/SortItems.module.scss";
 
 const SortItems = ({ handleToate, listLen }) => {
   const dispatch = useDispatch();
-
   const toate = useSelector((state) => state.sort.toate);
   const tarifAsc = useSelector((state) => state.sort.tarifAsc);
   const tarifDesc = useSelector((state) => state.sort.tarifDesc);

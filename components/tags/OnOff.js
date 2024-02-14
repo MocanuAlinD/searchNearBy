@@ -40,7 +40,7 @@ const OnOff = ({
       <label
         htmlFor={id ? id : "default"}
         style={{
-          fontSize: fs ? fs : "calc(var(--size) * 0.5)",
+          fontSize: fs ? fs : "calc(var(--size) * 0.6)",
           width: w ? w : "100%",
         }}
       >
