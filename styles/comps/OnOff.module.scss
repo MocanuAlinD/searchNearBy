@@ -94,11 +94,11 @@
         transform: rotateX(-90deg) translateZ(var(--halfPlus)) scale(1);
       }
     }
-  }
-  &:hover label {
-    transform: rotateY(0deg);
-  }
-  &:hover input:checked + label {
-    transform: rotateY(-180deg);
+    &:hover label {
+      transform: rotateY(0deg);
+    }
+    &:hover input:checked + label {
+      transform: rotateY(-180deg);
+    }
   }
 }
