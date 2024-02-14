@@ -8,7 +8,7 @@ import {
   setFilterFilters,
 } from "../features/sortItems/sortItemsSlice";
 import styles from "../styles/comps/SortItems.module.scss";
-import OnOff from './tags/OnOff';
+import OnOff from "./tags/OnOff";
 
 const SortItems = ({ handleToate, listLen }) => {
   const dispatch = useDispatch();
@@ -55,7 +55,7 @@ const SortItems = ({ handleToate, listLen }) => {
                 : listLen > 1 && listLen + " rezultate"
             }
           />
-          <InputWithLabel
+          <OnOff
             id="toate"
             text="Fără filtre"
             state={toate}
@@ -63,20 +63,20 @@ const SortItems = ({ handleToate, listLen }) => {
             list={currentState}
             type="checkbox"
           />
-          </div>
-          <div className={styles.smallContainer}>
+        </div>
+        <div className={styles.smallContainer}>
           <InputWithLabel justTitle text="Ordoneaza" />
-          
-          <InputWithLabel
-          id="tarifAsc"
-          text="Tarif &nbsp;"
-          icon={<ImSortNumericAsc />}
-          type="radio"
-          name="sortBy"
-          state={tarifAsc}
-          func={() => handleSorteaza("tarifAsc")}
+
+          <OnOff
+            id="tarifAsc"
+            text="Tarif &nbsp;"
+            icon={<ImSortNumericAsc />}
+            type="radio"
+            name="sortBy"
+            state={tarifAsc}
+            func={() => handleSorteaza("tarifAsc")}
           />
-          <InputWithLabel
+          <OnOff
             id="tarifDesc"
             text="Tarif &nbsp;"
             icon={<ImSortNumbericDesc />}
@@ -86,7 +86,7 @@ const SortItems = ({ handleToate, listLen }) => {
             func={() => handleSorteaza("tarifDesc")}
           />
 
-          <InputWithLabel
+          <OnOff
             id="dataAsc"
             text="Dată recentă"
             type="radio"
@@ -95,7 +95,7 @@ const SortItems = ({ handleToate, listLen }) => {
             func={() => handleSorteaza("dataAsc")}
           />
 
-          <InputWithLabel
+          <OnOff
             id="dataDesc"
             text="Dată veche"
             type="radio"
@@ -108,7 +108,7 @@ const SortItems = ({ handleToate, listLen }) => {
         <div className={styles.smallContainer}>
           <InputWithLabel justTitle text="Filtrează" />
 
-          <InputWithLabel
+          <OnOff
             id="program"
             text="După 16:00"
             type="checkbox"
@@ -116,7 +116,7 @@ const SortItems = ({ handleToate, listLen }) => {
             func={() => handleFilter("program")}
           />
 
-          <InputWithLabel
+          <OnOff
             id="night"
             text="Urgențe 24/7"
             type="checkbox"
@@ -124,7 +124,7 @@ const SortItems = ({ handleToate, listLen }) => {
             func={() => handleFilter("night")}
           />
 
-          <InputWithLabel
+          <OnOff
             id="website"
             text="Website"
             type="checkbox"

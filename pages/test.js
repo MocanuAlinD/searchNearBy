@@ -7,7 +7,7 @@ const Test = () => {
 
   return (
     <div className={styles.main}>
-      <OnOff size="4rem" />
+      <OnOff size="4rem" text="Alin" />
     </div>
   );
 };
