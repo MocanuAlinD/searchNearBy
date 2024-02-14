@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../../styles/comps/OnOff.module.scss";
-import { ImCheckboxChecked, ImCheckboxUnchecked } from "react-icons/im";
+import { ImCheckboxChecked } from "react-icons/im";
 import { BiCheckbox } from "react-icons/bi";
 
 const OnOff = ({
@@ -11,6 +11,7 @@ const OnOff = ({
   text,
   type,
   name,
+  icon,
   size,
   m,
   p,
@@ -43,7 +44,7 @@ const OnOff = ({
           width: w ? w : "100%",
         }}
       >
-        {text ? text : "name here"}
+        {text ? text : "name here"} {icon && icon}
       </label>
       <div className={styles.wrapper}>
         <div className={styles.iconContainer}>

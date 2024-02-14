@@ -45,15 +45,13 @@ const SortItems = ({ handleToate, listLen }) => {
     <div className={styles.container + " sticky-top"}>
       <div className={styles.desktop}>
         <div className={styles.smallContainer}>
-          <InputWithLabel
-            text={
-              listLen >= 0 && listLen === 0
-                ? "-"
-                : listLen === 1
-                ? "1 rezultat"
-                : listLen > 1 && listLen + " rezultate"
-            }
-          />
+          <H4Custom m="0" fw="400">
+            {listLen >= 0 && listLen === 0
+              ? "-"
+              : listLen === 1
+              ? "1 rezultat"
+              : listLen > 1 && listLen + " rezultate"}
+          </H4Custom>
           <OnOff
             id="toate"
             text="Fără filtre"
@@ -64,12 +62,12 @@ const SortItems = ({ handleToate, listLen }) => {
           />
         </div>
         <div className={styles.smallContainer}>
-          <InputWithLabel text="Ordoneaza" />
+          <H4Custom m="0">Ordoneaza</H4Custom>
 
           <OnOff
             id="tarifAsc"
             text="Tarif &nbsp;"
-            // icon={<ImSortNumericAsc />}
+            icon={<ImSortNumericAsc />}
             type="radio"
             name="sortBy"
             state={tarifAsc}
@@ -78,7 +76,7 @@ const SortItems = ({ handleToate, listLen }) => {
           <OnOff
             id="tarifDesc"
             text="Tarif &nbsp;"
-            // icon={<ImSortNumbericDesc />}
+            icon={<ImSortNumbericDesc />}
             type="radio"
             name="sortBy"
             state={tarifDesc}
@@ -105,7 +103,7 @@ const SortItems = ({ handleToate, listLen }) => {
         </div>
 
         <div className={styles.smallContainer}>
-          <InputWithLabel text="Filtrează" />
+          <H4Custom m="0">Filtrează</H4Custom>
 
           <OnOff
             id="program"
