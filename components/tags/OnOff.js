@@ -4,7 +4,9 @@ import { ImCheckboxChecked, ImCheckboxUnchecked } from "react-icons/im";
 
 const OnOff = ({ size }) => {
   return (
-    <div className={styles.container} style={{width: size, height: size}}>
+    <div className={styles.main} style={{ "--size": size ? size : "1rem" }}>
+      <span>alin</span>
+      <div className={styles.container}>
         <input type="checkbox" id="input" />
         <label htmlFor="input">
           <div className={styles.face + " " + styles.front}>
@@ -19,6 +21,7 @@ const OnOff = ({ size }) => {
           <div className={styles.face + " " + styles.bottom}></div>
         </label>
       </div>
+    </div>
   );
 };
 
