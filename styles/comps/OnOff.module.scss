@@ -1,0 +1,74 @@
+.container {
+  width: var(--size);
+  height: var(--size);
+  perspective: calc(var(--size) * 3);
+  input {
+    display: none;
+  }
+  label {
+    transform-style: preserve-3d;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #fff0;
+    overflow: visible;
+    transform: rotateY(-25deg) rotateX(0deg);
+    transition: var(--tran);
+    // animation: boxrotate 10s linear infinite;
+    .face {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: wheat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      font-size: calc(var(--size) / 5);
+      transition: var(--tran);
+      background-color: black;
+      .icon {
+        width: 50%;
+        height: 50%;
+      }
+    }
+    .front {
+      transform: translateZ(var(--halfPlus));
+      background-color: var(--checked);
+    }
+    .back {
+      transform: translateZ(var(--halfMinus)) rotateY(180deg);
+      background-color: var(--unchecked);
+    }
+    .left {
+      transform: rotateY(-90deg) translateZ(var(--halfPlus));
+      background-color: var(--uncheckedDark);
+    }
+    .right {
+      transform: rotateY(90deg) translateZ(var(--halfPlus));
+      background-color: var(--checkedDark);
+    }
+    .top {
+      transform: rotateX(90deg) translateZ(var(--halfPlus));
+    }
+    .bottom {
+      transform: rotateX(-90deg) translateZ(var(--halfPlus)) scale(1.25);
+      background-color: var(--checked);
+      box-shadow: 0 0 calc(var(--size) / 4) calc(var(--size) / 4)
+        var(--checked);
+      border-radius: 50%;
+    }
+  }
+  input:checked + label {
+    transform: rotateY(-205deg);
+    .bottom {
+      background-color: gray;
+      transform: rotateX(-90deg) translateZ(var(--halfPlus)) scale(1.25);
+      box-shadow: 0 0 calc(var(--size) / 4) calc(var(--size) / 4)
+        var(--unchecked);
+      border-radius: 50%;
+    }
+  }
+}

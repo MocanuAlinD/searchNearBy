@@ -8,6 +8,7 @@ import {
   setFilterFilters,
 } from "../features/sortItems/sortItemsSlice";
 import styles from "../styles/comps/SortItems.module.scss";
+import OnOff from './tags/OnOff';
 
 const SortItems = ({ handleToate, listLen }) => {
   const dispatch = useDispatch();
@@ -62,18 +63,18 @@ const SortItems = ({ handleToate, listLen }) => {
             list={currentState}
             type="checkbox"
           />
-        </div>
-        <div className={styles.smallContainer}>
+          </div>
+          <div className={styles.smallContainer}>
           <InputWithLabel justTitle text="Ordoneaza" />
-
+          
           <InputWithLabel
-            id="tarifAsc"
-            text="Tarif &nbsp;"
-            icon={<ImSortNumericAsc />}
-            type="radio"
-            name="sortBy"
-            state={tarifAsc}
-            func={() => handleSorteaza("tarifAsc")}
+          id="tarifAsc"
+          text="Tarif &nbsp;"
+          icon={<ImSortNumericAsc />}
+          type="radio"
+          name="sortBy"
+          state={tarifAsc}
+          func={() => handleSorteaza("tarifAsc")}
           />
           <InputWithLabel
             id="tarifDesc"

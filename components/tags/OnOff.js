@@ -1,13 +1,10 @@
-import React, { useState, useEffect } from "react";
-import styles from "../styles/pages/test.module.scss";
+import React from "react";
+import styles from "../../styles/comps/OnOff.module.scss";
 import { ImCheckboxChecked, ImCheckboxUnchecked } from "react-icons/im";
 
-const Test = () => {
-  const moc = () => {};
-
+const OnOff = ({ size }) => {
   return (
-    <div className={styles.main}>
-      <div className={styles.container}>
+    <div className={styles.container} style={{width: size, height: size}}>
         <input type="checkbox" id="input" />
         <label htmlFor="input">
           <div className={styles.face + " " + styles.front}>
@@ -22,8 +19,7 @@ const Test = () => {
           <div className={styles.face + " " + styles.bottom}></div>
         </label>
       </div>
-    </div>
   );
 };
 
-export default Test;
+export default OnOff;
