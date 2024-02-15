@@ -2,47 +2,108 @@
 
 //in pages/index.js
 .container {
-  @include display($jc: space-around);
+  @include display();
   height: fit-content;
   top: 0.5rem;
   border-radius: 0 var(--border-radius) var(--border-radius) 0;
   @include border(border-right);
   @include border(border-top);
   @include border(border-bottom);
+  background-color: var(--glass);
+  backdrop-filter: var(--blur);
+  border-radius: var(--border-radius);
+  width: min(95%, 12.5rem);
+
+  .close {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 2rem;
+    input {
+      display: none;
+    }
+    label {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &::before {
+        content: "X";
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: fit-content;
+        font-size: 1.2rem;
+        font-weight: 400;
+        padding-top: 0.15rem;
+        padding-right: 0.35rem;
+        color: var(--color-light);
+        transition: all .35s ease;
+        cursor: pointer;
+      }
+    }
+    input:checked + label::before {
+      content: "Filtre/Sortare";
+      justify-content: center;
+      padding-top: 0rem;
+      padding-right: 0rem;
+      font-size: 0.8rem;
+      font-weight: 200;
+      height: 100%;
+    }
+    &:has(.toggle:checked) + .desktop {
+      display: none;
+    }
+  }
 
   .desktop {
-    background: glass;
-    backdrop-filter: var(--blur);
-    border-radius: border-radius;
     @include display($ai: flex-start);
     margin-left: 0.5rem;
-    padding: 0.5rem;
+    padding: 0.25rem;
+    width: 100%;
+    transition: height 0.35s ease-in-out;
 
     .smallContainer {
       width: 100%;
       margin: 0.2rem 0;
+      transition: var(--transition);
+      padding: 0.1rem;
+      border-radius: var(--border-radius);
+    }
+    .smallContainer:hover {
+      background-color: #edede933;
+    }
+    .smallContainer:hover:has(label) label:not(:hover) {
+      color: rgb(170, 170, 170);
     }
   }
 }
 
-@media (width < 768px) {
+@media screen and (width < 768px) {
   .container {
     margin-bottom: 0.35rem;
-    margin-top: 1rem;
+    width: 97%;
+    margin-inline: auto;
 
     .desktop {
       margin: 0;
-      width: 97%;
+      width: 100%;
       padding: 0;
       box-shadow: 0px 3px 20px 1px rgba(0, 0, 0, 0.4);
+      @include display($fd: row-reverse, $ai: flex-start);
 
       .smallContainer {
-        @include display($jc: flex-start, $fd: row);
+        @include display($jc: center, $fd: row);
         flex-wrap: wrap;
-
-        &:not(:last-child) {
-          box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
-        }
+        background-color: transparent;
+        width: 100%;
       }
     }
 

@@ -1,5 +1,8 @@
 import { ImSortNumbericDesc, ImSortNumericAsc } from "react-icons/im";
+<<<<<<< HEAD
 import InputWithLabel from "./inputWithLabel";
+=======
+>>>>>>> test
 import { useDispatch, useSelector } from "react-redux";
 import { store } from "../fstore/store";
 import {
@@ -7,11 +10,12 @@ import {
   setFilterSorteraza,
   setFilterFilters,
 } from "../features/sortItems/sortItemsSlice";
+import OnOff from "./tags/OnOff";
+import { H4Custom } from "./singleTags/elemetsCustom";
 import styles from "../styles/comps/SortItems.module.scss";
 
 const SortItems = ({ handleToate, listLen }) => {
   const dispatch = useDispatch();
-
   const toate = useSelector((state) => state.sort.toate);
   const tarifAsc = useSelector((state) => state.sort.tarifAsc);
   const tarifDesc = useSelector((state) => state.sort.tarifDesc);
@@ -41,20 +45,20 @@ const SortItems = ({ handleToate, listLen }) => {
 
   return (
     <div className={styles.container + " sticky-top"}>
+      <div className={styles.close}>
+        <input className={styles.toggle} type="checkbox" id="close" />
+        <label htmlFor="close"></label>
+      </div>
       <div className={styles.desktop}>
         <div className={styles.smallContainer}>
-          <InputWithLabel
-            cls="w-100 text-center fs-bold"
-            justTitle
-            text={
-              listLen >= 0 && listLen === 0
-                ? "-"
-                : listLen === 1
-                ? "1 rezultat"
-                : listLen > 1 && listLen + " rezultate"
-            }
-          />
-          <InputWithLabel
+          <H4Custom m="0" fw="400">
+            {listLen >= 0 && listLen === 0
+              ? "-"
+              : listLen === 1
+              ? "1 rezultat"
+              : listLen > 1 && listLen + " rezultate"}
+          </H4Custom>
+          <OnOff
             id="toate"
             text="Fără filtre"
             state={toate}
@@ -64,9 +68,9 @@ const SortItems = ({ handleToate, listLen }) => {
           />
         </div>
         <div className={styles.smallContainer}>
-          <InputWithLabel justTitle text="Ordoneaza" />
+          <H4Custom m="0">Ordoneaza</H4Custom>
 
-          <InputWithLabel
+          <OnOff
             id="tarifAsc"
             text="Tarif &nbsp;"
             icon={<ImSortNumericAsc />}
@@ -75,7 +79,7 @@ const SortItems = ({ handleToate, listLen }) => {
             state={tarifAsc}
             func={() => handleSorteaza("tarifAsc")}
           />
-          <InputWithLabel
+          <OnOff
             id="tarifDesc"
             text="Tarif &nbsp;"
             icon={<ImSortNumbericDesc />}
@@ -85,7 +89,7 @@ const SortItems = ({ handleToate, listLen }) => {
             func={() => handleSorteaza("tarifDesc")}
           />
 
-          <InputWithLabel
+          <OnOff
             id="dataAsc"
             text="Dată recentă"
             type="radio"
@@ -94,7 +98,7 @@ const SortItems = ({ handleToate, listLen }) => {
             func={() => handleSorteaza("dataAsc")}
           />
 
-          <InputWithLabel
+          <OnOff
             id="dataDesc"
             text="Dată veche"
             type="radio"
@@ -105,9 +109,9 @@ const SortItems = ({ handleToate, listLen }) => {
         </div>
 
         <div className={styles.smallContainer}>
-          <InputWithLabel justTitle text="Filtrează" />
+          <H4Custom m="0">Filtrează</H4Custom>
 
-          <InputWithLabel
+          <OnOff
             id="program"
             text="După 16:00"
             type="checkbox"
@@ -115,7 +119,7 @@ const SortItems = ({ handleToate, listLen }) => {
             func={() => handleFilter("program")}
           />
 
-          <InputWithLabel
+          <OnOff
             id="night"
             text="Urgențe 24/7"
             type="checkbox"
@@ -123,7 +127,7 @@ const SortItems = ({ handleToate, listLen }) => {
             func={() => handleFilter("night")}
           />
 
-          <InputWithLabel
+          <OnOff
             id="website"
             text="Website"
             type="checkbox"

@@ -214,17 +214,19 @@ export const LabelSmallCustom = styled.label`
 
 export const H4Custom = styled.h4`
   color: ${({ color }) => (color ? color : "var(--color-light)")};
-  font-size: ${({ fs }) => (fs ? fs : "")};
-  /* font-size: clamp(0.8rem, 2.5vw, 1.43rem); */
-  font-weight: ${({ fw }) => (fw ? fw : "400")};
+  /* font-size: ${({ fs }) => (fs ? fs : "0.6rem")}; */
+  font-size: clamp(0.8rem, 1.2vw, 1rem);
+  font-weight: ${({ fw }) => (fw ? fw : "200")};
   background: ${({ bg }) => (bg ? bg : "")};
   display: ${({ display }) => (display ? display : "flex")};
   justify-content: ${({ jc }) => (jc ? js : "center")};
   align-items: ${({ ai }) => (ai ? ai : "center")};
-  margin: ${({ m }) => (m ? m : "0 0 1rem 0")};
+  margin: ${({ m }) => (m ? m : "0 0 .5rem 0")};
   padding: ${({ p }) => (p ? p : "0")};
   width: ${({ w }) => (w ? w : "fit-content")};
   white-space: ${({ ws }) => (ws ? ws : "nowrap")};
+  text-align: ${({ ta }) => (ta ? ta : "center")};
+  /* border: 1px solid red; */
 `;
 
 export const H6Custom = styled(H4Custom)`

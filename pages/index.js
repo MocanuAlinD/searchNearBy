@@ -14,7 +14,8 @@ import {
 import { setReviewSearchRev } from "../features/reviewSearch/reviewSearchSlice";
 import { Container, Wrapper } from "../components/singleTags/elemetsCustom";
 import SvgTitle from "../components/svgTitle";
-import PageTitle from "../components/pageTitle"
+import PageTitle from "../components/pageTitle";
+import CardCautareDesktop from "../components/CardCautareDesktop";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -143,12 +144,26 @@ export default function Home() {
           <SortItems handleToate={handleToate} listLen={sortedList.length} />
         )}
 
-        {/* Show Cards container if results find */}
-        <div className="w-100 d-flex flex-wrap m-0 p-0 justify-content-center">
+        {/* Show Cards container if results find  MOBILE*/}
+        <div className="w-100 d-flex d-md-none flex-wrap m-0 p-0 justify-content-center">
           {!loadSearch &&
             originalList &&
             sortedList.map((item, index) => (
               <CardCautare data={item} key={index} idx={index} revs={review} />
+            ))}
+        </div>
+
+        {/* Show Cards container if results find  DESKTOP*/}
+        <div className="w-100 d-none d-md-flex flex-wrap m-0 p-0 justify-content-center">
+          {!loadSearch &&
+            originalList &&
+            sortedList.map((item, index) => (
+              <CardCautareDesktop
+                data={item}
+                key={index}
+                idx={index}
+                revs={review}
+              />
             ))}
         </div>
       </div>
