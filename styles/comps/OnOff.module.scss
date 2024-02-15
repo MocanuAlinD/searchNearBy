@@ -52,6 +52,7 @@
         background-color: #fff3;
         display: grid;
         place-content: center;
+        transition: var(--transition);
         .icon {
           font-size: calc(var(--size) / 1.5);
           &.iconUnchecked {
@@ -86,13 +87,21 @@
       }
     }
   }
+
+  --all: translateZ(calc(var(--size) / 1.25 * -1)) rotateY(180deg);
   input:checked ~ .wrapper > .iconContainer {
-    transform: translateZ(calc(var(--size) / 1.25 * -1)) rotateY(-205deg);
+    transform: translateZ(calc(var(--size) / 1.25 * -1)) rotateY(155deg);
+  }
+  input:checked ~ label:hover + .wrapper .iconContainer {
+    transform: translateZ(calc(var(--size) / 1.25 * -1)) rotateY(180deg);
+  }
+  input ~ label:hover + .wrapper .iconContainer {
+    transform: translateZ(calc(var(--size) / 1.25 * -1)) rotateY(0);
   }
 }
 
-@media screen and (width < 768px) {
-  .main label {
-    width: fit-content;
-  }
-}
+// @media screen and (width < 768px) {
+//   .main label {
+//     border: 1px solid red;
+//   }
+// }

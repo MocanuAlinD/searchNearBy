@@ -7,7 +7,9 @@ const Test = () => {
 
   return (
     <div className={styles.main}>
-      <OnOff />
+      <div className={styles.alin}>
+        <button>alin</button>
+      </div>
     </div>
   );
 };

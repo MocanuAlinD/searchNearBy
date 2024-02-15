@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "../../styles/comps/OnOff.module.scss";
 import { ImCheckboxChecked } from "react-icons/im";
 import { BiCheckbox } from "react-icons/bi";
+import styles from "../../styles/comps/OnOff.module.scss";
 
 const OnOff = ({
   id,
