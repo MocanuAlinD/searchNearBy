@@ -4,7 +4,6 @@ import toast from "react-hot-toast";
 import {
   Container,
   H4Custom,
-  H6Custom,
   SmallContainer,
   ParaCustom,
 } from "../components/singleTags/elemetsCustom";

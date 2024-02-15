@@ -2,19 +2,17 @@ import React from "react";
 import {
   Container,
   SmallContainer,
-  H4Custom,
-  LabelCustom,
+  H6Custom,
   ParaCustom,
 } from "../components/singleTags/elemetsCustom";
-// import styles from "../styles/pages/infofaq.module.scss";
 
 const Info = () => {
   return (
     <Container>
       <SmallContainer bg border>
-        <H4Custom w="100%" className="mb-3">
+        <H6Custom w="100%" className="mb-3" fs="1.25rem">
           ℹ️&emsp;Info & FAQ
-        </H4Custom>
+        </H6Custom>
         <ParaCustom>
           &emsp;Bine ați venit pe platforma noastră dedicată micilor afaceri din
           România! Suntem mândri să vă oferim oportunitatea de a descoperi și

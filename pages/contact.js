@@ -15,7 +15,7 @@ const Contact = () => {
     <Container className={styles.container}>
       <PageTitle text="Contact" />
       <SmallContainer bg border>
-        <H4Custom w="100%">☎︎&emsp;Contact</H4Custom>
+        <H4Custom w="100%" fs="2rem">☎︎&emsp;Contact</H4Custom>
         <ParaCustom>
           Bine ați venit pe pagina noastră de contact! Suntem încântați să vă
           oferim mai multe informații și să răspundem întrebărilor

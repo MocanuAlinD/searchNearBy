@@ -48,6 +48,7 @@ export const SmallContainer = styled.div`
   height: ${({ h }) => (h ? h : "fit-content")};
   min-height: ${({ mh }) => (mh ? "21rem" : "fit-content")};
   width: ${({ w }) => (w ? w : "min(97%, 40rem)")};
+  /* clip-path: polygon(0 0, 45% 0%, 50% 1.5%, 55% 0, 100% 0, 100% 100%, 0 100%); */
 `;
 
 export const Wrapper = styled.div`
@@ -214,8 +215,7 @@ export const LabelSmallCustom = styled.label`
 
 export const H4Custom = styled.h4`
   color: ${({ color }) => (color ? color : "var(--color-light)")};
-  /* font-size: ${({ fs }) => (fs ? fs : "0.6rem")}; */
-  font-size: clamp(0.8rem, 1.2vw, 1rem);
+  font-size: ${({ fs }) => (fs ? fs : "clamp(0.65rem, 1.25vw, 1.2rem)")};
   font-weight: ${({ fw }) => (fw ? fw : "200")};
   background: ${({ bg }) => (bg ? bg : "")};
   display: ${({ display }) => (display ? display : "flex")};
@@ -224,23 +224,15 @@ export const H4Custom = styled.h4`
   margin: ${({ m }) => (m ? m : "0 0 .5rem 0")};
   padding: ${({ p }) => (p ? p : "0")};
   width: ${({ w }) => (w ? w : "fit-content")};
-  white-space: ${({ ws }) => (ws ? ws : "nowrap")};
+  white-space: ${({ ws }) => (ws ? ws : "wrap")};
   text-align: ${({ ta }) => (ta ? ta : "center")};
-  /* border: 1px solid red; */
 `;
 
 export const H6Custom = styled(H4Custom)`
-  color: ${({ color }) => (color ? color : "var(--color-light)")};
-  font-size: ${({ fs }) => (fs ? fs : "")};
+  font-size: ${({ fs }) => (fs ? fs : "1.25rem")};
+  /* font-size: ${({ fs }) => (fs ? fs : "clamp(0.65rem, 1.25vw, 1.2rem)")}; */
   font-weight: ${({ fw }) => (fw ? fw : "400")};
-  background: ${({ bg }) => (bg ? bg : "")};
-  display: ${({ display }) => (display ? display : "flex")};
-  justify-content: ${({ jc }) => (jc ? js : "center")};
-  align-items: ${({ ai }) => (ai ? ai : "center")};
   margin: ${({ m }) => (m ? m : "0")};
-  padding: ${({ p }) => (p ? p : "0")};
-  width: ${({ w }) => (w ? w : "fit-content")};
-  white-space: ${({ ws }) => (ws ? ws : "nowrap")};
 `;
 
 export const ParaCustom = styled.p`

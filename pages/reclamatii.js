@@ -37,7 +37,12 @@ const Reclamatii = () => {
     <Container>
       <SmallContainer bg border>
         <Wrapper>
-          <H4Custom w="100%"> 🔖&emsp;Depune o reclamație</H4Custom>
+          <H6Custom w="100%" m="1rem 0" fs="1.25rem">
+            🔖&emsp;Depune o reclamație
+          </H6Custom>
+          <LabelCustom fw="400">
+            Campurile marcate cu * sunt obligatorii.
+          </LabelCustom>
           <ParaCustom>
             &emsp;Reclamația dumneavoastră va fi supusă unui control în detaliu.
             Dacă nu se găsesc nereguli, anunțul reclamat nu va fi șters sau
@@ -100,9 +105,6 @@ const Reclamatii = () => {
                 onChange={(e) => dispatch(setEmailReclamant(e.target.value))}
               />
             </Wrapper>
-            <LabelCustom m="0" fw="400">
-              Campurile marcate cu * sunt obligatorii.
-            </LabelCustom>
 
             <div className="d-flex gap-2 m-0 p-0">
               <ButtonWithIcon
