@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "../styles/comps/cardCautareDesktop.module.scss";
 import Link from "next/link";
 import Stars from "../components/Stars";
+import styles from "../styles/comps/cardCautareDesktop.module.scss";
 
 const CardCautareDesktop = ({ data, key, idx, revs }) => {
   const gotoId = `/servicii/${data.judet}/${data.id}`;
