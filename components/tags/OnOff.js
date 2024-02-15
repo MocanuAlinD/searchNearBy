@@ -26,7 +26,9 @@ const OnOff = ({
         "--size": size ? size : "1.25rem",
         margin: m ? m : "0.25rem 0",
         padding: p ? p : ".1rem .25rem",
-        backgroundColor: bg ? bg : "var(--color-1-dark)",
+        background: bg
+          ? bg
+          : "linear-gradient(160deg, var(--color-1-light), var(--color-2-dark) 50%, var(--color-1-dark) 100%)",
         width: w ? w : "100%",
       }}
     >
