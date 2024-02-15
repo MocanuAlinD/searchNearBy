@@ -256,10 +256,12 @@
 
 @keyframes fade {
   0% {
-    transform: translateX(-35%) rotate(90deg);
+    // transform: translateX(-35%) rotate(90deg);
+    scale: 0;
   }
 
   100% {
-    transform: translateX(0) rotateX(0deg);
+    // transform: translateX(0) rotateX(0deg);
+    scale: 1;
   }
 }
