@@ -43,7 +43,7 @@
       width: var(--size);
       height: var(--size);
       background-color: rgba(255, 0, 0, 0.161);
-      transition: all 0.5s ease-in-out;
+      transition: all 0.55s ease-in-out;
       transform: translateZ(calc(var(--size) / 1.25 * -1)) rotateY(-25deg);
       .face {
         width: 100%;

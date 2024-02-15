@@ -41,6 +41,10 @@ const SortItems = ({ handleToate, listLen }) => {
 
   return (
     <div className={styles.container + " sticky-top"}>
+      <div className={styles.close}>
+        <input className={styles.toggle} type="checkbox" id="close" />
+        <label htmlFor="close"></label>
+      </div>
       <div className={styles.desktop}>
         <div className={styles.smallContainer}>
           <H4Custom m="0" fw="400">
