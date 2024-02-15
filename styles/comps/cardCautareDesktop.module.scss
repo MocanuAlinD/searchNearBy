@@ -8,7 +8,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding-inline: 1.5rem;
+  padding-inline: 1rem;
   animation: fade linear both;
   animation-timeline: view();
   animation-range: entry 0% cover 15%;
@@ -255,11 +255,11 @@
 }
 
 @keyframes fade {
-  from {
-    transform: translateX(-100%) translateY(-12rem) scale(0.5);
+  0% {
+    transform: translateX(-35%) rotate(90deg);
   }
 
-  to {
-    transform: translateX(0) translateY(0) scale(1);
+  100% {
+    transform: translateX(0) rotateX(0deg);
   }
 }
