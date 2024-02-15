@@ -16,7 +16,7 @@
   .desktop {
     @include display($ai: flex-start);
     margin-left: 0.5rem;
-    padding: 0.1rem;
+    padding: 0.25rem;
     width: 100%;
 
     .smallContainer {
@@ -45,6 +45,7 @@
     .desktop {
       margin: 0;
       width: 100%;
+      padding: 0;
       box-shadow: 0px 3px 20px 1px rgba(0, 0, 0, 0.4);
       @include display($fd: row-reverse, $ai: flex-start);
 
