@@ -29,7 +29,9 @@
     }
     .smallContainer:hover {
       background-color: #edede933;
-      // padding: .4rem;
+    }
+    .smallContainer:hover:has(label) label:not(:hover){
+      color: rgb(170, 170, 170);
     }
   }
 }

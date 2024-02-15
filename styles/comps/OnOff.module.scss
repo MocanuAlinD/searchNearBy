@@ -22,6 +22,7 @@
     padding-right: calc(var(--size) * 1.2);
     cursor: pointer;
     font-weight: 200;
+    transition: color .35s ease;
   }
 
   .wrapper {
