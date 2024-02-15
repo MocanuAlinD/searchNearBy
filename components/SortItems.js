@@ -1,8 +1,4 @@
 import { ImSortNumbericDesc, ImSortNumericAsc } from "react-icons/im";
-<<<<<<< HEAD
-import InputWithLabel from "./inputWithLabel";
-=======
->>>>>>> test
 import { useDispatch, useSelector } from "react-redux";
 import { store } from "../fstore/store";
 import {
