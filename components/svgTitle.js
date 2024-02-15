@@ -6,7 +6,7 @@ const SvgTitle = ({ width, height, spd }) => {
   const { pathname } = useRouter();
   useEffect(() => {
     startAnimation();
-  });
+  }, []);
 
   const startAnimation = () => {
     const all = document.querySelectorAll(".svgTitle path");
@@ -18,6 +18,7 @@ const SvgTitle = ({ width, height, spd }) => {
       item.setAttribute("stroke-dasharray", pathLength);
       item.setAttribute("stroke-dashoffset", pathLength);
       if (index === 0) {
+        console.log("I is:", i);
         item.innerHTML = `<animate id="a${i}" attributeName='stroke-dashoffset' begin=".35s" dur="${
           pathLength / speed
         }" to="0" fill="freeze" />`;
@@ -80,7 +81,7 @@ const SvgTitle = ({ width, height, spd }) => {
         </defs>
         <animate
           attributeName="fill-opacity"
-          begin="a23.end"
+          begin="a24.end"
           dur="1s"
           to="1"
           fill="freeze"
