@@ -15,15 +15,17 @@ const Contact = () => {
     <Container className={styles.container}>
       <PageTitle text="Contact" />
       <SmallContainer bg border>
-        <H4Custom w="100%" fs="2rem">☎︎&emsp;Contact</H4Custom>
+        <H4Custom w="100%" fs="1.5rem">
+          ☎︎&emsp;Contact
+        </H4Custom>
         <ParaCustom>
-          Bine ați venit pe pagina noastră de contact! Suntem încântați să vă
-          oferim mai multe informații și să răspundem întrebărilor
+          &emsp;Bine ați venit pe pagina noastră de contact! Suntem încântați să
+          vă oferim mai multe informații și să răspundem întrebărilor
           dumneavoastră. Nu ezitați să ne contactați folosind una dintre
           următoarele modalități:
         </ParaCustom>
         <ParaCustom>
-          <span>Telefon:</span> Pentru asistență rapidă și personalizată,
+          <span>&emsp;Telefon:</span> Pentru asistență rapidă și personalizată,
           sunați-ne la numărul nostru de telefon dedicat: &nbsp;
           <span>
             <a href="tel:0748.22.15.77" rel="noreferrer">
@@ -32,12 +34,12 @@ const Contact = () => {
           </span>
         </ParaCustom>
         <ParaCustom>
-          <span>Email:</span> Dacă preferați comunicarea scrisă, ne puteți scrie
-          la adresa noastră de email: contact@serviciionline.ro. Răspundem
+          <span>&emsp;Email:</span> Dacă preferați comunicarea scrisă, ne puteți
+          scrie la adresa noastră de email: contact@serviciionline.ro. Răspundem
           prompt la toate mesajele primite și suntem aici pentru a vă ajuta.
         </ParaCustom>
         <ParaCustom>
-          <span>WhatsApp:</span> Suntem și pe WhatsApp pentru a facilita
+          <span>&emsp;WhatsApp:</span> Suntem și pe WhatsApp pentru a facilita
           comunicarea directă. Adăugați-ne la lista de contacte și trimiteți-ne
           un mesaj la numărul <br />
           <a href="http://wa.me/+40748221577" target="_blank" rel="noreferrer">
@@ -46,7 +48,7 @@ const Contact = () => {
           </a>
         </ParaCustom>
         <ParaCustom>
-          Echipa noastră dedicată este disponibilă să vă ofere suport și
+          &emsp;Echipa noastră dedicată este disponibilă să vă ofere suport și
           informații, fie că aveți întrebări despre produsele noastre, aveți
           nevoie de asistență tehnică sau doriți să ne împărtășiți feedback-ul
           dumneavoastră. Așteptăm cu nerăbdare să vă auzim!

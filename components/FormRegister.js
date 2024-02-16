@@ -140,7 +140,7 @@ const FormRegister = () => {
   };
 
   return (
-    <SmallContainer bg>
+    <SmallContainer bg border m="0 0 2rem 0">
       <form onSubmit={postData} method="GET" className="w-100">
         <Wrapper>
           <LabelCustom>Nume Prenume / Nume companie</LabelCustom>

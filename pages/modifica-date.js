@@ -3,7 +3,12 @@ import { getAuth } from "firebase/auth";
 import ModifyData from "../components/ModifyData";
 import { useSelector } from "react-redux";
 
-import { Container } from "../components/singleTags/elemetsCustom";
+import {
+  Container,
+  H4Custom,
+  H6Custom,
+  SmallContainer,
+} from "../components/singleTags/elemetsCustom";
 
 const ModificaDate = () => {
   const auth = getAuth();
@@ -11,13 +16,17 @@ const ModificaDate = () => {
   const hasService = useSelector((state) => state.login.hasService);
 
   return (
-    <Container className="flex-grow-1">
+    <Container>
       {hasService && uid ? (
         <ModifyData />
       ) : uid && !hasService ? (
-        <h4>Nu ai inregistrat nimic.</h4>
+        <SmallContainer bg border>
+          <H4Custom>Nu ai inregistrat nimic.</H4Custom>
+        </SmallContainer>
       ) : (
-        <h4>Nu esti logat</h4>
+        <SmallContainer bg border>
+          <H6Custom>Nu esti logat</H6Custom>
+        </SmallContainer>
       )}
     </Container>
   );

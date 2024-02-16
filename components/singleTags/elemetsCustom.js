@@ -27,9 +27,10 @@ export const Container = styled.div`
   margin: ${({ m }) => (m ? m : "0")};
   padding: ${({ p }) => (p ? p : "0")};
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: column;
+  justify-content: ${({ jc }) => (jc ? jc : "flex-start")};
+  align-items: ${({ ai }) => (ai ? ai : "center")};
+  flex-direction: ${({ fd }) => (fd ? fd : "column")};
+  border: ${({ border }) => border && "1px solid red"};
   flex-grow: 1;
 `;
 

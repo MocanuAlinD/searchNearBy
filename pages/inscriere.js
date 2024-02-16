@@ -1,4 +1,9 @@
-import { Container, Wrapper } from "../components/singleTags/elemetsCustom";
+import {
+  Container,
+  H4Custom,
+  SmallContainer,
+  Wrapper,
+} from "../components/singleTags/elemetsCustom";
 import FormRegister from "../components/FormRegister";
 import NotSignedIn from "../components/NotSignedIn";
 import { firebase } from "../firebase";
@@ -12,11 +17,9 @@ export default function Inscriere() {
       {!hasService && uid ? (
         <FormRegister />
       ) : uid && hasService ? (
-        <div className="w-100 d-flex align-items-center justify-content-center flex-grow-1">
-          <h4 className="fs-4" style={{ fontWeight: "200" }}>
-            Ai deja serviciu inregistrat.
-          </h4>
-        </div>
+        <SmallContainer bg border>
+          <H4Custom fs="1.5rem">Ai deja serviciu inregistrat.</H4Custom>
+        </SmallContainer>
       ) : (
         <NotSignedIn />
       )}

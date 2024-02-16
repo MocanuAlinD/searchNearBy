@@ -108,7 +108,7 @@ const ModifyData = () => {
 
   return (
     <form onSubmit={postData} method="GET" className="col-12 my-3">
-      <SmallContainer bg>
+      <SmallContainer bg border>
         <Wrapper>
           <LabelCustom>Nume Prenume / Nume companie</LabelCustom>
           <InputCustom
