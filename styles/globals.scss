@@ -9,29 +9,6 @@ body {
   font-family: Poppins, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   background-color: black;
-  // background: linear-gradient(
-  //   45deg,
-  //   #050505 10%,
-  //   #101010 10%,
-  //   #151515 20%,
-  //   #202020 20%,
-  //   #252525 30%,
-  //   #303030 30%,
-  //   #404040 40%,
-  //   #454545 40%,
-  //   #505050 50%,
-  //   #555555 50%,
-  //   #505050 60%,
-  //   #454545 60%,
-  //   #404040 70%,
-  //   #353535 70%,
-  //   #303030 80%,
-  //   #252525 80%,
-  //   #202020 90%,
-  //   #151515 90%,
-  //   #101010 100%,
-  //   #050505 100%
-  // );
   background: url("../public/backgrounds/cheese.svg");
   background-attachment: fixed;
   background-size: cover;
@@ -39,7 +16,7 @@ body {
   background-position: top center, 50%, 50%;
   color: var(--color-light);
   overscroll-behavior: none;
-  @media screen and (width < 768px){
+  @media screen and (width < 768px) {
     overscroll-behavior: auto;
   }
 }
