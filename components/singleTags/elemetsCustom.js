@@ -55,7 +55,7 @@ export const SmallContainer = styled.div`
 export const Wrapper = styled.div`
   background: ${({ bg }) => bg && "var(--glass)"};
   backdrop-filter: ${({ bg }) => bg && "var(--blur)"};
-  border-radius: var(--border-radius);
+  border-radius: ${({br}) => br ? br : "var(--border-radius)"};
   display: flex;
   color: var(--color-1-dark);
   justify-content: ${({ jc }) => jc && jc};

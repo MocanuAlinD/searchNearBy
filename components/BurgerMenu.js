@@ -15,6 +15,7 @@ const BurgerMenu = () => {
       gap="1rem"
       ai="center"
       w="100%"
+      br="0"
       className={styles.sidebar}
       style={{
         clipPath: `polygon(0 0, 100% 0, ${

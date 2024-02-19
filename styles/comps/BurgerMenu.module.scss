@@ -2,9 +2,9 @@
 
 .sidebar {
   backdrop-filter: var(--blur);
-  @include border(border-right);
-  @include border(border-top, $color: var(--error));
-  @include border(border-bottom, $color: var(--error), $size: 3px);
+  // @include border(border-right);
+  // @include border(border-top, $color: var(--error));
+  // @include border(border-bottom, $color: var(--error));
   position: absolute;
   top: 4rem;
   left: 0;
