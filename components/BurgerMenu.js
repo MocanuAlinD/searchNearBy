@@ -14,11 +14,13 @@ const BurgerMenu = () => {
       p="1rem 0"
       gap="1rem"
       ai="center"
-      w="min(100%, 20rem)"
+      w="100%"
       className={styles.sidebar}
       style={{
-        transform: `rotateZ(${
-          useSelector((state) => state.search.showMenu) ? "0" : "90deg"
+        clipPath: `polygon(0 0, 100% 0, ${
+          useSelector((state) => state.search.showMenu)
+            ? "100% 100%, 0 100%"
+            : "100% 0, 0 0"
         })`,
       }}
     >

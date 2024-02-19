@@ -64,7 +64,8 @@ export const Wrapper = styled.div`
   margin: ${({ m }) => (m ? m : "0.25rem 0")};
   padding: ${({ p }) => (p ? p : "0")};
   width: ${({ w }) => (w ? w : "100%")};
-  min-height: ${({ mh }) => mh && "20rem"};
+  min-height: ${({ mh }) => mh && mh};
+  height: ${({ h }) => h && h};
   gap: ${({ gap }) => (gap ? gap : "0")};
   border: ${({ border }) => border && "var(--color-border-card)"};
   @media (max-width: 450px) {
