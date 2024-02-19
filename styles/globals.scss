@@ -9,11 +9,11 @@ body {
   font-family: Poppins, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   background-color: black;
-  background: url("../public/backgrounds/cheese.svg");
-  background-attachment: fixed;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: top center, 50%, 50%;
+  // background: url("../public/backgrounds/cheese.svg");
+  // background-attachment: fixed;
+  // background-size: cover;
+  // background-repeat: no-repeat;
+  // background-position: top center, 50%, 50%;
   color: var(--color-light);
   overscroll-behavior: none;
   @media screen and (width < 768px) {
