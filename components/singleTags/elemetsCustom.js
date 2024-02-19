@@ -49,7 +49,6 @@ export const SmallContainer = styled.div`
   height: ${({ h }) => (h ? h : "fit-content")};
   min-height: ${({ mh }) => (mh ? "21rem" : "fit-content")};
   width: ${({ w }) => (w ? w : "min(97%, 40rem)")};
-  /* clip-path: polygon(0 0, 45% 0%, 50% 1.5%, 55% 0, 100% 0, 100% 100%, 0 100%); */
 `;
 
 export const Wrapper = styled.div`

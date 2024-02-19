@@ -23,8 +23,6 @@ const BurgerMenu = () => {
             ? "100% 100%, 0 100%"
             : "100% 0, 0 0"
         })`,
-        // display: `${useSelector(state => state.search.showMenu) ? "flex" : "none" }`
-        // height: `${useSelector(state => state.search.showMenu) ? "fit-content" : "0rem" }`
       }}
     >
       <CustomLink link="/" text="Home" />

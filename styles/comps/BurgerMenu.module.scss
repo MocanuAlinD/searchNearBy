@@ -2,7 +2,6 @@
 
 .sidebar {
   backdrop-filter: var(--blur);
-  // @include border(border-right);
   @include border(border-top, $color: var(--error));
   @include border(border-bottom, $color: var(--error));
   position: absolute;
@@ -10,6 +9,5 @@
   left: 0;
   transition: var(--transition);
   z-index: 9999;
-  // min-height: 100dvh;
   flex-wrap: wrap;
 }
