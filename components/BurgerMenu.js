@@ -12,7 +12,7 @@ const BurgerMenu = () => {
   return (
     <Wrapper
       p="1rem 0"
-      gap="1rem"
+      gap="0.5rem"
       ai="center"
       w="100%"
       br="0"
@@ -23,6 +23,8 @@ const BurgerMenu = () => {
             ? "100% 100%, 0 100%"
             : "100% 0, 0 0"
         })`,
+        // display: `${useSelector(state => state.search.showMenu) ? "flex" : "none" }`
+        // height: `${useSelector(state => state.search.showMenu) ? "fit-content" : "0rem" }`
       }}
     >
       <CustomLink link="/" text="Home" />
@@ -37,7 +39,11 @@ const BurgerMenu = () => {
       <CustomLink link="/landingPage" text="Landing Page" />
       <CustomLink link="/cerere_oferte" text="Depune oferta" />
       <CustomLink link="/cereriCurente" text="Vezi cereri active" />
-      <Button reset w="15rem" onClick={() => dispatch(setShowMenu(false))}>
+      <Button
+        reset
+        w="min(95%, 15rem)"
+        onClick={() => dispatch(setShowMenu(false))}
+      >
         Inchide
       </Button>
     </Wrapper>
