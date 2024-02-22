@@ -5,10 +5,7 @@
   @include display();
   height: fit-content;
   top: 0.5rem;
-  border-radius: 0 var(--border-radius) var(--border-radius) 0;
-  @include border(border-right);
-  @include border(border-top);
-  @include border(border-bottom);
+  @include border(border);
   background-color: var(--glass);
   backdrop-filter: var(--blur);
   border-radius: var(--border-radius);
