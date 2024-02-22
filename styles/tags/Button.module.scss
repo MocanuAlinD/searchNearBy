@@ -1,7 +1,7 @@
 .button {
   border-radius: var(--border-radius);
   color: var(--color-light);
-  font-size: clamp(0.8rem, 1.6vw, 1rem);
+  font-size: clamp(0.8rem, 1.3vw, 1rem);
   font-weight: 200;
   margin-top: 0.5rem;
   padding: 0.2rem 0;
@@ -11,6 +11,7 @@
   align-items: center;
   outline: none;
   padding: 0.35rem 1rem;
+  // background: transparent;
   &:hover {
     background: url("../../public/gradient.svg");
   }

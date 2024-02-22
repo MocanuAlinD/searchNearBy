@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../../styles/tags/Button.module.scss";
 
-export const Button = ({ children, icon, onClick, w, color, reset, noBg }) => {
+export const Button = ({ children, icon, onClick, w, reset }) => {
   return (
     <button
       className={styles.button}

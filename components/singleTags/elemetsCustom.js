@@ -54,7 +54,7 @@ export const SmallContainer = styled.div`
 export const Wrapper = styled.div`
   background: ${({ bg }) => bg && "var(--glass)"};
   backdrop-filter: ${({ bg }) => bg && "var(--blur)"};
-  border-radius: ${({br}) => br ? br : "var(--border-radius)"};
+  border-radius: ${({ br }) => (br ? br : "var(--border-radius)")};
   display: flex;
   color: var(--color-1-dark);
   justify-content: ${({ jc }) => jc && jc};
@@ -81,7 +81,7 @@ export const SelectCustom = styled.select`
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
   color: var(--color-light);
-  font-size: ${({ fs }) => (fs ? fs : "var(--font-size1)")};
+  font-size: ${({ fs }) => (fs ? fs : "var(--font-size08)")};
   font-weight: 200;
   padding: 0.3rem;
   transition: var(--transition);
@@ -273,7 +273,7 @@ export const InputContainer = styled.div`
     color: ${({ labelColor }) =>
       labelColor ? labelColor : "var(--color-placeholder)"};
     transition: var(--transition);
-    font-size: ${({ fs }) => (fs ? fs : "1rem")};
+    font-size: ${({ fs }) => (fs ? fs : "var(--font-size08)")};
     display: flex;
     align-items: center;
     cursor: text;
