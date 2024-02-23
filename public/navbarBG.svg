@@ -4,12 +4,14 @@
   xmlns:svgjs="http://svgjs.dev/svgjs" preserveAspectRatio="none">
   <defs>
     <linearGradient id="myGradient" gradientTransform="rotate(0)">
-      <stop offset="0%" stop-color="#212529" />
-      <stop offset="100%" stop-color="#343a40" />
+      <!-- <stop offset="0%" stop-color="#212529" /> -->
+      <!-- <stop offset="100%" stop-color="#343a40" /> -->
+      <stop offset="0%" stop-color="#111" />
+      <stop offset="100%" stop-color="#333" />
     </linearGradient>
     <animateTransform xlink:href="#myGradient" attributeName="gradientTransform" type="rotate" dur="10s" values="0;360" keytimes="0;1" repeatCount="indefinite" />
   </defs>
 
-  <path id="path" d="M0 0 v100 h100 v-100" fill="url('#myGradient')"></path>
+  <path id="path" d="M0 0 v100 h100 v-100" fill="url('#myGradient')" />
 
 </svg>
