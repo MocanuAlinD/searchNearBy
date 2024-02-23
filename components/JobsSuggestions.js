@@ -1,6 +1,6 @@
 import React from "react";
 
-const InputSuggestions = () => {
+const JobSuggestions = () => {
   return (
     <>
       <option value="absolventi învatamânt preuniversitar fara atestat profesional"></option>
@@ -3152,4 +3152,4 @@ const InputSuggestions = () => {
   );
 };
 
-export default InputSuggestions;
+export default JobSuggestions;

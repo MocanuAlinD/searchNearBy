@@ -6,7 +6,7 @@ import { LabelCustom, SmallContainer } from "./singleTags/elemetsCustom";
 const NotSignedIn = () => {
   const { push } = useRouter();
   return (
-    <SmallContainer bg>
+    <SmallContainer bg border>
       <LabelCustom className="w-100 text-center">
         Te rugam sa te autentifici pentru a inscrie un serviciu
       </LabelCustom>

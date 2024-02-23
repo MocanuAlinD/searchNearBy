@@ -12,7 +12,7 @@ import { Checkbox } from "@mui/material";
 import { BiReset } from "react-icons/bi";
 import { judete } from "../lib/judete";
 import { alin } from "../lib";
-import InputSuggestions from "./InputSuggestions";
+import JobSuggestions from "./JobsSuggestions";
 import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -258,7 +258,7 @@ const FormRegister = () => {
           />
           <span>Tipul de serviciu este necesar</span>
           <datalist id="inputList">
-            <InputSuggestions />
+            <JobSuggestions />
           </datalist>
         </Wrapper>
 

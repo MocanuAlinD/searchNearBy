@@ -1,5 +1,6 @@
 import React from "react";
 import { Container } from "../components/singleTags/elemetsCustom";
+import NoData from "../components/NoData";
 
 export const getStaticProps = async () => {
   try {
@@ -19,7 +20,7 @@ export const getStaticProps = async () => {
 
 const CereriCurente = ({ data }) => {
   if (data.length <= 0 || !data) {
-    return <Container>Nu exista cereri momentan</Container>;
+    return <NoData>Nu exista cereri momentan</NoData>;
   }
   return (
     <Container className="gap-2">
@@ -32,7 +33,7 @@ const CereriCurente = ({ data }) => {
             key={item.cerereId}
             className="border border-danger d-flex flex-column align-items-center justify-content-center w-100"
           >
-            <h6>{data.length - index}</h6>
+            <h6>{index + 1}</h6>
             <h6>{item.caut}</h6>
             <h6>{item.cerereId}</h6>
             <h6>{item.char}</h6>

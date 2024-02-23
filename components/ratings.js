@@ -3,9 +3,13 @@ import { FaStar } from "react-icons/fa";
 import RatingMedia from "../components/ratingMedia.js";
 import Stars from "../components/Stars.js";
 import { ButtonWithIcon } from "../components/tags/ButtonWithIcon";
+import { getAuth } from "firebase/auth";
 import styles from "../styles/comps/ratings.module.scss";
 
+// servicii/Judet/userId (media rating, stars with no of recenzii. Bottom reviews)
+
 const Ratings = ({ userReviews }) => {
+  const auth = getAuth();
   const eachStar = {
     1: 0,
     2: 0,
@@ -83,11 +87,17 @@ const Ratings = ({ userReviews }) => {
       </div>
 
       <div className="justify-content-end mb-3 align-self-end">
-        <ButtonWithIcon w="fit-content" p=".3rem 1rem" m=".8rem">
-          {userReviews.length > 0
-            ? "Lasa un review"
-            : "Fii primul care lasa un review"}
-        </ButtonWithIcon>
+        {!auth.currentUser ? (
+          <ButtonWithIcon w="fit-content" p=".3rem 1rem" m=".8rem">
+            Trebuie sa fii logat sa lasi un review
+          </ButtonWithIcon>
+        ) : (
+          <ButtonWithIcon w="fit-content" p=".3rem 1rem" m=".8rem">
+            {userReviews.length > 0
+              ? "Lasa un review"
+              : "Fii primul care lasa un review"}
+          </ButtonWithIcon>
+        )}
       </div>
       <div className={styles.bottomContainer}>
         {userReviews &&
