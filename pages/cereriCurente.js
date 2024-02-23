@@ -33,16 +33,16 @@ const CereriCurente = ({ data }) => {
             key={item.cerereId}
             className="border border-danger d-flex flex-column align-items-center justify-content-center w-100"
           >
-            <h6>{index + 1}</h6>
-            <h6>{item.caut}</h6>
-            <h6>{item.cerereId}</h6>
-            <h6>{item.char}</h6>
-            <h6>{item.contact}</h6>
-            <h6>{item.currentDate}</h6>
-            <h6>{item.currentTime}</h6>
-            <h6>{item.dataLimita}</h6>
-            <h6>{item.numePrenume}</h6>
-            <h6>{item.sumaAlocata}</h6>
+            <h6>Index: {index + 1}</h6>
+            <h6>Caut: {item.caut}</h6>
+            <h6>Cerere id: {item.cerereId}</h6>
+            <h6>Char: {item.char}</h6>
+            <h6>Contact: {item.contact}</h6>
+            <h6>Current date: {item.currentDate}</h6>
+            <h6>Current time: {item.currentTime}</h6>
+            <h6>Data limita: {item.dataLimita}</h6>
+            <h6>Nume prenume: {item.numePrenume}</h6>
+            <h6>Suma alocata: {item.sumaAlocata}</h6>
           </div>
         );
       })}

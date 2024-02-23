@@ -18,7 +18,7 @@ export default function Inscriere() {
         <FormRegister />
       ) : uid && hasService ? (
         <SmallContainer bg border>
-          <H4Custom>Ai deja serviciu inregistrat.</H4Custom>
+          <H4Custom m="0">Ai deja serviciu inregistrat.</H4Custom>
         </SmallContainer>
       ) : (
         <NotSignedIn />

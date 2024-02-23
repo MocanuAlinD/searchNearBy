@@ -27,8 +27,8 @@ export const ButtonRotateCard = styled.button`
   font-size: ${({ fs }) => (fs ? fs : "clamp(.7rem, 1.6vw, 1rem)")};
   font-weight: ${({ fw }) => (fw ? fw : "400")};
   overflow: hidden;
-  padding: 0.5rem 0rem;
+  padding: ${({ p }) => (p ? p : "0.5rem 0rem")};
   transition: var(--transition);
-  width: 100%;
+  width: ${({ w }) => (w ? w : "100%")};
   transition-delay: .17s;
 `;

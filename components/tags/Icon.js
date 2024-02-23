@@ -87,7 +87,6 @@ export const IconDelete = ({ size, color, sw }) => {
 };
 
 export const IconPercent = ({ w, color, sw, speed, nobg, percent }) => {
-  // TODO condition to percent if > 100 to be = to 100
 
   const fill = color ? color : "var(--color-green)";
   const strokeW = sw ? sw : 6;
@@ -351,8 +350,8 @@ export const IconDays = ({ w, zi_start, zi_end }) => {
 };
 
 export const IconOrar = ({ w, inceput, sfarsit }) => {
-  const a = +inceput.split(":").join("");
-  const b = +sfarsit.split(":").join("");
+  const a = inceput ? +inceput.split(":").join("") : 800;
+  const b = sfarsit ? +sfarsit.split(":").join("") : 1600;
   const start = +((a * 212) / 2400).toFixed(2);
   const end = +((b * 212) / 2400).toFixed(2);
   const size = w ? w : "10rem";
@@ -404,7 +403,7 @@ export const IconOrar = ({ w, inceput, sfarsit }) => {
         textAnchor="middle"
         className={styles.entireTime}
       >
-        {inceput} - {sfarsit}
+        {inceput ? inceput : "08:00"} - {sfarsit ? sfarsit : "16:00"}
       </text>
 
       <g transform="scale(0.94) translate(3 3)">

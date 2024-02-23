@@ -75,7 +75,7 @@ const Donatii = () => {
         </ParaCustom>
         <hr className={styles.separator} />
         <div className={styles.cont}>
-          <H4Custom p="0 1rem 0 0" m="0" fs="1rem" fw="200">
+          <H4Custom p="0 1rem 0 0" m="0" fs="1rem" fw="200" ws="nowrap">
             Cont ING:
           </H4Custom>
           <ParaCustom>
@@ -87,7 +87,7 @@ const Donatii = () => {
           </ParaCustom>
         </div>
         <div className={styles.cont}>
-          <H4Custom p="0 1rem 0 0" m="0" fs="1rem" fw="200">
+          <H4Custom p="0 1rem 0 0" m="0" fs="1rem" fw="200" ws="nowrap">
             Cont BT:{" "}
           </H4Custom>
           <ParaCustom>

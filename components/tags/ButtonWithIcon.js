@@ -40,10 +40,6 @@ export const ButtonWithIcon = styled.button`
   justify-content: ${({ jc }) => (jc ? jc : "center")};
   align-items: ${({ ai }) => (ai ? ai : "center")};
   gap: ${({ gap }) => (gap ? gap : ".5rem")};
-  /* &:active{
-    box-shadow: inset 0px 0px 2px 2px var(--glass);
-    color: var(--color-2-light);
-  } */
   &:hover{
     color: ${({reset, color}) => reset ? "var(--color-1-dark)" : color ? color : "var(--color-light)"};
     background-color: ${({ reset }) =>
