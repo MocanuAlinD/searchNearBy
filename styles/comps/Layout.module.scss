@@ -5,14 +5,15 @@
   width: min(100%, 125rem);
   margin-inline: auto;
   background-color: #080808;
-  background: url("../../public/backgrounds/cheese.svg");
+  // background: url("../../public/backgrounds/cheese.svg");
   // background: url("../../public/backgrounds/ro01.svg");
   // background: url("../../public/backgrounds/ptrn01.svg");
   // background: url("../../public/backgrounds/const.svg");
+  background: url("../../public/backgrounds/stripes.svg");
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
   // background-position: center center, 50% 50%;
-  background-position: center center;
+  // background-position: center center;
   position: relative;
 }
