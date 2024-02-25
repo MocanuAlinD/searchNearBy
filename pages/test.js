@@ -11,37 +11,35 @@ import {
   IconPercent,
   IconTest,
 } from "../components/tags/Icon";
+import { Container } from "../components/singleTags/elemetsCustom";
 import styles from "../styles/pages/test.module.scss";
 
 const Test = () => {
-  return (
-    <div className={styles.main}>
-      <Button w="fit-content">Aln</Button>
-      <ButtonRotateCard
-        bg="var(--color-1-dark)"
-        w="fit-content"
-        p="0.5rem 1rem"
-        br="var(--border-radius)"
-      >
-        Alin
-      </ButtonRotateCard>
-      <ButtonWithIcon w="fit-content">with icon</ButtonWithIcon>
-      <br />
-      <IconSearch />
-      <br />
-      <IconDays />
-      <br />
-      <IconDelete />
-      <br />
-      <IconMinMax />
-      <br />
-      <IconOrar />
-      <br />
-      <IconPercent />
-      <br />
-      <IconTest />
-    </div>
-  );
+  return <Container></Container>;
 };
 
 export default Test;
+// <Button w="fit-content">Aln</Button>
+//       <ButtonRotateCard
+//         bg="var(--color-1-dark)"
+//         w="fit-content"
+//         p="0.5rem 1rem"
+//         br="var(--border-radius)"
+//       >
+//         Alin
+//       </ButtonRotateCard>
+//       <ButtonWithIcon w="fit-content">with icon</ButtonWithIcon>
+//       <br />
+//       <IconSearch />
+//       <br />
+//       <IconDays />
+//       <br />
+//       <IconDelete />
+//       <br />
+//       <IconMinMax />
+//       <br />
+//       <IconOrar />
+//       <br />
+//       <IconPercent />
+//       <br />
+//       <IconTest />

@@ -1,0 +1,24 @@
+﻿<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='0 0 100 100' preserveAspectRatio="none">
+
+    <defs>
+        <linearGradient id='grad1' gradientTransform='rotate(90)'>
+            <stop offset='0%' stop-color='#219ebc11' />
+            <stop offset='100%' stop-color='#fb850011' />
+        </linearGradient>
+    </defs>
+
+    <g>
+        <line x1='0' y1='10' x2='30' y2='15' stroke='#20202011' stroke-linecap="round" />
+        <line x1='0' y1='20' x2='40' y2='30' stroke='#20202022' stroke-linecap="round" />
+        <line x1='0' y1='30' x2='50' y2='45' stroke='#20202033' stroke-linecap="round" />
+        <line x1='0' y1='40' x2='60' y2='60' stroke='#20202044' stroke-linecap="round" />
+        <line x1='0' y1='50' x2='70' y2='75' stroke='#20202055' stroke-linecap="round" />
+        <line x1='0' y1='60' x2='80' y2='90' stroke='#20202066' stroke-linecap="round" />
+        <line x1='0' y1='100' x2='10' y2='70' stroke='#20202077' stroke-linecap="round" />
+        <line x1='0' y1='100' x2='30' y2='80' stroke='#20202088' stroke-linecap="round" />
+        <line x1='0' y1='100' x2='50' y2='90' stroke='#20202099' stroke-linecap="round" />
+    </g>
+    <rect x='0' y='0' width='100%' height='100%' fill='url(#grad1)' />
+    <style>
+    </style>
+</svg>
