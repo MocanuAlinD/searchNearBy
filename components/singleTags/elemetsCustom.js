@@ -32,6 +32,7 @@ export const Container = styled.div`
   flex-direction: ${({ fd }) => (fd ? fd : "column")};
   border: ${({ border }) => border && "1px solid red"};
   flex-grow: 1;
+  gap: ${({ gap }) => (gap ? gap : "0")};
 `;
 
 export const SmallContainer = styled.div`
@@ -56,9 +57,8 @@ export const Wrapper = styled.div`
   backdrop-filter: ${({ bg }) => bg && "var(--blur)"};
   border-radius: ${({ br }) => (br ? br : "var(--border-radius)")};
   display: flex;
-  color: var(--color-1-dark);
   justify-content: ${({ jc }) => jc && jc};
-  align-items: ${({ ai }) => ai && ai};
+  align-items: ${({ ai }) => (ai ? ai : "")};
   flex-direction: ${({ fd }) => (fd ? fd : "column")};
   margin: ${({ m }) => (m ? m : "0.25rem 0")};
   padding: ${({ p }) => (p ? p : "0")};
@@ -216,22 +216,20 @@ export const LabelSmallCustom = styled.label`
 
 export const H4Custom = styled.h4`
   color: ${({ color }) => (color ? color : "var(--color-light)")};
-  font-size: ${({ fs }) => (fs ? fs : "clamp(0.65rem, 1.25vw, 1.2rem)")};
-  font-weight: ${({ fw }) => (fw ? fw : "200")};
+  font-size: ${({ fs }) => (fs ? fs : "clamp(1rem, 1.25vw, 1.2rem)")};
+  font-weight: ${({ fw }) => (fw ? fw : "400")};
   background: ${({ bg }) => (bg ? bg : "")};
-  display: ${({ display }) => (display ? display : "flex")};
-  justify-content: ${({ jc }) => (jc ? js : "center")};
-  align-items: ${({ ai }) => (ai ? ai : "center")};
-  margin: ${({ m }) => (m ? m : "0 0 .5rem 0")};
+  margin: ${({ m }) => (m ? m : "0")};
   padding: ${({ p }) => (p ? p : "0")};
   width: ${({ w }) => (w ? w : "fit-content")};
   white-space: ${({ ws }) => (ws ? ws : "wrap")};
   text-align: ${({ ta }) => (ta ? ta : "center")};
+  border: ${({ border }) => border && "var(--color-border-card)"};
+  
 `;
 
 export const H6Custom = styled(H4Custom)`
-  font-size: ${({ fs }) => (fs ? fs : "1.25rem")};
-  /* font-size: ${({ fs }) => (fs ? fs : "clamp(0.65rem, 1.25vw, 1.2rem)")}; */
+  font-size: ${({ fs }) => (fs ? fs : "clamp(0.67rem, 1.1vw, 1rem)")};
   font-weight: ${({ fw }) => (fw ? fw : "400")};
   margin: ${({ m }) => (m ? m : "0")};
 `;
@@ -239,13 +237,14 @@ export const H6Custom = styled(H4Custom)`
 export const ParaCustom = styled.p`
 margin: ${({ m }) => (m ? m : "0")};
 padding: ${({ p }) => (p ? p : "0")};
-color: ${({ clr }) => (clr ? clr : "var(--color-light)")};
+color: ${({ color }) => (color ? color : "var(--color-light)")};
 font-weight: ${({ fw }) => (fw ? fw : "200")};
-font-size: ${({ fs }) => (fs ? fs : ".9rem")};
+font-size: ${({ fs }) => (fs ? fs : "clamp(0.8rem, 1.25vw, 1rem)")};
 width: ${({ w }) => (w ? w : "100%")};
 text-align: ${({ ta }) => (ta ? ta : "justify")};
 letter-spacing: 1px;
 line-height: var(--line-height);
+border: ${({ border }) => border && "var(--color-border-card)"} ;
 `;
 
 /* 

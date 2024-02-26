@@ -2,15 +2,18 @@ import React from "react";
 import {
   Container,
   SmallContainer,
+  H4Custom,
+  ParaCustom
 } from "../components/singleTags/elemetsCustom";
-import styles from "../styles/pages/landingPage.module.scss";
+import Divider from "../components/tags/Divider"
 
 const LandingPage = () => {
   return (
-    <Container className={styles.cardsContainer}>
-      <SmallContainer bg border className={styles.cardContainer}>
-        <p>CE ESTE aceasta platforma?</p>
-        <p>
+    <Container gap="1rem">
+      <SmallContainer bg border>
+        <H4Custom>CE ESTE aceasta platforma?</H4Custom>
+        <Divider m="1rem" />
+        <ParaCustom>
           &emsp;&quot;Toate pentru tine&quot; nu este doar o platformă, este
           complicele tău de încredere în călătoria de a transforma casa într-un
           refugiu perfect. Aici, punem la dispoziție o paletă largă de servicii
@@ -25,24 +28,26 @@ const LandingPage = () => {
           nevoie. Așadar, indiferent de necesitățile tale sau de momentul zilei,
           &quot;Toate pentru tine&quot; este răspunsul complet la toate
           cerințele tale de locuire și confort.
-        </p>
+        </ParaCustom>
       </SmallContainer>
 
-      <SmallContainer bg border className={styles.cardContainer}>
-        <p>PENTRU CINE este aceasta platforma?</p>
-        <p>
+      <SmallContainer bg border>
+        <H4Custom>PENTRU CINE este aceasta platforma?</H4Custom>
+        <Divider m="1rem" />
+        <ParaCustom>
           &emsp;&quot;Toate pentru tine&quot; este concepută cu o viziune largă,
           pentru a servi fiecărei persoane și entități care își dorește un
           partener de încredere în asigurarea confortului și eficienței.
           Indiferent dacă ești o persoană obișnuită în căutarea serviciilor
           esențiale pentru locuința ta sau reprezinți o companie de succes în
           căutarea soluțiilor optime, această platformă este făcută pentru tine.
-        </p>
+        </ParaCustom>
       </SmallContainer>
 
-      <SmallContainer bg border className={styles.cardContainer}>
-        <p>CUM folosesti aceasta platforma?</p>
-        <p>
+      <SmallContainer bg border>
+        <H4Custom>CUM folosesti aceasta platforma?</H4Custom>
+        <Divider m="1rem" />
+        <ParaCustom>
           &emsp;Căutarea serviciilor potrivite nu a fost niciodată atât de
           ușoară și intuitivă. Cu &quot;Toate pentru tine&quot;, totul este
           simplificat pentru a te ajuta să găsești exact ceea ce cauți, fără
@@ -54,12 +59,13 @@ const LandingPage = () => {
           eficient, oferindu-ți exact rezultatele de care ai nevoie. În doar
           câțiva pași, ai acces la o lume de oportunități și soluții adaptate
           nevoilor tale - atât de simplu și direct.
-        </p>
+        </ParaCustom>
       </SmallContainer>
 
-      <SmallContainer bg border className={styles.cardContainer}>
-        <p>CUM A LUAT NAȘTERE această platformă?</p>
-        <p>
+      <SmallContainer bg border>
+        <H4Custom>CUM A LUAT NAȘTERE această platformă?</H4Custom>
+        <Divider m="1rem" />
+        <ParaCustom>
           &emsp;În spatele fiecărei inovații se află adesea o poveste inspirată
           de nevoi reale și experiențe personale. Astfel, &quot;Toate pentru
           tine&quot; nu este doar rezultatul unei viziuni, ci și al unei nevoi
@@ -79,12 +85,13 @@ const LandingPage = () => {
           moment și situație. Astfel, fiecare aspect al platformei noastre
           reflectă pasiunea și angajamentul nostru de a satisface nevoile și a
           oferi soluții reale pentru comunitatea noastră.
-        </p>
+        </ParaCustom>
       </SmallContainer>
 
-      <SmallContainer bg border className={styles.cardContainer}>
-        <p>DE CE sa folosesti aceasta platforma?</p>
-        <p>
+      <SmallContainer bg border>
+        <H4Custom>DE CE sa folosesti aceasta platforma?</H4Custom>
+        <Divider m="1rem" />
+        <ParaCustom>
           &emsp;Alegerea corectă într-o lume plină de opțiuni poate fi adesea
           copleșitoare, dar &quot;Toate pentru tine&quot; își propune să îți
           facă viața mai ușoară, simplă și eficientă. Crezând cu tărie în
@@ -102,12 +109,13 @@ const LandingPage = () => {
           simplu și eficient, ci și pentru că devii parte a unei misiuni mai
           mari: de a construi și susține o comunitate în care fiecare contează
           și contribuie la succesul colectiv.
-        </p>
+        </ParaCustom>
       </SmallContainer>
 
-      <SmallContainer bg border className={styles.cardContainer}>
-        <p>CUM poti fi alaturi de noi?</p>
-        <p>
+      <SmallContainer bg border m="0 0 2rem 0">
+        <H4Custom>CUM poti fi alaturi de noi?</H4Custom>
+        <Divider m="1rem" />
+        <ParaCustom>
           &emsp;Fără tine, &quot;Toate pentru tine&quot; ar fi doar o idee. Fie
           că utilizezi platforma pentru a găsi serviciile de care ai nevoie, fie
           că vrei să oferi un serviciu, tu ești inima acestei comunități. Știm
@@ -122,7 +130,7 @@ const LandingPage = () => {
           pe care o servim. În concluzie, alăturându-te nouă, fie prin
           utilizare, feedback sau donații, contribui la crearea unei platforme
           mai bune și mai utile pentru toți. Mulțumim că ești alături de noi!
-        </p>
+        </ParaCustom>
       </SmallContainer>
     </Container>
   );

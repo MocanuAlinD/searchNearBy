@@ -14,9 +14,9 @@
         <line x1='0' y1='40' x2='60' y2='60' stroke='#20202044' stroke-linecap="round" />
         <line x1='0' y1='50' x2='70' y2='75' stroke='#20202055' stroke-linecap="round" />
         <line x1='0' y1='60' x2='80' y2='90' stroke='#20202066' stroke-linecap="round" />
-        <line x1='0' y1='100' x2='10' y2='70' stroke='#20202077' stroke-linecap="round" />
-        <line x1='0' y1='100' x2='30' y2='80' stroke='#20202088' stroke-linecap="round" />
-        <line x1='0' y1='100' x2='50' y2='90' stroke='#20202099' stroke-linecap="round" />
+        <line x1='0' y1='100' x2='10' y2='70' stroke='#20202022' stroke-linecap="round" />
+        <line x1='0' y1='100' x2='30' y2='80' stroke='#20202055' stroke-linecap="round" />
+        <line x1='0' y1='100' x2='50' y2='90' stroke='#20202088' stroke-linecap="round" />
     </g>
     <rect x='0' y='0' width='100%' height='100%' fill='url(#grad1)' />
     <style>
