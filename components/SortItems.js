@@ -47,7 +47,7 @@ const SortItems = ({ handleToate, listLen }) => {
       </div>
       <div className={styles.desktop}>
         <div className={styles.smallContainer}>
-          <H4Custom m="0" fw="400">
+          <H4Custom fw="400">
             {listLen >= 0 && listLen === 0
               ? "-"
               : listLen === 1
@@ -64,7 +64,7 @@ const SortItems = ({ handleToate, listLen }) => {
           />
         </div>
         <div className={styles.smallContainer}>
-          <H4Custom m="0">Ordoneaza</H4Custom>
+          <H4Custom>Ordoneaza</H4Custom>
 
           <OnOff
             id="tarifAsc"
@@ -105,7 +105,7 @@ const SortItems = ({ handleToate, listLen }) => {
         </div>
 
         <div className={styles.smallContainer}>
-          <H4Custom m="0">Filtrează</H4Custom>
+          <H4Custom>Filtrează</H4Custom>
 
           <OnOff
             id="program"

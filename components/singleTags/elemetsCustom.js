@@ -229,6 +229,7 @@ export const H4Custom = styled.h4`
   white-space: ${({ ws }) => (ws ? ws : "wrap")};
   text-align: ${({ ta }) => (ta ? ta : "center")};
   border: ${({ border }) => border && "var(--color-border-card)"};
+  user-select: none;
   
 `;
 
