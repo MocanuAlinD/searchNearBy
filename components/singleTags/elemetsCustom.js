@@ -38,7 +38,6 @@ export const Container = styled.div`
 export const SmallContainer = styled.div`
   background: ${({ bg }) => (bg ? "var(--glass)" : "")};
   backdrop-filter: ${({ bg }) => bg && "var(--blur)"};
-  --webkit-backdrop-filter:${({ bg }) => bg && "var(--blur)"} ;
   border: ${({ border }) => (border ? "var(--color-border-card)" : "none")};
   margin: ${({ m }) => (m ? m : "auto")};
   padding: ${({ p }) => (p ? p : "var(--padding)")};
@@ -286,7 +285,7 @@ export const InputContainer = styled.div`
     /* background-color: ${({ inputbg }) =>
       inputbg ? inputbg : "var(--bg-input)"}; */
     background-color: ${({ inputbg }) => (inputbg ? inputbg : "transparent")};
-    border: none;
+    /* border: none; */
     /* border-bottom: ${({ inputbb }) =>
       inputbb ? inputbb : "2px solid var(--color-1-dark)"}; */
     border: ${({ inputbb }) =>

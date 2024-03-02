@@ -11,8 +11,11 @@
   align-items: center;
   outline: none;
   padding: 0.35rem 1rem;
+  background-color: var(--reset-bg);
   &:hover {
-    background: url("../../public/gradient.svg");
+    // background: url("../../public/gradient.svg");
+    background-color: var(--hover-bg);
+    color: var(--color-hover);
   }
   span {
     flex-grow: 1;

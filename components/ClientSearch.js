@@ -96,11 +96,10 @@ const ClientSearch = ({ searchJudet, searchJudetOras }) => {
               disabled={!cautare}
               onClick={() => dispatch(setCautare(""))}
               variant="contained"
-              className={`${
-                cautare
-                  ? " text-warning ms-1 py-2 align-self-end"
-                  : " text-black-50 ms-1 py-2 align-self-end"
-              }`}
+              className="ms-1 py-2 align-self-end"
+              style={{
+                color: `${cautare ? "var(--error)" : "var(--color-2-light)"}`,
+              }}
             >
               <MdClear fontSize="1.3rem" />
             </IconButton>
