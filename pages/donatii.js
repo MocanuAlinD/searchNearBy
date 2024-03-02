@@ -21,19 +21,16 @@ const Donatii = () => {
   return (
     <Container className={styles.donatii}>
       <SmallContainer bg border>
-        <H4Custom p="1rem 0" m="0 auto">
-          Dragi prieteni,
-        </H4Custom>
+        <H4Custom p="1rem 0">Dragi prieteni,</H4Custom>
         <ParaCustom className={styles.para}>
           Vrem să vă spunem cât suntem de recunoscători pentru faptul că sunteți
           parte din această experiență minunată pe platforma noastră. Suntem
           mândri să oferim servicii&emsp;
-          <span className={styles.gratuit}>gratuite</span>&emsp;atât pentru cei
-          care oferă servicii, cât și pentru cei care le utilizează, dar asta
-          vine cu cheltuieli pentru a menține platforma în funcțiune și în
-          dezvoltare continuă.
+          <span className={styles.gratuit}>gratuite</span>&emsp;pentru toți cei
+          ce utilizează platforma, dar asta vine cu cheltuieli pentru a menține
+          platforma în funcțiune și în dezvoltare continuă.
         </ParaCustom>
-        <ParaCustom className={styles.para}>
+        <ParaCustom className={styles.para} m="0 0 0.5rem 0">
           Am decis să nu percepem taxe pentru a facilita accesul la serviciile
           noastre, pentru a sprijini micile afaceri și antreprenorii. Cu toate
           acestea, pentru a asigura o experiență de calitate, avem nevoie de

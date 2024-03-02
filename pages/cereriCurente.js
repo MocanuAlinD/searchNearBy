@@ -36,9 +36,7 @@ const CereriCurente = ({ data }) => {
         return (
           <SmallContainer bg border key={item.cerereId} m=".5rem 0">
             <Wrapper fd="row" ai="flex-start">
-              <H4Custom w="35%" ta="start">
-                {index + 1}
-              </H4Custom>
+              <ParaCustom>{index + 1}</ParaCustom>
             </Wrapper>
             <Wrapper fd="row" ai="flex-start">
               <H4Custom w="35%" ta="start">

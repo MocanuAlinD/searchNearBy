@@ -3,9 +3,9 @@ import {
   Container,
   SmallContainer,
   H4Custom,
-  ParaCustom
+  ParaCustom,
 } from "../components/singleTags/elemetsCustom";
-import Divider from "../components/tags/Divider"
+import Divider from "../components/tags/Divider";
 
 const LandingPage = () => {
   return (
@@ -20,8 +20,8 @@ const LandingPage = () => {
           esențiale pentru tine și locuința ta, fie că este vorba de instalatori
           sanitari, electricieni talentați, zugravi meticuloși sau specialiști
           în redecorarea și repararea casei tale. Dar nu ne oprim aici! Ne
-          preocupă și detaliile care fac diferența: aici poți afla cine oferă
-          servicii pe timp de noapte, lucrează peste program și sunt mereu
+          preocupă și detaliile care fac diferența: aici poți afla cine este
+          disponibil pe timp de noapte, lucrează peste program și sunt mereu
           disponibili pentru tine. Cu ajutorul platformei noastre intuitive,
           poți verifica cu ușurință disponibilitatea, locația și orarul fiecărui
           specialist, asigurându-te că vei primi ajutorul necesar exact când ai
