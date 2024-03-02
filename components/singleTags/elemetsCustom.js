@@ -38,6 +38,7 @@ export const Container = styled.div`
 export const SmallContainer = styled.div`
   background: ${({ bg }) => (bg ? "var(--glass)" : "")};
   backdrop-filter: ${({ bg }) => bg && "var(--blur)"};
+  --webkit-backdrop-filter:${({ bg }) => bg && "var(--blur)"} ;
   border: ${({ border }) => (border ? "var(--color-border-card)" : "none")};
   margin: ${({ m }) => (m ? m : "auto")};
   padding: ${({ p }) => (p ? p : "var(--padding)")};
@@ -76,8 +77,11 @@ export const Wrapper = styled.div`
 export const SelectCustom = styled.select`
   outline: none;
   border: none;
-  background: ${({ bg }) => (bg ? bg : "var(--bg-input)")};
-  border-bottom: ${({ bb }) => (bb ? bb : "2px solid var(--color-1-dark)")};
+  /* background: ${({ bg }) => (bg ? bg : "var(--bg-input)")}; */
+  background: ${({ bg }) => (bg ? bg : "transparent")};
+  /* border-bottom: ${({ bb }) =>
+    bb ? bb : "2px solid var(--color-1-dark)"}; */
+  border: ${({ border }) => (border ? border : "var(--color-border-card)")};
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
   color: var(--color-light);
@@ -279,12 +283,15 @@ export const InputContainer = styled.div`
     height: 100%;
   }
   input {
-    background-color: ${({ inputbg }) =>
-      inputbg ? inputbg : "var(--bg-input)"};
+    /* background-color: ${({ inputbg }) =>
+      inputbg ? inputbg : "var(--bg-input)"}; */
+    background-color: ${({ inputbg }) => (inputbg ? inputbg : "transparent")};
     border: none;
-    border-bottom: ${({ inputbb }) =>
-      inputbb ? inputbb : "2px solid var(--color-1-dark)"};
-    border-radius: 0.2rem 0.2rem 0 0;
+    /* border-bottom: ${({ inputbb }) =>
+      inputbb ? inputbb : "2px solid var(--color-1-dark)"}; */
+    border: ${({ inputbb }) =>
+      inputbb ? inputbb : "var(--color-border-card)"};
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
     color: ${({ inputColor }) =>
       inputColor ? inputColor : "var(--color-1-dark)"};
     font-weight: 200;
