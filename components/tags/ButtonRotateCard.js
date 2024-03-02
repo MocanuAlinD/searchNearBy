@@ -31,4 +31,6 @@ export const ButtonRotateCard = styled.button`
   transition: var(--transition);
   width: ${({ w }) => (w ? w : "100%")};
   transition-delay: .17s;
+  border: var(--color-border-card);
+  border-bottom: none;
 `;

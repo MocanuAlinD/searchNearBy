@@ -32,9 +32,11 @@
         width: 100%;
         height: 100%;
         @include display();
+        border: var(--color-border-card);
+        border-top: none;
 
         .wrapper {
-          width: min(97%, 20rem);
+          width: var(--wrapper-width);
 
           h5 {
             font-size: 0.6rem;
