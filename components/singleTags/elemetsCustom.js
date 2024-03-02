@@ -108,17 +108,19 @@ export const LabelCustom = styled.label`
 `;
 
 export const InputCustom = styled.input`
-  background-color: var(--bg-input);
+  /* background-color: var(--bg-input); */
+  background-color: transparent;
   border: none;
-  border-bottom: 2px solid var(--color-1-dark);
+  /* border-bottom: 2px solid var(--color-1-dark); */
+  border: var(--color-border-card);
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
   color: var(--color-light);
   flex-grow: ${({ fg }) => (fg ? fg : 1)};
-  font-size: var(--font-size1);
+  font-size: var(--fs-input);
   font-weight: 200;
   margin: ${({ m }) => (m ? m : "0")};
-  margin-bottom: ${({ mb }) => (mb ? mb : "0")};
+  margin-bottom: ${({ mb }) => (mb ? mb : "0.25rem")};
   margin-top: ${({ mt }) => (mt ? mt : "0")};
   outline: none;
   padding: ${({ p }) => (p ? p : ".1rem .25rem")};
@@ -164,13 +166,12 @@ export const InputCustom = styled.input`
 `;
 
 export const TextAreaCustom = styled.textarea`
-  background-color: var(--bg-input);
-  border: none;
-  border-bottom:2px solid var(--color-1-dark);
+  background-color: transparent;
+  border: var(--color-border-card);
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
   text-indent: 0.3rem;
-  font-size: var(--font-size1);
+  font-size: var(--fs-input);
   font-weight: 200;
   color: var(--color-light);
   resize: none;
@@ -219,7 +220,7 @@ export const LabelSmallCustom = styled.label`
 
 export const H4Custom = styled.h4`
   color: ${({ color }) => (color ? color : "var(--color-light)")};
-  font-size: ${({ fs }) => (fs ? fs : "clamp(1rem, 1.25vw, 1.2rem)")};
+  font-size: ${({ fs }) => (fs ? fs : "clamp(0.8rem, 1.25vw, 1rem)")};
   font-weight: ${({ fw }) => (fw ? fw : "400")};
   background: ${({ bg }) => (bg ? bg : "")};
   margin: ${({ m }) => (m ? m : "0")};
@@ -242,7 +243,7 @@ margin: ${({ m }) => (m ? m : "0")};
 padding: ${({ p }) => (p ? p : "0")};
 color: ${({ color }) => (color ? color : "var(--color-light)")};
 font-weight: ${({ fw }) => (fw ? fw : "200")};
-font-size: ${({ fs }) => (fs ? fs : "clamp(0.8rem, 1.25vw, 1rem)")};
+font-size: ${({ fs }) => (fs ? fs : "clamp(0.67rem, 1.25vw, 1rem)")};
 width: ${({ w }) => (w ? w : "100%")};
 text-align: ${({ ta }) => (ta ? ta : "justify")};
 letter-spacing: 1px;

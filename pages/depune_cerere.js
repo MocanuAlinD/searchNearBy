@@ -21,7 +21,7 @@ import {
 import { useRouter } from "next/router";
 import toast from "react-hot-toast";
 
-const Caut = () => {
+const DepuneCerere = () => {
   const { push } = useRouter();
   const dispatch = useDispatch();
   const caut = useSelector((state) => state.cerereOferta.caut);
@@ -61,9 +61,9 @@ const Caut = () => {
 
   return (
     <Container>
-      <SmallContainer bg border>
+      <SmallContainer bg border className="my-sm-auto my-2">
         <form onSubmit={allData} className="w-100">
-          <ParaCustom fw="400" p="0 1rem">
+          <ParaCustom fw="400" p="0 1rem" fs="1rem">
             Cererea va fi stearsa automat cand se atinge data limita.
           </ParaCustom>
           <Wrapper>
@@ -161,4 +161,4 @@ const Caut = () => {
   );
 };
 
-export default Caut;
+export default DepuneCerere;

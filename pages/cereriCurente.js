@@ -34,7 +34,7 @@ const CereriCurente = ({ data }) => {
     <Container>
       {data.map((item, index) => {
         return (
-          <SmallContainer bg border key={item.cerereId} m=".5rem 0">
+          <SmallContainer bg border key={item.cerereId} m=".25rem 0">
             <Wrapper fd="row" ai="flex-start">
               <ParaCustom>{index + 1}</ParaCustom>
             </Wrapper>

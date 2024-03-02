@@ -35,7 +35,7 @@ const BurgerMenu = () => {
       <CustomLink link="/inscriere" text="Inregistrare gratuita" />
       <CustomLink link="/donatii" text="Doneaza pentru dezvoltare" />
       <CustomLink link="/landingPage" text="Landing Page" />
-      <CustomLink link="/cerere_oferte" text="Depune oferta" />
+      <CustomLink link="/depune_cerere" text="Depune oferta" />
       <CustomLink link="/cereriCurente" text="Vezi cereri active" />
       <Button
         reset
