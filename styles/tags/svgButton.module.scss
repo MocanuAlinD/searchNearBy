@@ -1,6 +1,5 @@
 .button {
-  width: fit-content;
-  min-width: 10rem;
+  width: min(100%, 15rem);
   padding: 0.35rem 0.5rem;
   border-radius: 50%;
   color: transparent;
