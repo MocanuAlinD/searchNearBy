@@ -1,7 +1,12 @@
 :root {
-  --font-size05: clamp(0.6rem, 2vw, 1rem);
-  --font-size06: 0.6rem;
-  --font-size08: 0.8rem;
-  --font-size1: 1rem;
-  --font-size125: 1.25rem;
+  --line-height: 1.5;
+  --fs067: clamp(0.67rem, 1.1vw, 1rem);
+  --fs08: clamp(0.8rem, 1.1vw, 1.05rem);
+  --fs1: clamp(1rem, 1.1vw, 1.25rem);
+  --fs117: clamp(1.17rem, 1.1vw, 1.42rem);
+  --fs15: clamp(1.5rem, 1.1vw, 1.75rem);
+  --fw200: 200;
+  --fw400: 400;
+  --fw600: 600;
+  --fw800: 800;
 }

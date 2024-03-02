@@ -3,8 +3,8 @@
   border-radius: var(--border-radius);
   border: "none";
   color: "var(--color-2-light)";
-  font-size: clamp(0.8rem, 1.6vw, 1rem);
-  font-weight: 400;
+  font-size: var(--fs08);
+  font-weight: var(--fw400);
   margin: 0.5rem 0;
   overflow: hidden;
   padding: 0.5rem 0;

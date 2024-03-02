@@ -12,7 +12,7 @@
         display: flex;
         justify-content: center;
         flex-direction: column;
-        font-size: clamp(.8rem, 2vw, 1rem);
+        font-size: var(--fs08);
         align-items: center;
         user-select: none;
         text-align: center;

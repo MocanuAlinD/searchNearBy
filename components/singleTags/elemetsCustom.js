@@ -25,7 +25,7 @@ color - color
 
 export const Container = styled.div`
   margin: ${({ m }) => (m ? m : "0")};
-  padding: ${({ p }) => (p ? p : "0")};
+  padding: ${({ p }) => (p ? p : "1rem 0")};
   display: flex;
   justify-content: ${({ jc }) => (jc ? jc : "flex-start")};
   align-items: ${({ ai }) => (ai ? ai : "center")};
@@ -84,8 +84,8 @@ export const SelectCustom = styled.select`
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
   color: var(--color-light);
-  font-size: ${({ fs }) => (fs ? fs : "var(--font-size08)")};
-  font-weight: 200;
+  font-size: ${({ fs }) => (fs ? fs : "var(--fs08)")};
+  font-weight: ${({ fw }) => (fw ? fw : "var(--fw200)")};
   padding: 0.3rem;
   transition: var(--transition);
   margin: .25rem 0;
@@ -103,8 +103,8 @@ export const LabelCustom = styled.label`
   margin: ${({ m }) => (m ? m : "0")};
   margin-top: ${({ mt }) => (mt ? mt : "0")};
   margin-bottom: ${({ mb }) => (mb ? mb : "0")};
-  font-size: var(--font-size08);
-  font-weight: ${({ fw }) => (fw ? fw : "200")};
+  font-size: var(--fs08);
+  font-weight: ${({ fw }) => (fw ? fw : "var(--fw200)")};
 `;
 
 export const InputCustom = styled.input`
@@ -117,8 +117,8 @@ export const InputCustom = styled.input`
   border-top-right-radius: var(--border-radius);
   color: var(--color-light);
   flex-grow: ${({ fg }) => (fg ? fg : 1)};
-  font-size: var(--fs-input);
-  font-weight: 200;
+  font-size: var(--fs08);
+  font-weight: ${({ fw }) => (fw ? fw : "var(--fw200)")};
   margin: ${({ m }) => (m ? m : "0")};
   margin-bottom: ${({ mb }) => (mb ? mb : "0.25rem")};
   margin-top: ${({ mt }) => (mt ? mt : "0")};
@@ -171,8 +171,8 @@ export const TextAreaCustom = styled.textarea`
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
   text-indent: 0.3rem;
-  font-size: var(--fs-input);
-  font-weight: 200;
+  font-size: var(--fs08);
+  font-weight: ${({ fw }) => (fw ? fw : "var(--fw200)")};
   color: var(--color-light);
   resize: none;
   transition: var(--transition);
@@ -193,7 +193,7 @@ export const TextAreaCustom = styled.textarea`
   & + span {
     display: none;
     font-weight: 400;
-    font-size: var(--font-size08);
+    font-size: var(--fs08);
     color: var(--color-yellow);
     letter-spacing: 0.02rem;
     margin-top: .35rem;
@@ -212,7 +212,7 @@ export const LabelSmallCustom = styled.label`
   color: ${({ char, maxChar }) =>
     char < maxChar ? "whitesmoke" : "var(--color-1-dark)"};
   font-size: 0.8rem;
-  font-weight: 200;
+  font-weight: ${({ fw }) => (fw ? fw : "var(--fw200)")};
   text-align: right;
   padding: .2rem .5rem 0 0;
   margin: 0;
@@ -220,8 +220,8 @@ export const LabelSmallCustom = styled.label`
 
 export const H4Custom = styled.h4`
   color: ${({ color }) => (color ? color : "var(--color-light)")};
-  font-size: ${({ fs }) => (fs ? fs : "clamp(0.8rem, 1.25vw, 1rem)")};
-  font-weight: ${({ fw }) => (fw ? fw : "400")};
+  font-size: ${({ fs }) => (fs ? fs : "var(--fs08)")};
+  font-weight: ${({ fw }) => (fw ? fw : "var(--fw400)")};
   background: ${({ bg }) => (bg ? bg : "")};
   margin: ${({ m }) => (m ? m : "0")};
   padding: ${({ p }) => (p ? p : "0")};
@@ -234,17 +234,23 @@ export const H4Custom = styled.h4`
 `;
 
 export const H6Custom = styled(H4Custom)`
-  font-size: ${({ fs }) => (fs ? fs : "clamp(0.67rem, 1.1vw, 1rem)")};
-  font-weight: ${({ fw }) => (fw ? fw : "400")};
-  margin: ${({ m }) => (m ? m : "0")};
+  font-size: ${({ fs }) => (fs ? fs : "var(--fs067")};
+`;
+
+export const H3Custom = styled(H4Custom)`
+  font-size: ${({ fs }) => (fs ? fs : "var(--fs117")};
+`;
+
+export const H2Custom = styled(H4Custom)`
+  font-size: ${({ fs }) => (fs ? fs : "var(--fs15)")};
 `;
 
 export const ParaCustom = styled.p`
 margin: ${({ m }) => (m ? m : "0")};
 padding: ${({ p }) => (p ? p : "0")};
 color: ${({ color }) => (color ? color : "var(--color-light)")};
-font-weight: ${({ fw }) => (fw ? fw : "200")};
-font-size: ${({ fs }) => (fs ? fs : "clamp(0.67rem, 1.25vw, 1rem)")};
+font-weight: ${({ fw }) => (fw ? fw : "var(--fw200)")};
+font-size: ${({ fs }) => (fs ? fs : "var(--fs1)")};
 width: ${({ w }) => (w ? w : "100%")};
 text-align: ${({ ta }) => (ta ? ta : "justify")};
 letter-spacing: 1px;
@@ -266,7 +272,7 @@ FORMAT
 export const InputContainer = styled.div`
   position: relative;
   font-family: Poppins, sans-serif;
-  font-weight: ${({ fw }) => (fw ? fw : "200")};
+  font-weight: ${({ fw }) => (fw ? fw : "var(--fw200)")};
   margin-top: ${({ mt }) => (mt ? mt : "0.7rem")};
   flex-grow: 1;
   label {
@@ -277,25 +283,20 @@ export const InputContainer = styled.div`
     color: ${({ labelColor }) =>
       labelColor ? labelColor : "var(--color-placeholder)"};
     transition: var(--transition);
-    font-size: ${({ fs }) => (fs ? fs : "var(--font-size08)")};
+    font-size: ${({ fs }) => (fs ? fs : "var(--fs08)")};
     display: flex;
     align-items: center;
     cursor: text;
     height: 100%;
   }
   input {
-    /* background-color: ${({ inputbg }) =>
-      inputbg ? inputbg : "var(--bg-input)"}; */
     background-color: ${({ inputbg }) => (inputbg ? inputbg : "transparent")};
-    /* border: none; */
-    /* border-bottom: ${({ inputbb }) =>
-      inputbb ? inputbb : "2px solid var(--color-1-dark)"}; */
     border: ${({ inputbb }) =>
       inputbb ? inputbb : "var(--color-border-card)"};
     border-radius: var(--border-radius) var(--border-radius) 0 0;
     color: ${({ inputColor }) =>
       inputColor ? inputColor : "var(--color-1-dark)"};
-    font-weight: 200;
+  font-weight: ${({ fw }) => (fw ? fw : "var(--fw200)")};
     font-size: ${({ fs }) => (fs ? fs : "1rem")};
     outline: none;
     padding: 0.3rem 0;

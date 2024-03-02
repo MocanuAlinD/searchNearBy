@@ -3,11 +3,11 @@
   $color-light: var(--color-light);
   text-align: justify;
   user-select: none;
-  
+
   .gratuit {
-    font-weight: 400;
+    font-weight: var(--fw400);
     text-transform: uppercase;
-    font-size: clamp(0.8rem, 2.5vw, 1rem);
+    font-size: var(--fs115);
     letter-spacing: 1px;
     text-decoration: underline;
     text-underline-offset: 0.15rem;
@@ -16,7 +16,7 @@
   .para:first-letter {
     color: $color-blue-light;
     font-weight: 400;
-    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    font-size: var(--fs15);
     padding-right: 0.1rem;
     margin-left: 2rem;
   }
@@ -26,12 +26,12 @@
 
     li {
       font-weight: 200;
-      font-size: clamp(0.8rem, 2.5vw, 1rem);
+      font-size: var(--fs1);
       margin-bottom: 0.5rem;
 
       span {
         font-weight: 400;
-        font-size: clamp(0.8rem, 2.5vw, 1rem);
+        font-size: var(--fs1);
         color: $color-blue-light;
         text-transform: uppercase;
       }

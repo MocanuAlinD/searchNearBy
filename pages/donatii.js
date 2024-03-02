@@ -4,6 +4,8 @@ import toast from "react-hot-toast";
 import {
   Container,
   H4Custom,
+  H3Custom,
+  H2Custom,
   SmallContainer,
   ParaCustom,
 } from "../components/singleTags/elemetsCustom";
@@ -21,7 +23,7 @@ const Donatii = () => {
   return (
     <Container className={styles.donatii}>
       <SmallContainer bg border>
-        <H4Custom p="1rem 0">Dragi prieteni,</H4Custom>
+        <H2Custom p="1rem 0">Dragi prieteni,</H2Custom>
         <ParaCustom className={styles.para}>
           Vrem să vă spunem cât suntem de recunoscători pentru faptul că sunteți
           parte din această experiență minunată pe platforma noastră. Suntem

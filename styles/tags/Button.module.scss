@@ -1,8 +1,8 @@
 .button {
   border-radius: var(--border-radius);
   color: var(--color-light);
-  font-size: clamp(0.8rem, 1.3vw, 1rem);
-  font-weight: 200;
+  font-size: var(--fs08);
+  font-weight: var(--fw200);
   margin-top: 0.5rem;
   padding: 0.2rem 0;
   transition: var(--transition);

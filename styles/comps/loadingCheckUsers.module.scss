@@ -15,7 +15,7 @@
         text-align: justify;
         width: min(90%, 25rem);
         width: 100%;
-        font-size: clamp(.7rem, 3vw, 1.25rem);
+        font-size: var(--fs1);
         background-color: var(--color-blue-dark);
         padding: 1rem;
         text-align: center;

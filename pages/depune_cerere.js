@@ -67,7 +67,7 @@ const DepuneCerere = () => {
             Cererea va fi stearsa automat cand se atinge data limita.
           </ParaCustom>
           <Wrapper>
-            <LabelCustom>Caut . . .</LabelCustom>
+            <LabelCustom>Am nevoie de . . .</LabelCustom>
             <InputCustom
               required
               name="caut"

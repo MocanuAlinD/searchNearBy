@@ -42,14 +42,14 @@ const CereriCurente = ({ data }) => {
               <H4Custom w="35%" ta="start">
                 Ce am nevoie?
               </H4Custom>
-              <ParaCustom>{item.caut}</ParaCustom>
+              <ParaCustom fs="var(--fs08)">{item.caut}</ParaCustom>
             </Wrapper>
             <Divider />
             <Wrapper fd="row" ai="flex-start">
               <H4Custom w="35%" ta="start">
                 Contact
               </H4Custom>
-              <ParaCustom>{item.contact}</ParaCustom>
+              <ParaCustom fs="var(--fs08)">{item.contact}</ParaCustom>
             </Wrapper>
 
             <Divider />
@@ -57,28 +57,28 @@ const CereriCurente = ({ data }) => {
               <H4Custom w="35%" ta="start">
                 Nume
               </H4Custom>
-              <ParaCustom>{item.numePrenume}</ParaCustom>
+              <ParaCustom fs="var(--fs08)">{item.numePrenume}</ParaCustom>
             </Wrapper>
             <Divider />
             <Wrapper fd="row" ai="flex-start">
               <H4Custom w="35%" ta="start">
                 Suma alocata
               </H4Custom>
-              <ParaCustom>{item.sumaAlocata}</ParaCustom>
+              <ParaCustom fs="var(--fs08)">{item.sumaAlocata}</ParaCustom>
             </Wrapper>
             <Divider />
             <Wrapper fd="row" ai="flex-start">
               <H4Custom w="35%" ta="start">
                 Data adaugarii
               </H4Custom>
-              <ParaCustom>{item.currentDate}</ParaCustom>
+              <ParaCustom fs="var(--fs08)">{item.currentDate}</ParaCustom>
             </Wrapper>
             <Divider />
             <Wrapper fd="row" ai="flex-start">
               <H4Custom w="35%" ta="start">
                 Data limita
               </H4Custom>
-              <ParaCustom color="var(--error)">
+              <ParaCustom color="var(--error)" fs="var(--fs08)">
                 {item.dataLimita.split("-").reverse().join("/")}
               </ParaCustom>
             </Wrapper>
@@ -90,13 +90,3 @@ const CereriCurente = ({ data }) => {
 };
 
 export default CereriCurente;
-
-// <h6>Caut: {item.caut}</h6>
-// <h6>Cerere id: {item.cerereId}</h6>
-// <h6>Char: {item.char}</h6>
-// <h6>Contact: {item.contact}</h6>
-// <h6>Current date: {item.currentDate}</h6>
-// <h6>Current time: {item.currentTime}</h6>
-// <h6>Cererea expira: {item.dataLimita}</h6>
-// <h6>Nume prenume: {item.numePrenume}</h6>
-// <h6>Suma alocata: {item.sumaAlocata}</h6>
