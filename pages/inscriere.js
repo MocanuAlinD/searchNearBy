@@ -14,7 +14,7 @@ export default function Inscriere() {
   const hasService = useSelector((state) => state.login.hasService);
   return (
     <Container>
-      {hasService && uid ? (
+      {!hasService && uid ? (
         <FormRegister />
       ) : uid && hasService ? (
         <SmallContainer bg border>

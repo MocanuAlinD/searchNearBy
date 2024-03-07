@@ -76,7 +76,7 @@ const CereriCurente = ({ data }) => {
             <Divider />
             <Wrapper fd="row" ai="flex-start">
               <H4Custom w="35%" ta="start">
-                Data limita
+                Expira
               </H4Custom>
               <ParaCustom color="var(--error)" fs="var(--fs08)">
                 {item.dataLimita.split("-").reverse().join("/")}
