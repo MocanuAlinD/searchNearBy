@@ -15,7 +15,6 @@ import { Container } from "../components/singleTags/elemetsCustom";
 import styles from "../styles/pages/test.module.scss";
 
 const Test = ({ size }) => {
-  const size = 30;
   return (
     <Container>
       <div className={styles.main}>
