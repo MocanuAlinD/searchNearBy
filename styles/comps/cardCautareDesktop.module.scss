@@ -51,7 +51,7 @@
         backdrop-filter: var(--blur);
       }
       .top {
-        border: var(--color-border-card);
+        border: var(--card-border);
         border-radius: 0 0 1rem 1rem;
         border-left: 2px solid var(--color-3-ok);
         border-bottom: 1px solid var(--color-3-ok);
@@ -80,7 +80,7 @@
         border-radius: 1rem 1rem 0 0;
         background-color: transparent;
 
-        // border: var(--color-border-card); // DELETE FROM THIS LINE BELOW
+        // border: var(--card-border); // DELETE FROM THIS LINE BELOW
         // background-color: var(--glass);
         // transform: rotateX(-90deg);
         // backdrop-filter: var(--blur);
@@ -202,7 +202,7 @@
         align-items: flex-start;
         flex-direction: column;
         border-radius: 1rem 1rem 0 0;
-        border: var(--color-border-card);
+        border: var(--card-border);
         border-bottom: none;
         white-space: nowrap;
         overflow: hidden;
@@ -246,7 +246,7 @@
     }
 
     &:hover :is(.card1, .card2) {
-      border: var(--color-border-card);
+      border: var(--card-border);
       background-color: var(--glass);
       transform: rotateX(-65deg);
       backdrop-filter: var(--blur);

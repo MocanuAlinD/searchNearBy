@@ -14,8 +14,7 @@ const BurgerMenu = () => {
       p="1rem 0"
       gap="0.5rem"
       ai="center"
-      w="100%"
-      br="0"
+      w="min(97%, 15rem)"
       className={styles.sidebar}
       style={{
         clipPath: `polygon(0 0, 100% 0, ${
@@ -28,18 +27,18 @@ const BurgerMenu = () => {
       <CustomLink link="/" text="Home" />
       <CustomLink link="/test" text="test" />
       <CustomLink link="/servicii" text="Toate judetele" />
-      <CustomLink link="/infofaq" text="Info si FAQ" />
+      <CustomLink link="/infofaq" text="Info / FAQ" />
       <CustomLink link="/reclamatii" text="Reclamatii" />
       <CustomLink link="/contact" text="Contact" />
-      <CustomLink link="/login" text="Log-in si sign-up" />
-      <CustomLink link="/inscriere" text="Inregistrare gratuita" />
-      <CustomLink link="/donatii" text="Doneaza pentru dezvoltare" />
+      <CustomLink link="/login" text="Log-in / sign-up" />
+      <CustomLink link="/inscriere" text="Inregistrare" />
       <CustomLink link="/landingPage" text="Landing Page" />
       <CustomLink link="/depune_cerere" text="Depune oferta" />
-      <CustomLink link="/cereriCurente" text="Vezi cereri active" />
+      <CustomLink link="/cereriCurente" text="Cereri active" />
+      <CustomLink link="/donatii" text="Suport" />
       <Button
         reset
-        w="min(95%, 15rem)"
+        w="var(--button-width)"
         onClick={() => dispatch(setShowMenu(false))}
       >
         Inchide

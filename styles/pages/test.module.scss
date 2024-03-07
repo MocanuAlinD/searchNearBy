@@ -4,8 +4,74 @@
   // background-color: brown;
   height: 100%;
   flex-grow: 1;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  .alin {
+
+    --dur: 2s;
+    position: relative;
+    perspective: 800px;
+
+    .div {
+      transform-style: preserve-3d;
+      border: var(--size) solid #ffffff05;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      animation: anim var(--dur) ease-in-out infinite alternate;
+    }
+    .unu {
+      width: 20%;
+      height: 20%;
+    }
+    .doi {
+      width: 35%;
+      height: 35%;
+      animation-delay: calc(var(--dur) / 8);
+    }
+    .trei {
+      width: 50%;
+      height: 50%;
+      animation-delay: calc(var(--dur) / 4);
+    }
+    .patru {
+      width: 65%;
+      height: 65%;
+      animation-delay: calc(var(--dur) / 2.66);
+    }
+    .cinci {
+      width: 80%;
+      height: 80%;
+      animation-delay: calc(var(--dur) / 2);
+    }
+    .sase {
+      width: 95%;
+      height: 95%;
+      animation-delay: calc(var(--dur) / 1.6);
+    }
+    .dan {
+      background-color: #fff1;
+      backdrop-filter: blur(5px);
+      width: 100%;
+      height: 100%;
+      transform: translate(0);
+      border-radius: 50%;
+      box-shadow: 0 0 50px 20px #fff1;
+      display: none;
+    }
+  }
+}
+
+@keyframes anim {
+  75%, 100% {
+    transform: translate(-10%, -50%) rotateY(0deg) rotateX(0deg);
+    border-color: white;
+  }
 }

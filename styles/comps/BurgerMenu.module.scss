@@ -2,11 +2,12 @@
 
 .sidebar {
   backdrop-filter: var(--blur);
-  @include border(border-top, $color: var(--error));
-  @include border(border-bottom, $color: var(--error));
+  @include border(border-top, $color: var(--card-border-color));
+  @include border(border-bottom, $color: var(--card-border-color));
+  @include border(border-left, $color: var(--card-border-color));
   position: absolute;
   top: 4rem;
-  left: 0;
+  right: 0;
   transition: var(--transition);
   z-index: 9999;
   flex-wrap: wrap;

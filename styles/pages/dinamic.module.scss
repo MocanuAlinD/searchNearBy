@@ -4,19 +4,19 @@
     border-color: var(--color-2-dark);
     color: var(--color-light);
     background-color: var(--color-1-dark);
-    border: var(--color-border-card);
+    border: var(--card-border);
     thead tr th {
       text-align: center;
       font-size: 0.9rem;
       font-weight: 400;
       padding: 0.5rem;
-      border: var(--color-border-card);
+      border: var(--card-border);
     }
 
     tbody tr td {
       padding: 0.2rem 0.5rem;
       font-size: 0.7rem;
-      border: var(--color-border-card);
+      border: var(--card-border);
       font-weight: 200;
       text-align: start;
     }

@@ -6,7 +6,7 @@
   background-color: var(--color-2-dark);
   color: var(--color-light);
   border-radius: var(--border-radius);
-  border: var(--color-border-card);
+  border: var(--card-border);
   .titleContainer {
     @include display();
     background-color: var(--color-1-dark);

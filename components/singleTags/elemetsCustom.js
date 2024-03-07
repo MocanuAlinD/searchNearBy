@@ -38,7 +38,7 @@ export const Container = styled.div`
 export const SmallContainer = styled.div`
   background: ${({ bg }) => (bg ? "var(--glass)" : "")};
   backdrop-filter: ${({ bg }) => bg && "var(--blur)"};
-  border: ${({ border }) => (border ? "var(--color-border-card)" : "none")};
+  border: ${({ border }) => (border ? "var(--card-border)" : "none")};
   margin: ${({ m }) => (m ? m : "auto")};
   padding: ${({ p }) => (p ? p : "var(--padding)")};
   border-radius: var(--border-radius);
@@ -66,7 +66,7 @@ export const Wrapper = styled.div`
   min-height: ${({ mh }) => mh && mh};
   height: ${({ h }) => h && h};
   gap: ${({ gap }) => (gap ? gap : "0")};
-  border: ${({ border }) => border && "var(--color-border-card)"};
+  border: ${({ border }) => border && "var(--card-border)"};
   @media (max-width: 450px) {
     flex-wrap: ${({ qwrap }) => (qwrap ? qwrap : "nowrap")};
     justify-content: space-between;
@@ -80,7 +80,7 @@ export const SelectCustom = styled.select`
   background: ${({ bg }) => (bg ? bg : "transparent")};
   /* border-bottom: ${({ bb }) =>
     bb ? bb : "2px solid var(--color-1-dark)"}; */
-  border: ${({ border }) => (border ? border : "var(--color-border-card)")};
+  border: ${({ border }) => (border ? border : "var(--card-border)")};
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
   color: var(--color-light);
@@ -112,7 +112,7 @@ export const InputCustom = styled.input`
   background-color: transparent;
   border: none;
   /* border-bottom: 2px solid var(--color-1-dark); */
-  border: var(--color-border-card);
+  border: var(--card-border);
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
   color: var(--color-light);
@@ -167,7 +167,7 @@ export const InputCustom = styled.input`
 
 export const TextAreaCustom = styled.textarea`
   background-color: transparent;
-  border: var(--color-border-card);
+  border: var(--card-border);
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
   text-indent: 0.3rem;
@@ -228,7 +228,7 @@ export const H4Custom = styled.h4`
   width: ${({ w }) => (w ? w : "fit-content")};
   white-space: ${({ ws }) => (ws ? ws : "wrap")};
   text-align: ${({ ta }) => (ta ? ta : "center")};
-  border: ${({ border }) => border && "var(--color-border-card)"};
+  border: ${({ border }) => border && "var(--card-border)"};
   user-select: none;
   
 `;
@@ -255,7 +255,7 @@ width: ${({ w }) => (w ? w : "100%")};
 text-align: ${({ ta }) => (ta ? ta : "justify")};
 letter-spacing: 1px;
 line-height: var(--line-height);
-border: ${({ border }) => border && "var(--color-border-card)"} ;
+border: ${({ border }) => border && "var(--card-border)"} ;
 `;
 
 /* 
@@ -292,7 +292,7 @@ export const InputContainer = styled.div`
   input {
     background-color: ${({ inputbg }) => (inputbg ? inputbg : "transparent")};
     border: ${({ inputbb }) =>
-      inputbb ? inputbb : "var(--color-border-card)"};
+      inputbb ? inputbb : "var(--card-border)"};
     border-radius: var(--border-radius) var(--border-radius) 0 0;
     color: ${({ inputColor }) =>
       inputColor ? inputColor : "var(--color-1-dark)"};

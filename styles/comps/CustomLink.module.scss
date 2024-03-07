@@ -1,5 +1,5 @@
 .span {
-  width: min(90%, 15rem);
+  width: var(--button-width);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,7 +17,7 @@
     transition: var(--transition);
     width: 100%;
     position: relative;
-    border: var(--color-border-card);
+    border: var(--card-border);
 
     &:hover {
       color: var(--color-2-dark);
