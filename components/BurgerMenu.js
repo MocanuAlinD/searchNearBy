@@ -10,11 +10,7 @@ const BurgerMenu = () => {
   const dispatch = useDispatch();
 
   return (
-    <Wrapper
-      p="1rem 0"
-      gap="0.5rem"
-      ai="center"
-      w="min(97%, 15rem)"
+    <div
       className={styles.sidebar}
       style={{
         clipPath: `polygon(0 0, 100% 0, ${
@@ -24,26 +20,27 @@ const BurgerMenu = () => {
         })`,
       }}
     >
-      <CustomLink link="/" text="Home" />
-      <CustomLink link="/test" text="test" />
-      <CustomLink link="/servicii" text="Toate judetele" />
-      <CustomLink link="/infofaq" text="Info / FAQ" />
-      <CustomLink link="/reclamatii" text="Reclamatii" />
-      <CustomLink link="/contact" text="Contact" />
-      <CustomLink link="/login" text="Log-in / sign-up" />
-      <CustomLink link="/inscriere" text="Inregistrare" />
-      <CustomLink link="/landingPage" text="Landing Page" />
-      <CustomLink link="/depune_cerere" text="Depune oferta" />
-      <CustomLink link="/cereriCurente" text="Cereri active" />
-      <CustomLink link="/donatii" text="Suport" />
-      <Button
-        reset
-        w="var(--button-width)"
-        onClick={() => dispatch(setShowMenu(false))}
-      >
-        Inchide
-      </Button>
-    </Wrapper>
+      <div className={styles.container}>
+        <p>paragraph_1</p>
+        <span>span</span>
+      </div>
+      <div className={styles.container}>
+        <p>paragraph_2</p>
+        <span>span</span>
+      </div>
+      <div className={styles.container}>
+        <p>paragraph_3 mocanu alin daniel</p>
+        <span>span</span>
+      </div>
+      <div className={styles.container}>
+        <p>paragraph_4</p>
+        <span>span</span>
+      </div>
+      <div className={styles.container}>
+        <p>paragraph_5</p>
+        <span>span</span>
+      </div>
+    </div>
   );
 };
 
