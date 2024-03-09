@@ -4,10 +4,10 @@
   // backdrop-filter: var(--blur);
   // @include border(border-top, $color: var(--card-border-color));
   // @include border(border-bottom, $color: var(--card-border-color));
-  @include border(border-left, $color: var(--card-border-color));
+  // @include border(border-left, $color: var(--card-border-color));
   position: absolute;
   top: 4.5rem;
-  right: 0;
+  right: 1rem;
   transition: var(--transition);
   display: flex;
   flex-direction: column;
@@ -18,11 +18,10 @@
   .container {
     display: flex;
     justify-content: flex-end;
-    transition: all 0.35s ease;
+    // transition: all 0.35s ease;
     cursor: pointer;
-    width: fit-content;
     p {
-      background-color: darkgreen;
+      background-color: var(--color-blue-dark);
       width: 0;
       white-space: nowrap;
       transition: all 0.35s ease;
@@ -31,22 +30,15 @@
       z-index: -1;
       display: flex;
       align-items: center;
-      transform: scaleX(0);
-      transform-origin: right;
-    }
-    span {
-      background-color: coral;
-      border-top-left-radius: var(--border-radius);
-      border-bottom-left-radius: var(--border-radius);
-      width: 3rem;
-      height: 3rem;
-      display: flex;
       justify-content: center;
-      align-items: center;
+      font-size: 0.8rem;
+      font-weight: 200;
+      opacity: 0;
     }
     &:hover p {
       width: fit-content;
-      transform: scaleX(1);
+      opacity: 1;
+      padding-inline: 1rem;
     }
   }
 }

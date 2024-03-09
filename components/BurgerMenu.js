@@ -4,6 +4,7 @@ import CustomLink from "./CustomLink";
 import { Button } from "./tags/Button";
 import { setShowMenu } from "../features/searchJudet/searchJudetSlice";
 import { Wrapper } from "./singleTags/elemetsCustom";
+import IconSvg from "../components/tags/IconSvg";
 import styles from "../styles/comps/BurgerMenu.module.scss";
 
 const BurgerMenu = () => {
@@ -22,23 +23,23 @@ const BurgerMenu = () => {
     >
       <div className={styles.container}>
         <p>paragraph_1</p>
-        <span>span</span>
+        <IconSvg />
       </div>
       <div className={styles.container}>
         <p>paragraph_2</p>
-        <span>span</span>
+        <IconSvg />
       </div>
       <div className={styles.container}>
         <p>paragraph_3 mocanu alin daniel</p>
-        <span>span</span>
+        <IconSvg />
       </div>
       <div className={styles.container}>
         <p>paragraph_4</p>
-        <span>span</span>
+        <IconSvg />
       </div>
       <div className={styles.container}>
         <p>paragraph_5</p>
-        <span>span</span>
+        <IconSvg />
       </div>
     </div>
   );

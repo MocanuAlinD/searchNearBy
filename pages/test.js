@@ -12,28 +12,14 @@ import {
   IconTest,
 } from "../components/tags/Icon";
 import { Container } from "../components/singleTags/elemetsCustom";
+import IconSvg from "../components/tags/IconSvg";
 import styles from "../styles/pages/test.module.scss";
 
 const Test = ({ size }) => {
   return (
     <Container>
       <div className={styles.main}>
-        <div
-          className={styles.alin}
-          style={{
-            "--size": size ? `${size * 16 / 60}px` : "3px",
-            width: size ? `${size}rem` : "30rem",
-            height: size ? `${size}rem` : "30rem",
-          }}
-        >
-          <div className={styles.div + " " + styles.unu}></div>
-          <div className={styles.div + " " + styles.doi}></div>
-          <div className={styles.div + " " + styles.trei}></div>
-          <div className={styles.div + " " + styles.patru}></div>
-          <div className={styles.div + " " + styles.cinci}></div>
-          <div className={styles.div + " " + styles.sase}></div>
-          <div className={styles.dan}></div>
-        </div>
+        <IconSvg />
       </div>
     </Container>
   );
