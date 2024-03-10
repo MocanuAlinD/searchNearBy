@@ -1,0 +1,46 @@
+<?xml version="1.0" ?>
+<svg height="128" viewBox="0 0 128 128" width="128"
+    xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <style>.cls-1,.cls-4{fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:3px;}.cls-1{stroke:#ffc960;}.cls-2{fill:#ffc960;}.cls-3{fill:#79c651;}.cls-4{stroke:#ffffff;}</style>
+    </defs>
+    <title/>
+    <g id="Icons">
+        <circle class="cls-1" cx="64" cy="43" r="6.5"/>
+        <circle class="cls-2" cx="67" cy="70" r="3"/>
+        <circle class="cls-2" cx="92" cy="41" r="5"/>
+        <path class="cls-2" d="M89,107a8,8,0,0,1-8-8V64H97V99A8,8,0,0,1,89,107Z"/>
+        <rect class="cls-3" height="7" width="66" x="14" y="116"/>
+        <path class="cls-3" d="M54.52,84a20.54,20.54,0,0,1-7.39,10.08A14.66,14.66,0,0,1,53,102.15,30.48,30.48,0,0,0,64.89,84Z"/>
+        <path class="cls-3" d="M27.31,96.89a20.5,20.5,0,0,1-6.72-33.46s-6-5-6-8.06a30.5,30.5,0,0,0,9,50.81A14.13,14.13,0,0,1,27.31,96.89Z"/>
+        <path class="cls-3" d="M21.81,49.53,14,40.2l6.6-5.78,24,29-6.48,5.52-8.06-9.6C31.59,54.42,26.59,48.42,21.81,49.53Z"/>
+        <line class="cls-4" x1="5.5" x2="121.5" y1="123.5" y2="123.5"/>
+        <polyline class="cls-4" points="13.5 122.5 13.5 115.5 80.5 115.5 80.5 122.5"/>
+        <path class="cls-4" d="M24.5,113.5v-6.69A14.74,14.74,0,0,1,37.35,92a14.49,14.49,0,0,1,16.15,14.4v7.08"/>
+        <circle class="cls-4" cx="38.59" cy="104.42" r="5.5"/>
+        <path class="cls-4" d="M26.43,96.77a20.48,20.48,0,0,1-5.68-32.46"/>
+        <path class="cls-4" d="M54.65,85.92a20.44,20.44,0,0,1-6.26,8.51"/>
+        <path class="cls-4" d="M53.59,103.05A30.53,30.53,0,0,0,65.21,85.71"/>
+        <path class="cls-4" d="M15.61,55.39a30.49,30.49,0,0,0,7.66,50.94"/>
+        <circle class="cls-4" cx="23.09" cy="56.92" r="7"/>
+        <line class="cls-4" x1="40.5" x2="78.5" y1="84.5" y2="84.5"/>
+        <polyline class="cls-4" points="21.81 49.53 13.99 40.2 24.71 31.2 48.83 59.95 38.11 68.94 30.05 59.34"/>
+        <polyline class="cls-4" points="15.26 38.3 7.45 28.98 14.8 22.81 22.61 32.13"/>
+        <polyline class="cls-4" points="39.82 67.51 45.17 73.89 52.47 67.77 47.12 61.38"/>
+        <circle class="cls-3" cx="23.09" cy="56.92" r="2.5"/>
+        <path class="cls-4" d="M89,107.5A8.51,8.51,0,0,1,80.5,99V54.5h17V99A8.51,8.51,0,0,1,89,107.5Z"/>
+        <line class="cls-4" x1="90.5" x2="96.5" y1="72.5" y2="72.5"/>
+        <line class="cls-4" x1="90.5" x2="96.5" y1="83.5" y2="83.5"/>
+        <line class="cls-4" x1="90.5" x2="96.5" y1="94.5" y2="94.5"/>
+        <line class="cls-4" x1="77.5" x2="100.5" y1="54.5" y2="54.5"/>
+        <polyline class="cls-4" points="39.5 39.5 39.5 19.5 115.5 19.5 115.5 115.5 88.5 115.5"/>
+        <line class="cls-1" x1="63.5" x2="63.5" y1="30.5" y2="35.5"/>
+        <line class="cls-1" x1="63.5" x2="63.5" y1="50.5" y2="55.5"/>
+        <line class="cls-1" x1="51.5" x2="56.5" y1="42.5" y2="42.5"/>
+        <line class="cls-1" x1="71.5" x2="76.5" y1="42.5" y2="42.5"/>
+        <line class="cls-1" x1="54.66" x2="58.2" y1="33.66" y2="37.2"/>
+        <line class="cls-1" x1="68.8" x2="72.34" y1="47.8" y2="51.34"/>
+        <line class="cls-1" x1="54.66" x2="58.2" y1="51.34" y2="47.8"/>
+        <line class="cls-1" x1="68.8" x2="72.34" y1="37.2" y2="33.66"/>
+    </g>
+</svg>

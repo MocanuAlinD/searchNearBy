@@ -55,10 +55,11 @@ const Navbar = () => {
           />
         </div>
       </div>
-      <UserMenu close={toggleMenu} />
+      {/* user menu here */}
       <BurgerButton />
-    </div>
-  );
-};
-
-export default Navbar;
+      </div>
+      );
+    };
+    
+    export default Navbar;
+    // <UserMenu close={toggleMenu} />

@@ -126,6 +126,7 @@ export default function Home() {
   return (
     <Container>
       <PageTitle text="SearchNearBy" />
+
       <div className="w-100 row d-flex flex-column justify-content-start m-0 p-0">
         <Wrapper>
           {useSelector((state) => state.showTitle.showTitle) && <SvgTitle />}
@@ -170,8 +171,9 @@ export default function Home() {
 
       {/* Show only if no results found */}
       {noResTrigger && <NoResults />}
-
+      
       {loadSearch && <LoadingSpinner />}
+      
     </Container>
   );
 }
