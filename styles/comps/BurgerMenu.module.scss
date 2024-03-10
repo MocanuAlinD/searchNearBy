@@ -7,7 +7,7 @@
   // @include border(border-left, $color: var(--card-border-color));
   position: absolute;
   top: 4.5rem;
-  right: 0;
+  right: 1rem;
   transition: var(--transition);
   display: flex;
   flex-direction: column;
@@ -15,38 +15,47 @@
   overflow: hidden;
   gap: 0.2rem;
   margin-top: 1rem;
-  padding: 1rem;
+  padding: 0.5rem 0.5rem 0.5rem 0;
   border-radius: var(--border-radius);
   z-index: 1020;
+  border: 1px solid transparent;
+  // backdrop-filter: var(--blur);
   .container {
     display: flex;
     justify-content: flex-end;
     cursor: pointer;
     padding: 0.25rem;
-    // background-color: var(--glass);
     border: var(--card-border);
     border-radius: var(--border-radius);
     backdrop-filter: var(--blur);
-    p {
-      white-space: nowrap;
+    transition: var(--transition);
+    .text {
       display: none;
       align-items: center;
+      justify-content: flex-end;
+      flex-grow: 1;
       font-weight: 200;
       font-size: 0.8rem;
-      padding-left: 1rem;
-      margin-right: 1rem;
       letter-spacing: 1px;
       font-style: italic;
-      flex-grow: 1;
+      padding-inline: 0.5rem;
+      max-width: 90%;
     }
-    &:hover p {
+    &:hover .text {
       display: flex;
     }
+    
   }
+
   &:hover {
-    background-color: var(--glass);
-    backdrop-filter: var(--blur);
-    width: min(100%, 15rem);
-    border: var(--card-border);
+    width: 100%;
+    min-width: fit-content;
   }
+  &:hover .container {
+    margin-left: 1rem;
+  }
+}
+
+@media screen and (width < 768px) {
+  
 }
