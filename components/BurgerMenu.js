@@ -97,48 +97,7 @@ const BurgerMenu = () => {
         />
       </div>
       <div className={styles.container}>
-        <h4 className={styles.text}>
-          Cereri active</h4>
-        <Image
-          src="/icons/donate.svg"
-          width="30"
-          height="30"
-          alt="Picture of the author"
-        />
-      </div>
-      <div className={styles.container}>
-        <h4 className={styles.text}>Donează</h4>
-        <Image
-          src="/icons/donate.svg"
-          width="30"
-          height="30"
-          alt="Picture of the author"
-        />
-      </div>
-      <div className={styles.container}>
-        <h4 className={styles.text}>Test</h4>
-        <Image
-          src="/icons/test.svg"
-          width="30"
-          height="30"
-          alt="Picture of the author"
-        />
-      </div>
-
-
-
-      <div className={styles.container}>
-        <h4 className={styles.text}>Depune cerere</h4>
-        <Image
-          src="/icons/donate.svg"
-          width="30"
-          height="30"
-          alt="Picture of the author"
-        />
-      </div>
-      <div className={styles.container}>
-        <h4 className={styles.text}>
-          Cereri active</h4>
+        <h4 className={styles.text}>Cereri active</h4>
         <Image
           src="/icons/donate.svg"
           width="30"

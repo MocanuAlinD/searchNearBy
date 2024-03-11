@@ -6,20 +6,17 @@
   // @include border(border-bottom, $color: var(--card-border-color));
   // @include border(border-left, $color: var(--card-border-color));
   position: absolute;
-  top: 4.5rem;
-  right: 1rem;
+  top: 4rem;
+  right: 0;
   transition: var(--transition);
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  overflow: hidden;
   gap: 0.2rem;
   margin-top: 1rem;
-  padding: 0.5rem 0.5rem 0.5rem 0;
-  border-radius: var(--border-radius);
+  padding: 0.5rem 0;
   z-index: 1020;
-  border: 1px solid transparent;
-  // backdrop-filter: var(--blur);
+  width: min(100%, 12rem);
   .container {
     display: flex;
     justify-content: flex-end;
@@ -28,34 +25,31 @@
     border: var(--card-border);
     border-radius: var(--border-radius);
     backdrop-filter: var(--blur);
-    transition: var(--transition);
+    background-color: var(--glass);
+    width: 100%;
     .text {
-      display: none;
+      display: flex;
       align-items: center;
       justify-content: flex-end;
-      flex-grow: 1;
-      font-weight: 200;
-      font-size: 0.8rem;
-      letter-spacing: 1px;
+      font-size: var(--fs08);
+      letter-spacing: -1px;
       font-style: italic;
       padding-inline: 0.5rem;
-      max-width: 90%;
+      opacity: 0.3;
+      transition: var(--transition);
+      flex-grow: 1;
+      white-space: nowrap;
     }
-    &:hover .text {
-      display: flex;
-    }
-    
-  }
 
-  &:hover {
-    width: 100%;
-    min-width: fit-content;
+    &:hover .text {
+      opacity: 1;
+      // letter-spacing: 1px;
+    }
   }
   &:hover .container {
-    margin-left: 1rem;
+    // margin-left: 1rem;
   }
 }
 
 @media screen and (width < 768px) {
-  
 }
