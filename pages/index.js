@@ -171,9 +171,8 @@ export default function Home() {
 
       {/* Show only if no results found */}
       {noResTrigger && <NoResults />}
-      
+
       {loadSearch && <LoadingSpinner />}
-      
     </Container>
   );
 }
