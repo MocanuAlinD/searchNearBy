@@ -60,6 +60,7 @@
       .screenMiddle,
       .screenRight {
         background-color: var(--color-1-dark);
+        padding: 0.5rem;
       }
       .screenLeft {
         transform: translateX(-100%);
@@ -77,7 +78,7 @@
               p {
                 margin: auto;
                 width: 50%;
-                text-align: center;
+                text-align: start;
               }
             }
           }
