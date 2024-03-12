@@ -14,9 +14,9 @@ const LayoutPage = ({ children }) => {
     <div className={styles.container}>
       <Navbar />
       {children}
-      <ScrollWatcher />
       <BurgerMenu />
       <UserMenu close={toggleMenu} />
+      <ScrollWatcher />
     </div>
   );
 };
