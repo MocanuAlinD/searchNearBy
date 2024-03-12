@@ -16,17 +16,9 @@ const BurgerMenu = () => {
     <div
       className={styles.sidebar}
       style={{
-        // clipPath: `polygon(0 0, 100% 0, ${
-        //   useSelector((state) => state.search.showMenu)
-        //     ? "100% 100%, 0 100%"
-        //     : "100% 0, 0 0"
-        // })`,
-        clipPath: `polygon(0 0, 100% 0, ${
-          useSelector((state) => state.search.showMenu)
-            ? "100% 100%, 0 100%"
-            : "100% 0, 0 0"
-        })`,
-        // display: useSelector(state => state.search.showMenu) ? "flex" : "none",
+        display: useSelector((state) => state.search.showMenu)
+          ? "flex"
+          : "none",
       }}
     >
       <CustomImage src="/icons/home.svg" text="Home" />
@@ -34,6 +26,12 @@ const BurgerMenu = () => {
       <CustomImage src="/icons/info01.svg" text="Info / FAQ" />
       <CustomImage src="/icons/complaint02.svg" text="Reclamatii" />
       <CustomImage src="/icons/whatsapp.svg" text="Contact" />
+      <CustomImage src="/icons/login.svg" text="Log-in / Sign-up" />
+      <CustomImage src="/icons/register.svg" text="Inregistrare" />
+      <CustomImage src="/icons/writeBlue.svg" text="Depune oferta" />
+      <CustomImage src="/icons/whatsapp.svg" text="Cereri active" />
+      <CustomImage src="/icons/money.svg" text="Doneaza" />
+      <CustomImage src="/icons/whatsapp.svg" text="Test" />
     </div>
   );
 };
