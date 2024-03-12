@@ -291,8 +291,7 @@ export const InputContainer = styled.div`
   }
   input {
     background-color: ${({ inputbg }) => (inputbg ? inputbg : "transparent")};
-    border: ${({ inputbb }) =>
-      inputbb ? inputbb : "var(--card-border)"};
+    border: ${({ inputbb }) => (inputbb ? inputbb : "var(--card-border)")};
     border-radius: var(--border-radius) var(--border-radius) 0 0;
     color: ${({ inputColor }) =>
       inputColor ? inputColor : "var(--color-1-dark)"};

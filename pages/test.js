@@ -17,9 +17,28 @@ import styles from "../styles/pages/test.module.scss";
 
 const Test = ({ size }) => {
   return (
-    <Container>
+    <Container border ai="flex-end">
       <div className={styles.main}>
-        <IconSvg />
+        <div className={styles.hcontainer}>
+          <h4>h4</h4>
+          <h3>Contact</h3>
+        </div>
+        <div className={styles.hcontainer}>
+          <h4>h4</h4>
+          <h3>Reclamatii</h3>
+        </div>
+        <div className={styles.hcontainer}>
+          <h4>h4</h4>
+          <h3>Toate judetele</h3>
+        </div>
+        <div className={styles.hcontainer}>
+          <h4>h4</h4>
+          <h3>h3__h3</h3>
+        </div>
+        <div className={styles.hcontainer}>
+          <h4>h4</h4>
+          <h3>h3__h3</h3>
+        </div>
       </div>
     </Container>
   );
