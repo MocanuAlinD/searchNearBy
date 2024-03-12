@@ -20,7 +20,6 @@ const CustomImage = ({ src, sz, alt, text }) => {
               ? alt
               : "If you can see this, then you can`t see the picture :))"
           }
-          style={{ border: "red", margin: ".5rem" }}
         />
       </div>
       <h4>{text ? text : "No text here"}</h4>
