@@ -7,42 +7,45 @@
   flex-direction: row-reverse;
   position: relative;
   overflow: hidden;
-  .imageWrapper {
+  background-color: var(--glass);
+  backdrop-filter: var(--blur);
+  border: var(--card-border);
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+  cursor: pointer;
+  .icon {
     min-width: var(--iconSize);
-    height: 100%;
-    background-color: var(--glass);
-    backdrop-filter: var(--blur);
-    border-radius: var(--border-radius);
-    border: var(--card-border);
-    cursor: pointer;
+    min-height: var(--iconSize);
+    background-color: coral;
+    background: var(--iconSrc);
+    background-repeat: no-repeat;
+    background-size: 85%;
+    background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0.3rem;
   }
   h4 {
     height: 100%;
-    // white-space: nowrap;
+    white-space: nowrap;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     cursor: pointer;
     font-size: var(--fs08);
-    background-color: var(--glass);
-    backdrop-filter: var(--blur);
+    font-weight: 200;
     padding-inline: 1rem;
-    border-top-left-radius: var(--border-radius);
-    border-bottom-left-radius: var(--border-radius);
-    border: var(--card-border);
-    border-right: none;
     transition: var(--transition);
+    flex-grow: 1;
+    letter-spacing: 1px;
   }
   h4:hover {
     color: var(--color-1-dark);
     background-color: var(--color-placeholder);
   }
   &:hover {
-    width: 30rem;
+    width: fit-content;
+    width: 12rem;
     .imageWrapper {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;

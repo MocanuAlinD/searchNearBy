@@ -6,7 +6,7 @@ import { setShowMenu } from "../features/searchJudet/searchJudetSlice";
 import { Wrapper } from "./singleTags/elemetsCustom";
 import IconSvg from "../components/tags/IconSvg";
 import Image from "next/image";
-import CustomImage from "../components/tags/CustomImage";
+import CustomIcon from "../components/tags/CustomIcon";
 import styles from "../styles/comps/BurgerMenu.module.scss";
 
 const BurgerMenu = () => {
@@ -21,17 +21,17 @@ const BurgerMenu = () => {
           : "none",
       }}
     >
-      <CustomImage src="/icons/home.svg" text="Home" />
-      <CustomImage src="/icons/map01.svg" text="Toate judetele" />
-      <CustomImage src="/icons/info01.svg" text="Info / FAQ" />
-      <CustomImage src="/icons/complaint02.svg" text="Reclamatii" />
-      <CustomImage src="/icons/whatsapp.svg" text="Contact" />
-      <CustomImage src="/icons/login.svg" text="Log-in / Sign-up" />
-      <CustomImage src="/icons/register.svg" text="Inregistrare" />
-      <CustomImage src="/icons/writeBlue.svg" text="Depune oferta" />
-      <CustomImage src="/icons/whatsapp.svg" text="Cereri active" />
-      <CustomImage src="/icons/money.svg" text="Doneaza" />
-      <CustomImage src="/icons/whatsapp.svg" text="Test" />
+      <CustomIcon src="home" text="Home" />
+      <CustomIcon src="map02" text="Toate judetele" />
+      <CustomIcon src="info01" text="Info / FAQ" />
+      <CustomIcon src="complaint03" text="Reclamatii" />
+      <CustomIcon src="contact01" text="Contact" />
+      <CustomIcon src="login" text="Log-in / Sign-up" />
+      <CustomIcon src="registerBlue" text="Inregistrare" />
+      <CustomIcon src="ask" text="Depune oferta" />
+      <CustomIcon src="timer" text="Cereri active" />
+      <CustomIcon src="donate01" text="Doneaza" />
+      <CustomIcon src="test01" text="Test" />
     </div>
   );
 };
