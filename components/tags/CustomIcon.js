@@ -16,7 +16,7 @@ const CustomIcon = ({ src, size, text }) => {
           "--iconSrc": `url("/icons/${src ? src : "add"}.svg")`,
         }}
       ></div>
-      <h4 className={styles.first}>{text ? text : "No text here"}</h4>
+      <h4 className={styles.text}>{text ? text : "No text here"}</h4>
     </div>
   );
 };

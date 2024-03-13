@@ -19,38 +19,36 @@
     background-color: coral;
     background: var(--iconSrc);
     background-repeat: no-repeat;
-    background-size: 85%;
+    background-size: 80%;
     background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  .first {
+  .text {
     height: 100%;
     white-space: nowrap;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     cursor: pointer;
     font-size: var(--fs08);
+    padding-right: .5rem;
     font-weight: 400;
-    padding-inline: 0.5rem;
     flex-grow: 1;
     letter-spacing: 1px;
-    // color: var(--color-1-dark);
     background: var(--color-2-light);
     clip-path: polygon(
       20% 10%,
       100% 10%,
       100% 0%,
-      100% 50%,
-      80% 90%,
+      100% 90%,
       0% 90%,
       0% 35%
     );
     transition: all 1s ease;
   }
-  .first:hover {
+  .text:hover {
     color: var(--color-1-dark);
     background-color: var(--color-placeholder);
     clip-path: polygon(
@@ -58,14 +56,12 @@
       100% 0%,
       100% 0%,
       100% 100%,
-      80% 100%,
       0% 100%,
       0% 50%
     );
   }
   &:hover {
-    // min-width: fit-content;
-    width: 13.5rem;
+    width: 12rem;
     .imageWrapper {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
