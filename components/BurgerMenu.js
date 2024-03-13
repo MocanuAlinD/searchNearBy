@@ -16,9 +16,12 @@ const BurgerMenu = () => {
     <div
       className={styles.sidebar}
       style={{
-        display: useSelector((state) => state.search.showMenu)
-          ? "flex"
-          : "none",
+        // display: useSelector((state) => state.search.showMenu)
+        //   ? "flex"
+        //   : "none",
+        "--clip": useSelector((state) => state.search.showMenu)
+          ? "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)"
+          : "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
       }}
     >
       <CustomIcon src="home" text="Home" />
