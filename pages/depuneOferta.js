@@ -21,7 +21,7 @@ import {
 import { useRouter } from "next/router";
 import toast from "react-hot-toast";
 
-const DepuneCerere = () => {
+const DepuneOferta = () => {
   const { push } = useRouter();
   const dispatch = useDispatch();
   const caut = useSelector((state) => state.cerereOferta.caut);
@@ -161,4 +161,4 @@ const DepuneCerere = () => {
   );
 };
 
-export default DepuneCerere;
+export default DepuneOferta;

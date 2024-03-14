@@ -25,16 +25,16 @@ const BurgerMenu = () => {
       }}
     >
       <CustomIcon src="home" text="Home" />
-      <CustomIcon src="map02" text="Toate judetele" />
-      <CustomIcon src="info01" text="Info / FAQ" />
-      <CustomIcon src="complaint03" text="Reclamatii" />
-      <CustomIcon src="contact01" text="Contact" />
-      <CustomIcon src="login" text="Log-in / Sign-up" />
-      <CustomIcon src="registerBlue" text="Inregistrare" />
-      <CustomIcon src="ask" text="Depune oferta" />
-      <CustomIcon src="timer" text="Cereri active" />
-      <CustomIcon src="donate01" text="Doneaza" />
-      <CustomIcon src="test01" text="Test" />
+      <CustomIcon src="map02" text="Toate judetele" href="servicii" />
+      <CustomIcon src="info01" text="Info / FAQ" href="infofaq" />
+      <CustomIcon src="complaint03" text="Reclamatii" href="reclamatii" />
+      <CustomIcon src="contact01" text="Contact" href="contact" />
+      <CustomIcon src="login" text="Log-in / Sign-up" href="login" />
+      <CustomIcon src="registerBlue" text="Inregistrare" href="inscriere" />
+      <CustomIcon src="ask" text="Depune oferta" href="depuneOferta" />
+      <CustomIcon src="timer" text="Cereri active" href="cereriCurente" />
+      <CustomIcon src="donate01" text="Doneaza" href="donatii" />
+      <CustomIcon src="test01" text="Test" href="test" />
     </div>
   );
 };
