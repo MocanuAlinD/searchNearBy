@@ -19,53 +19,9 @@ const Test = ({ size }) => {
   return (
     <Container border ai="flex-end">
       <div className={styles.main}>
-        <div className={styles.hcontainer}>
-          <h4>h4</h4>
-          <h3>Contact</h3>
-        </div>
-        <div className={styles.hcontainer}>
-          <h4>h4</h4>
-          <h3>Reclamatii</h3>
-        </div>
-        <div className={styles.hcontainer}>
-          <h4>h4</h4>
-          <h3>Toate judetele</h3>
-        </div>
-        <div className={styles.hcontainer}>
-          <h4>h4</h4>
-          <h3>h3__h3</h3>
-        </div>
-        <div className={styles.hcontainer}>
-          <h4>h4</h4>
-          <h3>h3__h3</h3>
-        </div>
       </div>
     </Container>
   );
 };
 
 export default Test;
-// <Button w="fit-content">Aln</Button>
-//       <ButtonRotateCard
-//         bg="var(--color-1-dark)"
-//         w="fit-content"
-//         p="0.5rem 1rem"
-//         br="var(--border-radius)"
-//       >
-//         Alin
-//       </ButtonRotateCard>
-//       <ButtonWithIcon w="fit-content">with icon</ButtonWithIcon>
-//       <br />
-//       <IconSearch />
-//       <br />
-//       <IconDays />
-//       <br />
-//       <IconDelete />
-//       <br />
-//       <IconMinMax />
-//       <br />
-//       <IconOrar />
-//       <br />
-//       <IconPercent />
-//       <br />
-//       <IconTest />
