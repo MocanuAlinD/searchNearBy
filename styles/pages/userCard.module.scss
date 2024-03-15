@@ -16,7 +16,7 @@
     box-shadow: 0 7px 20px 0px rgba(0, 0, 0, 0.3);
     border-radius: var(--border-radius);
     h4 {
-      font-size: 0.9rem;
+      font-size: var(--fs1);
       letter-spacing: 1px;
       font-weight: 200;
     }
@@ -43,23 +43,17 @@
       transition: all 0.5s ease-in-out;
       position: relative;
       min-height: 20rem;
-      div {
+      .screenLeft,
+      .screenMiddle,
+      .screenRight {
+        background-color: var(--color-1-dark);
+        padding: 0.5rem;
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
         @include display();
-        h6 {
-          font-size: 0.8rem;
-          font-weight: 200;
-        }
-      }
-      .screenLeft,
-      .screenMiddle,
-      .screenRight {
-        background-color: var(--color-1-dark);
-        padding: 0.5rem;
       }
       .screenLeft {
         transform: translateX(-100%);

@@ -66,10 +66,12 @@ export const Wrapper = styled.div`
   min-height: ${({ mh }) => mh && mh};
   height: ${({ h }) => h && h};
   gap: ${({ gap }) => (gap ? gap : "0")};
-  border: ${({ border }) => border && "var(--card-border)"};
-  @media (max-width: 450px) {
+  border: ${({ border, b }) =>
+    b ? "1px solid red" : border && "var(--card-border)"};
+  @media (width < 450px) {
     flex-wrap: ${({ qwrap }) => (qwrap ? qwrap : "nowrap")};
-    justify-content: space-between;
+    justify-content: ${({ mjc }) => (mjc ? mjc : "space-between")};
+    width: ${({ mw }) => (mw ? mw : "")}
   }
 `;
 

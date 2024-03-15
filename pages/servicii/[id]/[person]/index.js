@@ -2,12 +2,17 @@ import React from "react";
 import BackButton from "../../../../components/BackButton";
 import Card from "../../../../components/card";
 import Ratings from "../../../../components/ratings.js";
-import { Container } from "../../../../components/singleTags/elemetsCustom";
+import {
+  Container,
+  Wrapper,
+  TextAreaCustom,
+} from "../../../../components/singleTags/elemetsCustom";
 import {
   IconMinMax,
   IconDays,
   IconOrar,
 } from "../../../../components/tags/Icon.js";
+import IconWithText from "../../../../components/tags/IconWithText";
 import styles from "../../../../styles/pages/userCard.module.scss";
 
 export const getStaticPaths = async () => {
@@ -76,9 +81,7 @@ const Person = ({ data, oras, setLocation, revs }) => {
       <BackButton url={`/servicii/${oras}`} text={`${oras}`} />
       <div className={styles.mainContainer}>
         <div className={styles.titleContainer}>
-          <h4>
-            {item.tipjob} {item.id}
-          </h4>
+          <h4>{item.tipjob}</h4>
         </div>
 
         <div className={styles.topMenu}>
@@ -91,55 +94,67 @@ const Person = ({ data, oras, setLocation, revs }) => {
             <div className={styles.screenLeft}>
               <span>
                 <IconMinMax min={item.pretMin} max={item.pretMax} text=" " />
-                <p>Tarife</p>
               </span>
               <span>
                 <IconDays zi_start={item.ziinceput} zi_end={item.zisfarsit} />
-                <p>Zile lucru</p>
               </span>
               <span>
                 <IconOrar inceput={item.orainceput} sfarsit={item.orasfarsit} />
-                <p>Ore program</p>
               </span>
             </div>
 
             <div className={styles.screenMiddle}>
-              <h6>Nume: {item.fullname}</h6>
-              {item.contact.email.map((item, idx) => {
-                return (
-                  <h6 key={idx}>
-                    Email {idx + 1}: {item}
-                  </h6>
-                );
-              })}
-              {item.contact.phone.map((item, index) => {
-                return (
-                  <h6 key={index}>
-                    Telefon {index + 1}: {item}
-                  </h6>
-                );
-              })}
-              <h6>
-                Locatie: {item.judet}, {item.oras}
-              </h6>
+              <Wrapper w="80%" mw="100%">
+                <IconWithText text={item.fullname} iconName="name" />
+                {item.contact.email.map((item, idx) => {
+                  return (
+                    <IconWithText
+                      key={idx}
+                      text={item}
+                      iconName="email01_blue"
+                    />
+                  );
+                })}
+                {item.contact.phone.map((item, idx) => {
+                  return (
+                    <IconWithText
+                      key={idx}
+                      text={item}
+                      iconName="phone01_blue"
+                    />
+                  );
+                })}
+                <IconWithText
+                  text={`${item.judet}, ${item.oras}`}
+                  iconName="location"
+                />
+              </Wrapper>
             </div>
 
             <div className={styles.screenRight}>
-              <p>Disponibil peste program: {item.urgente ? "Da" : "Nu"}</p>
-              <p>
-                Disponibil noaptea (urgente): {item.urgenteNoapte ? "Da" : "Nu"}
-              </p>
-              <p>Descriere: {item.detalii}</p>
-              <p>
-                Online din {item.dataregister} ora {item.oraregister}
-              </p>
-              <button>raporteaza</button>
+              <Wrapper w="50%" mw="100%">
+                <IconWithText
+                  text={`${item.urgente ? "Da" : "Nu"}`}
+                  iconName="overtime"
+                />
+                <IconWithText
+                  text={`${item.urgenteNoapte ? "Da" : "Nu"}`}
+                  iconName="247"
+                />
+
+                <IconWithText iconName="description" />
+                <TextAreaCustom value={item.detalii} readOnly></TextAreaCustom>
+                <IconWithText
+                  text={`${item.dataregister} ora ${item.oraregister}`}
+                  iconName="onlineFrom"
+                />
+                <button>raporteaza</button>
+              </Wrapper>
             </div>
           </div>
         </div>
         <Ratings userReviews={revs} />
       </div>
-      <Card data={item} userReviews={revs} />
     </Container>
   );
 };

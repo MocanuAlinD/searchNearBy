@@ -6,7 +6,7 @@ import { setShowMenu } from "../features/searchJudet/searchJudetSlice";
 import { Wrapper } from "./singleTags/elemetsCustom";
 import IconSvg from "../components/tags/IconSvg";
 import Image from "next/image";
-import CustomIcon from "../components/tags/CustomIcon";
+import CustomIcon from "./tags/CustomIcon";
 import styles from "../styles/comps/BurgerMenu.module.scss";
 
 const BurgerMenu = () => {
@@ -21,7 +21,7 @@ const BurgerMenu = () => {
           : "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
       }}
     >
-      <CustomIcon src="home" text="Home" />
+      <CustomIcon src="home" text="Home" href="/" />
       <CustomIcon
         src="statisticsRedBlue"
         text="Toate judetele"

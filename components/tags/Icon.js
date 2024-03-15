@@ -416,16 +416,4 @@ export const IconOrar = ({ w, inceput, sfarsit }) => {
   );
 };
 
-export const IconTest = ({ w }) => {
-  const size = w ? w : "10rem";
-  return (
-    <svg
-      className={styles.test}
-      viewBox="0 0 100 50"
-      width={size}
-      id="test"
-    ></svg>
-  );
-};
-
 // <use clip-path="url(#myClip)" href="#heart" fill="red" />
