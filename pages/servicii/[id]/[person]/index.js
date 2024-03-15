@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import BackButton from "../../../../components/BackButton";
 import Card from "../../../../components/card";
 import Ratings from "../../../../components/ratings.js";
@@ -6,6 +6,7 @@ import {
   Container,
   Wrapper,
   TextAreaCustom,
+  ParaCustom,
 } from "../../../../components/singleTags/elemetsCustom";
 import {
   IconMinMax,
@@ -52,6 +53,8 @@ export const getStaticProps = async (context) => {
 };
 
 const Person = ({ data, oras, setLocation, revs }) => {
+  const [state, setState] = useState(false);
+
   if (!data) {
     return (
       <Container>
@@ -68,6 +71,10 @@ const Person = ({ data, oras, setLocation, revs }) => {
     a.style.transform = `translateX(${
       x === "1" ? 100 : x === "2" ? 0 : x === "3" && -100
     }%)`;
+  };
+
+  const openDescription = (s) => {
+    setState(s);
   };
 
   // currentStar(number), longRev(string), postTime(string), sortRev(string)
@@ -104,7 +111,7 @@ const Person = ({ data, oras, setLocation, revs }) => {
             </div>
 
             <div className={styles.screenMiddle}>
-              <Wrapper w="80%" mw="100%">
+              <Wrapper w="75%" mw="100%">
                 <IconWithText text={item.fullname} iconName="name" />
                 {item.contact.email.map((item, idx) => {
                   return (
@@ -132,7 +139,7 @@ const Person = ({ data, oras, setLocation, revs }) => {
             </div>
 
             <div className={styles.screenRight}>
-              <Wrapper w="50%" mw="100%">
+              <Wrapper w="75%" mw="100%">
                 <IconWithText
                   text={`${item.urgente ? "Da" : "Nu"}`}
                   iconName="overtime"
@@ -142,14 +149,38 @@ const Person = ({ data, oras, setLocation, revs }) => {
                   iconName="247"
                 />
 
-                <IconWithText iconName="description" />
-                <TextAreaCustom value={item.detalii} readOnly></TextAreaCustom>
+                <IconWithText
+                  iconName="description"
+                  text="Apasa pentru descriere"
+                  click={() => openDescription(true)}
+                  color="var(--color-blue)"
+                  underline
+                  cursor
+                />
                 <IconWithText
                   text={`${item.dataregister} ora ${item.oraregister}`}
                   iconName="onlineFrom"
                 />
-                <button>raporteaza</button>
+                <IconWithText iconName="report" text="Raporteaza" />
               </Wrapper>
+              {state && (
+                <Wrapper
+                  className={styles.dialog}
+                  onClick={() => openDescription(false)}
+                  jc="space-around"
+                  m="0"
+                  p="2rem"
+                >
+                  <ParaCustom>&emsp;&#8811;&emsp;{item.detalii}</ParaCustom>
+                  <ParaCustom
+                    color="var(--color-yellow)"
+                    ta="center"
+                    fs="var(--fs067)"
+                  >
+                    Apasa oriunde pentru a inchide
+                  </ParaCustom>
+                </Wrapper>
+              )}
             </div>
           </div>
         </div>

@@ -232,7 +232,8 @@ export const H4Custom = styled.h4`
   text-align: ${({ ta }) => (ta ? ta : "center")};
   border: ${({ border }) => border && "var(--card-border)"};
   user-select: none;
-  
+  cursor: ${({ cursor }) => cursor && "pointer"};
+  text-decoration: ${({ underline }) => underline && "underline"};
 `;
 
 export const H6Custom = styled(H4Custom)`

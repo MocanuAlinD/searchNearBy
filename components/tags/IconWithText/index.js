@@ -4,7 +4,15 @@ import {
   Wrapper,
 } from "../../../components/singleTags/elemetsCustom";
 
-const IconWithText = ({ text, iconName, size }) => {
+const IconWithText = ({
+  text,
+  iconName,
+  size,
+  click,
+  color,
+  underline,
+  cursor,
+}) => {
   const sz = size ? size + "rem" : "1.5rem";
   return (
     <Wrapper border fd="row" ai="center" p="0.1rem 0.5rem" mjc="flex-start">
@@ -18,7 +26,14 @@ const IconWithText = ({ text, iconName, size }) => {
           marginRight: "0.5rem",
         }}
       ></div>
-      <H4Custom>{text}</H4Custom>
+      <H4Custom
+        underline={underline ? underline : ""}
+        color={color ? color : ""}
+        onClick={click && click}
+        cursor={cursor && cursor}
+      >
+        {text}
+      </H4Custom>
     </Wrapper>
   );
 };
