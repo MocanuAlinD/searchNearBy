@@ -65,7 +65,8 @@
     }
   }
   &:hover {
-    width: 12rem;
+    min-width: 12rem;
+    width: fit-content;
     .text {
       color: var(--color-1-dark);
       .rect {
@@ -80,9 +81,15 @@
 
 @media screen and (width < 600px) {
   .container {
-    width: 12rem;
+    width: 100%;
+    .text {
+      white-space: wrap;
+    }
     .text svg .rect {
       transition-delay: 0;
+    }
+    &:hover {
+      width: 100%;
     }
   }
 }
