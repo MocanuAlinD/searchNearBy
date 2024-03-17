@@ -4,17 +4,17 @@
   // background-color: rgb(61, 15, 15);
   flex-grow: 1;
   margin-block: auto;
-  width: 30rem;
+  width: min(100%, 30rem);
   height: fit-content;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  border: 1px solid red;
   svg {
     border: 1px solid yellow;
     // width: 100%;
     // height: fit-content;
+    overflow: visible;
     text {
       // font-size: 20%;
       // stroke-width: 0.2;

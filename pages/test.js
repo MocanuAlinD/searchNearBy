@@ -3,12 +3,22 @@ import { Container } from "../components/singleTags/elemetsCustom";
 import styles from "../styles/pages/test.module.scss";
 
 const Test = () => {
-  const values = [10, 18, 24, 35, 46];
+  const obj = {
+    Constanta: 10,
+    Bucuresti: 18,
+    Braila: 35,
+    Tulcea: 99,
+    Craiova: 1,
+    Cluj: 7,
+  };
+  const values = Object.values(obj);
+  const keys = Object.keys(obj);
   const barHeight = 5;
   const spacing = 1;
   const row = barHeight + spacing;
   const size = row * values.length;
   const colors = ["#d90429", "#f77f00", "#ffe5d9", "#b5e48c", "#7ae582"];
+  console.log(values.length);
 
   const fillBar = (sz) => {
     if (sz <= 20) {
@@ -43,12 +53,12 @@ const Test = () => {
 
             return (
               <rect
-                x="0%"
+                x={50 - item / 2}
                 y={offset}
-                width={item + "%"}
+                width={item / 2 + "%"}
                 height={barHeight}
-                // fill={fillBar(item)}
-                fill="gray"
+                fill={fillBar(item)}
+                // fill="gray"
               />
             );
           })}
@@ -62,13 +72,14 @@ const Test = () => {
 
             return (
               <text
-                x="0%"
+                x="52%"
                 y={offset}
                 fill={fillBar(item)}
                 stroke="blue"
                 fontSize={barHeight - 1}
+                // textLength={50}
               >
-                Index: {index + 1}
+                {keys[index]}
               </text>
             );
           })}
