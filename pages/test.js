@@ -4,14 +4,13 @@ import styles from "../styles/pages/test.module.scss";
 
 const Test = () => {
   const values = [
-    5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 70, 50, 30, 3, 90, 20, 30, 40,
-    20, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 70, 50, 30, 3, 90, 20, 30,
-    40, 100,
+    12, 20, 30, 40, 60, 100, 2, 30, 80, 0, 2, 20, 10, 30, 40, 50, 60,
   ];
   const max = Math.max(...values);
   const barHeight = 5;
-  const topBottom = barHeight / 2;
-  const size = values.length * barHeight + topBottom * values.length;
+  const spacing = barHeight;
+  // const size = spacing + values.length * barHeight + values.length * barHeight;
+  const size = spacing + barHeight * values.length + values.length * spacing;
   // const finalValues = (x) => {
   //   const one = ((100 * x) / max).toFixed(2);
   //   return one;
@@ -37,18 +36,20 @@ const Test = () => {
       <div className={styles.main}>
         <svg
           id="graphSvg"
-          viewBox={`0 0 ${size} ${size}`}
-          preserveAspectRatio="none"
-          width="10rem"
-          height={size * 2}
+          viewBox="0 0 100% 100%"
+          // preserveAspectRatio="none"
+          width="100%"
+          height={size}
         >
           {values.map((item, index) => {
-            const offset = index * 7 + topBottom;
+            const offset = index * barHeight + spacing;
+            // console.log("offset", offset, item);
+            // console.log(finalValues(item));
             return (
               <rect
-                x="0"
+                x="0%"
                 y={offset}
-                width={item}
+                width={`${item}%`}
                 height={barHeight}
                 fill={fillBar(item)}
               />
