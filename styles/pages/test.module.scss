@@ -11,14 +11,14 @@
   align-items: center;
   flex-direction: column;
   svg {
-    border: 1px solid yellow;
-    // width: 100%;
-    // height: fit-content;
     overflow: visible;
+    background-color: var(--glass);
+    backdrop-filter: blur(3px);
+    border-radius: 1rem;
+    padding: 0.5rem;
+    border: var(--card-border);
     text {
-      // font-size: 20%;
-      // stroke-width: 0.2;
-      stroke: none;
+      // width: fit-content;
     }
   }
 }

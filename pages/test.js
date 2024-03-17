@@ -4,21 +4,22 @@ import styles from "../styles/pages/test.module.scss";
 
 const Test = () => {
   const obj = {
+    Braila: 50,
+    Bucuresti: 30,
+    Cluj: 90,
     Constanta: 10,
-    Bucuresti: 18,
-    Braila: 35,
-    Tulcea: 99,
-    Craiova: 1,
-    Cluj: 7,
+    Craiova: 70,
+    Timisoara: 35,
+    Tulcea: 100,
   };
+  const divider = 50;
   const values = Object.values(obj);
   const keys = Object.keys(obj);
   const barHeight = 5;
   const spacing = 1;
   const row = barHeight + spacing;
-  const size = row * values.length;
+  const size = row * values.length + spacing;
   const colors = ["#d90429", "#f77f00", "#ffe5d9", "#b5e48c", "#7ae582"];
-  console.log(values.length);
 
   const fillBar = (sz) => {
     if (sz <= 20) {
@@ -34,6 +35,7 @@ const Test = () => {
     }
   };
   let offset;
+
   return (
     <Container>
       <div className={styles.main}>
@@ -50,34 +52,35 @@ const Test = () => {
             } else if (index > 0) {
               offset = index * row + spacing;
             }
+            const w = (divider * item) / 100;
+            const x = divider - w;
 
             return (
               <rect
-                x={50 - item / 2}
+                x={x}
                 y={offset}
-                width={item / 2 + "%"}
+                width={w + "%"}
                 height={barHeight}
                 fill={fillBar(item)}
-                // fill="gray"
               />
             );
           })}
 
           {values.map((item, index) => {
             if (index === 0) {
-              offset = row / 2 + spacing * 2;
+              offset = spacing * 2 + row / 2;
             } else if (index > 0) {
               offset = index * row + row - spacing;
             }
 
             return (
               <text
-                x="52%"
+                x={divider + 1 + "%"}
                 y={offset}
                 fill={fillBar(item)}
-                stroke="blue"
-                fontSize={barHeight - 1}
-                // textLength={50}
+                fontSize={barHeight / 1.2}
+                textLength={100 - divider - 1}
+                textAnchor="start"
               >
                 {keys[index]}
               </text>
