@@ -1,7 +1,13 @@
 :root {
+  --bg-input: #ffffff15;
+  --bg-svg: linear-gradient(
+    to bottom right,
+    var(--color-1-light) 0%,
+    var(--color-1-dark) 60%,
+    var(--color-1-light) 100%
+  );
   --color-1-dark: #212529;
   --color-1-light: #343a40;
-  --bg-input: #ffffff15;
   --card-border-color: #ffffff33;
   --card-border: 1px solid #ffffff33;
   --color-2-dark: #495057;
@@ -20,12 +26,7 @@
   --glass-dark: #ffffff06;
   --glass: #ffffff11;
   --glass-dark: #00000033;
-  --bg-svg: linear-gradient(
-    to bottom right,
-    var(--color-1-light) 0%,
-    var(--color-1-dark) 60%,
-    var(--color-1-light) 100%
-  );
+  
   --color-border-blue: 2px solid var(--color-3-ok);
   --color-border-bottom-error: 1px solid var(--color-yellow);
   --color-bottom: #1b263b;

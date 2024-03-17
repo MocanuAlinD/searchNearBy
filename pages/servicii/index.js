@@ -1,7 +1,7 @@
 import React from "react";
 import LinkButton from "../../components/LinkButton";
 import { Container } from "../../components/singleTags/elemetsCustom";
-import styles from "../../styles/pages/servicii.module.scss";
+import styles from "../../styles/pages/dinamic.module.scss";
 
 export const getStaticProps = async () => {
   try {
@@ -64,7 +64,7 @@ const Servicii = ({ citys }) => {
             ))}
             <tr>
               <td className={"text-warning m-0"}>Total:</td>
-              <td colSpan="2" className={"text-warning m-0 text-start"}>
+              <td colSpan="2" className={"text-warning m-0 text-center"}>
                 {tmp}
               </td>
             </tr>
