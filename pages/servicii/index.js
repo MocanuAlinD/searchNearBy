@@ -41,9 +41,9 @@ const Servicii = ({ citys }) => {
   });
 
   return (
-    <Container className={styles.joburi}>
+    <Container>
       {citys ? (
-        <table className="table m-0 p-0 mt-4">
+        <table className={styles.table}>
           <thead>
             <tr>
               <th>Judet</th>
@@ -53,7 +53,12 @@ const Servicii = ({ citys }) => {
           <tbody>
             {citysAndNumberOfUsers.map((item, index) => (
               <tr key={index}>
-                <LinkButton href={`/servicii/${item.name}`} text={item.name} />
+                <td>
+                  <LinkButton
+                    href={`/servicii/${item.name}`}
+                    text={item.name}
+                  />
+                </td>
                 <td>{item.value}</td>
               </tr>
             ))}

@@ -52,7 +52,7 @@ const Details = ({ res, id }) => {
   const all = Object.values(res);
 
   return (
-    <Container className={styles.container}>
+    <Container>
       <BackButton url="/servicii" text="Judete" />
       <table className={styles.table}>
         <thead>

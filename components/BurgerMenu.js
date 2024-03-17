@@ -1,11 +1,5 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import CustomLink from "./CustomLink";
-import { Button } from "./tags/Button";
-import { setShowMenu } from "../features/searchJudet/searchJudetSlice";
-import { Wrapper } from "./singleTags/elemetsCustom";
-import IconSvg from "../components/tags/IconSvg";
-import Image from "next/image";
 import CustomIcon from "./tags/CustomIcon";
 import styles from "../styles/comps/BurgerMenu.module.scss";
 
@@ -21,7 +15,7 @@ const BurgerMenu = () => {
           : "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
       }}
     >
-      <CustomIcon src="home" text="Home" href="/" />
+      <CustomIcon src="home" text="Home" />
       <CustomIcon
         src="statisticsRedBlue"
         text="Toate judetele"
@@ -35,6 +29,7 @@ const BurgerMenu = () => {
       <CustomIcon src="ask" text="Depune oferta" href="depuneOferta" />
       <CustomIcon src="timer" text="Cereri active" href="cereriCurente" />
       <CustomIcon src="donate" text="Doneaza" href="donatii" />
+      <CustomIcon src="landing" text="Landing page" href="landingPage" />
       <CustomIcon src="test" text="Test" href="test" />
     </div>
   );
