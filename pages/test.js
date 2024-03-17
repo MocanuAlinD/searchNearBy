@@ -3,7 +3,7 @@ import { Container } from "../components/singleTags/elemetsCustom";
 import styles from "../styles/pages/test.module.scss";
 
 const Test = () => {
-  const values = [10, 18, 24, 35, 46, 57, 68, 79, 90];
+  const values = [10, 18, 24, 35, 46];
   const barHeight = 5;
   const spacing = 1;
   const row = barHeight + spacing;
@@ -47,8 +47,29 @@ const Test = () => {
                 y={offset}
                 width={item + "%"}
                 height={barHeight}
-                fill={fillBar(item)}
+                // fill={fillBar(item)}
+                fill="gray"
               />
+            );
+          })}
+
+          {values.map((item, index) => {
+            if (index === 0) {
+              offset = row / 2 + spacing * 2;
+            } else if (index > 0) {
+              offset = index * row + row - spacing;
+            }
+
+            return (
+              <text
+                x="0%"
+                y={offset}
+                fill={fillBar(item)}
+                stroke="blue"
+                fontSize={barHeight - 1}
+              >
+                Index: {index + 1}
+              </text>
             );
           })}
         </svg>
