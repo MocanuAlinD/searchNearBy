@@ -11,15 +11,19 @@ const Test = () => {
     Craiova: 70,
     Timisoara: 35,
     Tulcea: 100,
+    "Drobeta-Turnu Severin": 20,
   };
   const divider = 50;
   const values = Object.values(obj);
   const keys = Object.keys(obj);
-  const barHeight = 5;
+  const barHeight = 7;
   const spacing = 1;
   const row = barHeight + spacing;
   const size = row * values.length + spacing;
-  const colors = ["#d90429", "#f77f00", "#ffe5d9", "#b5e48c", "#7ae582"];
+  const colors = ["#c7f9cc", "#80ed99", "#57cc99", "#38a3a5", "#22577a"];
+  // const fontSize = barHeight < 5 ? barHeight : barHeight / 1.5;
+  const fontSize = barHeight < 4 ? barHeight : 4;
+  const fontWeight = 200;
 
   const fillBar = (sz) => {
     if (sz <= 20) {
@@ -68,19 +72,22 @@ const Test = () => {
 
           {values.map((item, index) => {
             if (index === 0) {
-              offset = spacing * 2 + row / 2;
+              offset = spacing + row / 2;
             } else if (index > 0) {
-              offset = index * row + row - spacing;
+              offset = index * row + row / 2 + spacing;
             }
 
             return (
               <text
-                x={divider + 1 + "%"}
+                x={divider + 0.5 + "%"}
                 y={offset}
                 fill={fillBar(item)}
-                fontSize={barHeight / 1.2}
-                textLength={100 - divider - 1}
+                fontSize={fontSize}
+                textLength={divider <= 55 ? "none" : 100 - divider - 0.5}
                 textAnchor="start"
+                lengthAdjust="spacing"
+                dominantBaseline="middle"
+                fontWeight={fontWeight}
               >
                 {keys[index]}
               </text>
