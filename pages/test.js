@@ -3,19 +3,11 @@ import { Container } from "../components/singleTags/elemetsCustom";
 import styles from "../styles/pages/test.module.scss";
 
 const Test = () => {
-  const values = [
-    12, 20, 30, 40, 60, 100, 2, 30, 80, 0, 2, 20, 10, 30, 40, 50, 60,
-  ];
-  const max = Math.max(...values);
+  const values = [10, 18, 24, 35, 46, 57, 68, 79, 90];
   const barHeight = 5;
-  const spacing = barHeight;
-  // const size = spacing + values.length * barHeight + values.length * barHeight;
-  const size = spacing + barHeight * values.length + values.length * spacing;
-  // const finalValues = (x) => {
-  //   const one = ((100 * x) / max).toFixed(2);
-  //   return one;
-  // };
-
+  const spacing = 1;
+  const row = barHeight + spacing;
+  const size = row * values.length;
   const colors = ["#d90429", "#f77f00", "#ffe5d9", "#b5e48c", "#7ae582"];
 
   const fillBar = (sz) => {
@@ -31,25 +23,29 @@ const Test = () => {
       return colors[4];
     }
   };
+  let offset;
   return (
     <Container>
       <div className={styles.main}>
         <svg
           id="graphSvg"
-          viewBox="0 0 100% 100%"
-          // preserveAspectRatio="none"
+          viewBox={`0 0 100 ${size}`}
+          preserveAspectRatio="none"
           width="100%"
-          height={size}
+          height="100%"
         >
           {values.map((item, index) => {
-            const offset = index * barHeight + spacing;
-            // console.log("offset", offset, item);
-            // console.log(finalValues(item));
+            if (index === 0) {
+              offset = spacing;
+            } else if (index > 0) {
+              offset = index * row + spacing;
+            }
+
             return (
               <rect
                 x="0%"
                 y={offset}
-                width={`${item}%`}
+                width={item + "%"}
                 height={barHeight}
                 fill={fillBar(item)}
               />
