@@ -47,18 +47,22 @@ const Bars = (props) => {
   const _values = Object.values(_obj);
   const _keys = Object.keys(_obj);
 
-  console.log("=================");
   const checkLimit = (x) => {
-    if (!x) {
-      return;
+    let newX;
+    if (x === true) {
+      console.log("x has no len");
+      newX = textLeft ? 30 : 70;
     } else {
-      if (textLeft) {
-        const finalLength = _divider <= x && _divider;
-        return finalLength;
-      } else {
-        const finalLength = _divider >= x && 100 - _divider - 1;
-        return finalLength;
-      }
+      newX = x;
+    }
+    if (textLeft) {
+      const finalLength = _divider <= newX && _divider;
+      console.log("FinalLen 1: ->", finalLength);
+      return finalLength;
+    } else {
+      const finalLength = _divider >= newX && 100 - _divider - 1;
+      console.log("FinalLen 2: ->", finalLength);
+      return finalLength;
     }
   };
 
@@ -70,7 +74,11 @@ const Bars = (props) => {
   const _spacing = spacing ? +spacing : 2.5;
   const _row = _barHeight + _spacing;
   const _size = _row * _values.length + _spacing;
-  const _textLengthLimit = checkLimit(textLengthLimit);
+  const _textLengthLimit = textLengthLimit
+    ? checkLimit(textLengthLimit)
+    : textLeft
+    ? _divider <= 30 && _divider - 1
+    : _divider >= 70 && 100 - _divider - 1;
   console.log("txtLenLimit ->", textLengthLimit);
 
   // font and color

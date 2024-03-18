@@ -37,9 +37,9 @@ const Test = () => {
           padding="0"
           // spacing="2"
           // textColor="teal"
-          // textLengthLimit="20"
+          // textLengthLimit
           width="40rem"
-          textLeft
+          // textLeft
         />
       </div>
     </Container>
