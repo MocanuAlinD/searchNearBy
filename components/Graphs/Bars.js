@@ -18,7 +18,9 @@ const Bars = (props) => {
     height,
     margin,
     obj,
+    overflow,
     padding,
+    rotate,
     spacing,
     textColor,
     textLeft,
@@ -47,39 +49,40 @@ const Bars = (props) => {
   const _values = Object.values(_obj);
   const _keys = Object.keys(_obj);
 
-  const checkLimit = (x) => {
-    let newX;
-    if (x === true) {
-      console.log("x has no len");
-      newX = textLeft ? 30 : 70;
-    } else {
-      newX = x;
-    }
-    if (textLeft) {
-      const finalLength = _divider <= newX && _divider;
-      console.log("FinalLen 1: ->", finalLength);
-      return finalLength;
-    } else {
-      const finalLength = _divider >= newX && 100 - _divider - 1;
-      console.log("FinalLen 2: ->", finalLength);
-      return finalLength;
-    }
-  };
+  // const checkLimit = (x) => {
+  //   if (x === true) {
+  //     return noLimitSpecified();
+  //   }
+  //   if (textLeft) {
+  //     const finalLength = _divider <= +x && _divider - 1;
+  //     return finalLength;
+  //   } else {
+  //     const finalLength = _divider >= +x && 100 - _divider - 1;
+  //     return finalLength;
+  //   }
+  // };
+
+  // const noLimitSpecified = () => {
+  //   return textLeft
+  //     ? _divider <= 30 && _divider - 1
+  //     : _divider >= 70 && 100 - _divider - 1;
+  // };
 
   // size
-  // const _textLengthLimit = textLengthLimit ? +textLengthLimit : 45;
   const defaultWidhtAndHeight = "min(100%, 20rem)";
   const _divider = divider ? +divider : 50;
   const _barHeight = barHeight ? +barHeight : 5;
   const _spacing = spacing ? +spacing : 2.5;
   const _row = _barHeight + _spacing;
   const _size = _row * _values.length + _spacing;
-  const _textLengthLimit = textLengthLimit
-    ? checkLimit(textLengthLimit)
-    : textLeft
-    ? _divider <= 30 && _divider - 1
+
+  const _textLengthLimit = textLeft
+    ? textLengthLimit
+      ? _divider <= textLengthLimit && _divider - 1
+      : _divider <= 30 && _divider - 1
+    : textLengthLimit
+    ? _divider >= textLengthLimit && 100 - _divider - 1
     : _divider >= 70 && 100 - _divider - 1;
-  console.log("txtLenLimit ->", textLengthLimit);
 
   // font and color
   const _textColor =
@@ -121,6 +124,7 @@ const Bars = (props) => {
         height: height ? height : defaultWidhtAndHeight,
         borderRadius: borderR ? borderR : "0",
         margin: margin ? margin : "",
+        transform: `rotate(${rotate ? rotate : 0}deg)`,
       }}
     >
       <svg
@@ -133,7 +137,7 @@ const Bars = (props) => {
           padding: padding ? padding : "1rem",
           backgroundColor: bg ? bg : "#080808",
           borderRadius: borderR ? borderR : "0",
-          overflow: "visible",
+          overflow: overflow ? overflow : "hidden",
         }}
       >
         <defs>
@@ -142,8 +146,14 @@ const Bars = (props) => {
             gradientTransform="rotate(0)"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset="0%" stop-color={_gradientColor1} />
-            <stop offset={_divider + "%"} stop-color={_gradientColor2} />
+            <stop
+              offset={textLeft ? _divider + "%" : "0%"}
+              stopColor={textLeft ? _gradientColor1 : _gradientColor2}
+            />
+            <stop
+              offset={textLeft ? "100%" : _divider + "%"}
+              stopColor={textLeft ? _gradientColor2 : _gradientColor1}
+            />
           </linearGradient>
         </defs>
         {_values.map((item, index) => {
@@ -152,7 +162,6 @@ const Bars = (props) => {
           } else if (index > 0) {
             _offset = index * _row + _spacing;
           }
-          // const _w = (_divider * item) / 100;
           const _w = textLeft
             ? ((100 - _divider) * item) / 100
             : (_divider * item) / 100;
@@ -160,6 +169,7 @@ const Bars = (props) => {
 
           return (
             <rect
+              key={index}
               x={_x}
               y={_offset}
               width={_w + "%"}
@@ -176,17 +186,18 @@ const Bars = (props) => {
             _offset = index * _row + _barHeight / 2 + _spacing;
           }
 
-          const _x = textLeft ? _divider - 0.5 + "%" : _divider + 0.5 + "%";
+          const _x = textLeft ? _divider + "%" : _divider + "%";
 
           return (
             <text
+              key={index}
               x={_x}
               y={_offset}
               fill={
                 gradient ? _textColor : textColor ? _textColor : fillBar(item)
               }
               fontSize={_fontSize}
-              textLength={_textLengthLimit}
+              textLength={_textLengthLimit || undefined}
               textAnchor={textLeft ? "end" : "start"}
               dominantBaseline="central"
               fontWeight={_fontWeight}

@@ -8,20 +8,20 @@ const Test = () => {
     <Container>
       <div className={styles.main}>
         <Bars
-          // barHeight="4"
-          // bg="gray"
+          barHeight="5"
+          // bg="darkblue"
           border
           // borderC
           // borderR
           // borderW
           // colors={["red", "blue", "yellow", "cyan", "coral"]}
           divider="50"
-          fontSize="4"
+          fontSize="3.5"
           // fontWeight
           // gradient
           // gradientColor1="tomato"
           // gradientColor2="teal"
-          // height
+          // height="fit-content"
           // margin="0"
           // obj={{
           //   Brăila: 10,
@@ -34,12 +34,14 @@ const Test = () => {
           //   Timișoara: 80,
           //   Tulcea: 100,
           // }}
-          padding="0"
+          // overflow="visible"
+          // padding="0"
+          // rotate="-90"
           // spacing="2"
           // textColor="teal"
-          // textLengthLimit
+          textLengthLimit="30"
           width="40rem"
-          // textLeft
+          textLeft
         />
       </div>
     </Container>
