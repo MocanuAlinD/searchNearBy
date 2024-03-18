@@ -2,25 +2,26 @@ import React from "react";
 
 const Bars = (props) => {
   const {
-    obj,
-    divider,
     barHeight,
-    spacing,
+    bg,
+    border,
+    borderC,
+    borderR,
+    borderW,
     colors,
+    divider,
     fontSize,
     fontWeight,
-    width,
-    height,
-    border,
-    padding,
-    borderR,
-    bg,
-    borderW,
-    borderC,
     gradient,
     gradientColor1,
     gradientColor2,
+    height,
+    margin,
+    obj,
+    padding,
+    spacing,
     textColor,
+    width,
   } = props;
 
   const _colors = colors
@@ -41,15 +42,17 @@ const Bars = (props) => {
         Tulcea: 100,
       };
 
-  const _divider = divider ? +divider : 50;
   const _values = Object.values(_obj);
   const _keys = Object.keys(_obj);
-  const _barHeight = barHeight ? +barHeight : 7;
-  const _spacing = spacing ? +spacing : 1;
+
+  // size
+  const defaultWidhtAndHeight = "min(100%, 20rem)";
+  const _divider = divider ? +divider : 50;
+  const _barHeight = barHeight ? +barHeight : 5;
+  const _spacing = spacing ? +spacing : 2.5;
   const _row = _barHeight + _spacing;
   const _size = _row * _values.length + _spacing;
 
-  console.log(textColor);
   // font and color
   const _textColor =
     textColor === true || textColor === undefined || !textColor.length
@@ -83,12 +86,13 @@ const Bars = (props) => {
   return (
     <div
       style={{
-        width: width ? width : "100%",
         border:
           border &&
           `${borderW ? borderW : 1}px solid ${borderC ? borderC : "#909090"}`,
-        height: height ? height : "100%",
+        width: width ? width : defaultWidhtAndHeight,
+        height: height ? height : defaultWidhtAndHeight,
         borderRadius: borderR ? borderR : "0",
+        margin: margin ? margin : "",
       }}
     >
       <svg
@@ -146,7 +150,9 @@ const Bars = (props) => {
             <text
               x={_divider + 0.5 + "%"}
               y={_offset}
-              fill={gradient ? _textColor : fillBar(item)}
+              fill={
+                gradient ? _textColor : textColor ? _textColor : fillBar(item)
+              }
               fontSize={_fontSize}
               textLength={_divider <= 55 ? "none" : 100 - _divider - 0.5}
               dominantBaseline="central"
