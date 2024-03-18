@@ -17,21 +17,31 @@ const Bars = (props) => {
     bg,
     borderW,
     borderC,
+    gradientColor1,
+    gradientColor2,
+    textColorSingle,
+    textColorBar,
+    gradient,
   } = props;
+
+  const _colors = colors
+    ? colors
+    : ["#c81d25", "#ff5a5f", "#8d99ae", "#087e8b", "#0b3954"];
 
   const _obj = obj
     ? obj
     : {
-        Braila: 50,
-        Brasov: 85,
-        Bucuresti: 30,
+        Brăila: 50,
+        Brașov: 85,
+        București: 30,
         Cluj: 90,
-        Constanta: 10,
+        Constanța: 10,
         Craiova: 70,
         "Drobeta-Turnu Severin": 20,
-        Timisoara: 35,
+        Timișoara: 35,
         Tulcea: 100,
       };
+
   const _divider = divider ? +divider : 50;
   const _values = Object.values(_obj);
   const _keys = Object.keys(_obj);
@@ -39,15 +49,18 @@ const Bars = (props) => {
   const _spacing = spacing ? +spacing : 1;
   const _row = _barHeight + _spacing;
   const _size = _row * _values.length + _spacing;
-  const _colors = colors
-    ? colors
-    : ["#c81d25", "#ff5a5f", "#8d99ae", "#087e8b", "#0b3954"];
+
+  // font and color
+  const _textColorSingle =
+    textColorSingle === true ? "whitesmoke" : textColorSingle;
   const _fontSize = fontSize
     ? fontSize >= _barHeight
       ? _barHeight
       : +fontSize
     : _barHeight;
   const _fontWeight = fontWeight ? fontWeight : 200;
+  const _gradientColor1 = gradientColor1 ? gradientColor1 : "#70e000";
+  const _gradientColor2 = gradientColor2 ? gradientColor2 : "#004b23";
 
   const fillBar = (sz) => {
     if (sz <= 20) {
@@ -62,7 +75,9 @@ const Bars = (props) => {
       return _colors[4];
     }
   };
+
   let _offset;
+
   return (
     <div
       style={{
@@ -86,6 +101,18 @@ const Bars = (props) => {
           borderRadius: borderR ? borderR : "0",
         }}
       >
+        {gradient && (
+          <defs>
+            <linearGradient
+              id="myGradient"
+              gradientTransform="rotate(0)"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop offset="0%" stop-color={_gradientColor1} />
+              <stop offset={_divider + "%"} stop-color={_gradientColor2} />
+            </linearGradient>
+          </defs>
+        )}
         {_values.map((item, index) => {
           if (index <= 0) {
             _offset = _spacing;
@@ -101,7 +128,7 @@ const Bars = (props) => {
               y={_offset}
               width={_w + "%"}
               height={_barHeight}
-              fill={fillBar(item)}
+              fill={gradient ? "url(#myGradient)" : fillBar(item)}
             />
           );
         })}
@@ -117,7 +144,7 @@ const Bars = (props) => {
             <text
               x={_divider + 0.5 + "%"}
               y={_offset}
-              fill={fillBar(item)}
+              fill={textColorSingle ? _textColorSingle : fillBar(item)}
               fontSize={_fontSize}
               textLength={_divider <= 55 ? "none" : 100 - _divider - 0.5}
               dominantBaseline="central"

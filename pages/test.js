@@ -8,10 +8,14 @@ const Test = () => {
     <Container>
       <div className={styles.main}>
         <Bars
-          barHeight="5"
+          barHeight="4"
           width="40rem"
-          height="20rem"
-          border
+          // fontSize="2"
+          // height="20rem"
+          // border
+          // gradient
+          // gradientColor1="black"
+          // textColorSingle="red"
           divider="50"
           spacing="2"
           padding="0"
