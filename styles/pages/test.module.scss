@@ -10,14 +10,6 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  svg {
-    background-color: var(--glass);
-    backdrop-filter: blur(3px);
-    border-radius: 1rem;
-    padding: 0.5rem;
-    border: var(--card-border);
-    text {
-      // font-weight: 200;
-    }
-  }
+  width: 100%;
+  border: 1px solid red;
 }
