@@ -107,18 +107,16 @@ const Bars = (props) => {
           borderRadius: borderR ? borderR : "0",
         }}
       >
-        {gradient && (
-          <defs>
-            <linearGradient
-              id="myGradient"
-              gradientTransform="rotate(0)"
-              gradientUnits="userSpaceOnUse"
-            >
-              <stop offset="0%" stop-color={_gradientColor1} />
-              <stop offset={_divider + "%"} stop-color={_gradientColor2} />
-            </linearGradient>
-          </defs>
-        )}
+        <defs>
+          <linearGradient
+            id="myGradient"
+            gradientTransform="rotate(0)"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop offset="0%" stop-color={_gradientColor1} />
+            <stop offset={_divider + "%"} stop-color={_gradientColor2} />
+          </linearGradient>
+        </defs>
         {_values.map((item, index) => {
           if (index <= 0) {
             _offset = _spacing;
