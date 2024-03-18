@@ -10,12 +10,12 @@ const Test = () => {
         <Bars
           barHeight="4"
           width="40rem"
-          // fontSize="2"
-          // height="20rem"
-          // border
+          fontSize="3"
+          textColor="coral"
+          // colors={["red", "blue", "yellow", "cyan", "coral"]}
           // gradient
-          // gradientColor1="black"
-          // textColorSingle="red"
+          gradientColor1="tomato"
+          gradientColor2="teal"
           divider="50"
           spacing="2"
           padding="0"

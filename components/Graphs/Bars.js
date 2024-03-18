@@ -17,11 +17,10 @@ const Bars = (props) => {
     bg,
     borderW,
     borderC,
+    gradient,
     gradientColor1,
     gradientColor2,
-    textColorSingle,
-    textColorBar,
-    gradient,
+    textColor,
   } = props;
 
   const _colors = colors
@@ -50,9 +49,12 @@ const Bars = (props) => {
   const _row = _barHeight + _spacing;
   const _size = _row * _values.length + _spacing;
 
+  console.log(textColor);
   // font and color
-  const _textColorSingle =
-    textColorSingle === true ? "whitesmoke" : textColorSingle;
+  const _textColor =
+    textColor === true || textColor === undefined || !textColor.length
+      ? "whitesmoke"
+      : textColor;
   const _fontSize = fontSize
     ? fontSize >= _barHeight
       ? _barHeight
@@ -144,7 +146,7 @@ const Bars = (props) => {
             <text
               x={_divider + 0.5 + "%"}
               y={_offset}
-              fill={textColorSingle ? _textColorSingle : fillBar(item)}
+              fill={gradient ? _textColor : fillBar(item)}
               fontSize={_fontSize}
               textLength={_divider <= 55 ? "none" : 100 - _divider - 0.5}
               dominantBaseline="central"
