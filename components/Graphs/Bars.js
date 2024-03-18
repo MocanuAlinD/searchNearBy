@@ -21,6 +21,8 @@ const Bars = (props) => {
     padding,
     spacing,
     textColor,
+    textLeft,
+    textLengthLimit,
     width,
   } = props;
 
@@ -32,11 +34,11 @@ const Bars = (props) => {
     ? obj
     : {
         Brăila: 50,
-        Brașov: 85,
+        Brașov: 25,
         București: 30,
-        Cluj: 90,
+        Cluj: 45,
         Constanța: 10,
-        Craiova: 70,
+        Craiova: 40,
         "Drobeta-Turnu Severin": 20,
         Timișoara: 35,
         Tulcea: 100,
@@ -45,13 +47,31 @@ const Bars = (props) => {
   const _values = Object.values(_obj);
   const _keys = Object.keys(_obj);
 
+  console.log("=================");
+  const checkLimit = (x) => {
+    if (!x) {
+      return;
+    } else {
+      if (textLeft) {
+        const finalLength = _divider <= x && _divider;
+        return finalLength;
+      } else {
+        const finalLength = _divider >= x && 100 - _divider - 1;
+        return finalLength;
+      }
+    }
+  };
+
   // size
+  // const _textLengthLimit = textLengthLimit ? +textLengthLimit : 45;
   const defaultWidhtAndHeight = "min(100%, 20rem)";
   const _divider = divider ? +divider : 50;
   const _barHeight = barHeight ? +barHeight : 5;
   const _spacing = spacing ? +spacing : 2.5;
   const _row = _barHeight + _spacing;
   const _size = _row * _values.length + _spacing;
+  const _textLengthLimit = checkLimit(textLengthLimit);
+  console.log("txtLenLimit ->", textLengthLimit);
 
   // font and color
   const _textColor =
@@ -105,6 +125,7 @@ const Bars = (props) => {
           padding: padding ? padding : "1rem",
           backgroundColor: bg ? bg : "#080808",
           borderRadius: borderR ? borderR : "0",
+          overflow: "visible",
         }}
       >
         <defs>
@@ -123,8 +144,11 @@ const Bars = (props) => {
           } else if (index > 0) {
             _offset = index * _row + _spacing;
           }
-          const _w = (_divider * item) / 100;
-          const _x = _divider - _w;
+          // const _w = (_divider * item) / 100;
+          const _w = textLeft
+            ? ((100 - _divider) * item) / 100
+            : (_divider * item) / 100;
+          const _x = textLeft ? _divider : _divider - _w;
 
           return (
             <rect
@@ -144,15 +168,18 @@ const Bars = (props) => {
             _offset = index * _row + _barHeight / 2 + _spacing;
           }
 
+          const _x = textLeft ? _divider - 0.5 + "%" : _divider + 0.5 + "%";
+
           return (
             <text
-              x={_divider + 0.5 + "%"}
+              x={_x}
               y={_offset}
               fill={
                 gradient ? _textColor : textColor ? _textColor : fillBar(item)
               }
               fontSize={_fontSize}
-              textLength={_divider <= 55 ? "none" : 100 - _divider - 0.5}
+              textLength={_textLengthLimit}
+              textAnchor={textLeft ? "end" : "start"}
               dominantBaseline="central"
               fontWeight={_fontWeight}
             >
