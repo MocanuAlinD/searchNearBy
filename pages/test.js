@@ -45,8 +45,8 @@ const Test = () => {
           // textLengthLimit="70"
           width="40rem"
           // height="40rem"
-          textLeft
-          range="25"
+          // textLeft
+          range="12.5"
         />
       </div>
     </Container>

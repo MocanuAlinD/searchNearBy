@@ -1,5 +1,11 @@
 import React from "react";
 
+// todo
+{/* add variable to change toFixed decimals */}
+
+
+
+
 const Bars = (props) => {
   const {
     barHeight,
@@ -73,20 +79,32 @@ const Bars = (props) => {
   const _keys = Object.keys(_obj);
 
   const getv = () => {
-    const a = 100 / (range ? 100 / range : 100 / 25);
     const newVals = [];
+    let a = 50;
+    // check if range is < 0 or > 100
+    if (range && +range < 1) {
+      a = 50;
+    } else if (range && +range > 100) {
+      a = 100;
+    } else {
+      a = +range;
+    }
+
+    // add values to the list
     for (let i = 0; i <= 100; i += a) {
       if (!newVals.includes(+i.toFixed())) {
-        newVals.push(+i.toFixed());
+        newVals.push(+i.toFixed(2));
       }
     }
+
+    // if 100 is not in the list, add it
     if (!newVals.includes(100)) {
       newVals.push(100);
     }
     return newVals;
   };
 
-  const percentage = range ? getv() : ["0%", "25%", "50%", "75%", "100%"];
+  const percentage = range ? getv() : [0, 25, 50, 75, 100];
 
   const _colors = colors
     ? colors
