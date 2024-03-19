@@ -8,7 +8,7 @@ const Test = () => {
     <Container>
       <div className={styles.main}>
         <Bars
-          // barHeight="5"
+          barHeight="4"
           // bg="darkblue"
           border
           // borderC
@@ -38,13 +38,13 @@ const Test = () => {
           // overflow="hidden"
           padding="0"
           // rotate="-90"
-          // spacing="2"
+          spacing="0.5"
           // textColor="teal"
           view="100"
           // textLengthLimit="70"
-          width="30rem"
-          height="30rem"
-          textLeft
+          width="40rem"
+          // height="40rem"
+          // textLeft
         />
       </div>
     </Container>

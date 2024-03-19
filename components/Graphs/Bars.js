@@ -70,8 +70,12 @@ const Bars = (props) => {
   const _height = _row * _values.length + _spacing;
   const allWidth = _view + _space * 2;
   const allHeight = _height + _space * 4;
-  const _sectionWidth = ((_view - _divider) * _view) / 100;
-  const _sectionFraction = _sectionWidth / (percentage.length - 1);
+  const _sectionWidth = textLeft
+    ? ((_view - _divider) * _view) / 100
+    : _divider;
+  const _sectionFraction = textLeft
+    ? _sectionWidth / (percentage.length - 1)
+    : _divider / (percentage.length - 1);
 
   const _textLengthLimit = textLeft
     ? textLengthLimit
@@ -110,6 +114,7 @@ const Bars = (props) => {
   };
 
   let _offset;
+  let _offsetPercentNumber;
 
   return (
     <div
@@ -180,8 +185,9 @@ const Bars = (props) => {
           const x = textLeft
             ? _divider + _sectionFraction * index
             : _divider - _sectionFraction * index;
+          console.log("x", x, _sectionFraction);
           return (
-            <g>
+            <g key={index}>
               <line
                 x1={x}
                 y1="0"
@@ -195,9 +201,9 @@ const Bars = (props) => {
                 x={x}
                 y={_height}
                 fill="white"
-                fontSize={_fontSize}
+                fontSize={_fontSize / 1.5}
                 fontWeight={200}
-                transform={`rotate(90 ${x} ${_height})`}
+                transform={`rotate(90 ${x}, ${_height})`}
                 dominantBaseline="central"
                 dx="1"
               >
@@ -210,22 +216,37 @@ const Bars = (props) => {
         {_values.map((item, index) => {
           if (index <= 0) {
             _offset = _spacing;
+            _offsetPercentNumber = _spacing + _barHeight / 2;
           } else if (index > 0) {
             _offset = index * _row + _spacing;
+            _offsetPercentNumber = index * _row + _barHeight / 2 + _spacing;
           }
+
           const wRight = ((_view - _divider) * item) / 100;
           const wLeft = (_divider * item) / 100;
           const _w = textLeft ? wRight : wLeft;
           const _x = textLeft ? _divider : _divider - _w;
           return (
-            <rect
-              key={index}
-              x={_x}
-              y={_offset}
-              width={_w}
-              height={_barHeight}
-              fill={gradient ? "url(#myGradient)" : fillBar(item)}
-            />
+            <g key={index}>
+              <rect
+                x={_x}
+                y={_offset}
+                width={_w}
+                height={_barHeight}
+                fill={gradient ? "url(#myGradient)" : fillBar(item)}
+              />
+              <text
+                x={textLeft ? _divider + 0.5 : _divider - 0.5}
+                y={_offsetPercentNumber}
+                fill="white"
+                fontSize={_fontSize}
+                textAnchor={textLeft ? "start" : "end"}
+                fontWeight="200"
+                dominantBaseline="central"
+              >
+                {item}
+              </text>
+            </g>
           );
         })}
 
