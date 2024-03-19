@@ -30,13 +30,8 @@ const Bars = (props) => {
     textLengthLimit,
     view,
     width,
+    perc,
   } = props;
-
-  const percentage = ["0%", "25%", "50%", "75%", "100%"];
-
-  const _colors = colors
-    ? colors
-    : ["#c81d25", "#ff5a5f", "#8d99ae", "#087e8b", "#0b3954"];
 
   const _obj = obj
     ? obj
@@ -54,23 +49,57 @@ const Bars = (props) => {
         Sibiu: 80,
       };
 
+  {
+    /* INDEPENDENT */
+  }
+  const _fontWeight = fontWeight ? fontWeight : 200;
+  const _gradientColor1 = gradientColor1 ? gradientColor1 : "#588157";
+  const _gradientColor2 = gradientColor2 ? gradientColor2 : "#344e41";
+  const _borderViewColor = borderViewColor ? borderViewColor : "red";
+  const _defaultWidhtAndHeight = "min(100%, 20rem)";
+  const _space = 5;
+  const _view = view ? +view : 100;
+  const _textColor =
+    textColor === true || textColor === undefined || !textColor.length
+      ? "whitesmoke"
+      : textColor;
   const maxObjValue = Math.max(...Object.values(_obj));
   const objValues = Object.values(_obj);
-
-  // shrinked down to max 100 all the values.
   const _values = Object.values(_obj).map((item) => {
+    // shrinked down to max 100 all the values.
     const a = (item * 100) / maxObjValue;
     return +a.toFixed(2);
   });
-
-  // const _values = Object.values(_obj);
   const _keys = Object.keys(_obj);
-  const _defaultWidhtAndHeight = "min(100%, 20rem)";
+  const _perc = {
+    10: [
+      "0%",
+      "10%",
+      "20%",
+      "30%",
+      "40%",
+      "50%",
+      "60%",
+      "70%",
+      "80%",
+      "90%",
+      "100%",
+    ],
+    20: ["0%", "20%", "40%", "60%", "80%", "100%"],
+    25: ["0%", "25%", "50%", "75%", "100%"],
+    33: ["0%", "33.3%", "66.6%", "100%"],
+    50: ["0%", "50%", "100%"],
+  };
 
-  // size
-  const _space = 5;
-  const _view = view ? +view : 100;
+  const percentage = perc ? _perc[perc] : _perc[25];
 
+  const _colors = colors
+    ? colors
+    : ["#c81d25", "#ff5a5f", "#8d99ae", "#087e8b", "#0b3954"];
+
+  // =========================================================================
+  // =========================================================================
+  // =========================================================================
   const outOfRange = divider < 0 ? 0 : divider > _view ? _view : divider;
 
   const _divider = divider ? (+outOfRange * +_view) / 100 : +_view / 2;
@@ -96,19 +125,12 @@ const Bars = (props) => {
     : _divider >= (70 * _view) / 100 && _view - _divider - 2;
 
   // font and color
-  const _textColor =
-    textColor === true || textColor === undefined || !textColor.length
-      ? "whitesmoke"
-      : textColor;
+
   const _fontSize = fontSize
     ? fontSize >= _barHeight
       ? _barHeight
       : +fontSize
     : _barHeight;
-  const _fontWeight = fontWeight ? fontWeight : 200;
-  const _gradientColor1 = gradientColor1 ? gradientColor1 : "#588157";
-  const _gradientColor2 = gradientColor2 ? gradientColor2 : "#344e41";
-  const _borderViewColor = borderViewColor ? borderViewColor : "red";
 
   const fillBar = (sz) => {
     if (sz <= 20) {
@@ -281,6 +303,7 @@ const Bars = (props) => {
           );
         })}
 
+        {/* border view */}
         {conturView && (
           <g>
             <line
