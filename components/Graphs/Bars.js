@@ -181,6 +181,7 @@ const Bars = (props) => {
           {dividerLine && <use href="#dividerLine" />}
         </g>
 
+        {/* vertical percentage text and line */}
         {percentage.map((item, index) => {
           const x = textLeft
             ? _divider + _sectionFraction * index
