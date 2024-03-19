@@ -59,7 +59,7 @@ const Bars = (props) => {
 
   // size
   const _space = 5;
-  const _view = view ? +view : 200;
+  const _view = view ? +view : 100;
 
   const outOfRange = divider < 0 ? 0 : divider > _view ? _view : divider;
 
@@ -186,7 +186,6 @@ const Bars = (props) => {
           const x = textLeft
             ? _divider + _sectionFraction * index
             : _divider - _sectionFraction * index;
-          console.log("x", x, _sectionFraction);
           return (
             <g key={index}>
               <line
@@ -214,6 +213,7 @@ const Bars = (props) => {
           );
         })}
 
+        {/* percentage BAR and text over */}
         {_values.map((item, index) => {
           if (index <= 0) {
             _offset = _spacing;
@@ -227,6 +227,7 @@ const Bars = (props) => {
           const wLeft = (_divider * item) / 100;
           const _w = textLeft ? wRight : wLeft;
           const _x = textLeft ? _divider : _divider - _w;
+          console.log("item", item);
           return (
             <g key={index}>
               <rect
@@ -240,7 +241,7 @@ const Bars = (props) => {
                 x={textLeft ? _divider + 0.5 : _divider - 0.5}
                 y={_offsetPercentNumber}
                 fill="white"
-                fontSize={_fontSize}
+                fontSize={_fontSize / 1.25}
                 textAnchor={textLeft ? "start" : "end"}
                 fontWeight="200"
                 dominantBaseline="central"

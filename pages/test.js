@@ -8,7 +8,7 @@ const Test = () => {
     <Container>
       <div className={styles.main}>
         <Bars
-          barHeight="4"
+          barHeight="3"
           // bg="darkblue"
           border
           // borderC
@@ -17,7 +17,7 @@ const Test = () => {
           // colors={["red", "blue", "yellow", "cyan", "coral"]}
           conturView
           divider="50"
-          fontSize="3.5"
+          fontSize="10"
           // fontWeight
           // gradient
           // dividerLine
