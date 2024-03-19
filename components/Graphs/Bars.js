@@ -30,7 +30,7 @@ const Bars = (props) => {
     textLengthLimit,
     view,
     width,
-    perc,
+    range,
   } = props;
 
   const _obj = obj
@@ -91,7 +91,22 @@ const Bars = (props) => {
     50: ["0%", "50%", "100%"],
   };
 
-  const percentage = perc ? _perc[perc] : _perc[25];
+  const getv = () => {
+    const a = 100 / (range ? 100 / range : 100 / 25);
+    const newVals = [];
+    for (let i = 0; i <= 100; i += a) {
+      if (!newVals.includes(i.toFixed() + "%")) {
+        console.log("in for");
+        newVals.push(i.toFixed() + "%");
+      }
+    }
+    if (!newVals.includes("100%")) {
+      newVals.push("100%");
+    }
+    return newVals;
+  };
+
+  const percentage = range ? getv() : ["0%", "25%", "50%", "75%", "100%"];
 
   const _colors = colors
     ? colors
