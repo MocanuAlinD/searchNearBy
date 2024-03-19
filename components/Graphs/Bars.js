@@ -8,6 +8,7 @@ const Bars = (props) => {
     borderC,
     borderR,
     borderW,
+    borderViewColor,
     colors,
     conturView,
     divider,
@@ -107,6 +108,7 @@ const Bars = (props) => {
   const _fontWeight = fontWeight ? fontWeight : 200;
   const _gradientColor1 = gradientColor1 ? gradientColor1 : "#588157";
   const _gradientColor2 = gradientColor2 ? gradientColor2 : "#344e41";
+  const _borderViewColor = borderViewColor ? borderViewColor : "red";
 
   const fillBar = (sz) => {
     if (sz <= 20) {
@@ -251,6 +253,7 @@ const Bars = (props) => {
           );
         })}
 
+        {/* judet */}
         {_values.map((item, index) => {
           if (index === 0) {
             _offset = _spacing + _barHeight / 2;
@@ -279,13 +282,47 @@ const Bars = (props) => {
         })}
 
         {conturView && (
-          <polyline
-            points={`0 0 ${_view} 0 ${_view} ${_height} 0 ${_height} 0 0 `}
-            fill="none"
-            stroke="#fff4"
-            strokeWidth="0.2"
-            id="conturView"
-          />
+          <g>
+            <line
+              x1="0"
+              y1="0"
+              x2={_view}
+              y2="0"
+              fill="none"
+              stroke={_borderViewColor}
+              strokeWidth="0.2"
+            />
+            <line
+              x1="0"
+              y1={_height}
+              x2={_view}
+              y2={_height}
+              fill="none"
+              stroke={_borderViewColor}
+              strokeWidth="0.2"
+            />
+            {textLeft ? (
+              <line
+                x1="0"
+                y1="0"
+                x2="0"
+                y2={_height}
+                fill="none"
+                stroke={_borderViewColor}
+                strokeWidth="0.2"
+              />
+            ) : (
+              <line
+                x1={_view}
+                y1="0"
+                x2={_view}
+                y2={_height}
+                fill="none"
+                stroke={_borderViewColor}
+                strokeWidth="0.2"
+              />
+            )}
+          </g>
         )}
       </svg>
     </div>

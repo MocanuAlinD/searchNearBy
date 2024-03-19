@@ -15,8 +15,9 @@ const Test = () => {
           // borderR="1rem"
           // borderW
           // colors={["red", "blue", "yellow", "cyan", "coral"]}
+          // borderViewColor
           conturView
-          divider="35"
+          divider="50"
           // fontSize=""
           fontWeight="100"
           // gradient
