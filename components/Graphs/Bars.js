@@ -48,12 +48,21 @@ const Bars = (props) => {
         Craiova: 40,
         "Drobeta-Turnu Severin": 20,
         Timișoara: 35,
-        Tulcea: 98,
+        Tulcea: 10,
         Arad: 12,
-        Sibiu: 69,
+        Sibiu: 80,
       };
 
-  const _values = Object.values(_obj);
+  const maxObjValue = Math.max(...Object.values(_obj));
+  const objValues = Object.values(_obj);
+
+  // shrinked down to max 100 all the values.
+  const _values = Object.values(_obj).map((item) => {
+    const a = (item * 100) / maxObjValue;
+    return +a.toFixed(2);
+  });
+
+  // const _values = Object.values(_obj);
   const _keys = Object.keys(_obj);
   const _defaultWidhtAndHeight = "min(100%, 20rem)";
 
@@ -96,8 +105,8 @@ const Bars = (props) => {
       : +fontSize
     : _barHeight;
   const _fontWeight = fontWeight ? fontWeight : 200;
-  const _gradientColor1 = gradientColor1 ? gradientColor1 : "#70e000";
-  const _gradientColor2 = gradientColor2 ? gradientColor2 : "#004b23";
+  const _gradientColor1 = gradientColor1 ? gradientColor1 : "#588157";
+  const _gradientColor2 = gradientColor2 ? gradientColor2 : "#344e41";
 
   const fillBar = (sz) => {
     if (sz <= 20) {
@@ -158,13 +167,7 @@ const Bars = (props) => {
               stopColor={textLeft ? _gradientColor2 : _gradientColor1}
             />
           </linearGradient>
-          <polyline
-            points={`0 0 ${_view} 0 ${_view} ${_height} 0 ${_height} 0 0 `}
-            fill="none"
-            stroke="#fff4"
-            strokeWidth="0.2"
-            id="conturView"
-          />
+
           <line
             x1={_divider}
             y1="0"
@@ -176,10 +179,7 @@ const Bars = (props) => {
             id="dividerLine"
           />
         </defs>
-        <g>
-          {conturView && <use href="#conturView" />}
-          {dividerLine && <use href="#dividerLine" />}
-        </g>
+        {dividerLine && <use href="#dividerLine" />}
 
         {/* vertical percentage text and line */}
         {percentage.map((item, index) => {
@@ -227,7 +227,6 @@ const Bars = (props) => {
           const wLeft = (_divider * item) / 100;
           const _w = textLeft ? wRight : wLeft;
           const _x = textLeft ? _divider : _divider - _w;
-          console.log("item", item);
           return (
             <g key={index}>
               <rect
@@ -246,7 +245,7 @@ const Bars = (props) => {
                 fontWeight="200"
                 dominantBaseline="central"
               >
-                {item}
+                {objValues[index]}
               </text>
             </g>
           );
@@ -278,6 +277,16 @@ const Bars = (props) => {
             </text>
           );
         })}
+
+        {conturView && (
+          <polyline
+            points={`0 0 ${_view} 0 ${_view} ${_height} 0 ${_height} 0 0 `}
+            fill="none"
+            stroke="#fff4"
+            strokeWidth="0.2"
+            id="conturView"
+          />
+        )}
       </svg>
     </div>
   );

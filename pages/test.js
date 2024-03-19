@@ -16,9 +16,9 @@ const Test = () => {
           // borderW
           // colors={["red", "blue", "yellow", "cyan", "coral"]}
           conturView
-          divider="50"
-          fontSize="10"
-          // fontWeight
+          divider="35"
+          // fontSize=""
+          fontWeight="100"
           // gradient
           // dividerLine
           // gradientColor1="tomato"
@@ -39,12 +39,12 @@ const Test = () => {
           padding="0"
           // rotate="-90"
           spacing="0.5"
-          // textColor="teal"
+          textColor="white"
           view="100"
           // textLengthLimit="70"
           width="40rem"
           // height="40rem"
-          // textLeft
+          textLeft
         />
       </div>
     </Container>
