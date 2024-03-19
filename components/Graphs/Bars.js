@@ -71,37 +71,17 @@ const Bars = (props) => {
     return +a.toFixed(2);
   });
   const _keys = Object.keys(_obj);
-  const _perc = {
-    10: [
-      "0%",
-      "10%",
-      "20%",
-      "30%",
-      "40%",
-      "50%",
-      "60%",
-      "70%",
-      "80%",
-      "90%",
-      "100%",
-    ],
-    20: ["0%", "20%", "40%", "60%", "80%", "100%"],
-    25: ["0%", "25%", "50%", "75%", "100%"],
-    33: ["0%", "33.3%", "66.6%", "100%"],
-    50: ["0%", "50%", "100%"],
-  };
 
   const getv = () => {
     const a = 100 / (range ? 100 / range : 100 / 25);
     const newVals = [];
     for (let i = 0; i <= 100; i += a) {
-      if (!newVals.includes(i.toFixed() + "%")) {
-        console.log("in for");
-        newVals.push(i.toFixed() + "%");
+      if (!newVals.includes(+i.toFixed())) {
+        newVals.push(+i.toFixed());
       }
     }
-    if (!newVals.includes("100%")) {
-      newVals.push("100%");
+    if (!newVals.includes(100)) {
+      newVals.push(100);
     }
     return newVals;
   };
@@ -222,9 +202,8 @@ const Bars = (props) => {
 
         {/* vertical percentage text and line */}
         {percentage.map((item, index) => {
-          const x = textLeft
-            ? _divider + _sectionFraction * index
-            : _divider - _sectionFraction * index;
+          const n = (_sectionWidth * item) / 100;
+          const x = textLeft ? _divider + n : _divider - n;
           return (
             <g key={index}>
               <line
