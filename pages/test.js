@@ -8,7 +8,7 @@ const Test = () => {
     <Container>
       <div className={styles.main}>
         <Bars
-          barHeight="5"
+          // barHeight="5"
           // bg="darkblue"
           border
           // borderC
@@ -21,7 +21,7 @@ const Test = () => {
           // gradient
           // gradientColor1="tomato"
           // gradientColor2="teal"
-          // height="fit-content"
+          // height="40rem"
           // margin="0"
           // obj={{
           //   Brăila: 10,
@@ -35,12 +35,13 @@ const Test = () => {
           //   Tulcea: 100,
           // }}
           // overflow="visible"
-          // padding="0"
+          padding="0"
           // rotate="-90"
           // spacing="2"
           // textColor="teal"
+          view="150"
           textLengthLimit="70"
-          width="100%"
+          width="40rem"
           // textLeft
         />
       </div>

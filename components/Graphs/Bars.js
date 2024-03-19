@@ -25,8 +25,11 @@ const Bars = (props) => {
     textColor,
     textLeft,
     textLengthLimit,
+    view,
     width,
   } = props;
+
+  const percentage = ["0%", "20%", "40%", "60%", "80%", "100%"];
 
   const _colors = colors
     ? colors
@@ -44,18 +47,25 @@ const Bars = (props) => {
         "Drobeta-Turnu Severin": 20,
         Timișoara: 35,
         Tulcea: 100,
+        Arad: 12,
       };
 
   const _values = Object.values(_obj);
   const _keys = Object.keys(_obj);
+  const _defaultWidhtAndHeight = "min(100%, 20rem)";
 
   // size
-  const defaultWidhtAndHeight = "min(100%, 20rem)";
+  const mx = 20;
+  const my = 20;
+  const _view = view ? +view : 100;
+
   const _divider = divider ? +divider : 50;
   const _barHeight = barHeight ? +barHeight : 5;
-  const _spacing = spacing ? +spacing : 2.5;
+  const _spacing = spacing ? +spacing : 5;
   const _row = _barHeight + _spacing;
-  const _size = _row * _values.length + _spacing;
+  const _height = _row * _values.length + _spacing;
+  const allWidth = _view + mx * 2;
+  const allHeight = _height + my * 2;
 
   const _textLengthLimit = textLeft
     ? textLengthLimit
@@ -92,6 +102,7 @@ const Bars = (props) => {
       return _colors[4];
     }
   };
+  console.log(_height);
 
   let _offset;
 
@@ -101,8 +112,8 @@ const Bars = (props) => {
         border:
           border &&
           `${borderW ? borderW : 1}px solid ${borderC ? borderC : "#909090"}`,
-        width: width ? width : defaultWidhtAndHeight,
-        height: height ? height : defaultWidhtAndHeight,
+        width: width ? width : _defaultWidhtAndHeight,
+        height: height ? height : _defaultWidhtAndHeight,
         borderRadius: borderR ? borderR : "0",
         margin: margin ? margin : "",
         transform: `rotate(${rotate ? rotate : 0}deg)`,
@@ -110,7 +121,7 @@ const Bars = (props) => {
     >
       <svg
         id="graphSvg"
-        viewBox={`0 0 100 ${_size}`}
+        viewBox={`${-mx} ${-my} ${allWidth} ${allHeight}`}
         preserveAspectRatio="none"
         width="100%"
         height="100%"
@@ -137,6 +148,14 @@ const Bars = (props) => {
             />
           </linearGradient>
         </defs>
+
+        <polyline
+          points={`0 0 ${_view} 0 ${_view} ${_height} 0 ${_height} 0 0 `}
+          fill="none"
+          stroke="red"
+          strokeWidth="0.2"
+        />
+
         {_values.map((item, index) => {
           if (index <= 0) {
             _offset = _spacing;
