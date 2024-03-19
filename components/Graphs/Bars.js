@@ -9,7 +9,9 @@ const Bars = (props) => {
     borderR,
     borderW,
     colors,
+    conturView,
     divider,
+    dividerLine,
     fontSize,
     fontWeight,
     gradient,
@@ -29,7 +31,7 @@ const Bars = (props) => {
     width,
   } = props;
 
-  const percentage = ["0%", "20%", "40%", "60%", "80%", "100%"];
+  const percentage = ["0%", "25%", "50%", "75%", "100%"];
 
   const _colors = colors
     ? colors
@@ -66,7 +68,9 @@ const Bars = (props) => {
   const _row = _barHeight + _spacing;
   const _height = _row * _values.length + _spacing;
   const allWidth = _view + _space * 2;
-  const allHeight = _height + _space * 2;
+  const allHeight = _height + _space * 4;
+  const _sectionWidth = ((_view - _divider) * _view) / 100;
+  const _sectionFraction = _sectionWidth / (percentage.length - 1);
 
   const _textLengthLimit = textLeft
     ? textLengthLimit
@@ -151,7 +155,7 @@ const Bars = (props) => {
           <polyline
             points={`0 0 ${_view} 0 ${_view} ${_height} 0 ${_height} 0 0 `}
             fill="none"
-            stroke="red"
+            stroke="#fff4"
             strokeWidth="0.2"
             id="conturView"
           />
@@ -161,15 +165,31 @@ const Bars = (props) => {
             x2={_divider}
             y2={_height}
             fill="none"
-            stroke="red"
+            stroke="#f00"
             strokeWidth="0.2"
             id="dividerLine"
           />
         </defs>
         <g>
-          <use href="#conturView" />
-          <use href="#dividerLine" />
+          {conturView && <use href="#conturView" />}
+          {dividerLine && <use href="#dividerLine" />}
         </g>
+
+        {percentage.map((item, index) => {
+          console.log("sectionWidth", _sectionWidth);
+          const x = _divider + _sectionFraction * index;
+          return (
+            <line
+              x1={x}
+              y1="0"
+              x2={x}
+              y2={_height}
+              fill="none"
+              stroke="coral"
+              strokeWidth="0.2"
+            />
+          );
+        })}
 
         {_values.map((item, index) => {
           if (index <= 0) {
@@ -219,10 +239,6 @@ const Bars = (props) => {
             </text>
           );
         })}
-
-
-
-        
       </svg>
     </div>
   );

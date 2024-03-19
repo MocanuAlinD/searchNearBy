@@ -12,13 +12,15 @@ const Test = () => {
           // bg="darkblue"
           border
           // borderC
-          // borderR
+          // borderR="1rem"
           // borderW
           // colors={["red", "blue", "yellow", "cyan", "coral"]}
+          conturView
           divider="50"
           fontSize="3.5"
           // fontWeight
           // gradient
+          // dividerLine
           // gradientColor1="tomato"
           // gradientColor2="teal"
           // margin="0"
