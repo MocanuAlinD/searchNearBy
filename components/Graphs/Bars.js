@@ -50,6 +50,7 @@ const Bars = (props) => {
         Timișoara: 35,
         Tulcea: 98,
         Arad: 12,
+        Sibiu: 69,
       };
 
   const _values = Object.values(_obj);
@@ -176,18 +177,33 @@ const Bars = (props) => {
         </g>
 
         {percentage.map((item, index) => {
-          console.log("sectionWidth", _sectionWidth);
-          const x = _divider + _sectionFraction * index;
+          const x = textLeft
+            ? _divider + _sectionFraction * index
+            : _divider - _sectionFraction * index;
           return (
-            <line
-              x1={x}
-              y1="0"
-              x2={x}
-              y2={_height}
-              fill="none"
-              stroke="coral"
-              strokeWidth="0.2"
-            />
+            <g>
+              <line
+                x1={x}
+                y1="0"
+                x2={x}
+                y2={_height}
+                fill="none"
+                stroke="coral"
+                strokeWidth="0.2"
+              />
+              <text
+                x={x}
+                y={_height}
+                fill="white"
+                fontSize={_fontSize}
+                fontWeight={200}
+                transform={`rotate(90 ${x} ${_height})`}
+                dominantBaseline="central"
+                dx="1"
+              >
+                {item}
+              </text>
+            </g>
           );
         })}
 
