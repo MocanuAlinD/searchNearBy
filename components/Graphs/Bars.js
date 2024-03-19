@@ -49,25 +49,6 @@ const Bars = (props) => {
   const _values = Object.values(_obj);
   const _keys = Object.keys(_obj);
 
-  // const checkLimit = (x) => {
-  //   if (x === true) {
-  //     return noLimitSpecified();
-  //   }
-  //   if (textLeft) {
-  //     const finalLength = _divider <= +x && _divider - 1;
-  //     return finalLength;
-  //   } else {
-  //     const finalLength = _divider >= +x && 100 - _divider - 1;
-  //     return finalLength;
-  //   }
-  // };
-
-  // const noLimitSpecified = () => {
-  //   return textLeft
-  //     ? _divider <= 30 && _divider - 1
-  //     : _divider >= 70 && 100 - _divider - 1;
-  // };
-
   // size
   const defaultWidhtAndHeight = "min(100%, 20rem)";
   const _divider = divider ? +divider : 50;
