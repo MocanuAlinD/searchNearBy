@@ -1,10 +1,9 @@
 import React from "react";
 
 // todo
-{/* add variable to change toFixed decimals */}
-
-
-
+{
+  /* add variable to change toFixed decimals */
+}
 
 const Bars = (props) => {
   const {
@@ -21,6 +20,7 @@ const Bars = (props) => {
     dividerLine,
     fontSize,
     fontWeight,
+    fullBars,
     gradient,
     gradientColor1,
     gradientColor2,
@@ -49,10 +49,10 @@ const Bars = (props) => {
         Constanța: 10,
         Craiova: 40,
         "Drobeta-Turnu Severin": 20,
-        Timișoara: 35,
-        Tulcea: 10,
-        Arad: 12,
-        Sibiu: 80,
+        Timișoara: 100,
+        Tulcea: 80,
+        Arad: 50,
+        Sibiu: 90,
       };
 
   {
@@ -77,7 +77,11 @@ const Bars = (props) => {
     return +a.toFixed(2);
   });
   const _keys = Object.keys(_obj);
+  const _colors = colors
+    ? colors
+    : ["#c81d25", "#ff5a5f", "#8d99ae", "#087e8b", "#0b3954"];
 
+  // get percentage calculation
   const getv = () => {
     const newVals = [];
     let a = 50;
@@ -106,10 +110,6 @@ const Bars = (props) => {
 
   const percentage = range ? getv() : [0, 25, 50, 75, 100];
 
-  const _colors = colors
-    ? colors
-    : ["#c81d25", "#ff5a5f", "#8d99ae", "#087e8b", "#0b3954"];
-
   // =========================================================================
   // =========================================================================
   // =========================================================================
@@ -125,9 +125,9 @@ const Bars = (props) => {
   const _sectionWidth = textLeft
     ? ((_view - _divider) * _view) / 100
     : _divider;
-  const _sectionFraction = textLeft
-    ? _sectionWidth / (percentage.length - 1)
-    : _divider / (percentage.length - 1);
+  // const _sectionFraction = textLeft
+  //   ? _sectionWidth / (percentage.length - 1)
+  //   : _divider / (percentage.length - 1);
 
   const _textLengthLimit = textLeft
     ? textLengthLimit
@@ -138,7 +138,6 @@ const Bars = (props) => {
     : _divider >= (70 * _view) / 100 && _view - _divider - 2;
 
   // font and color
-
   const _fontSize = fontSize
     ? fontSize >= _barHeight
       ? _barHeight
@@ -218,6 +217,36 @@ const Bars = (props) => {
         </defs>
         {dividerLine && <use href="#dividerLine" />}
 
+        {/* fullBars */}
+        {fullBars &&
+          _values.map((item, index) => {
+            if (index <= 0) {
+              _offset = _spacing + _barHeight / 2;
+            } else if (index > 0) {
+              _offset = index * _row + _spacing + _barHeight / 2;
+            }
+
+            const iRight = _divider + ((_view - _divider) * item) / 100;
+            const iLeft = _divider - (item * _divider) / 100;
+
+            const x1 = textLeft ? iRight : 0;
+            const x2 = textLeft ? _view : iLeft;
+
+            return (
+              <g key={index}>
+                <line
+                  x1={x1}
+                  y1={_offset}
+                  x2={x2}
+                  y2={_offset}
+                  stroke="#fff7"
+                  strokeDasharray={0.5}
+                  strokeWidth="0.1"
+                />
+              </g>
+            );
+          })}
+
         {/* vertical percentage text and line */}
         {percentage.map((item, index) => {
           const n = (_sectionWidth * item) / 100;
@@ -243,7 +272,7 @@ const Bars = (props) => {
                 dominantBaseline="central"
                 dx="1"
               >
-                {item}
+                {item} %
               </text>
             </g>
           );

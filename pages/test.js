@@ -39,14 +39,15 @@ const Test = () => {
           // overflow="hidden"
           padding="0"
           // rotate="-90"
-          spacing="0.5"
-          textColor="white"
+          spacing="1"
+          textColor="whitesmoke"
           view="100"
           // textLengthLimit="70"
-          width="40rem"
+          width="90%"
           // height="40rem"
-          // textLeft
-          range="12.5"
+          fullBars
+          textLeft
+          range="20"
         />
       </div>
     </Container>
