@@ -12,7 +12,7 @@ const SvgButton = ({ onClick, children, name, bg, reset }) => {
       }}
     >
       <svg
-        viewBox="0 0 100% 100%"
+        // viewBox="0 0 100% 100%"
         preserveAspectRatio="none"
         style={{
           background: reset

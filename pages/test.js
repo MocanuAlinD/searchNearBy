@@ -39,9 +39,9 @@ const Test = () => {
           // rotate="-90"
           // spacing="2"
           // textColor="teal"
-          textLengthLimit="30"
-          width="40rem"
-          textLeft
+          textLengthLimit="70"
+          width="100%"
+          // textLeft
         />
       </div>
     </Container>

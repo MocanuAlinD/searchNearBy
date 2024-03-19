@@ -39,7 +39,7 @@
     transition: var(--transition);
     transition-delay: 0.4s;
     z-index: 1;
-    svg {
+    .svg {
       position: absolute;
       top: 0;
       left: 0;
@@ -88,12 +88,12 @@
     .text {
       white-space: wrap;
     }
-    .text svg .rect {
+    .text .svg .rect {
       transition-delay: 0;
     }
     &:hover {
       width: 100%;
-      .text{
+      .text {
         margin-right: 0;
       }
     }

@@ -19,9 +19,12 @@ const CustomIcon = ({ src, size, text, href }) => {
         ></div>
         <h4 className={styles.text}>
           {text ? text : "No text here"}
-          <svg viewBox="0 0 100% 100%">
+          <svg className={styles.svg}>
             <defs>
-              <linearGradient id="myGradient" gradientTransform="rotate(30)">
+              <linearGradient
+                id="customIconGradient"
+                gradientTransform="rotate(30)"
+              >
                 <stop offset="0%" stopColor="#84fab0" />
                 <stop offset="100%" stopColor="#8fd3f4" />
               </linearGradient>
@@ -30,7 +33,7 @@ const CustomIcon = ({ src, size, text, href }) => {
               className={styles.rect}
               width="100%"
               height="100%"
-              fill="url(#myGradient)"
+              fill="url(#customIconGradient)"
             />
           </svg>
         </h4>
