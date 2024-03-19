@@ -15,13 +15,12 @@ const Test = () => {
           // borderR
           // borderW
           // colors={["red", "blue", "yellow", "cyan", "coral"]}
-          divider="50"
+          divider="30"
           fontSize="3.5"
           // fontWeight
           // gradient
           // gradientColor1="tomato"
           // gradientColor2="teal"
-          // height="40rem"
           // margin="0"
           // obj={{
           //   Brăila: 10,
@@ -39,10 +38,11 @@ const Test = () => {
           // rotate="-90"
           // spacing="2"
           // textColor="teal"
-          view="150"
-          textLengthLimit="70"
-          width="40rem"
-          // textLeft
+          view="100"
+          // textLengthLimit="70"
+          width="30rem"
+          height="30rem"
+          textLeft
         />
       </div>
     </Container>

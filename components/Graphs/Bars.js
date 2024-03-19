@@ -46,7 +46,7 @@ const Bars = (props) => {
         Craiova: 40,
         "Drobeta-Turnu Severin": 20,
         Timișoara: 35,
-        Tulcea: 100,
+        Tulcea: 98,
         Arad: 12,
       };
 
@@ -55,25 +55,26 @@ const Bars = (props) => {
   const _defaultWidhtAndHeight = "min(100%, 20rem)";
 
   // size
-  const mx = 20;
-  const my = 20;
-  const _view = view ? +view : 100;
+  const _space = 5;
+  const _view = view ? +view : 200;
 
-  const _divider = divider ? +divider : 50;
+  const outOfRange = divider < 0 ? 0 : divider > _view ? _view : divider;
+
+  const _divider = divider ? (+outOfRange * +_view) / 100 : +_view / 2;
   const _barHeight = barHeight ? +barHeight : 5;
   const _spacing = spacing ? +spacing : 5;
   const _row = _barHeight + _spacing;
   const _height = _row * _values.length + _spacing;
-  const allWidth = _view + mx * 2;
-  const allHeight = _height + my * 2;
+  const allWidth = _view + _space * 2;
+  const allHeight = _height + _space * 2;
 
   const _textLengthLimit = textLeft
     ? textLengthLimit
-      ? _divider <= textLengthLimit && _divider - 1
-      : _divider <= 30 && _divider - 1
+      ? _divider <= textLengthLimit && _divider - 2
+      : _divider <= (30 * _view) / 100 && _divider - 2
     : textLengthLimit
-    ? _divider >= textLengthLimit && 100 - _divider - 1
-    : _divider >= 70 && 100 - _divider - 1;
+    ? _divider >= textLengthLimit && _view - _divider - 2
+    : _divider >= (70 * _view) / 100 && _view - _divider - 2;
 
   // font and color
   const _textColor =
@@ -102,7 +103,6 @@ const Bars = (props) => {
       return _colors[4];
     }
   };
-  console.log(_height);
 
   let _offset;
 
@@ -117,11 +117,12 @@ const Bars = (props) => {
         borderRadius: borderR ? borderR : "0",
         margin: margin ? margin : "",
         transform: `rotate(${rotate ? rotate : 0}deg)`,
+        overflow: "visible",
       }}
     >
       <svg
         id="graphSvg"
-        viewBox={`${-mx} ${-my} ${allWidth} ${allHeight}`}
+        viewBox={`${-_space} ${-_space} ${allWidth} ${allHeight}`}
         preserveAspectRatio="none"
         width="100%"
         height="100%"
@@ -129,7 +130,7 @@ const Bars = (props) => {
           padding: padding ? padding : "1rem",
           backgroundColor: bg ? bg : "#080808",
           borderRadius: borderR ? borderR : "0",
-          overflow: overflow ? overflow : "hidden",
+          overflow: overflow ? overflow : "visible",
         }}
       >
         <defs>
@@ -147,10 +148,21 @@ const Bars = (props) => {
               stopColor={textLeft ? _gradientColor2 : _gradientColor1}
             />
           </linearGradient>
+          <polyline
+            points={`0 0 ${_view} 0 ${_view} ${_height} 0 ${_height} 0 0 `}
+            fill="none"
+            stroke="red"
+            strokeWidth="0.2"
+            id="conturView"
+          />
         </defs>
+        <use href="#conturView" />
 
-        <polyline
-          points={`0 0 ${_view} 0 ${_view} ${_height} 0 ${_height} 0 0 `}
+        <line
+          x1={_divider}
+          y1="0"
+          x2={_divider}
+          y2={_height}
           fill="none"
           stroke="red"
           strokeWidth="0.2"
@@ -162,17 +174,16 @@ const Bars = (props) => {
           } else if (index > 0) {
             _offset = index * _row + _spacing;
           }
-          const _w = textLeft
-            ? ((100 - _divider) * item) / 100
-            : (_divider * item) / 100;
+          const wRight = ((_view - _divider) * item) / 100;
+          const wLeft = (_divider * item) / 100;
+          const _w = textLeft ? wRight : wLeft;
           const _x = textLeft ? _divider : _divider - _w;
-
           return (
             <rect
               key={index}
               x={_x}
               y={_offset}
-              width={_w + "%"}
+              width={_w}
               height={_barHeight}
               fill={gradient ? "url(#myGradient)" : fillBar(item)}
             />
@@ -186,12 +197,10 @@ const Bars = (props) => {
             _offset = index * _row + _barHeight / 2 + _spacing;
           }
 
-          const _x = textLeft ? _divider + "%" : _divider + "%";
-
           return (
             <text
               key={index}
-              x={_x}
+              x={_divider}
               y={_offset}
               fill={
                 gradient ? _textColor : textColor ? _textColor : fillBar(item)
@@ -201,6 +210,7 @@ const Bars = (props) => {
               textAnchor={textLeft ? "end" : "start"}
               dominantBaseline="central"
               fontWeight={_fontWeight}
+              dx={textLeft ? "-1" : "1"}
             >
               {_keys[index]}
             </text>
