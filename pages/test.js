@@ -15,7 +15,7 @@ const Test = () => {
           // borderR
           // borderW
           // colors={["red", "blue", "yellow", "cyan", "coral"]}
-          divider="30"
+          divider="50"
           fontSize="3.5"
           // fontWeight
           // gradient
@@ -33,7 +33,7 @@ const Test = () => {
           //   Timișoara: 80,
           //   Tulcea: 100,
           // }}
-          // overflow="visible"
+          // overflow="hidden"
           padding="0"
           // rotate="-90"
           // spacing="2"

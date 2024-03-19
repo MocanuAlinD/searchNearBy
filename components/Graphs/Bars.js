@@ -155,18 +155,21 @@ const Bars = (props) => {
             strokeWidth="0.2"
             id="conturView"
           />
+          <line
+            x1={_divider}
+            y1="0"
+            x2={_divider}
+            y2={_height}
+            fill="none"
+            stroke="red"
+            strokeWidth="0.2"
+            id="dividerLine"
+          />
         </defs>
-        <use href="#conturView" />
-
-        <line
-          x1={_divider}
-          y1="0"
-          x2={_divider}
-          y2={_height}
-          fill="none"
-          stroke="red"
-          strokeWidth="0.2"
-        />
+        <g>
+          <use href="#conturView" />
+          <use href="#dividerLine" />
+        </g>
 
         {_values.map((item, index) => {
           if (index <= 0) {
@@ -216,6 +219,10 @@ const Bars = (props) => {
             </text>
           );
         })}
+
+
+
+        
       </svg>
     </div>
   );
