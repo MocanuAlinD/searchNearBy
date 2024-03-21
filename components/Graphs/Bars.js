@@ -15,7 +15,7 @@ const Bars = (props) => {
     borderR,
     borderW,
     borderViewColor,
-    colors,
+    barColors,
     conturView,
     divider,
     dividerLine,
@@ -45,6 +45,7 @@ const Bars = (props) => {
     textLeft,
     textLengthLimit,
     valueTextColor,
+    valueFontSize,
     view,
     width,
     range,
@@ -73,7 +74,8 @@ const Bars = (props) => {
   const _addHeight = addHeight ? (addHeight < 0 ? 0 : +addHeight) : 0;
   const baseColorLight = "#ddd";
   const baseColorDark = "#080808";
-  const _percentFontSize = percentFontSize ? percentFontSize : "2.5";
+  const defaultFontSize = 3;
+  const _percentFontSize = percentFontSize ? percentFontSize : 2.5;
   const _percentWeight = percentWeight ? percentWeight : "200";
   const _percentColor = percentColor ? percentColor : baseColorDark;
   const _percentOffset = percentOffset
@@ -98,19 +100,22 @@ const Bars = (props) => {
       : textColor;
   const maxObjValue = Math.max(...Object.values(_obj));
   const objValues = Object.values(_obj);
+
+  // shrinked down to max 100 all the values.
   const _values = Object.values(_obj).map((item) => {
-    // shrinked down to max 100 all the values.
     const a = (item * 100) / maxObjValue;
     return +a.toFixed(2);
   });
+
   const _keys = Object.keys(_obj);
-  const _colors = colors
-    ? colors
+  const _barColors = barColors
+    ? barColors
     : ["#c81d25", "#ff5a5f", "#8d99ae", "#087e8b", "#0b3954"];
   const _fullBarColor = fullBarColor ? fullBarColor : baseColorDark;
   const _fullBarDasharray = fullBarDasharray ? fullBarDasharray : "1";
   const _fullBarWidth = fullBarWidth ? fullBarWidth : "0.1";
   const _valueTextColor = valueTextColor ? valueTextColor : baseColorLight;
+  const _valueFontSize = valueFontSize ? valueFontSize : defaultFontSize;
 
   // get percentage calculation
   const getv = () => {
@@ -146,7 +151,7 @@ const Bars = (props) => {
 
   const _divider = divider ? (+outOfRange * +_view) / 100 : +_view / 2;
   const _barHeight = barHeight ? +barHeight : 5;
-  const _spacing = spacing ? +spacing : _barHeight / 4;
+  const _spacing = spacing ? +spacing : 1.25;
   const _row = _barHeight + _spacing;
   const _height = _row * _values.length + _spacing;
   const allWidth = _view + _space * 2;
@@ -160,7 +165,7 @@ const Bars = (props) => {
     ? textLengthLimit
       ? _divider <= textLengthLimit && _divider - 2
       : _divider <= (30 * _view) / 100 && _divider - 2
-    : textLengthLimit
+    : +textLengthLimit
     ? _divider >= textLengthLimit && _view - _divider - 2
     : _divider >= (70 * _view) / 100 && _view - _divider - 2;
 
@@ -173,15 +178,15 @@ const Bars = (props) => {
 
   const fillBar = (sz) => {
     if (sz <= 20) {
-      return _colors[0];
+      return _barColors[0];
     } else if (sz > 20 && sz <= 40) {
-      return _colors[1];
+      return _barColors[1];
     } else if (sz > 40 && sz <= 60) {
-      return _colors[2];
+      return _barColors[2];
     } else if (sz > 60 && sz <= 80) {
-      return _colors[3];
+      return _barColors[3];
     } else if (sz > 80 && sz <= 100) {
-      return _colors[4];
+      return _barColors[4];
     }
   };
 
@@ -331,7 +336,7 @@ const Bars = (props) => {
                 x={textLeft ? _divider + 0.5 : _divider - 0.5}
                 y={_offsetPercentNumber}
                 fill={_valueTextColor}
-                fontSize={_fontSize / 1.25}
+                fontSize={_valueFontSize}
                 textAnchor={textLeft ? "start" : "end"}
                 fontWeight="200"
                 dominantBaseline="central"
