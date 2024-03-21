@@ -9,12 +9,12 @@ const Test = () => {
       <div className={styles.main}>
         <Bars
           conturView
-          divider="31"
+          divider="69"
           view="100"
           // textLengthLimit="30"
           width="80%"
           fullBar
-          textLeft
+          // textLeft
         />
       </div>
     </Container>

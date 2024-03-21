@@ -61,7 +61,7 @@ const Bars = (props) => {
         "French Guiana": 125,
         Egypt: 150,
         Bahrain: 175,
-        Mauritius: 200,
+        Mauritius: 272,
         Andorra: 225,
         "Timor-Leste": 250,
         Guam: 275,
@@ -144,6 +144,11 @@ const Bars = (props) => {
     return newVals;
   };
 
+  const to100 = (x) => {
+    const vl = (x * _view) / 100;
+    return vl;
+  };
+
   const percentage = range ? getv() : [0, 25, 50, 75, 100];
 
   // =========================================================================
@@ -165,13 +170,11 @@ const Bars = (props) => {
 
   const _textLengthLimit = textLeft
     ? textLengthLimit
-      ? _divider <= +textLengthLimit && _divider - 2
+      ? _divider <= +textLengthLimit && to100(_divider) - 2
       : _divider <= 30 && _divider - 2
     : textLengthLimit
     ? _divider >= 100 - +textLengthLimit && 100 - _divider - 2
-    : _divider >= 70 && 100 - _divider - 2;
-
-  console.log("_textLengthLimit", _divider, _textLengthLimit);
+    : _divider >= 70 && 100 - to100(_divider) - 2;
 
   // font and color
   const _fontSize = fontSize
