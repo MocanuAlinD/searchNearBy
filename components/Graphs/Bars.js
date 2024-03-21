@@ -115,7 +115,6 @@ const Bars = (props) => {
   const _fullBarDasharray = fullBarDasharray ? fullBarDasharray : "1";
   const _fullBarWidth = fullBarWidth ? fullBarWidth : "0.1";
   const _valueTextColor = valueTextColor ? valueTextColor : baseColorLight;
-  const _valueFontSize = valueFontSize ? valueFontSize : defaultFontSize;
 
   // get percentage calculation
   const getv = () => {
@@ -144,12 +143,6 @@ const Bars = (props) => {
     return newVals;
   };
 
-  const to100 = (x) => {
-    const vl = (x * _view) / 100;
-    // console.log("vl", vl);
-    return vl;
-  };
-
   const percentage = range ? getv() : [0, 25, 50, 75, 100];
 
   // =========================================================================
@@ -171,9 +164,7 @@ const Bars = (props) => {
     _height + _space * 2 + +_percentFontSize + +_percentOffset + _addHeight;
 
   // SECTION WIDTH
-  const _sectionWidth = textLeft
-    ? ((_view - _divider) * _view) / 100
-    : _divider;
+  const _sectionWidth = textLeft ? distRight : distLeft;
 
   const _textLengthLimit = textLeft
     ? textLengthLimit
@@ -181,7 +172,7 @@ const Bars = (props) => {
       : div100 <= 30 && distLeft
     : textLengthLimit
     ? div100 >= 100 - +textLengthLimit && distRight - 2
-    : div100 >= 70 && 100 - to100(_divider) - 2;
+    : div100 >= 70 && 100 - div100 - 2;
 
   // font and color
   const _fontSize = fontSize
@@ -189,6 +180,7 @@ const Bars = (props) => {
       ? _barHeight
       : +fontSize
     : _barHeight / 1.5;
+  const _valueFontSize = valueFontSize ? valueFontSize : _fontSize / 1.25;
 
   const fillBar = (sz) => {
     if (sz <= 20) {

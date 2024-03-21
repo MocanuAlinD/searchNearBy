@@ -9,12 +9,17 @@ const Test = () => {
       <div className={styles.main}>
         <Bars
           conturView
-          divider="50"
-          view="215"
-          textLengthLimit="20"
+          divider="26"
+          barHeight="8"
+          view="200"
+          fontSize={5}
+          percentFontSize="1.5"
+          spacing="0.5"
+          textLengthLimit="18"
           width="80%"
           fullBar
           textLeft
+          // gradient
         />
       </div>
     </Container>
