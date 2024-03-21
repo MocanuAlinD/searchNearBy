@@ -20,7 +20,10 @@ const Bars = (props) => {
     dividerLine,
     fontSize,
     fontWeight,
-    fullBars,
+    fullBar,
+    fullBarColor,
+    fullBarDasharray,
+    fullBarWidth,
     gradient,
     gradientColor1,
     gradientColor2,
@@ -29,6 +32,10 @@ const Bars = (props) => {
     obj,
     overflow,
     padding,
+    percentFontSize,
+    percentColor,
+    percentWeight,
+    percentOffset,
     rotate,
     spacing,
     textColor,
@@ -42,22 +49,30 @@ const Bars = (props) => {
   const _obj = obj
     ? obj
     : {
-        "Kiribati": 25,
-        "Greenland": 50,
-        "Guinea": 75,
+        Kiribati: 25,
+        Greenland: 50,
+        Guinea: 75,
         "Dominican Republic": 100,
         "French Guiana": 125,
-        "Egypt": 150,
-        "Bahrain": 175,
-        "Mauritius": 200,
-        "Andorra": 225,
+        Egypt: 150,
+        Bahrain: 175,
+        Mauritius: 200,
+        Andorra: 225,
         "Timor-Leste": 250,
-        "Guam": 275,
+        Guam: 275,
       };
 
   {
     /* INDEPENDENT */
   }
+  const _percentFontSize = percentFontSize ? percentFontSize : "1.5";
+  const _percentWeight = percentWeight ? percentWeight : "200";
+  const _percentColor = percentColor ? percentColor : "white";
+  const _percentOffset = percentOffset
+    ? percentOffset < 0
+      ? 5
+      : percentOffset > 5 && 5
+    : "2";
   const _fontWeight = fontWeight ? fontWeight : 200;
   const _gradientColor1 = gradientColor1 ? gradientColor1 : "#588157";
   const _gradientColor2 = gradientColor2 ? gradientColor2 : "#344e41";
@@ -80,6 +95,9 @@ const Bars = (props) => {
   const _colors = colors
     ? colors
     : ["#c81d25", "#ff5a5f", "#8d99ae", "#087e8b", "#0b3954"];
+  const _fullBarColor = fullBarColor ? fullBarColor : "#aaa";
+  const _fullBarDasharray = fullBarDasharray ? fullBarDasharray : "1";
+  const _fullBarWidth = fullBarWidth ? fullBarWidth : "0.1";
 
   // get percentage calculation
   const getv = () => {
@@ -217,8 +235,8 @@ const Bars = (props) => {
         </defs>
         {dividerLine && <use href="#dividerLine" />}
 
-        {/* fullBars */}
-        {fullBars &&
+        {/* fullBar */}
+        {fullBar &&
           _values.map((item, index) => {
             if (index <= 0) {
               _offset = _spacing + _barHeight / 2;
@@ -239,9 +257,9 @@ const Bars = (props) => {
                   y1={_offset}
                   x2={x2}
                   y2={_offset}
-                  stroke="#fff7"
-                  strokeDasharray={0.5}
-                  strokeWidth="0.1"
+                  stroke={_fullBarColor}
+                  strokeDasharray={_fullBarDasharray}
+                  strokeWidth={_fullBarWidth}
                 />
               </g>
             );
@@ -265,12 +283,13 @@ const Bars = (props) => {
               <text
                 x={x}
                 y={_height}
-                fill="white"
-                fontSize={_fontSize / 1.5}
-                fontWeight={200}
+                fill={_percentColor}
+                fontSize={_percentFontSize}
+                fontWeight={_percentWeight}
                 transform={`rotate(90 ${x}, ${_height})`}
                 dominantBaseline="central"
-                dx="1"
+                dx={_percentOffset}
+                // textAnchor="middle"
               >
                 {item} %
               </text>

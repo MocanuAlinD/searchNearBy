@@ -8,7 +8,7 @@ const Test = () => {
     <Container>
       <div className={styles.main}>
         <Bars
-          barHeight="3"
+          barHeight="5"
           // bg="darkblue"
           border
           // borderC
@@ -18,7 +18,7 @@ const Test = () => {
           // borderViewColor
           conturView
           divider="31"
-          // fontSize=""
+          fontSize="3"
           fontWeight="100"
           // gradient
           // dividerLine
@@ -43,11 +43,13 @@ const Test = () => {
           textColor="whitesmoke"
           view="100"
           // textLengthLimit="30"
-          width="30rem"
+          width="90%"
           // height="40rem"
-          fullBars
+          fullBar
+          // fullBarWidth={0.1}
+          percentOffset="5"
           textLeft
-          range="25"
+          range="20"
         />
       </div>
     </Container>
