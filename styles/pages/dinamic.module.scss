@@ -1,9 +1,38 @@
+.graphButton {
+  width: 100%;
+}
+
 .table {
   width: min(97%, 30rem);
   border-color: var(--color-2-dark);
   color: var(--color-light);
   background-color: var(--color-1-dark);
   border: var(--card-border);
+  position: relative;
+  .graphPop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: brown;
+    z-index: 1;
+  }
+  thead {
+    position: relative;
+    .graphButton {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: fit-content;
+      padding-inline: 0.5rem;
+      height: 100%;
+    }
+  }
   thead tr th {
     text-align: center;
     font-size: 0.9rem;

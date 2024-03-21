@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import LinkButton from "../../components/LinkButton";
 import { Container } from "../../components/singleTags/elemetsCustom";
 import styles from "../../styles/pages/dinamic.module.scss";
@@ -22,6 +22,8 @@ export const getStaticProps = async () => {
 };
 
 const Servicii = ({ citys }) => {
+  const [state, setState] = useState(false);
+
   if (!citys) {
     return (
       <div className="text-center text-white d-flex align-items-center justify-content-center flex-grow-1">
@@ -29,6 +31,19 @@ const Servicii = ({ citys }) => {
       </div>
     );
   }
+
+  const k = Object.keys(citys);
+  const kLen = k.length;
+
+  const lst = {};
+
+  for (let i = 0; i < kLen; i++) {
+    const b = citys[k[i]];
+    const nm = k[i];
+    const no = Object.values(b);
+    lst[nm] = no.length;
+  }
+
 
   let tmp = 0;
   const citysAndNumberOfUsers = [];
@@ -44,10 +59,12 @@ const Servicii = ({ citys }) => {
     <Container>
       {citys ? (
         <table className={styles.table}>
+          {state && <div className={styles.graphPop}>graph</div>}
           <thead>
+            <button className={styles.graphButton}>graph</button>
             <tr>
               <th>Judet</th>
-              <th className="">Total</th>
+              <th>Total</th>
             </tr>
           </thead>
           <tbody>
