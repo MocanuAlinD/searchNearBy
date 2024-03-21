@@ -166,10 +166,10 @@ const Bars = (props) => {
   const _textLengthLimit = textLeft
     ? textLengthLimit
       ? _divider <= +textLengthLimit && _divider - 2
-      : _divider <= (30 * _view) / 100 && _divider - 2
+      : _divider <= 30 && _divider - 2
     : textLengthLimit
     ? _divider >= 100 - +textLengthLimit && 100 - _divider - 2
-    : _divider >= (70 * _view) / 100 && _view - _divider - 2;
+    : _divider >= 70 && 100 - _divider - 2;
 
   console.log("_textLengthLimit", _divider, _textLengthLimit);
 
