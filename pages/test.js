@@ -8,18 +8,19 @@ const Test = () => {
     <Container>
       <div className={styles.main}>
         <Bars
-          barHeight="5"
+          // addHeight="0"
+          // barHeight="5"
           // bg="darkblue"
-          border
-          // borderC
-          // borderR="1rem"
-          // borderW
+          // border
+          // borderC="red"
+          // borderR="2rem"
+          // borderW="2"
           // colors={["red", "blue", "yellow", "cyan", "coral"]}
-          // borderViewColor
+          // borderViewColor="black"
           conturView
-          divider="31"
-          fontSize="3"
-          fontWeight="100"
+          // divider="31"
+          // fontSize="3"
+          // fontWeight="100"
           // gradient
           // dividerLine
           // gradientColor1="tomato"
@@ -37,19 +38,20 @@ const Test = () => {
           //   Tulcea: 100,
           // }}
           // overflow="hidden"
-          padding="0"
-          // rotate="-90"
-          spacing="1"
-          textColor="whitesmoke"
-          view="100"
+          // padding="0"
+          // rotate="0"
+          // spacing="1"
+          // textColor="whitesmoke"
+          // view="100"
           // textLengthLimit="30"
-          width="90%"
+          // width="90%"
           // height="40rem"
+          // percentOffset="3"
           fullBar
           // fullBarWidth={0.1}
-          percentOffset="5"
-          textLeft
-          range="20"
+          // percentOffset="5"
+          // textLeft
+          // range="20"
         />
       </div>
     </Container>

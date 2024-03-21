@@ -7,6 +7,7 @@ import React from "react";
 
 const Bars = (props) => {
   const {
+    addHeight,
     barHeight,
     bg,
     border,
@@ -36,11 +37,14 @@ const Bars = (props) => {
     percentColor,
     percentWeight,
     percentOffset,
+    percentLineColor,
+    percentLineWidth,
     rotate,
     spacing,
     textColor,
     textLeft,
     textLengthLimit,
+    valueTextColor,
     view,
     width,
     range,
@@ -65,24 +69,32 @@ const Bars = (props) => {
   {
     /* INDEPENDENT */
   }
-  const _percentFontSize = percentFontSize ? percentFontSize : "1.5";
+  // =========================================================================
+  const _addHeight = addHeight ? (addHeight < 0 ? 0 : +addHeight) : 0;
+  const baseColorLight = "#ddd";
+  const baseColorDark = "#080808";
+  const _percentFontSize = percentFontSize ? percentFontSize : "2.5";
   const _percentWeight = percentWeight ? percentWeight : "200";
-  const _percentColor = percentColor ? percentColor : "white";
+  const _percentColor = percentColor ? percentColor : baseColorDark;
   const _percentOffset = percentOffset
     ? percentOffset < 0
+      ? 0.5
+      : percentOffset > 5
       ? 5
-      : percentOffset > 5 && 5
-    : "2";
+      : percentOffset
+    : 1.5;
+  const _percentLineColor = percentLineColor ? percentLineColor : baseColorDark;
+  const _percentLineWidth = percentLineWidth ? percentLineWidth : "0.1";
   const _fontWeight = fontWeight ? fontWeight : 200;
   const _gradientColor1 = gradientColor1 ? gradientColor1 : "#588157";
   const _gradientColor2 = gradientColor2 ? gradientColor2 : "#344e41";
-  const _borderViewColor = borderViewColor ? borderViewColor : "red";
-  const _defaultWidhtAndHeight = "min(100%, 20rem)";
+  const _borderViewColor = borderViewColor ? borderViewColor : baseColorDark;
+  const _defaultWidhtAndHeight = "min(100%, 40rem)";
   const _space = 5;
   const _view = view ? +view : 100;
   const _textColor =
     textColor === true || textColor === undefined || !textColor.length
-      ? "whitesmoke"
+      ? baseColorDark
       : textColor;
   const maxObjValue = Math.max(...Object.values(_obj));
   const objValues = Object.values(_obj);
@@ -95,9 +107,10 @@ const Bars = (props) => {
   const _colors = colors
     ? colors
     : ["#c81d25", "#ff5a5f", "#8d99ae", "#087e8b", "#0b3954"];
-  const _fullBarColor = fullBarColor ? fullBarColor : "#aaa";
+  const _fullBarColor = fullBarColor ? fullBarColor : baseColorDark;
   const _fullBarDasharray = fullBarDasharray ? fullBarDasharray : "1";
   const _fullBarWidth = fullBarWidth ? fullBarWidth : "0.1";
+  const _valueTextColor = valueTextColor ? valueTextColor : baseColorLight;
 
   // get percentage calculation
   const getv = () => {
@@ -129,23 +142,19 @@ const Bars = (props) => {
   const percentage = range ? getv() : [0, 25, 50, 75, 100];
 
   // =========================================================================
-  // =========================================================================
-  // =========================================================================
   const outOfRange = divider < 0 ? 0 : divider > _view ? _view : divider;
 
   const _divider = divider ? (+outOfRange * +_view) / 100 : +_view / 2;
   const _barHeight = barHeight ? +barHeight : 5;
-  const _spacing = spacing ? +spacing : 5;
+  const _spacing = spacing ? +spacing : _barHeight / 4;
   const _row = _barHeight + _spacing;
   const _height = _row * _values.length + _spacing;
   const allWidth = _view + _space * 2;
-  const allHeight = _height + _space * 4;
+  const allHeight =
+    _height + _space * 2 + +_percentFontSize + +_percentOffset + _addHeight;
   const _sectionWidth = textLeft
     ? ((_view - _divider) * _view) / 100
     : _divider;
-  // const _sectionFraction = textLeft
-  //   ? _sectionWidth / (percentage.length - 1)
-  //   : _divider / (percentage.length - 1);
 
   const _textLengthLimit = textLeft
     ? textLengthLimit
@@ -160,7 +169,7 @@ const Bars = (props) => {
     ? fontSize >= _barHeight
       ? _barHeight
       : +fontSize
-    : _barHeight;
+    : _barHeight / 1.5;
 
   const fillBar = (sz) => {
     if (sz <= 20) {
@@ -187,10 +196,10 @@ const Bars = (props) => {
           `${borderW ? borderW : 1}px solid ${borderC ? borderC : "#909090"}`,
         width: width ? width : _defaultWidhtAndHeight,
         height: height ? height : _defaultWidhtAndHeight,
-        borderRadius: borderR ? borderR : "0",
-        margin: margin ? margin : "",
+        borderRadius: borderR ? borderR : "1rem",
+        margin: margin ? margin : "0",
         transform: `rotate(${rotate ? rotate : 0}deg)`,
-        overflow: "visible",
+        overflow: "hidden",
       }}
     >
       <svg
@@ -201,8 +210,7 @@ const Bars = (props) => {
         height="100%"
         style={{
           padding: padding ? padding : "1rem",
-          backgroundColor: bg ? bg : "#080808",
-          borderRadius: borderR ? borderR : "0",
+          backgroundColor: bg ? bg : "#ddd",
           overflow: overflow ? overflow : "visible",
         }}
       >
@@ -277,8 +285,8 @@ const Bars = (props) => {
                 x2={x}
                 y2={_height}
                 fill="none"
-                stroke="coral"
-                strokeWidth="0.2"
+                stroke={_percentLineColor}
+                strokeWidth={_percentLineWidth}
               />
               <text
                 x={x}
@@ -289,7 +297,6 @@ const Bars = (props) => {
                 transform={`rotate(90 ${x}, ${_height})`}
                 dominantBaseline="central"
                 dx={_percentOffset}
-                // textAnchor="middle"
               >
                 {item} %
               </text>
@@ -323,7 +330,7 @@ const Bars = (props) => {
               <text
                 x={textLeft ? _divider + 0.5 : _divider - 0.5}
                 y={_offsetPercentNumber}
-                fill="white"
+                fill={_valueTextColor}
                 fontSize={_fontSize / 1.25}
                 textAnchor={textLeft ? "start" : "end"}
                 fontWeight="200"
@@ -335,7 +342,7 @@ const Bars = (props) => {
           );
         })}
 
-        {/* judet */}
+        {/* country */}
         {_values.map((item, index) => {
           if (index === 0) {
             _offset = _spacing + _barHeight / 2;
