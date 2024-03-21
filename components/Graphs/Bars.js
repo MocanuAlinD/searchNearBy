@@ -146,15 +146,22 @@ const Bars = (props) => {
 
   const to100 = (x) => {
     const vl = (x * _view) / 100;
+    // console.log("vl", vl);
     return vl;
   };
 
   const percentage = range ? getv() : [0, 25, 50, 75, 100];
 
   // =========================================================================
-  const outOfRange = divider < 0 ? 0 : divider > _view ? _view : divider;
+  const outOfRange = +divider <= 1 ? 0 : +divider >= 100 ? 100 : +divider;
 
-  const _divider = divider ? (+outOfRange * +_view) / 100 : +_view / 2;
+  const divView = divider ? (outOfRange * _view) / 100 : 50;
+  const div100 = (divView * 100) / _view;
+
+  const distLeft = divView;
+  const distRight = _view - divView;
+
+  const _divider = divView;
   const _barHeight = barHeight ? +barHeight : 5;
   const _spacing = spacing ? +spacing : 1.25;
   const _row = _barHeight + _spacing;
@@ -170,11 +177,11 @@ const Bars = (props) => {
 
   const _textLengthLimit = textLeft
     ? textLengthLimit
-      ? _divider <= +textLengthLimit && to100(_divider) - 2
-      : _divider <= 30 && _divider - 2
+      ? div100 <= +textLengthLimit && distLeft - 2
+      : div100 <= 30 && distLeft
     : textLengthLimit
-    ? _divider >= 100 - +textLengthLimit && 100 - _divider - 2
-    : _divider >= 70 && 100 - to100(_divider) - 2;
+    ? div100 >= 100 - +textLengthLimit && distRight - 2
+    : div100 >= 70 && 100 - to100(_divider) - 2;
 
   // font and color
   const _fontSize = fontSize
