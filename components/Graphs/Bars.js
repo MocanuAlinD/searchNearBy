@@ -157,17 +157,21 @@ const Bars = (props) => {
   const allWidth = _view + _space * 2;
   const allHeight =
     _height + _space * 2 + +_percentFontSize + +_percentOffset + _addHeight;
+
+  // SECTION WIDTH
   const _sectionWidth = textLeft
     ? ((_view - _divider) * _view) / 100
     : _divider;
 
   const _textLengthLimit = textLeft
     ? textLengthLimit
-      ? _divider <= textLengthLimit && _divider - 2
+      ? _divider <= +textLengthLimit && _divider - 2
       : _divider <= (30 * _view) / 100 && _divider - 2
-    : +textLengthLimit
-    ? _divider >= textLengthLimit && _view - _divider - 2
+    : textLengthLimit
+    ? _divider >= 100 - +textLengthLimit && 100 - _divider - 2
     : _divider >= (70 * _view) / 100 && _view - _divider - 2;
+
+  console.log("_textLengthLimit", _divider, _textLengthLimit);
 
   // font and color
   const _fontSize = fontSize
