@@ -1,0 +1,7 @@
+<svg class="svg-icon" style="vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1"
+    xmlns="http://www.w3.org/2000/svg">
+    <rect x='0' y='0' width='100%' height='100%' rx='0' fill='#080808' />
+    <path d="M928.1 881v44H95.9V99h44v782z" fill="#fff" />
+    <path d="M352 435.7v403.4H204V435.7h148m22-22H182v447.4h192V413.7zM608 307.9v531.2H460V307.9h148m22-22H438v575.2h192V285.9z" fill="#fff" />
+    <path d="M866.1 177.3v663.9H714V177.3h152.1m20-20H694v703.9h192V157.3h0.1z" fill="#E73B37" />
+</svg>

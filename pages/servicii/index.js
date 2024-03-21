@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import LinkButton from "../../components/LinkButton";
 import { Container } from "../../components/singleTags/elemetsCustom";
+import Bars from "../../components/Graphs/Bars";
 import styles from "../../styles/pages/dinamic.module.scss";
 
 export const getStaticProps = async () => {
@@ -44,7 +45,6 @@ const Servicii = ({ citys }) => {
     lst[nm] = no.length;
   }
 
-
   let tmp = 0;
   const citysAndNumberOfUsers = [];
 
@@ -59,9 +59,25 @@ const Servicii = ({ citys }) => {
     <Container>
       {citys ? (
         <table className={styles.table}>
-          {state && <div className={styles.graphPop}>graph</div>}
+          {state && (
+            <div className={styles.graphPop} onClick={() => setState(false)}>
+              <Bars
+                obj={lst}
+                borderR="0"
+                height="100%"
+                fontSize="4.5"
+                barHeight="5"
+                divider="80"
+                textLengthLimit="10"
+                gradient
+              />
+            </div>
+          )}
           <thead>
-            <button className={styles.graphButton}>graph</button>
+            <button
+              className={styles.graphButton}
+              onClick={() => setState(true)}
+            ></button>
             <tr>
               <th>Judet</th>
               <th>Total</th>
