@@ -17,7 +17,7 @@ const Test = () => {
           // colors={["red", "blue", "yellow", "cyan", "coral"]}
           // borderViewColor
           conturView
-          divider="50"
+          divider="31"
           // fontSize=""
           fontWeight="100"
           // gradient
@@ -42,12 +42,12 @@ const Test = () => {
           spacing="1"
           textColor="whitesmoke"
           view="100"
-          // textLengthLimit="70"
-          width="90%"
+          // textLengthLimit="30"
+          width="30rem"
           // height="40rem"
           fullBars
           textLeft
-          range="20"
+          range="25"
         />
       </div>
     </Container>

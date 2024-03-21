@@ -42,17 +42,17 @@ const Bars = (props) => {
   const _obj = obj
     ? obj
     : {
-        Brăila: 50,
-        Brașov: 25,
-        București: 30,
-        Cluj: 45,
-        Constanța: 10,
-        Craiova: 40,
-        "Drobeta-Turnu Severin": 20,
-        Timișoara: 100,
-        Tulcea: 80,
-        Arad: 50,
-        Sibiu: 90,
+        "Kiribati": 25,
+        "Greenland": 50,
+        "Guinea": 75,
+        "Dominican Republic": 100,
+        "French Guiana": 125,
+        "Egypt": 150,
+        "Bahrain": 175,
+        "Mauritius": 200,
+        "Andorra": 225,
+        "Timor-Leste": 250,
+        "Guam": 275,
       };
 
   {
