@@ -7,7 +7,7 @@ const BurgerMenu = () => {
   const dispatch = useDispatch();
 
   const addDelay = (x) => {
-    const val = x === 1 ? 0.0 : 0.03;
+    const val = x === 1 ? 0.0 : 0.025;
     const delay = (val * x).toFixed(2) + "s";
     return delay;
   };
