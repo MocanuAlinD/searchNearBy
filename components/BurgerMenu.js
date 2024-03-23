@@ -20,7 +20,7 @@ const BurgerMenu = () => {
           ? "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)"
           : "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
         "--delay": `${useSelector((state) =>
-          state.search.showMenu ? "0s" : "0.9s"
+          state.search.showMenu ? "0s" : "0.8s"
         )}`,
       }}
     >
