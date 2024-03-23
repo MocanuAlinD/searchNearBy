@@ -1,20 +1,26 @@
 import React from "react";
 import Link from "next/link";
+import { useSelector, useDispatch } from "react-redux";
 import styles from "../../styles/comps/CustomIcon.module.scss";
 
-const CustomIcon = ({ src, size, text, href }) => {
+const CustomIcon = ({ src, size, text, href, delay, st, onClick }) => {
   const sz = size ? size + "rem" : "2.5rem";
+  const dispatch = useDispatch();
   return (
     <Link href={href ? `/${href}` : "/"}>
       <div
         className={styles.container}
-        style={{ "--iconSize": sz ? sz : "2rem" }}
+        style={{
+          "--iconSize": sz ? sz : "2rem",
+          "--stateWidth": `${st ? "100%" : sz}`,
+          "--delay": `${st ? delay : delay}`,
+        }}
+        onClick={onClick}
       >
         <div
           className={styles.icon}
           style={{
-            "--iconSize": sz,
-            "--iconSrc": `url("/icons/${src ? src : "add"}.svg")`,
+            "--iconSrc": `url("/icons/${src ? src : "default"}.svg")`,
           }}
         ></div>
         <h4 className={styles.text}>

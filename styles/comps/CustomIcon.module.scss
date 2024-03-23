@@ -1,6 +1,8 @@
 .container {
   height: var(--iconSize);
+  // width: var(--iconSize);
   width: 100%;
+  width: var(--stateWidth);
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -11,6 +13,7 @@
   border: var(--card-border);
   border-radius: var(--border-radius);
   transition: var(--transition);
+  transition-delay: calc(var(--delay) + 0.2s);
   cursor: pointer;
   .icon {
     min-width: var(--iconSize);
