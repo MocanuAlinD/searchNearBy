@@ -13,14 +13,24 @@
   align-items: flex-end;
   flex-direction: column;
   clip-path: var(--clip);
+  padding: 1rem 0 1rem 1rem;
+  background: #0003;
+  backdrop-filter: var(--blur);
+  border-radius: 1rem 0 0 1rem;
+  border: var(--card-border);
 }
 
 @media screen and (width < 600px) {
   .sidebar {
-    width: 96%;
+    right: 0%;
+    width: 100%;
+    margin-inline: auto;
     background-color: var(--glass);
     backdrop-filter: var(--blur);
-    padding-block: 1rem;
+    padding: 1rem 0 1rem 0;
+    padding: 0.25rem;
+    border-radius: 0;
+    // border: 1px solid red;
     transition-delay: 0s;
   }
 }

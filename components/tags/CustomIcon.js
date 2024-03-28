@@ -1,11 +1,12 @@
 import React from "react";
 import Link from "next/link";
-import { useSelector, useDispatch } from "react-redux";
+import { useRouter } from "next/router";
 import styles from "../../styles/comps/CustomIcon.module.scss";
 
-const CustomIcon = ({ src, size, text, href, delay, st, onClick }) => {
+const CustomIcon = ({ src, size, text, href, delay, st }) => {
   const sz = size ? size + "rem" : "2.5rem";
-  const dispatch = useDispatch();
+  const { pathname, push } = useRouter();
+  const activePath = pathname.slice(1);
   return (
     <Link href={href ? `/${href}` : "/"}>
       <div
@@ -14,8 +15,9 @@ const CustomIcon = ({ src, size, text, href, delay, st, onClick }) => {
           "--iconSize": sz ? sz : "2rem",
           "--stateWidth": `${st ? "100%" : sz}`,
           "--delay": `${st ? delay : delay}`,
+          "--activeBorder":
+            activePath === href ? "2px solid #80ed99" : "1px solid transparent",
         }}
-        onClick={onClick}
       >
         <div
           className={styles.icon}
@@ -23,7 +25,15 @@ const CustomIcon = ({ src, size, text, href, delay, st, onClick }) => {
             "--iconSrc": `url("/icons/${src ? src : "default"}.svg")`,
           }}
         ></div>
-        <h4 className={styles.text}>
+        <h4
+          className={styles.text}
+          // style={{
+          //   "--activeBorder":
+          //     activePath === href
+          //       ? "2px solid #80ed99"
+          //       : "1px solid transparent",
+          // }}
+        >
           {text ? text : "No text here"}
           <svg className={styles.svg}>
             <defs>

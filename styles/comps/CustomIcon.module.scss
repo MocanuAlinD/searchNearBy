@@ -10,9 +10,10 @@
   backdrop-filter: var(--blur);
   border: var(--card-border);
   border-radius: var(--border-radius);
-  transition: var(--transition);
+  transition: var(--transition), border-right 0.25s;
   transition-delay: calc(var(--delay) + 0.2s);
   cursor: pointer;
+  border-right: var(--activeBorder);
   .icon {
     min-width: var(--iconSize);
     min-height: var(--iconSize);
@@ -74,7 +75,6 @@
     width: 100%;
     .text {
       white-space: wrap;
-      color: var(--color-2-light);
     }
     .text .svg .rect {
       transition-delay: 0;

@@ -7,7 +7,6 @@ import { getAuth } from "firebase/auth";
 import { useSelector, useDispatch } from "react-redux";
 import { setShowUserMenu } from "../features/searchJudet/searchJudetSlice";
 import Image from "next/image";
-import UserMenu from "../components/userMenu";
 import styles from "../styles/comps/Navbar.module.scss";
 
 const Navbar = () => {
@@ -55,11 +54,9 @@ const Navbar = () => {
           />
         </div>
       </div>
-      {/* user menu here */}
       <BurgerButton />
       </div>
       );
     };
     
     export default Navbar;
-    // <UserMenu close={toggleMenu} />
