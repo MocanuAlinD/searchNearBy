@@ -5,6 +5,7 @@ import { burgerValues } from "../lib/burgerValues";
 import styles from "../styles/comps/BurgerMenu.module.scss";
 
 const BurgerMenu = () => {
+  const st = useSelector((state) => state.search.showMenu);
   const addDelay = (x) => {
     const val = x === 1 ? 0.0 : 0.025;
     const delay = (val * x).toFixed(2) + "s";
@@ -17,7 +18,7 @@ const BurgerMenu = () => {
     <div
       className={styles.sidebar}
       style={{
-        "--clip": useSelector((state) => state.search.showMenu)
+        "--clip": st
           ? "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)"
           : "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
         "--delay": `${useSelector((state) =>
@@ -29,7 +30,7 @@ const BurgerMenu = () => {
         return (
           <CustomIcon
             key={item.src}
-            st={useSelector((state) => state.search.showMenu)}
+            st={st}
             delay={addDelay(index)}
             src={item.src}
             text={item.text}
