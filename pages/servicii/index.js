@@ -69,7 +69,7 @@ const Servicii = ({ citys }) => {
                 barHeight="5"
                 divider="80"
                 textLengthLimit="10"
-                gradient
+                range="25"
               />
             </div>
           )}

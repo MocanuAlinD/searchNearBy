@@ -1,9 +1,12 @@
 import React from "react";
 
 // todo
-{
   /* add variable to change toFixed decimals */
-}
+  {/* 
+  
+  range - percentage split (range 10, from 10 to 10 percent)
+
+*/}
 
 const Bars = (props) => {
   const {
