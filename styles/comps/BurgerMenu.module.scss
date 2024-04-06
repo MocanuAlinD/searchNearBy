@@ -14,10 +14,10 @@
   flex-direction: column;
   clip-path: var(--clip);
   padding: 1rem 0 1rem 1rem;
-  background: #0003;
-  backdrop-filter: var(--blur);
-  border-radius: 1rem 0 0 1rem;
-  border: var(--card-border);
+  // background: #0003;
+  // backdrop-filter: var(--blur);
+  // border-radius: 1rem 0 0 1rem;
+  // border: var(--card-border);
 }
 
 @media screen and (width < 600px) {
