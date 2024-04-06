@@ -39,7 +39,7 @@ const CustomIcon = ({ src, size, text, href, delay, st, onClick }) => {
                 <stop offset="100%" stopColor="#84fab0aa" />
               </linearGradient>
             </defs>
-            <rect className={styles.rect} fill="url(#customIconGradient)" />
+            <rect className={styles.rect} fill="url(#customIconGradient)" width="100%" />
           </svg>
         </h4>
       </div>
