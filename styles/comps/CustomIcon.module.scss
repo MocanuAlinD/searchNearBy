@@ -49,12 +49,11 @@
       height: 100%;
       z-index: -1;
       .rect {
-        // x: 47.5%;
-        // y: 95%;
-        // width: 5%;
-        // height: 5%;
-        // transition: all 0.2s ease;
-        animation: rectAnimOff .6s ease-in-out forwards;
+        x: 0%;
+        y: 95%;
+        width: 100%;
+        height: 5%;
+        transition: all 0.2s ease;
       }
     }
   }
@@ -62,52 +61,12 @@
     .text {
       color: var(--color-1-dark);
       .rect {
-        animation: rectAnimOn 0.3s ease-in-out forwards;
+        x: 0%;
+        y: 0%;
+        width: 100%;
+        height: 100%;
       }
     }
-  }
-}
-
-@keyframes rectAnimOn {
-  0% {
-    x: 45%;
-    y: 95%;
-    width: 10%;
-    height: 5%;
-  }
-  50% {
-    y: 0%;
-    x: 45%;
-    width: 10%;
-    height: 100%;
-  }
-  100% {
-    x: 0;
-    y: 0;
-    width: 100%;
-    height: 100%;
-  }
-}
-
-@keyframes rectAnimOff {
-  0% {
-    x: 0;
-    y: 0;
-    width: 100%;
-    height: 100%;
-  }
-  25% {
-    y: 0%;
-    x: 45%;
-    width: 10%;
-    height: 100%;
-  }
-
-  100% {
-    x: 45%;
-    y: 95%;
-    width: 10%;
-    height: 5%;
   }
 }
 
