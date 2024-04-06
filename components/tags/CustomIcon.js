@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import styles from "../../styles/comps/CustomIcon.module.scss";
 
-const CustomIcon = ({ src, size, text, href, delay, st }) => {
+const CustomIcon = ({ src, size, text, href, delay, st, onClick }) => {
   const sz = size ? size + "rem" : "2.5rem";
   const { pathname, push } = useRouter();
   const activePath = pathname.slice(1);
@@ -11,6 +11,7 @@ const CustomIcon = ({ src, size, text, href, delay, st }) => {
     <Link href={href ? `/${href}` : "/"}>
       <div
         className={styles.container}
+        onClick={onClick}
         style={{
           "--iconSize": sz ? sz : "2rem",
           "--stateWidth": `${st ? "100%" : sz}`,
@@ -25,15 +26,7 @@ const CustomIcon = ({ src, size, text, href, delay, st }) => {
             "--iconSrc": `url("/icons/${src ? src : "default"}.svg")`,
           }}
         ></div>
-        <h4
-          className={styles.text}
-          // style={{
-          //   "--activeBorder":
-          //     activePath === href
-          //       ? "2px solid #80ed99"
-          //       : "1px solid transparent",
-          // }}
-        >
+        <h4 className={styles.text}>
           {text ? text : "No text here"}
           <svg className={styles.svg}>
             <defs>
