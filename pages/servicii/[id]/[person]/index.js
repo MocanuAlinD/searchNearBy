@@ -155,7 +155,7 @@ const Person = ({ data, oras, setLocation, revs }) => {
                   click={() => openDescription(true)}
                   color="var(--color-blue)"
                   underline
-                  cursor
+                  cursor="pointer"
                 />
                 <IconWithText
                   text={`${item.dataregister} ora ${item.oraregister}`}

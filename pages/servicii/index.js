@@ -74,10 +74,8 @@ const Servicii = ({ citys }) => {
             </div>
           )}
           <thead>
-            <button
-              className={styles.graphButton}
-              onClick={() => setState(true)}
-            ></button>
+            <tr className={styles.graphButton} onClick={() => setState(true)}>
+            </tr>
             <tr>
               <th>Judet</th>
               <th>Total</th>

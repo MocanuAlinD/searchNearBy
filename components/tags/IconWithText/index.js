@@ -30,7 +30,7 @@ const IconWithText = ({
         underline={underline ? underline : ""}
         color={color ? color : ""}
         onClick={click && click}
-        cursor={cursor && cursor}
+        cursor={cursor ? cursor : "auto"}
       >
         {text}
       </H4Custom>
