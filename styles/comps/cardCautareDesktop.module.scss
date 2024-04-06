@@ -9,9 +9,9 @@
   align-items: center;
   flex-direction: column;
   padding-inline: 1rem;
-  animation: fade linear both;
-  animation-timeline: view();
-  animation-range: entry 0% cover 15%;
+  // animation: fade linear both;
+  // animation-timeline: view();
+  // animation-range: entry 0% cover 15%;
 
   .container {
     width: 100%;
@@ -254,14 +254,12 @@
   }
 }
 
-@keyframes fade {
-  0% {
-    // transform: translateX(-35%) rotate(90deg);
-    scale: 0;
-  }
+// @keyframes fade {
+//   0% {
+//     scale: 0;
+//   }
 
-  100% {
-    // transform: translateX(0) rotateX(0deg);
-    scale: 1;
-  }
-}
+//   100% {
+//     scale: 1;
+//   }
+// }
