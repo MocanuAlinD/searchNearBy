@@ -5,7 +5,7 @@ import styles from "../../styles/comps/CustomIcon.module.scss";
 
 const CustomIcon = ({ src, size, text, href, delay, st, onClick }) => {
   const sz = size ? size + "rem" : "2.5rem";
-  const { pathname, push } = useRouter();
+  const { pathname } = useRouter();
   const activePath = pathname.slice(1);
   return (
     <Link href={href ? `/${href}` : "/"}>
@@ -34,16 +34,12 @@ const CustomIcon = ({ src, size, text, href, delay, st, onClick }) => {
                 id="customIconGradient"
                 gradientTransform="rotate(30)"
               >
-                <stop offset="0%" stopColor="#84fab0" />
-                <stop offset="100%" stopColor="#8fd3f4" />
+                <stop offset="0%" stopColor="#84fab0aa" />
+                <stop offset="50%" stopColor="#8fd3f4" />
+                <stop offset="100%" stopColor="#84fab0aa" />
               </linearGradient>
             </defs>
-            <rect
-              className={styles.rect}
-              width="100%"
-              height="100%"
-              fill="url(#customIconGradient)"
-            />
+            <rect className={styles.rect} fill="url(#customIconGradient)" />
           </svg>
         </h4>
       </div>
