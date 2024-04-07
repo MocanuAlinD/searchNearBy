@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Stars from "../components/Stars";
-import { Wrapper } from "../components/singleTags/elemetsCustom";
+import { Wrapper } from "../components/singleTags/elementsCustom";
 import styles from "../styles/comps/cardCautare.module.scss";
 
 const namedMonths = {

@@ -3,7 +3,7 @@ import {
   H4Custom,
   SmallContainer,
   Wrapper,
-} from "../components/singleTags/elemetsCustom";
+} from "../components/singleTags/elementsCustom";
 import FormRegister from "../components/FormRegister";
 import NotSignedIn from "../components/NotSignedIn";
 import { firebase } from "../firebase";

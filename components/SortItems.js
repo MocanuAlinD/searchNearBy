@@ -7,7 +7,7 @@ import {
   setFilterFilters,
 } from "../features/sortItems/sortItemsSlice";
 import OnOff from "./tags/OnOff";
-import { H4Custom } from "./singleTags/elemetsCustom";
+import { H4Custom, H5Custom, H1Custom } from "./singleTags/elementsCustom";
 import styles from "../styles/comps/SortItems.module.scss";
 
 const SortItems = ({ handleToate, listLen }) => {
@@ -47,7 +47,7 @@ const SortItems = ({ handleToate, listLen }) => {
       </div>
       <div className={styles.desktop}>
         <div className={styles.smallContainer}>
-          <H4Custom fw="400">
+          <H4Custom fw="200" w="100%">
             {listLen >= 0 && listLen === 0
               ? "-"
               : listLen === 1

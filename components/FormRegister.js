@@ -6,7 +6,7 @@ import {
   TextAreaCustom,
   LabelCustom,
   LabelSmallCustom,
-} from "../components/singleTags/elemetsCustom";
+} from "../components/singleTags/elementsCustom";
 import { ButtonWithIcon } from "../components/tags/ButtonWithIcon";
 import { Checkbox } from "@mui/material";
 import { BiReset } from "react-icons/bi";

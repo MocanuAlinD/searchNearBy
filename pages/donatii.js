@@ -8,7 +8,7 @@ import {
   H2Custom,
   SmallContainer,
   ParaCustom,
-} from "../components/singleTags/elemetsCustom";
+} from "../components/singleTags/elementsCustom";
 import styles from "../styles/pages/donatii.module.scss";
 
 const Donatii = () => {

@@ -3,7 +3,7 @@ import BackButton from "../../../components/BackButton";
 import { FiDatabase } from "react-icons/fi";
 import { FcDeleteDatabase } from "react-icons/fc";
 import LinkButton from "../../../components/LinkButton";
-import { Container } from "../../../components/singleTags/elemetsCustom";
+import { Container } from "../../../components/singleTags/elementsCustom";
 import styles from "../../../styles/pages/dinamic.module.scss";
 
 export const getStaticPaths = async () => {

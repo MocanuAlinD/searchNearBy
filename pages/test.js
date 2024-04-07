@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Container } from "../components/singleTags/elemetsCustom";
+import { Container } from "../components/singleTags/elementsCustom";
 import Bars from "../components/Graphs/Bars";
 import styles from "../styles/pages/test.module.scss";
 

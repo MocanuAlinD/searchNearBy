@@ -86,7 +86,7 @@ export const SelectCustom = styled.select`
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
   color: var(--color-light);
-  font-size: ${({ fs }) => (fs ? fs : "var(--fs08)")};
+  font-size: ${({ fs }) => (fs ? fs : "var(--fs083)")};
   font-weight: ${({ fw }) => (fw ? fw : "var(--fw200)")};
   padding: 0.3rem;
   transition: var(--transition);
@@ -105,7 +105,7 @@ export const LabelCustom = styled.label`
   margin: ${({ m }) => (m ? m : "0")};
   margin-top: ${({ mt }) => (mt ? mt : "0")};
   margin-bottom: ${({ mb }) => (mb ? mb : "0")};
-  font-size: var(--fs08);
+  font-size: var(--fs083);
   font-weight: ${({ fw }) => (fw ? fw : "var(--fw200)")};
 `;
 
@@ -119,7 +119,7 @@ export const InputCustom = styled.input`
   border-top-right-radius: var(--border-radius);
   color: var(--color-light);
   flex-grow: ${({ fg }) => (fg ? fg : 1)};
-  font-size: var(--fs08);
+  font-size: var(--fs083);
   font-weight: ${({ fw }) => (fw ? fw : "var(--fw200)")};
   margin: ${({ m }) => (m ? m : "0")};
   margin-bottom: ${({ mb }) => (mb ? mb : "0.25rem")};
@@ -173,7 +173,7 @@ export const TextAreaCustom = styled.textarea`
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
   text-indent: 0.3rem;
-  font-size: var(--fs08);
+  font-size: var(--fs083);
   font-weight: ${({ fw }) => (fw ? fw : "var(--fw200)")};
   color: var(--color-light);
   resize: none;
@@ -195,7 +195,7 @@ export const TextAreaCustom = styled.textarea`
   & + span {
     display: none;
     font-weight: 400;
-    font-size: var(--fs08);
+    font-size: var(--fs083);
     color: var(--color-yellow);
     letter-spacing: 0.02rem;
     margin-top: .35rem;
@@ -220,9 +220,9 @@ export const LabelSmallCustom = styled.label`
   margin: 0;
 `;
 
-export const H4Custom = styled.h4`
+export const H1Custom = styled.h4`
   color: ${({ color }) => (color ? color : "var(--color-light)")};
-  font-size: ${({ fs }) => (fs ? fs : "var(--fs08)")};
+  font-size: ${({ fs }) => (fs ? fs : "var(--fs2)")};
   font-weight: ${({ fw }) => (fw ? fw : "var(--fw400)")};
   background: ${({ bg }) => (bg ? bg : "")};
   margin: ${({ m }) => (m ? m : "0")};
@@ -236,16 +236,23 @@ export const H4Custom = styled.h4`
   text-decoration: ${({ underline }) => underline && "underline"};
 `;
 
-export const H6Custom = styled(H4Custom)`
-  font-size: ${({ fs }) => (fs ? fs : "var(--fs067")};
+export const H2Custom = styled(H1Custom)`
+  font-size: ${({ fs }) => (fs ? fs : "var(--fs150")};
 `;
 
-export const H3Custom = styled(H4Custom)`
+export const H3Custom = styled(H1Custom)`
   font-size: ${({ fs }) => (fs ? fs : "var(--fs117")};
 `;
 
-export const H2Custom = styled(H4Custom)`
-  font-size: ${({ fs }) => (fs ? fs : "var(--fs15)")};
+export const H4Custom = styled(H1Custom)`
+  font-size: ${({ fs }) => (fs ? fs : "var(--fs1)")};
+`;
+
+export const H5Custom = styled(H1Custom)`
+  font-size: ${({ fs }) => (fs ? fs : "var(--fs083)")};
+`;
+export const H6Custom = styled(H1Custom)`
+  font-size: ${({ fs }) => (fs ? fs : "var(--fs067)")};
 `;
 
 export const ParaCustom = styled.p`
@@ -286,7 +293,7 @@ export const InputContainer = styled.div`
     color: ${({ labelColor }) =>
       labelColor ? labelColor : "var(--color-placeholder)"};
     transition: var(--transition);
-    font-size: ${({ fs }) => (fs ? fs : "var(--fs08)")};
+    font-size: ${({ fs }) => (fs ? fs : "var(--fs083)")};
     display: flex;
     align-items: center;
     cursor: text;

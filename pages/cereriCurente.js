@@ -5,7 +5,7 @@ import {
   SmallContainer,
   Wrapper,
   ParaCustom,
-} from "../components/singleTags/elemetsCustom";
+} from "../components/singleTags/elementsCustom";
 import NoData from "../components/NoData";
 import Divider from "../components/tags/Divider";
 
@@ -42,14 +42,14 @@ const CereriCurente = ({ data }) => {
               <H4Custom w="35%" ta="start">
                 Ce am nevoie?
               </H4Custom>
-              <ParaCustom fs="var(--fs08)">{item.caut}</ParaCustom>
+              <ParaCustom fs="var(--fs083)">{item.caut}</ParaCustom>
             </Wrapper>
             <Divider />
             <Wrapper fd="row" ai="flex-start">
               <H4Custom w="35%" ta="start">
                 Contact
               </H4Custom>
-              <ParaCustom fs="var(--fs08)">{item.contact}</ParaCustom>
+              <ParaCustom fs="var(--fs083)">{item.contact}</ParaCustom>
             </Wrapper>
 
             <Divider />
@@ -57,28 +57,28 @@ const CereriCurente = ({ data }) => {
               <H4Custom w="35%" ta="start">
                 Nume
               </H4Custom>
-              <ParaCustom fs="var(--fs08)">{item.numePrenume}</ParaCustom>
+              <ParaCustom fs="var(--fs083)">{item.numePrenume}</ParaCustom>
             </Wrapper>
             <Divider />
             <Wrapper fd="row" ai="flex-start">
               <H4Custom w="35%" ta="start">
                 Suma alocata
               </H4Custom>
-              <ParaCustom fs="var(--fs08)">{item.sumaAlocata}</ParaCustom>
+              <ParaCustom fs="var(--fs083)">{item.sumaAlocata}</ParaCustom>
             </Wrapper>
             <Divider />
             <Wrapper fd="row" ai="flex-start">
               <H4Custom w="35%" ta="start">
                 Data adaugarii
               </H4Custom>
-              <ParaCustom fs="var(--fs08)">{item.currentDate}</ParaCustom>
+              <ParaCustom fs="var(--fs083)">{item.currentDate}</ParaCustom>
             </Wrapper>
             <Divider />
             <Wrapper fd="row" ai="flex-start">
               <H4Custom w="35%" ta="start">
                 Expira
               </H4Custom>
-              <ParaCustom color="var(--error)" fs="var(--fs08)">
+              <ParaCustom color="var(--error)" fs="var(--fs083)">
                 {item.dataLimita.split("-").reverse().join("/")}
               </ParaCustom>
             </Wrapper>

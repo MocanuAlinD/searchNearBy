@@ -2,7 +2,7 @@ import React from "react";
 import {
   TextAreaCustom,
   Wrapper,
-} from "../components/singleTags/elemetsCustom";
+} from "../components/singleTags/elementsCustom";
 import { FaStar } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import {

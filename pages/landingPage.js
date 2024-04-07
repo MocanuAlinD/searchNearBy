@@ -4,7 +4,7 @@ import {
   SmallContainer,
   H4Custom,
   ParaCustom,
-} from "../components/singleTags/elemetsCustom";
+} from "../components/singleTags/elementsCustom";
 import Divider from "../components/tags/Divider";
 
 const LandingPage = () => {

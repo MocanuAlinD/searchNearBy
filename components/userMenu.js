@@ -1,7 +1,7 @@
 import React from "react";
 import toast from "react-hot-toast";
 import SvgButton from "./tags/svgButton";
-import { SmallContainer } from "./singleTags/elemetsCustom";
+import { SmallContainer } from "./singleTags/elementsCustom";
 import { useSelector, useDispatch } from "react-redux";
 import { useRouter } from "next/router";
 import { getAuth, signOut } from "firebase/auth";

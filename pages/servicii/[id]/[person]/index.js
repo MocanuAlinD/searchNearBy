@@ -7,7 +7,7 @@ import {
   Wrapper,
   TextAreaCustom,
   ParaCustom,
-} from "../../../../components/singleTags/elemetsCustom";
+} from "../../../../components/singleTags/elementsCustom";
 import {
   IconMinMax,
   IconDays,

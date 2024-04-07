@@ -3,14 +3,14 @@ import {
   Container,
   ParaCustom,
   SmallContainer,
-} from "../components/singleTags/elemetsCustom";
+} from "../components/singleTags/elementsCustom";
 import {
   Wrapper,
   InputCustom,
   LabelCustom,
   TextAreaCustom,
   LabelSmallCustom,
-} from "../components/singleTags/elemetsCustom";
+} from "../components/singleTags/elementsCustom";
 import { v4 as userId } from "uuid";
 import { ButtonWithIcon } from "../components/tags/ButtonWithIcon";
 import { useDispatch, useSelector } from "react-redux";

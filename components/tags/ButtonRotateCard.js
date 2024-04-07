@@ -24,7 +24,7 @@ export const ButtonRotateCard = styled.button`
   border-radius: ${({ br }) =>
     br ? br : "var(--border-radius) var(--border-radius) 0 0"};
   color: var(--color-light);
-  font-size: ${({ fs }) => (fs ? fs : "var(--fs08)")};
+  font-size: ${({ fs }) => (fs ? fs : "var(--fs083)")};
   font-weight: ${({ fw }) => (fw ? fw : "var(--fw400)")};
   overflow: hidden;
   padding: ${({ p }) => (p ? p : "0.5rem 0rem")};

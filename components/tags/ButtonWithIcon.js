@@ -25,7 +25,7 @@ export const ButtonWithIcon = styled.button`
   border: ${({ reset }) => (reset ? "1px solid var(--color-yellow)" : "none")};
   color: ${({ color, reset }) =>
     reset ? "var(--color-yellow)" : color ? color : "var(--color-light)"};
-  font-size: ${({ fs }) => (fs ? fs : "var(--fs08)")};
+  font-size: ${({ fs }) => (fs ? fs : "var(--fs083)")};
   font-weight: ${({ fw }) => (fw ? fw : "var(--fw200)")};
   margin: ${({ m }) => (m ? m : "0")};
   margin-top: ${({ mt }) => (mt ? mt : "0.25rem")};

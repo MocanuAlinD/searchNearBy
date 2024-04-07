@@ -4,7 +4,7 @@ import {
   SmallContainer,
   H6Custom,
   ParaCustom,
-} from "../components/singleTags/elemetsCustom";
+} from "../components/singleTags/elementsCustom";
 
 const Info = () => {
   return (

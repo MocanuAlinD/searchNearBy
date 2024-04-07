@@ -8,7 +8,7 @@ import {
   H4Custom,
   H6Custom,
   SmallContainer,
-} from "../components/singleTags/elemetsCustom";
+} from "../components/singleTags/elementsCustom";
 
 const ModificaDate = () => {
   const auth = getAuth();

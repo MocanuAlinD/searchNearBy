@@ -1,5 +1,5 @@
 import React from "react";
-import { Container } from "../components/singleTags/elemetsCustom";
+import { Container } from "../components/singleTags/elementsCustom";
 
 const Custom404 = () => {
   return (

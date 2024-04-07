@@ -5,7 +5,7 @@ import {
   LabelCustom,
   InputCustom,
   SmallContainer,
-} from "../components/singleTags/elemetsCustom";
+} from "../components/singleTags/elementsCustom";
 import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 import toast from "react-hot-toast";
 import LoadingCheckUser from "../components/LoadingCheckUser";

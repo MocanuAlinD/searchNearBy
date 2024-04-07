@@ -5,7 +5,7 @@ import {
   LabelCustom,
   ParaCustom,
   SmallContainer,
-} from "../components/singleTags/elemetsCustom";
+} from "../components/singleTags/elementsCustom";
 import { FaWhatsapp } from "react-icons/fa";
 import PageTitle from "../components/pageTitle";
 import styles from "../styles/pages/contact.module.scss";

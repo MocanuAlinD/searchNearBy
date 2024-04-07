@@ -12,7 +12,7 @@ import {
   setNoResTrigger,
 } from "../features/searchJudet/searchJudetSlice";
 import { setReviewSearchRev } from "../features/reviewSearch/reviewSearchSlice";
-import { Container, Wrapper } from "../components/singleTags/elemetsCustom";
+import { Container, Wrapper } from "../components/singleTags/elementsCustom";
 import SvgTitle from "../components/svgTitle";
 import PageTitle from "../components/pageTitle";
 import CardCautareDesktop from "../components/CardCautareDesktop";

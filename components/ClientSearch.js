@@ -4,7 +4,7 @@ import {
   InputContainer,
   SmallContainer,
   Wrapper,
-} from "../components/singleTags/elemetsCustom";
+} from "../components/singleTags/elementsCustom";
 import { judete } from "../lib/judete";
 import { alin } from "../lib";
 import { IconButton } from "@mui/material";

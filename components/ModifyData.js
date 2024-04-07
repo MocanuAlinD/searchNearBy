@@ -6,7 +6,7 @@ import {
   TextAreaCustom,
   LabelCustom,
   LabelSmallCustom,
-} from "./singleTags/elemetsCustom";
+} from "./singleTags/elementsCustom";
 import { ButtonWithIcon } from "../components/tags/ButtonWithIcon";
 import { Checkbox } from "@mui/material";
 import { judete } from "../lib/judete";

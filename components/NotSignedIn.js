@@ -1,7 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
 import { ButtonWithIcon } from "../components/tags/ButtonWithIcon";
-import { LabelCustom, SmallContainer } from "./singleTags/elemetsCustom";
+import { LabelCustom, SmallContainer } from "./singleTags/elementsCustom";
 
 const NotSignedIn = () => {
   const { push } = useRouter();

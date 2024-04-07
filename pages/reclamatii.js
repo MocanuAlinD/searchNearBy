@@ -9,7 +9,7 @@ import {
   H4Custom,
   H6Custom,
   ParaCustom,
-} from "../components/singleTags/elemetsCustom";
+} from "../components/singleTags/elementsCustom";
 import { ButtonWithIcon } from "../components/tags/ButtonWithIcon";
 import { useDispatch, useSelector } from "react-redux";
 import {

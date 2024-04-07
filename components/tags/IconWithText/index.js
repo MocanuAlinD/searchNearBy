@@ -2,7 +2,7 @@ import React from "react";
 import {
   H4Custom,
   Wrapper,
-} from "../../../components/singleTags/elemetsCustom";
+} from "../../../components/singleTags/elementsCustom";
 
 const IconWithText = ({
   text,
