@@ -9,16 +9,15 @@
   align-items: center;
   flex-direction: column;
   padding-inline: 1rem;
-  // animation: fade linear both;
-  // animation-timeline: view();
-  // animation-range: entry 0% cover 15%;
+  animation: fade linear both;
+  animation-timeline: view();
+  animation-range: entry 0% cover 15%;
 
   .container {
     width: 100%;
     height: 100%;
     position: relative;
     transform-style: preserve-3d;
-    perspective-origin: top center;
     perspective: 3000px;
 
     .wrapper {
@@ -33,8 +32,10 @@
       flex-direction: column;
       overflow: visible;
       transform-style: preserve-3d;
+      transform: rotateX(0deg) rotateZ(0deg) translateX(0rem) translateY(0rem)
+        translateZ(0rem);
 
-      :is(.card1, .card2, .top, .bottom) {
+      :is(.card1, .card2, .top) {
         transition: all 0.25s linear;
         position: absolute;
         width: 100%;
@@ -47,7 +48,6 @@
         flex-direction: column;
         border-radius: 1rem;
         background-color: var(--glass);
-        backdrop-filter: var(--blur);
       }
       .top {
         border: var(--card-border);
@@ -55,19 +55,7 @@
         border-left: 2px solid var(--color-3-ok);
         border-bottom: 1px solid var(--color-3-ok);
         border-top: none;
-
-        // background-color: var(--color); // DELETE FROM THIS LINE BELOW
-        // border-radius: 0;
-      }
-      .bottom {
-        height: 100%;
-        left: 0;
-        top: 0%;
-        background-color: transparent;
-
-        // transform: translateZ(calc(var(--height) * -1.5)); // DELETE
-        // box-shadow: 0 0 20px 20px #00000066;
-        // background-color: #00000066;
+        backdrop-filter: var(--blur);
       }
       .card1,
       .card2 {
@@ -78,11 +66,6 @@
         transition-delay: 0.15s;
         border-radius: 1rem 1rem 0 0;
         background-color: transparent;
-
-        // border: var(--card-border); // DELETE FROM THIS LINE BELOW
-        // background-color: var(--glass);
-        // transform: rotateX(-90deg);
-        // backdrop-filter: var(--blur);
       }
 
       .card1 {
@@ -126,11 +109,7 @@
         opacity: 0;
         display: flex;
         justify-content: center;
-        // align-items: flex-start;
         flex-direction: column;
-
-        // opacity: 1; // DELETE FROM THIS LINE BELOW
-        // background-color: var(--color);
       }
       .bottomFront {
         width: 100%;
@@ -139,8 +118,6 @@
         transform: rotateX(-90deg) translateZ(calc(var(--height) / 2 * -1))
           translateY(50%);
         font-size: 0.8rem;
-
-        // background-color: #24304a; // delete
 
         .link {
           width: 100%;
@@ -185,8 +162,6 @@
         transform: rotateZ(-90deg) rotateX(-90deg);
         transform-origin: 0 0;
         align-items: center;
-
-        // background-color: #131a29; // delete
       }
       .tipjob {
         background-color: var(--glass);
@@ -215,18 +190,13 @@
     &:hover .wrapper {
       transform: rotateX(70deg) rotateZ(23deg) translateX(1.7rem)
         translateY(4rem) translateZ(1rem);
+      div {
+        opacity: 1;
+      }
       .top {
         border-radius: 0;
         background-color: var(--color);
         border: none;
-      }
-      .bottom {
-        transform: translateZ(calc(var(--height) * -1.2));
-        box-shadow: 0 0 20px 20px #00000033;
-        background-color: #00000033;
-      }
-      div {
-        opacity: 1;
       }
       .bottomRight {
         background-color: #131a29;
@@ -242,18 +212,18 @@
     &:hover :is(.card1, .card2) {
       border: var(--card-border);
       background-color: var(--glass);
-      transform: rotateX(-65deg);
+      transform: rotateZ(-23deg) translateX(2rem) translateY(-2rem) rotateX(-90deg);
       backdrop-filter: var(--blur);
     }
   }
 }
 
-// @keyframes fade {
-//   0% {
-//     scale: 0;
-//   }
+@keyframes fade {
+  0% {
+    scale: 0;
+  }
 
-//   100% {
-//     scale: 1;
-//   }
-// }
+  100% {
+    scale: 1;
+  }
+}

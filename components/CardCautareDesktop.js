@@ -46,7 +46,6 @@ const CardCautareDesktop = ({ data, key, idx, revs }) => {
     <div className={styles.main}>
       <div className={styles.container}>
         <div className={styles.wrapper}>
-          <div className={styles.bottom}></div>
           <div className={styles.top}></div>
           <div className={styles.card1}>
             <div className={styles.card1Content}>
