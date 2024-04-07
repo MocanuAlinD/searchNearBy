@@ -69,13 +69,15 @@ const Servicii = ({ citys }) => {
                 barHeight="5"
                 divider="80"
                 textLengthLimit="10"
-                range="25"
+                range="20"
               />
             </div>
           )}
           <thead>
-            <tr className={styles.graphButton} onClick={() => setState(true)}>
-            </tr>
+            <tr
+              className={styles.graphButton}
+              onClick={() => setState(true)}
+            ></tr>
             <tr>
               <th>Judet</th>
               <th>Total</th>
