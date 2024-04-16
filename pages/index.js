@@ -150,7 +150,7 @@ export default function Home() {
           {!loadSearch &&
             originalList &&
             sortedList.map((item, index) => (
-              <CardCautare data={item}  idx={index} revs={review} />
+              <CardCautare data={item} key={index}  idx={index} revs={review} />
             ))}
         </div>
 
