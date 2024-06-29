@@ -1,0 +1,45 @@
+
+  
+  // .svg {
+  //   border: 1px solid #ddd;
+  // }
+  
+  .cube {
+    transform-origin: center;
+    animation: rotateAndMove 20s linear infinite;
+  }
+  
+  /* Specific pentru fiecare cub pentru a evita coliziuni exacte și pentru a varia mișcarea */
+  .cube-0 {
+    animation-delay: 0s;
+  }
+  .cube-1 {
+    animation-delay: 2s;
+  }
+  .cube-2 {
+    animation-delay: 4s;
+  }
+  .cube-3 {
+    animation-delay: 6s;
+  }
+  .cube-4 {
+    animation-delay: 8s;
+  }
+  .cube-5 {
+    animation-delay: 10s;
+  }
+  .cube-6 {
+    animation-delay: 12s;
+  }
+  
+  @keyframes rotateAndMove {
+    0% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+    50% {
+      transform: translate(200px, 200px) rotate(180deg);
+    }
+    100% {
+      transform: translate(0, 0) rotate(360deg);
+    }
+  }

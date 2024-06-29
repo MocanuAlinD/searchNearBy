@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 import { Container } from "../components/singleTags/elementsCustom";
 import Bars from "../components/Graphs/Bars";
 import styles from "../styles/pages/test.module.scss";
+import AnimatedCubes from "../components/SvgBackgrounds/AnimatedCubes"
 
 const Test = () => {
   return (
     <Container>
       <div className={styles.main}>
-        <Bars
+        {/* <Bars
           conturView
           divider="26"
           barHeight="8"
@@ -19,8 +20,9 @@ const Test = () => {
           width="80%"
           fullBar
           textLeft
-          // gradient
-        />
+          gradient
+        /> */}
+        <AnimatedCubes />
       </div>
     </Container>
   );

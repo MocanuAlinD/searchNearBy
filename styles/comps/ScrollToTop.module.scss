@@ -1,0 +1,34 @@
+.backTopDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 99;
+}
+
+.backTop {
+  background: var(--color-1-dark);
+  font-size: 2rem;
+  border-radius: 50%;
+  color: var(--color-light);
+  opacity: 0.75;
+  cursor: pointer;
+  margin: 0 0.5rem 0.5rem 0;
+  transition: all 0.25s ease-in-out;
+}
+
+.backTop:hover {
+  opacity: 1;
+  font-size: 3rem;
+}
+
+@media screen and (max-width: 768px) {
+  .backTop:hover {
+    opacity: 0.5;
+    font-size: 2rem;
+  }
+}

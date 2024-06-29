@@ -23,6 +23,8 @@ color - color
 
 */
 
+
+//// facut dincolo
 export const Container = styled.div`
   margin: ${({ m }) => (m ? m : "0")};
   padding: ${({ p }) => (p ? p : "1rem 0")};
@@ -33,6 +35,7 @@ export const Container = styled.div`
   border: ${({ border }) => border && "1px solid red"};
   flex-grow: 1;
   gap: ${({ gap }) => (gap ? gap : "0")};
+  background: ${({ bg }) => (bg ? bg : "transparent")};
 `;
 
 export const SmallContainer = styled.div`
@@ -220,9 +223,12 @@ export const LabelSmallCustom = styled.label`
   margin: 0;
 `;
 
+
+
+//// toate H facute dincolo
 export const H1Custom = styled.h4`
   color: ${({ color }) => (color ? color : "var(--color-light)")};
-  font-size: ${({ fs }) => (fs ? fs : "var(--fs2)")};
+  font-size: ${({ fs }) => (fs ? fs : "1rem")};
   font-weight: ${({ fw }) => (fw ? fw : "var(--fw400)")};
   background: ${({ bg }) => (bg ? bg : "")};
   margin: ${({ m }) => (m ? m : "0")};
@@ -261,6 +267,7 @@ padding: ${({ p }) => (p ? p : "0")};
 color: ${({ color }) => (color ? color : "var(--color-light)")};
 font-weight: ${({ fw }) => (fw ? fw : "var(--fw200)")};
 font-size: ${({ fs }) => (fs ? fs : "var(--fs1)")};
+font-family: ${({ ff }) => (ff ? ff : "Poppins, Sans Serif")};
 width: ${({ w }) => (w ? w : "100%")};
 text-align: ${({ ta }) => (ta ? ta : "justify")};
 letter-spacing: 1px;

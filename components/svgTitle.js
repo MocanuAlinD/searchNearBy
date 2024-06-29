@@ -9,16 +9,15 @@ const SvgTitle = ({ width, height, spd }) => {
   }, []);
 
   const startAnimation = () => {
-    const all = document.querySelectorAll(".svgTitle path");
+    const allPaths = document.querySelectorAll(".svgTitle path");
     const speed = spd ? spd : 1000;
     let i = 0;
-    all.forEach((item, index) => {
+    allPaths.forEach((item, index) => {
       i++;
       let pathLength = Math.ceil(item.getTotalLength());
       item.setAttribute("stroke-dasharray", pathLength);
       item.setAttribute("stroke-dashoffset", pathLength);
       if (index === 0) {
-        console.log("I is:", i);
         item.innerHTML = `<animate id="a${i}" attributeName='stroke-dashoffset' begin=".35s" dur="${
           pathLength / speed
         }" to="0" fill="freeze" />`;
@@ -61,19 +60,19 @@ const SvgTitle = ({ width, height, spd }) => {
           >
             <stop
               stopColor={
-                pathname === "/" ? "var(--color-2-dark)" : "var(--color-3-ok)"
+                pathname === "/cauta" ? "var(--color-3-ok1)" : "transparent"
               }
-              offset="20%"
+              offset="0%"
             />
             <stop
               stopColor={
-                pathname === "/" ? "var(--color-2-light)" : "var(--color-3-ok)"
+                pathname === "/cauta" ? "var(--color-3-ok2)" : "transparent"
               }
-              offset="50%"
+              offset="70%"
             />
             <stop
               stopColor={
-                pathname === "/" ? "var(--color-2-dark)" : "var(--color-3-ok)"
+                pathname === "/cauta" ? "var(--color-3-ok1)" : "transparent"
               }
               offset="100%"
             />

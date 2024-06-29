@@ -1,0 +1,144 @@
+.main {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 2rem;
+  position: relative;
+  .container {
+    width: min(70rem, 100%);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--index-bg);
+
+    .cardContainer {
+      height: fit-content;
+      min-height: 100vh;
+      color: black;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      padding: 2rem;
+      animation: cardContainer linear both;
+      animation-timeline: view();
+      animation-range: 20% 80%;
+
+      @keyframes cardContainer {
+        0% {
+          background: var(--index-bg);
+        }
+        40%,
+        60% {
+          background: var(--color-2-dark);
+        }
+        100% {
+          background: var(--index-bg);
+        }
+      }
+
+      .cardTitle {
+        font-size: clamp(0.6rem, 3vw, 1.2rem);
+        width: fit-content;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-transform: uppercase;
+        font-weight: 400;
+        letter-spacing: 1px;
+        animation: cardTitle linear both, animTitle linear both;
+        animation-timeline: view();
+        animation-range: 5% 100%, entry 0% cover 20%;
+      }
+
+      .cardContent {
+        margin-block: 2rem;
+        font-weight: 400;
+        letter-spacing: 1px;
+        animation: animContent linear both;
+        animation-timeline: view();
+        animation-range: entry 0% cover 20%;
+        font-size: clamp(1.6rem, 4vw, 3.3rem);
+        font-family: Tangerine, "Times New Roman", Times, serif;
+        font-family: Kalnia, "Times New Roman", Times, serif;
+        font-family: "Bodoni Moda", "Times New Roman", Times, serif;
+        font-family: Cinzel, "Times New Roman", Times, serif;
+        font-family: Teko, "Times New Roman", Times, serif;
+        font-family: "Advent Pro", "Times New Roman", Times, serif;
+        // font-family: "Alex Brush", "Times New Roman", Times, serif;
+        // font-family: "Great Vibes", "Times New Roman", Times, serif;
+        // font-family: "Imperial Script", "Times New Roman", Times, serif;
+        animation: cardTitle linear both, animTitle linear both;
+        animation-timeline: view();
+        animation-range: 5% 100%, entry 0% cover 20%;
+      }
+      @keyframes cardTitle {
+        0% {
+          color: var(--color-2-dark);
+        }
+        45%,
+        55% {
+          color: var(--color-light);
+        }
+        100% {
+          color: var(--color-2-dark);
+        }
+      }
+    }
+  }
+  .miniCardContainer {
+    width: min(15rem, 100%);
+    height: fit-content;
+    min-height: 20rem;
+    margin-inline: 2rem;
+    box-shadow: 0 0 15px 4px #00000011;
+    margin: 1rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    padding-inline: 0.5rem;
+    padding-block: 1rem;
+    gap: 1rem;
+    p,
+    li {
+      font-size: clamp(0.7rem, 4vw, 0.8rem);
+    }
+    ul {
+      li {
+        color: var(--color-1-dark);
+        text-align: start;
+        margin-block: 0.5rem;
+        font-weight: 200;
+        letter-spacing: 0.5px;
+      }
+    }
+  }
+}
+
+@keyframes animTitle {
+  from {
+    opacity: 0.35;
+    scale: 0.5;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+@keyframes animContent {
+  from {
+    opacity: 0.35;
+    scale: 0.5;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}

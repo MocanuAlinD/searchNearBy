@@ -1,15 +1,19 @@
+.navContainer {
+  padding-block: 1rem;
+}
+
 .navbar {
   --height: 3rem;
   --divide: 1.3;
-  width: 97%;
-  border-radius: 1.5rem;
+  width: 100%;
+  // border-radius: 1.5rem;
   justify-self: center;
   align-self: center;
   height: var(--height);
   background: var(--bg-svg);
   background: url("../../public/navbarBG.svg");
   transition: var(--transition);
-  border: var(--card-border);
+  // border: var(--card-border);
   .logoContainer {
     cursor: pointer;
     display: flex;
@@ -22,6 +26,12 @@
     font-size: var(--fs067);
     margin: auto;
     width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 1rem;
+    cursor: pointer;
   }
   .imageContainer {
     position: relative;

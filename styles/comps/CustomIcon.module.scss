@@ -40,7 +40,7 @@
     letter-spacing: 1px;
     transition: var(--transition);
     z-index: 1;
-    color: var(--color-light);
+    // color: var(--color-light);
     .svg {
       position: absolute;
       top: 0;
@@ -69,21 +69,3 @@
     }
   }
 }
-
-// @media screen and (width < 600px) {
-//   .container {
-//     width: 100%;
-//     .text {
-//       white-space: wrap;
-//     }
-//     .text .svg .rect {
-//       transition-delay: 0;
-//     }
-//     &:hover {
-//       width: 100%;
-//       .text {
-//         margin-right: 0;
-//       }
-//     }
-//   }
-// }

@@ -40,20 +40,20 @@ const SortItems = ({ handleToate, listLen }) => {
   };
 
   return (
-    <div className={styles.container + " sticky-top"}>
+    <div className={styles.container + " sticky-top p-1"}>
       <div className={styles.close}>
         <input className={styles.toggle} type="checkbox" id="close" />
         <label htmlFor="close"></label>
       </div>
       <div className={styles.desktop}>
         <div className={styles.smallContainer}>
-          <H4Custom fw="200" w="100%">
+          <H5Custom fw="200" w="100%">
             {listLen >= 0 && listLen === 0
               ? "-"
               : listLen === 1
               ? "1 rezultat"
               : listLen > 1 && listLen + " rezultate"}
-          </H4Custom>
+          </H5Custom>
           <OnOff
             id="toate"
             text="Fără filtre"

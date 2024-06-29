@@ -23,40 +23,46 @@ const Navbar = () => {
 
   return (
     <div
-      className={
-        styles.navbar +
-        " m-0 p-0 px-3 d-flex py-0 align-items-center justify-content-between my-3 gap-0 gap-md-3"
-      }
+      className={styles.navContainer}
+      style={{
+        backgroundColor: pathname === "/" ? "rgb(211, 211, 211)" : "transparent",
+      }}
     >
-      {pathname !== "/" && (
-        <div
-          className={styles.logoContainer}
-          style={{ height: "100%" }}
-          onClick={() => push("/")}
-        >
-          <p className={styles.pageName}>logo here</p>
+      <div
+        className={
+          styles.navbar +
+          " m-0 p-0 px-3 d-flex align-items-center justify-content-end gap-0 gap-md-3"
+        }
+      >
+        <div className="d-flex w-100 align-items-center h-100">
+          {pathname === "/cauta" && <Switch />}
+          <p
+            onClick={() => pathname !== "/" && push("/")}
+            className={styles.pageName}
+          >
+            logo here
+          </p>
         </div>
-      )}
-
-      {pathname === "/" && <Switch />}
-
-      <div className="m-0 p-0 d-flex align-items-center justify-content-center flex-row gap-1">
-        <span className={styles.userText}>
-          {user ? `Hello, ${user} !` : "Log in"}
-        </span>
-        <div className={styles.imageContainer}>
-          <Image
-            src={uid ? "/icon48.png" : "/icon48c.png"}
-            onClick={() => (toggleMenu("0"), dispatch(setShowUserMenu(false)))}
-            alt="user"
-            className={styles.image}
-            layout="fill"
-          />
+        <div className="m-0 p-0 d-flex align-items-center justify-content-center flex-row gap-1">
+          <span className={styles.userText}>
+            {user ? `Hello, ${user} !` : "Log in"}
+          </span>
+          <div className={styles.imageContainer}>
+            <Image
+              src={uid ? "/icon48.png" : "/icon48c.png"}
+              onClick={() => (
+                toggleMenu("0"), dispatch(setShowUserMenu(false))
+              )}
+              alt="user"
+              className={styles.image}
+              layout="fill"
+            />
+          </div>
         </div>
+        <BurgerButton />
       </div>
-      <BurgerButton />
-      </div>
-      );
-    };
-    
-    export default Navbar;
+    </div>
+  );
+};
+
+export default Navbar;

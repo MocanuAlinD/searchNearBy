@@ -7,7 +7,7 @@ import styles from "../styles/comps/navbarSwitch.module.scss";
 const NavbarSwitch = () => {
   const dispatch = useDispatch();
   return (
-    <div className="w-100 d-flex justify-content-start gap-2 mx-2">
+    <div className="d-flex gap-2 mx-2">
       <input
         type="checkbox"
         id="change"

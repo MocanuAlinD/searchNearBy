@@ -2,12 +2,14 @@
   display: flex;
   flex-direction: column;
   min-height: 100svh;
-  width: min(100%, 125rem);
+  width: min(100%, 100rem);
   margin-inline: auto;
   background-color: #080808;
-  background: url("../../public/backgrounds/leftLines.svg");
+  // background: url("../../public/backgrounds/test.svg");
+  // background-color: rgb(211, 211, 211);
   background-attachment: fixed;
-  background-size: 100% 100%;
+  background-size: cover;
+  background-position: left center;
   background-repeat: no-repeat;
   position: relative;
 }

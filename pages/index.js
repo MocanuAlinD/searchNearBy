@@ -1,178 +1,92 @@
-import { useDispatch, useSelector } from "react-redux";
-import ClientSearch from "../components/ClientSearch";
-import CardCautare from "../components/CardCautare";
-import NoResults from "../components/NoResults";
-import SortItems from "../components/SortItems";
-import LoadingSpinner from "../components/LoadingSpinner";
-import {
-  setSortedList,
-  setLoadSearch,
-  setOriginalList,
-  setNoResultText,
-  setNoResTrigger,
-} from "../features/searchJudet/searchJudetSlice";
-import { setReviewSearchRev } from "../features/reviewSearch/reviewSearchSlice";
-import { Container, Wrapper } from "../components/singleTags/elementsCustom";
-import SvgTitle from "../components/svgTitle";
-import PageTitle from "../components/pageTitle";
-import CardCautareDesktop from "../components/CardCautareDesktop";
+import React from "react";
+import Divider from "../components/tags/Divider";
+import { H, P } from "../components/CustomTags";
+import styles from "../styles/pages/index.module.scss";
 
-export default function Home() {
-  const dispatch = useDispatch();
-  const oras = useSelector((state) => state.search.oras);
-  const judet = useSelector((state) => state.search.judet);
-  const cautare = useSelector((state) => state.search.cautare);
-  const sortedList = useSelector((state) => state.search.sortedList);
-  const loadSearch = useSelector((state) => state.search.loadSearch);
-  const originalList = useSelector((state) => state.search.originalList);
-  const noResTrigger = useSelector((state) => state.search.noResTrigger);
-  const review = useSelector((state) => state.reviewSearch.rev);
-
-  // Button search only in judet
-  const searchJudet = async () => {
-    dispatch(setNoResTrigger(false));
-    try {
-      dispatch(setLoadSearch(true));
-      const getServices = await fetch(
-        `/api/jobsJudet?search=${cautare}&judet=${judet}`
-      );
-      const { endresult, revs } = await getServices.json();
-
-      dispatch(setReviewSearchRev(revs));
-      dispatch(setSortedList(endresult));
-      dispatch(setOriginalList(endresult));
-      dispatch(setLoadSearch(false));
-      if (endresult.length > 0) {
-        dispatch(setNoResultText(""));
-      } else if (endresult.length == 0) {
-        dispatch(setNoResultText(judet));
-        dispatch(setNoResTrigger(true));
-      }
-    } catch (error) {
-      dispatch(setLoadSearch(false));
-    }
-  };
-
-  // Button search in judet and oras
-  const searchJudetOras = async () => {
-    dispatch(setNoResTrigger(false));
-    try {
-      dispatch(setLoadSearch(true));
-
-      const getServices = await fetch(
-        `/api/jobsJudetOras?search=${cautare}&judet=${judet}&oras=${oras}`
-      );
-      const endresult = await getServices.json();
-
-      dispatch(setSortedList(endresult));
-      dispatch(setOriginalList(endresult));
-      dispatch(setLoadSearch(false));
-      if (endresult.length > 0) {
-        dispatch(setNoResultText(""));
-      } else if (endresult.length == 0) {
-        dispatch(setNoResultText(`${judet}, ${oras}`));
-        dispatch(setNoResTrigger(true));
-      }
-    } catch (error) {
-      dispatch(setLoadSearch(false));
-    }
-  };
-
-  const handleToate = (a) => {
-    let one = a.toate
-      ? originalList
-      : originalList.filter((item) => item && item);
-
-    one = a.tarifAsc
-      ? one.sort((a, b) => (+a.pretMin > +b.pretMin && 1) || -1)
-      : one;
-
-    one = a.tarifDesc
-      ? one.sort((a, b) => (+a.pretMin < +b.pretMin && 1) || -1)
-      : one;
-
-    one = a.dataAsc
-      ? one.sort(
-          (a, b) =>
-            (new Date(a.dataregister) < new Date(b.dataregister) && 1) || -1
-        )
-      : one;
-    one = a.dataDesc
-      ? one.sort(
-          (a, b) =>
-            (new Date(a.dataregister) > new Date(b.dataregister) && 1) || -1
-        )
-      : one;
-
-    one = a.program ? one.filter((item) => item.urgente && item) : one;
-
-    one = a.night ? one.filter((item) => item.urgenteNoapte && item) : one;
-
-    one = a.website ? one.filter((item) => item.website && item) : one;
-
-    one = a.weekend
-      ? one.filter(
-          (item) =>
-            item.ziinceput.toLowerCase().includes("sambata") ||
-            item.ziinceput.toLowerCase().includes("duminica") ||
-            item.zisfarsit.toLowerCase().includes("sambata") ||
-            item.zisfarsit.toLowerCase().includes("duminica")
-        )
-      : one;
-
-    dispatch(setSortedList(one));
-  };
-
+const LandingPage = () => {
   return (
-    <Container>
-      <PageTitle text="SearchNearBy" />
-
-      <div className="w-100 row d-flex flex-column justify-content-start m-0 p-0">
-        <Wrapper>
-          {useSelector((state) => state.showTitle.showTitle) && <SvgTitle />}
-        </Wrapper>
-
-        {/* Search window with inputs */}
-        <ClientSearch
-          searchJudetOras={searchJudetOras}
-          searchJudet={searchJudet}
-        />
-      </div>
-
-      {/* Sort menu and search cards */}
-      <div className="d-flex flex-column flex-md-row m-0 p-0 mt-3 w-100">
-        {!loadSearch && originalList.length > 0 && sortedList.length >= 0 && (
-          <SortItems handleToate={handleToate} listLen={sortedList.length} />
-        )}
-
-        {/* Show Cards container if results find  MOBILE*/}
-        <div className="w-100 d-flex d-md-none flex-wrap m-0 p-0 justify-content-center">
-          {!loadSearch &&
-            originalList &&
-            sortedList.map((item, index) => (
-              <CardCautare data={item} key={index}  idx={index} revs={review} />
-            ))}
+    <div className={styles.main}>
+      <div className={styles.container}>
+        <div className={styles.cardContainer}>
+          <div className={styles.cardTitle}>CE ESTE aceasta platforma?</div>
+          <div className={styles.cardContent}>
+            &emsp;Conexiunea dintre afacerile mici și comunitatea locală.
+            Susține economia locală și dezvoltarea antreprenorilor.
+          </div>
+        </div>
+        <div className={styles.cardContainer}>
+          <div className={styles.cardTitle}>
+            PENTRU CINE este această platformă?
+          </div>
+          <div className={styles.cardContent}>
+            &emsp;Pentru oricine caută servicii esențiale. Ajută la
+            conectarea rapidă cu afacerile mici și mijlocii locale, facilitând
+            accesul la servicii variate.
+          </div>
         </div>
 
-        {/* Show Cards container if results find  DESKTOP*/}
-        <div className="w-100 d-none d-md-flex flex-wrap m-0 p-0 justify-content-center">
-          {!loadSearch &&
-            originalList &&
-            sortedList.map((item, index) => (
-              <CardCautareDesktop
-                data={item}
-                key={index}
-                idx={index}
-                revs={review}
-              />
-            ))}
+        <div className={styles.cardContainer}>
+          <div className={styles.cardTitle}>CUM funcționează?</div>
+          <div className={styles.cardContent}>
+            &emsp;Pur și simplu cauți ce ai nevoie în zona ta, verifici prețuri,
+            disponibilitate, etc, apoi stabilești cu prestatorul detaliile.
+          </div>
+        </div>
+
+        <div className={styles.cardContainer}>
+          <div className={styles.cardTitle}>DE CE să cauți cu noi?</div>
+          <div className={styles.cardContent}>
+            &emsp;Nu suntem singurii și poate nici cei mai buni, dar încercăm să
+            aducem ce e mai bun pentru toată lumea, ascultăm părerile tuturor și
+            adaptăm platforma pentru VOI.
+          </div>
         </div>
       </div>
 
-      {/* Show only if no results found */}
-      {noResTrigger && <NoResults />}
+      <div className="w-100 d-flex align-items-center justify-content-center flex-wrap gap-4 py-4">
+        <div className={styles.miniCardContainer}>
+          <H as="h4" color="var(--color-blue)">
+            +Opțiuni
+          </H>
+          <Divider color="black" />
+          <ul>
+            <li>Tarif minim si maxim</li>
+            <li>Program de functionare</li>
+            <li>Disponibil peste program (maxim ora 22.00)</li>
+            <li>Disponibil 24/7</li>
+          </ul>
+        </div>
+        <div className={styles.miniCardContainer}>
+          <H as="h4" color="var(--color-blue)">
+            100% Gratuit
+          </H>
 
-      {loadSearch && <LoadingSpinner />}
-    </Container>
+          <Divider color="black" />
+          <P color="var(--color-1-dark)" ta="start">
+            &emsp;Zero lei te costa folosirea platformei. <br />
+            &emsp;Intri in contact cu prestatorul de servicii si toate detaliile
+            le negociati impreuna.
+          </P>
+        </div>
+        <div className={styles.miniCardContainer}>
+          <H as="h4" color="var(--color-blue)">
+            Așteaptă oferte
+          </H>
+
+          <Divider color="black" />
+          <P color="var(--color-1-dark)" ta="start">
+            &emsp;Depune chiar tu o cerere și așteaptă să primești oferte.
+            <br />
+            <br />
+            &emsp;Când ai rezolvat, ștergi cererea.
+            <br />
+            <br />
+            &emsp;Tu alegi cum poți fi contactat.
+          </P>
+        </div>
+      </div>
+    </div>
   );
-}
+};
+
+export default LandingPage;
