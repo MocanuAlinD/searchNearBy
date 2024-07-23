@@ -25,7 +25,8 @@ const Navbar = () => {
     <div
       className={styles.navContainer}
       style={{
-        backgroundColor: pathname === "/" ? "rgb(211, 211, 211)" : "transparent",
+        // backgroundColor: pathname === "/" ? "rgb(211, 211, 211)" : "transparent",
+        backgroundColor: "transparent",
       }}
     >
       <div

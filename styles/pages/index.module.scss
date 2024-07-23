@@ -13,33 +13,16 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: var(--index-bg);
 
     .cardContainer {
       height: fit-content;
-      min-height: 100vh;
+      min-height: 90vh;
       color: black;
       width: 100%;
       display: flex;
       justify-content: center;
       flex-direction: column;
-      padding: 2rem;
-      animation: cardContainer linear both;
-      animation-timeline: view();
-      animation-range: 20% 80%;
-
-      @keyframes cardContainer {
-        0% {
-          background: var(--index-bg);
-        }
-        40%,
-        60% {
-          background: var(--color-2-dark);
-        }
-        100% {
-          background: var(--index-bg);
-        }
-      }
+      padding: 5rem;
 
       .cardTitle {
         font-size: clamp(0.6rem, 3vw, 1.2rem);
@@ -60,9 +43,6 @@
         margin-block: 2rem;
         font-weight: 400;
         letter-spacing: 1px;
-        animation: animContent linear both;
-        animation-timeline: view();
-        animation-range: entry 0% cover 20%;
         font-size: clamp(1.6rem, 4vw, 3.3rem);
         font-family: Tangerine, "Times New Roman", Times, serif;
         font-family: Kalnia, "Times New Roman", Times, serif;
@@ -79,14 +59,14 @@
       }
       @keyframes cardTitle {
         0% {
-          color: var(--color-2-dark);
+          color: var(--color-light);
         }
         45%,
         55% {
-          color: var(--color-light);
+          color: var(--color-2-dark);
         }
         100% {
-          color: var(--color-2-dark);
+          color: var(--color-light);
         }
       }
     }
@@ -122,17 +102,6 @@
 }
 
 @keyframes animTitle {
-  from {
-    opacity: 0.35;
-    scale: 0.5;
-  }
-  to {
-    opacity: 1;
-    scale: 1;
-  }
-}
-
-@keyframes animContent {
   from {
     opacity: 0.35;
     scale: 0.5;
