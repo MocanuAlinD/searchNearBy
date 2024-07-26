@@ -6,6 +6,7 @@ import UserMenu from "./userMenu";
 import { useRouter } from "next/router";
 import ScrollToTop from "../components/ScrollToTop"
 import styles from "../styles/comps/Layout.module.scss";
+import Footer from "./Footer";
 
 const LayoutPage = ({ children }) => {
   const { pathname } = useRouter();
@@ -19,7 +20,7 @@ const LayoutPage = ({ children }) => {
       style={{
         background:
           // pathname === "/" ? "var(--index-bg)" : "url(backgrounds/test.svg)",
-          pathname === "/" ? "var(--index-bg)" : "#030303",
+          pathname === "/" ? "var(--index-bg)" : "var(--page-bg)",
       }}
     >
       <Navbar />
@@ -27,18 +28,7 @@ const LayoutPage = ({ children }) => {
       <BurgerMenu />
       <UserMenu close={toggleMenu} />
       <ScrollWatcher />
-      <footer>
-        <div
-          className={
-            pathname === "/"
-              ? "text-center text-black py-4"
-              : "text-center py-4"
-          }
-        >
-          <div>Muta in footer: info/faq, reclamatii, contact, donatii</div>
-          <div>Sterge din meniu: toate judetele, test</div>
-        </div>
-      </footer>
+      <Footer />
       <ScrollToTop />
     </div>
   );

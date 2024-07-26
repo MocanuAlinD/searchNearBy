@@ -6,7 +6,7 @@ import {
   ParaCustom,
 } from "../components/singleTags/elementsCustom";
 
-const Info = () => {
+const Informatii = () => {
   return (
     <Container>
       <SmallContainer bg border>
@@ -46,4 +46,4 @@ const Info = () => {
   );
 };
 
-export default Info;
+export default Informatii;

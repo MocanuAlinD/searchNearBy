@@ -4,7 +4,7 @@
   min-height: 100svh;
   width: min(100%, 100rem);
   margin-inline: auto;
-  background-color: #080808;
+  background-color: var(--page-bg);
   // background: url("../../public/backgrounds/test.svg");
   // background-color: rgb(211, 211, 211);
   background-attachment: fixed;

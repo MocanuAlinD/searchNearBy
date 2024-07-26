@@ -3,6 +3,15 @@ import Divider from "../components/tags/Divider";
 import { H, P } from "../components/CustomTags";
 import styles from "../styles/pages/index.module.scss";
 
+// schimba text de peste tot cu diacritice
+// creeare pagina a userului unde sa-si modifice cererea depusa, sau sa o stearga (trebuie sa fie logat)(in meniul de la user icon din navbar)
+// lasa in burger menu doar: home, cauta,login/signup, inregistrare
+// la meniu user cand e logat: modifica date serviciu daca are serviciu inregistrat; modifica date cerere depusa;modificare date profil; sign out;close
+// muta graph din servicii inafara la table ca sa nu mai dea eroare ca e un div in table
+// scoate pagina de Donatii - DONE
+// redenumeste pagina infofaq in informatii - DONE
+// redenumeste pagina Reclamatii in Sesizari - DONE
+
 const LandingPage = () => {
   return (
     <div className={styles.main}>
@@ -19,9 +28,9 @@ const LandingPage = () => {
             PENTRU CINE este această platformă?
           </div>
           <div className={styles.cardContent}>
-            &emsp;Pentru oricine caută servicii esențiale. Ajută la
-            conectarea rapidă cu afacerile mici și mijlocii locale, facilitând
-            accesul la servicii variate.
+            &emsp;Pentru oricine caută servicii esențiale. Ajută la conectarea
+            rapidă cu afacerile mici și mijlocii locale, facilitând accesul la
+            servicii variate.
           </div>
         </div>
 

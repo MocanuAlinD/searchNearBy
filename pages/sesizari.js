@@ -20,7 +20,7 @@ import {
 } from "../features/reclamatie/reclamatieSlice";
 import styles from "../styles/pages/reclamatii.module.scss";
 
-const Reclamatii = () => {
+const Sesizari = () => {
   const dispatch = useDispatch();
 
   const telefonReclamat = useSelector(
@@ -140,4 +140,4 @@ const Reclamatii = () => {
   );
 };
 
-export default Reclamatii;
+export default Sesizari;

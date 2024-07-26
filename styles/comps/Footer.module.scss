@@ -1,0 +1,44 @@
+.container {
+  padding: 1rem;
+  width: 100%;
+  gap: 1rem;
+  min-height: 10rem;
+  height: fit-content;
+  background-color: var(--page-bg);
+  border-top: 1px solid #ffffff33;
+  .author {
+    margin-top: 2rem;
+    font-weight: 200;
+    font-style: italic;
+    text-align: center;
+  }
+  .linksContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 1rem;
+    div {
+      width: min(100%, 25rem);
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-direction: column;
+      gap: 0.5rem;
+      padding-block: 1rem;
+      border-bottom: 1px solid #ffffff33;
+      a {
+        font-weight: 200;
+        font-size: 0.8rem;
+        color: white;
+        transition: color 0.35s ease-in-out;
+        letter-spacing: 1px;
+        &:hover {
+          color: var(--color-blue);
+          font-style: italic;
+        }
+      }
+    }
+  }
+}

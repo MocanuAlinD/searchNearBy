@@ -8,7 +8,7 @@ import styles from "../styles/comps/BurgerMenu.module.scss";
 const BurgerMenu = () => {
   const dispatch = useDispatch();
   const oneItemDelay = 0.025;
-  const closeDelay = (0.066 * burgerValues.length).toFixed(2) + "s";
+  const closeDelay = (0.1 * burgerValues.length).toFixed(2) + "s";
 
   const burgerStatus = useSelector((state) => state.search.showMenu);
   const addDelay = (x) => {

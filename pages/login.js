@@ -186,14 +186,14 @@ const Login = ({ req }) => {
                 id="buttonLeft"
                 bg="var(--glass)"
               >
-                Logare in cont
+                Autentificare
               </ButtonRotateCard>
               <ButtonRotateCard
                 onClick={changeRight}
                 id="buttonRight"
                 bg="var(--glass-dark)"
               >
-                Creeaza cont nou
+                Creează cont
               </ButtonRotateCard>
             </Wrapper>
 
@@ -209,7 +209,7 @@ const Login = ({ req }) => {
                     />
                   </Wrapper>
                   <Wrapper className={styles.wrapper}>
-                    <LabelCustom htmlFor="password">Parola:</LabelCustom>
+                    <LabelCustom htmlFor="password">Parolă:</LabelCustom>
                     <Wrapper className={styles.wrapper + " flex-row"}>
                       <InputCustom
                         id="password"
