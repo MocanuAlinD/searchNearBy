@@ -38,9 +38,9 @@ const UserMenu = ({ close }) => {
     }
   };
 
-  const goToEdit = (e) => {
+  const goToEdit = (e, href) => {
     activeButton(e);
-    push("/modifica-date");
+    push(href);
   };
 
   const activeButton = (e) => {
@@ -61,20 +61,20 @@ const UserMenu = ({ close }) => {
       id="userIcon"
     >
       {useSelector((state) => state.login.uid) && (
-        <SvgButton onClick={(e) => goToEdit(e)} name="button">
+        <SvgButton onClick={(e) => goToEdit(e, "/modifica-date")} name="button">
           Modifica date serviciu
         </SvgButton>
       )}
       {auth.currentUser && (
-        <SvgButton onClick={(e) => activeButton(e)} name="button">
-          Modifica date
+        <SvgButton onClick={(e) => goToEdit(e, "/editare-cerere-depusa")} name="button">
+          Modifică/șterge cerere depusă
         </SvgButton>
       )}
-      {useSelector((state) => state.login.uid) && (
+      {/* {useSelector((state) => state.login.uid) && (
         <SvgButton onClick={(e) => activeButton(e)} name="button">
           Modifica date profil
         </SvgButton>
-      )}
+      )} */}
       {useSelector((state) => state.login.uid) ? (
         <SvgButton onClick={(e) => userLogOut(e)} name="button">
           Sign Out

@@ -9,6 +9,7 @@ import styles from "../styles/pages/index.module.scss";
 // lasa in burger menu doar: home, cauta,login/signup, inregistrare
 // la meniu user cand e logat: modifica date serviciu daca are serviciu inregistrat; modifica date cerere depusa;modificare date profil; sign out;close
 // muta graph din servicii inafara la table ca sa nu mai dea eroare ca e un div in table
+// refa cardurile de la pagina cereriCurente
 // scoate pagina de Donatii - DONE
 // redenumeste pagina infofaq in informatii - DONE
 // redenumeste pagina Reclamatii in Sesizari - DONE
@@ -80,7 +81,7 @@ const LandingPage = () => {
         </div>
         <div className={styles.miniCardContainer}>
           <H as="h4" color="var(--color-blue)">
-            Așteaptă oferte
+            Primești oferte
           </H>
 
           <Divider color="black" />
