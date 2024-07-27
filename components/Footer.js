@@ -1,7 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
-import styles from "../styles/comps/Footer.module.scss";
 import Link from "next/link";
+import styles from "../styles/comps/Footer.module.scss";
 
 const Footer = () => {
   const { pathname } = useRouter();
@@ -13,10 +13,10 @@ const Footer = () => {
           <Link href="/gdpr">
             <a>GDPR</a>
           </Link>
-          <Link href="/">
+          <Link href="/intrebari">
             <a>Întrebări frecvente</a>
           </Link>
-          <Link href="/">
+          <Link href="/termeni">
             <a>Termeni și condiții</a>
           </Link>
           <Link href="/contact">
@@ -25,10 +25,10 @@ const Footer = () => {
         </div>
 
         <div className={styles.footerColumn}>
-          <Link href="/">
+          <Link href="/despre">
             <a>Despre noi</a>
           </Link>
-          <Link href="/">
+          <Link href="/ajutor">
             <a>Cum folosesc platforma?</a>
           </Link>
           <Link href="/servicii">

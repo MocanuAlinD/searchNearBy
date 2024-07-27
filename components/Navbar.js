@@ -7,6 +7,7 @@ import { getAuth } from "firebase/auth";
 import { useSelector, useDispatch } from "react-redux";
 import { setShowUserMenu } from "../features/searchJudet/searchJudetSlice";
 import Image from "next/image";
+import Link from "next/link";
 import styles from "../styles/comps/Navbar.module.scss";
 
 const Navbar = () => {
@@ -22,13 +23,7 @@ const Navbar = () => {
   };
 
   return (
-    <div
-      className={styles.navContainer}
-      style={{
-        // backgroundColor: pathname === "/" ? "rgb(211, 211, 211)" : "transparent",
-        backgroundColor: "transparent",
-      }}
-    >
+    <div className={styles.navContainer}>
       <div
         className={
           styles.navbar +

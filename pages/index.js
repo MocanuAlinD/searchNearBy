@@ -1,6 +1,7 @@
 import React from "react";
 import Divider from "../components/tags/Divider";
 import { H, P } from "../components/CustomTags";
+import Link from "next/link";
 import styles from "../styles/pages/index.module.scss";
 
 // schimba text de peste tot cu diacritice
@@ -94,6 +95,11 @@ const LandingPage = () => {
           </P>
         </div>
       </div>
+      <Link href="/inscriere">
+        <a className={styles.gratuit + " text-center"}>
+          Înregistrează un serviciu GRATUIT chiar acum!
+        </a>
+      </Link>
     </div>
   );
 };

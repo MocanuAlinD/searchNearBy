@@ -6,6 +6,30 @@
   flex-direction: column;
   margin-bottom: 2rem;
   position: relative;
+  .gratuit {
+    color: var(--color-light);
+
+    margin: 0;
+    padding: 0;
+    margin-block: 5rem;
+    padding: 2rem;
+    border-radius: 1rem;
+    background-color: var(--color-blue);
+    font-size: 1.5rem;
+    margin-inline: 1rem;
+    box-shadow: -10px 10px 10px 2px #00000044;
+    transform: scale(1.02);
+    transition: all 0.35s cubic-bezier(0.75, -0.56, 0.41, 1.48);
+    @media screen and (max-width: 768px) {
+      font-size: 0.75rem;
+      padding: 1rem;
+      border-radius: 0.5rem;
+    }
+    &:hover {
+      box-shadow: 0px 0px 20px 5px #00000055;
+      transform: scale(1);
+    }
+  }
   .container {
     width: min(70rem, 100%);
     width: 100%;
@@ -23,6 +47,9 @@
       justify-content: center;
       flex-direction: column;
       padding: 5rem;
+      @media screen and (max-width: 768px){
+        padding: 1rem;
+      }
 
       .cardTitle {
         font-size: clamp(0.6rem, 3vw, 1.2rem);
@@ -76,7 +103,7 @@
     height: fit-content;
     min-height: 20rem;
     margin-inline: 2rem;
-    box-shadow: 0 0 15px 4px #00000011;
+    box-shadow: -10px 10px 10px 4px #00000011, 1px -1px 1px 0px #00000011;
     margin: 1rem;
     display: flex;
     justify-content: flex-start;
@@ -85,6 +112,7 @@
     padding-inline: 0.5rem;
     padding-block: 1rem;
     gap: 1rem;
+    border-top-left-radius: 2rem;
     p,
     li {
       font-size: clamp(0.7rem, 4vw, 0.8rem);
